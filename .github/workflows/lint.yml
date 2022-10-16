@@ -1,0 +1,28 @@
+name: Lint checks
+
+on:
+  pull_request:
+    branches:
+    - main
+    paths:
+    - '*.py'
+    - 'tox.ini'
+    - 'workflow-support/*.sh'
+    - '.github/workflows/lint.yml'
+
+jobs:
+  image_details:
+    runs-on: ubuntu-20.04
+    outputs:
+      image_base: ${{ steps.details.outputs.image_registry }}/${{ steps.details.outputs.registry_account }}/${{ steps.details.outputs.repo_name }}
+    steps:
+    - id: details
+      uses: kpfleming/composite-actions/image-details@main
+  lint:
+    runs-on: ubuntu-20.04
+    needs:
+    - image_details
+    container:
+      image: ${{ needs.image_details.outputs.image_base }}:main
+    steps:
+    - uses: kpfleming/composite-actions/lint-tox@main

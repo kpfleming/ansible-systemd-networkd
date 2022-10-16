@@ -1,0 +1,26 @@
+name: Publish to Ansible Galaxy
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  image_details:
+    runs-on: ubuntu-20.04
+    outputs:
+      image_base: ${{ steps.details.outputs.image_registry }}/${{ steps.details.outputs.registry_account }}/${{ steps.details.outputs.repo_name }}
+    steps:
+    - id: details
+      uses: kpfleming/composite-actions/image-details@main
+  publish:
+    runs-on: ubuntu-20.04
+    needs:
+    - image_details
+    container:
+      image: ${{ needs.image_details.outputs.image_base }}:main
+    steps:
+    - uses: kpfleming/composite-actions/galaxy-publish-tox@main
+      with:
+        galaxy_token: ${{ secrets.ANSIBLE_GALAXY_TOKEN }}
+        tag: ${{ github.ref_name }}
