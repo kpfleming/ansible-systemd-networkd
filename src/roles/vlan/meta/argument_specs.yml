@@ -1,0 +1,31 @@
+%YAML 1.2
+---
+argument_specs:
+  main:
+    short_description: Manages systemd-networkd VLAN virtual network links.
+    description: |
+      This role will create (or update) three items in /etc/systemd/networkd for
+      each specified VLAN:
+      1) A drop-in directory for the underlying interface
+      2) A .netdev file for the VLAN interface
+      3) A .conf file in the drop-in directory connecting the VLAN interface
+      to the underlying interface
+    options:
+      vlans:
+        description: Attributes of the VLANs to be managed.
+        type: list
+        elements: dict
+        required: true
+        options:
+          name:
+            description: Name of the VLAN network device and network link.
+            type: str
+            required: true
+          id:
+            description: The VLAN ID number (1-4095).
+            type: int
+            required: true
+          underlying_name:
+            description: The underlying network link.
+            type: str
+            required: true

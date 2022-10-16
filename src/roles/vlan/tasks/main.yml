@@ -1,0 +1,8 @@
+%YAML 1.2
+---
+- name: manage VLANs
+  ansible.builtin.include_tasks: "{{ role_path }}/tasks/vlan.yml"
+  loop: "{{ vlans }}"
+
+- name: run handlers if needed
+  ansible.builtin.meta: flush_handlers
