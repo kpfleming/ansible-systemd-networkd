@@ -3,6 +3,8 @@
 - name: manage VLANs
   ansible.builtin.include_tasks: "{{ role_path }}/tasks/vlan.yml"
   loop: "{{ vlans }}"
+  loop_control:
+    loop_var: vlan
 
 - name: run handlers if needed
   ansible.builtin.meta: flush_handlers
