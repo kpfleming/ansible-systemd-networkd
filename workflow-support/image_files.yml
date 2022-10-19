@@ -1,3 +1,4 @@
+---
 image_files:
-  - 'tox.ini'
-  - 'workflow-support/make_ci_image.sh'
+  - tox.ini
+  - workflow-support/make_ci_image.sh
