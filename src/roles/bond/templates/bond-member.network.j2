@@ -1,0 +1,8 @@
+[Match]
+Name={{ bond.name ~ '-' ~ ansible_loop.index }}
+
+[Link]
+RequiredForOnline=no
+
+[Network]
+Bond={{ bond.name }}

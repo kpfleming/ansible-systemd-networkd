@@ -1,0 +1,10 @@
+%YAML 1.2
+---
+- name: manage bonds
+  ansible.builtin.include_tasks: "{{ role_path }}/tasks/bond.yml"
+  loop: "{{ bonds }}"
+  loop_control:
+    loop_var: bond
+
+- name: run handlers if needed
+  ansible.builtin.meta: flush_handlers

@@ -1,0 +1,36 @@
+%YAML 1.2
+---
+- name: manage bond member names
+  notify: "{{ ansible_role_name ~ ' : reload' }}"
+  register: _link
+  ansible.builtin.template:
+    src: bond-member.link.j2
+    dest: "{{ '/etc/systemd/network/00-' ~  bond.name ~ '-' ~ ansible_loop.index ~ '.link' }}"
+    mode: u=rw,go=r
+  loop: "{{ bond.members }}"
+  loop_control:
+    loop_var: member
+    extended: true
+
+- name: manage bond member networks
+  notify: "{{ ansible_role_name ~ ' : reload' }}"
+  ansible.builtin.template:
+    src: bond-member.network.j2
+    dest: "{{ '/etc/systemd/network/' ~ bond.name ~ '-' ~ ansible_loop.index ~ '.network' }}"
+    mode: u=rw,go=r
+  loop: "{{ bond.members }}"
+  loop_control:
+    loop_var: member
+    extended: true
+
+- name: manage bond network device
+  notify: "{{ ansible_role_name ~ ' : reload' }}"
+  ansible.builtin.template:
+    src: bond.netdev.j2
+    dest: "{{ '/etc/systemd/network/' ~ bond.name ~ '.netdev' }}"
+    mode: u=rw,go=r
+
+- name: set reboot fact
+  when: ansible_distribution == "Debian"
+  ansible.builtin.set_fact:
+    systemd_networkd_bond_reboot_required: "{{ _link.changed }}"
