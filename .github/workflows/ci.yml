@@ -5,6 +5,7 @@ on:
     branches:
     - main
     paths:
+    - 'src/**.yml'
     - 'tox.ini'
     - 'workflow-support/make_ci_image.sh'
     - '.github/workflows/ci.yml'
@@ -16,6 +17,7 @@ on:
     branches:
     - main
     paths:
+    - 'src/**.yml'
     - 'tox.ini'
     - 'workflow-support/make_ci_image.sh'
     - '.github/workflows/ci.yml'
