@@ -1,0 +1,60 @@
+%YAML 1.2
+---
+argument_specs:
+  main:
+    short_description: Manages systemd-networkd tunnel virtual network links.
+    description: |
+      This role will create (or update) three items in /etc/systemd/network for
+      each specified tunnel:
+      1) A drop-in directory for the underlying network
+      2) A .netdev file for the tunnel device
+      3) A .conf file in the drop-in directory connecting the tunnel device
+      to the underlying network
+
+      Detailed descriptions of parameters and their behavior can be found in 'man systemd.netdev'.
+    options:
+      tunnels:
+        description: Attributes of the tunnels to be managed.
+        type: list
+        elements: dict
+        required: true
+        options:
+          name:
+            description: Name of the tunnel network device.
+            type: str
+            required: true
+          underlying_name:
+            description: The underlying network.
+            type: str
+            required: true
+          kind:
+            description: Type of tunnel.
+            type: str
+            required: true
+            choices:
+              - gre
+              - gretap
+              - ip6gre
+              - ip6tnl
+              - ip6gretap
+              - ipip
+              - sit
+              - vti
+              - vti6
+              - l2tp
+              - wireguard
+              - fou
+              - xfrm
+              - bareudp
+          mtu_bytes:
+            description: The MTU for the tunnel.
+            type: str
+          local:
+            description: Local address for tunneled packets.
+            type: str
+          remote:
+            description: Remote address for tunneled packets.
+            type: str
+          ttl:
+            description: Time-To-Live for tunneled packets.
+            type: int

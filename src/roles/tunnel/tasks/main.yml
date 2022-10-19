@@ -1,0 +1,10 @@
+%YAML 1.2
+---
+- name: manage tunnels
+  ansible.builtin.include_tasks: "{{ role_path }}/tasks/tunnel.yml"
+  loop: "{{ tunnels }}"
+  loop_control:
+    loop_var: tunnel
+
+- name: run handlers if needed
+  ansible.builtin.meta: flush_handlers

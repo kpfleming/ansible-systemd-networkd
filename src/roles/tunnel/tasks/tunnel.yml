@@ -1,0 +1,21 @@
+%YAML 1.2
+---
+- name: manage network drop-in directory
+  ansible.builtin.file:
+    path: "{{ '/etc/systemd/network/' ~ tunnel.underlying_name ~ '.network.d' }}"
+    state: directory
+    mode: u=rwx,go=rx
+
+- name: manage network device for tunnel
+  notify: "{{ ansible_role_name ~ ' : reload' }}"
+  ansible.builtin.template:
+    src: tunnel-netdev.j2
+    dest: "{{ '/etc/systemd/network/' ~ tunnel.name ~ '.netdev' }}"
+    mode: u=rw,go=r
+
+- name: manage network drop-in for tunnel
+  notify: "{{ ansible_role_name ~ ' : reload' }}"
+  ansible.builtin.template:
+    src: tunnel-dropin.j2
+    dest: "{{ '/etc/systemd/network/' ~ tunnel.underlying_name ~ '.network.d/tunnel-' ~ tunnel.name ~ '.conf' }}"
+    mode: u=rw,go=r
