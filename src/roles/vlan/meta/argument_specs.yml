@@ -4,12 +4,12 @@ argument_specs:
   main:
     short_description: Manages systemd-networkd VLAN virtual network links.
     description: |
-      This role will create (or update) three items in /etc/systemd/networkd for
+      This role will create (or update) three items in /etc/systemd/network for
       each specified VLAN:
-      1) A drop-in directory for the underlying interface
-      2) A .netdev file for the VLAN interface
-      3) A .conf file in the drop-in directory connecting the VLAN interface
-      to the underlying interface
+      1) A drop-in directory for the underlying network
+      2) A .netdev file for the VLAN device
+      3) A .conf file in the drop-in directory connecting the VLAN device
+      to the underlying network
     options:
       vlans:
         description: Attributes of the VLANs to be managed.
@@ -18,7 +18,7 @@ argument_specs:
         required: true
         options:
           name:
-            description: Name of the VLAN network device and network link.
+            description: Name of the VLAN network device.
             type: str
             required: true
           id:
@@ -26,6 +26,6 @@ argument_specs:
             type: int
             required: true
           underlying_name:
-            description: The underlying network link.
+            description: The underlying network.
             type: str
             required: true
