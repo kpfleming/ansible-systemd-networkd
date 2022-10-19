@@ -1,0 +1,147 @@
+%YAML 1.2
+---
+argument_specs:
+  main:
+    short_description: Manages systemd-networkd bonded network links.
+    description: |
+      This role will create (or update) a number of items in /etc/systemd/network for
+      each specified bonded link:
+      1) A .netdev file for the bond device
+      2) .network files for each link that is a member of the bond; files will be named
+      with the bond device's name and a numeric suffix
+      3) .link files for each interface that is a member of the bond; files will be named
+      with the bond device's name and a numeric suffix
+
+      On Debian and Debian-derivative systems, if an initramfs is in use then
+      the .link files are copied into the initramfs by the `update-initramfs`
+      tool, which means that the system must be rebooted for changes in those
+      files to take effect. In this situation the role will set a fact named
+      'systemd_networkd_bond_reboot_required' and the system should be rebooted
+      before any additional configuration of the bonded network links is attempted.
+    options:
+      bonds:
+        description: Attributes of the bonds to be managed.
+        type: list
+        elements: dict
+        required: true
+        options:
+          name:
+            description: Name of the bond network device.
+            type: str
+            required: true
+          members:
+            description: Matching attributes of the bond's member interfaces.
+            type: list
+            elements: dict
+            required: true
+            options:
+              match:
+                description: One or more matching attributes of a member interface. See 'man systemd.link' for details.
+                type: list
+                elements: dict
+                required: true
+                options:
+                  mac_address:
+                    description: Match current MAC address.
+                    type: list
+                    elements: str
+                  permanent_mac_address:
+                    description: Match permanent MAC address.
+                    type: list
+                    elements: str
+                  path:
+                    description: Match udev ID_PATH.
+                    type: list
+                    elements: str
+                  driver:
+                    description: Match udev ID_NET_DRIVER.
+                    type: list
+                    elements: str
+                  exclude_driver:
+                    description: Negate 'driver' match.
+                    type: bool
+                    default: false
+                  type:
+                    description: Match udev DEVTYPE.
+                    type: list
+                    elements: str
+                  exclude_type:
+                    description: Negate 'type' match.
+                    type: bool
+                    default: false
+                  kind:
+                    description: Match netlink IFLA_INFO_KIND.
+                    type: list
+                    elements: str
+                  exclude_kind:
+                    description: Negate 'kind' match.
+                    type: bool
+                    default: false
+                  property:
+                    description: Match udev property.
+                    type: list
+                    elements: dict
+                    options:
+                      name:
+                        description: Property name.
+                        type: str
+                      value:
+                        description: Property value.
+                        type: str
+                  exclude_property:
+                    description: Negate 'property' matches.
+                    type: bool
+                    default: false
+                  original_name:
+                    description: Match udev INTERFACE.
+                    type: list
+                    elements: str
+                  host:
+                    description: Match hostname or machine ID.
+                    type: str
+                  exclude_host:
+                    description: Negate 'host' match.
+                    type: bool
+                    default: false
+                  virtualization:
+                    description: Match virtualization type.
+                    type: str
+                  exclude_virtualization:
+                    description: Negate 'virtualization' match.
+                    type: bool
+                    default: false
+                  kernel_command_line:
+                    description: Match kernel command line option presence.
+                    type: str
+                  exclude_kernel_command_line:
+                    description: Negate 'kernel_command_line' match.
+                    type: bool
+                    default: false
+                  kernel_version:
+                    description: Match kernel version expression.
+                    type: str
+                  exclude_kernel_version:
+                    description: Negate 'kernel_version' match.
+                    type: bool
+                    default: false
+                  credential:
+                    description: Match service credential.
+                    type: str
+                  exclude_credential:
+                    description: Negate 'credential' match.
+                    type: bool
+                    default: false
+                  architecture:
+                    description: Match system architecture.
+                    type: str
+                  exclude_architecture:
+                    description: Negate 'architecture' match.
+                    type: bool
+                    default: false
+                  firmware:
+                    description: Match system firmware.
+                    type: str
+                  exclude_firmware:
+                    description: Negate 'firmware' match.
+                    type: bool
+                    default: false
