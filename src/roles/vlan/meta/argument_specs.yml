@@ -10,6 +10,8 @@ argument_specs:
       2) A .netdev file for the VLAN device
       3) A .conf file in the drop-in directory connecting the VLAN device
       to the underlying network
+
+      Detailed descriptions of parameters and their behavior can be found in 'man systemd.netdev'.
     options:
       vlans:
         description: Attributes of the VLANs to be managed.
