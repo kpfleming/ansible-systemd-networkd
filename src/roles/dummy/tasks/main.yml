@@ -5,6 +5,7 @@
   loop: "{{ dummies }}"
   loop_control:
     loop_var: dummy
+    label: "{{ dummy.name }}"
 
 - name: run handlers if needed
   ansible.builtin.meta: flush_handlers

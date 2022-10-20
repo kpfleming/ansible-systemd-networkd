@@ -5,6 +5,7 @@
   loop: "{{ tunnels }}"
   loop_control:
     loop_var: tunnel
+    label: "{{ tunnel.name }}"
 
 - name: run handlers if needed
   ansible.builtin.meta: flush_handlers

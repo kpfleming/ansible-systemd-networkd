@@ -7,7 +7,7 @@ argument_specs:
       This role will create (or update) one item in /etc/systemd/network for
       each specified dummy: a .netdev file for the dummy device
     options:
-      vlans:
+      dummies:
         description: Attributes of the dummy devices to be managed.
         type: list
         elements: dict

@@ -14,7 +14,10 @@ Open Source software: [Apache License 2.0](https://spdx.org/licenses/Apache-2.0.
 ## Included content
 
 * Roles:
-  - kpfleming.systemd_networkd.vlan: manage VLANs
+  - kpfleming.systemd_networkd.bond: manage bond virtual devices
+  - kpfleming.systemd_networkd.dummy: manage dummy virtual devices
+  - kpfleming.systemd_networkd.tunnel: manage tunnel virtual devices
+  - kpfleming.systemd_networkd.vlan: manage VLAN virtual devices
 
 ## Using this collection
 
@@ -33,6 +36,10 @@ collections:
 ```
 
 See [Ansible Using collections](https://docs.ansible.com/ansible/latest/user_guide/collections_using.html) for more details.
+
+## Examples
+
+TBD
 
 ## Contributing to this collection
 
