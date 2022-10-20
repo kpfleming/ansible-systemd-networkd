@@ -75,6 +75,46 @@ argument_specs:
           down_delay_sec:
             description: Delay between the minimum number of members reaching 'link down' and 'link down' being reported for the bond.
             type: str
+          match:
+            description: Matching attributes of the network device.
+            type: dict
+            options:
+              host:
+                description: Match hostname or machine ID.
+                type: str
+              exclude_host:
+                description: Negate 'host' match.
+                type: bool
+              virtualization:
+                description: Match virtualization type.
+                type: str
+              exclude_virtualization:
+                description: Negate 'virtualization' match.
+                type: bool
+              kernel_command_line:
+                description: Match kernel command line option presence.
+                type: str
+              exclude_kernel_command_line:
+                description: Negate 'kernel_command_line' match.
+                type: bool
+              kernel_version:
+                description: Match kernel version expression.
+                type: str
+              exclude_kernel_version:
+                description: Negate 'kernel_version' match.
+                type: bool
+              architecture:
+                description: Match system architecture.
+                type: str
+              exclude_architecture:
+                description: Negate 'architecture' match.
+                type: bool
+              firmware:
+                description: Match system firmware.
+                type: str
+              exclude_firmware:
+                description: Negate 'firmware' match.
+                type: bool
           members:
             description: Matching attributes of the bond's member interfaces.
             type: list

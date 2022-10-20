@@ -9,7 +9,7 @@
 - name: manage network device for VLAN
   notify: "{{ ansible_role_name ~ ' : reload' }}"
   ansible.builtin.template:
-    src: vlan-netdev.j2
+    src: vlan.netdev.j2
     dest: "{{ '/etc/systemd/network/' ~ vlan.name ~ '.netdev' }}"
     mode: u=rw,go=r
 

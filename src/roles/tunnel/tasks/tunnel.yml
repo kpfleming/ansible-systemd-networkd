@@ -9,7 +9,7 @@
 - name: manage network device for tunnel
   notify: "{{ ansible_role_name ~ ' : reload' }}"
   ansible.builtin.template:
-    src: tunnel-netdev.j2
+    src: tunnel.netdev.j2
     dest: "{{ '/etc/systemd/network/' ~ tunnel.name ~ '.netdev' }}"
     mode: u=rw,go=r
 

@@ -1,5 +1,5 @@
-{% if "match" in bond -%}
-{% set m=bond.match %}
+{% if "match" in vlan -%}
+{% set m=vlan.match %}
 [Match]
 {% if "host" in m -%}
 Host={% if m.exclude_host|default(false) %}!{% endif %}{{ m.host }}
@@ -22,31 +22,8 @@ Firmware={% if m.exclude_firmware|default(false) %}!{% endif %}{{ m.firmware }}
 
 {% endif %}
 [NetDev]
-Name={{ bond.name }}
-Kind=bond
-{% if "mac_address" in bond -%}
-MACAddress={{ bond.mac_address }}
-{% endif %}
+Name={{ vlan.name }}
+Kind=vlan
 
-[Bond]
-{% if "mode" in bond -%}
-Mode={{ bond.mode }}
-{% endif %}
-{% if "transmit_hash_policy" in bond -%}
-TransmitHashPolicy={{ bond.transmit_hash_policy }}
-{% endif %}
-{% if "mii_monitor_sec" in bond -%}
-MIIMonitorSec={{ bond.mii_monitor_sec }}
-{% endif %}
-{% if "up_delay_sec" in bond -%}
-UpDelaySec={{ bond.up_delay_sec }}
-{% endif %}
-{% if "down_delay_sec" in bond -%}
-DownDelaySec={{ bond.down_delay_sec }}
-{% endif %}
-{% if "min_links" in bond -%}
-MinLinks={{ bond.min_links }}
-{% endif %}
-{% if "lacp_transmit_rate" in bond -%}
-LACPTransmitRate={{ bond.lacp_transmit_rate }}
-{% endif %}
+[VLAN]
+Id={{ vlan.id }}
