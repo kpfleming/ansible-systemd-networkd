@@ -2,10 +2,10 @@
 ---
 argument_specs:
   main:
-    short_description: Manages systemd-networkd bonded network links.
+    short_description: Manages systemd-networkd bonded network devices.
     description: |
       This role will create (or update) a number of items in /etc/systemd/network for
-      each specified bonded link:
+      each specified bonded device:
       1) A .netdev file for the bond device
       2) .network files for each link that is a member of the bond; files will be named
       with the bond device's name and a numeric suffix
@@ -24,7 +24,7 @@ argument_specs:
       and 'man systemd.link'.
     options:
       bonds:
-        description: Attributes of the bonds to be managed.
+        description: Attributes of the bond devices to be managed.
         type: list
         elements: dict
         required: true

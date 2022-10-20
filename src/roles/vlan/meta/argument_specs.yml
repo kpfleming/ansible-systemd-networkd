@@ -2,7 +2,7 @@
 ---
 argument_specs:
   main:
-    short_description: Manages systemd-networkd VLAN virtual network links.
+    short_description: Manages systemd-networkd VLAN virtual network devices.
     description: |
       This role will create (or update) three items in /etc/systemd/network for
       each specified VLAN:
@@ -14,13 +14,13 @@ argument_specs:
       Detailed descriptions of parameters and their behavior can be found in 'man systemd.netdev'.
     options:
       vlans:
-        description: Attributes of the VLANs to be managed.
+        description: Attributes of the devices to be managed.
         type: list
         elements: dict
         required: true
         options:
           name:
-            description: Name of the VLAN network device.
+            description: Name of the network device.
             type: str
             required: true
           id:

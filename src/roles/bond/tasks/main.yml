@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-- name: manage bonds
+- name: manage bond devices
   ansible.builtin.include_tasks: "{{ role_path }}/tasks/bond.yml"
   loop: "{{ bonds }}"
   loop_control:

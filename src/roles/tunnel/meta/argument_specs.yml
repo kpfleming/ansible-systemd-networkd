@@ -2,7 +2,7 @@
 ---
 argument_specs:
   main:
-    short_description: Manages systemd-networkd tunnel virtual network links.
+    short_description: Manages systemd-networkd tunnel virtual network devices.
     description: |
       This role will create (or update) three items in /etc/systemd/network for
       each specified tunnel:
@@ -20,7 +20,7 @@ argument_specs:
         required: true
         options:
           name:
-            description: Name of the tunnel network device.
+            description: Name of the network device.
             type: str
             required: true
           underlying_name:

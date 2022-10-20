@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-- name: manage tunnels
+- name: manage tunnel devices
   ansible.builtin.include_tasks: "{{ role_path }}/tasks/tunnel.yml"
   loop: "{{ tunnels }}"
   loop_control:

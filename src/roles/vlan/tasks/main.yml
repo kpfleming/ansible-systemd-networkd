@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-- name: manage VLANs
+- name: manage VLAN devices
   ansible.builtin.include_tasks: "{{ role_path }}/tasks/vlan.yml"
   loop: "{{ vlans }}"
   loop_control:
