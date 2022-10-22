@@ -1,0 +1,26 @@
+%YAML 1.2
+---
+match_system_arguments:
+{% for item in match_system_arguments|dict2items %}
+  {{ item.key }}: {{ item.value }}
+{% endfor %}
+
+match_device_arguments:
+{% for item in match_device_arguments|dict2items %}
+  {{ item.key }}: {{ item.value }}
+{% endfor %}
+
+match_device_excludable_arguments:
+{% for item in match_device_excludable_arguments|dict2items %}
+  {{ item.key }}: {{ item.value }}
+{% endfor %}
+
+netdev_arguments:
+{% for item in netdev_arguments|dict2items %}
+  {{ item.key }}: {{ item.value }}
+{% endfor %}
+
+bond_arguments:
+{% for item in bond_arguments|dict2items %}
+  {{ item.key }}: {{ item.value }}
+{% endfor %}

@@ -9,6 +9,7 @@ match_system_arguments:
   firmware: Firmware
 
 netdev_arguments:
+  mac_address: MACAddress
   mtu_bytes: MTUBytes
 
 tunnel_arguments:

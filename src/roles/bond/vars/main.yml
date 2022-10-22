@@ -22,6 +22,7 @@ match_device_excludable_arguments:
 
 netdev_arguments:
   mac_address: MACAddress
+  mtu_bytes: MTUBytes
 
 bond_arguments:
   mode: Mode

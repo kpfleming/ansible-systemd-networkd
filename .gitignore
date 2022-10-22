@@ -1,3 +1,4 @@
 .tox
 *.tar.gz
 src/galaxy.yml
+src/roles/*/vars/main.yml

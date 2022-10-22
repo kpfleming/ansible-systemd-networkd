@@ -1,0 +1,6 @@
+%YAML 1.2
+---
+match_system_arguments:
+{% for item in match_system_arguments|dict2items %}
+  {{ item.key }}: {{ item.value }}
+{% endfor %}
