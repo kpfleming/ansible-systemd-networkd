@@ -1,7 +1,9 @@
 %YAML 1.2
 ---
 - name: reload
-  when: not systemd_networkd_bond_reboot_required
+  when:
+    - not systemd_networkd_bond_reboot_required
+    - not suppress_reload|default(false)
   ansible.builtin.command:
     argv:
       - networkctl

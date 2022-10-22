@@ -1,42 +1,28 @@
 {% if "match" in tunnel -%}
 {% set m=tunnel.match %}
 [Match]
-{% if "host" in m -%}
-Host={% if m.exclude_host|default(false) %}!{% endif %}{{ m.host }}
+{% for arg, setting in match_system_arguments.items() %}
+{% if arg in m -%}
+{{ setting }}={% if m["exclude_" + arg]|default(false) %}!{% endif %}{{ m[arg] }}
 {% endif %}
-{% if "virtualization" in m -%}
-Virtualization={% if m.exclude_virtualization|default(false) %}!{% endif %}{{ m.virtualization }}
-{% endif %}
-{% if "kernel_command_line" in m -%}
-KernelCommandLine={% if m.exclude_kernel_command_line|default(false) %}!{% endif %}{{ m.kernel_command_line }}
-{% endif %}
-{% if "kernel_version" in m -%}
-KernelVersion={% if m.exclude_kernel_version|default(false) %}!{% endif %}{{ m.kernel_version }}
-{% endif %}
-{% if "architecture" in m -%}
-Architecture={% if m.exclude_architecture|default(false) %}!{% endif %}{{ m.architecture }}
-{% endif %}
-{% if "firmware" in m -%}
-Firmware={% if m.exclude_firmware|default(false) %}!{% endif %}{{ m.firmware }}
-{% endif %}
+{% endfor %}
 
 {% endif %}
 [NetDev]
 Name={{ tunnel.name }}
 Kind={{ tunnel.kind }}
-{% if "mtu_bytes" in tunnel -%}
-MTUBytes={{ tunnel.mtu_bytes }}
+{% for arg, setting in netdev_arguments.items() %}
+{% if arg in tunnel -%}
+{{ setting }}={{ tunnel[arg] }}
 {% endif %}
+{% endfor %}
 
 {% if tunnel.kind in ["ipip", "sit", "gre", "gretap", "ip6gre", "ip6gretap", "vti", "vti6", "iptnl"] %}
 [Tunnel]
-{% if "local" in tunnel -%}
-Local={{ tunnel.local }}
+{% for arg, setting in tunnel_arguments.items() %}
+{% if arg in tunnel -%}
+{{ setting }}={{ tunnel[arg] }}
 {% endif %}
-{% if "remote" in tunnel -%}
-Remote={{ tunnel.remote }}
-{% endif %}
-{% if "ttl" in tunnel -%}
-TTL={{ tunnel.ttl }}
-{% endif %}
+{% endfor %}
+
 {% endif %}

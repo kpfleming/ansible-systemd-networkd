@@ -1,46 +1,19 @@
 [Match]
-{% if "mac_address" in member -%}
-MACAddress={{ member.mac_address }}
+{% for arg, setting in match_system_arguments.items() %}
+{% if arg in member -%}
+{{ setting }}={% if member["exclude_" + arg]|default(false) %}!{% endif %}{{ member[arg] }}
 {% endif %}
-{% if "permanent_mac_address" in member -%}
-PermanentMACAddress={{ member.permanent_mac_address }}
+{% endfor %}
+{% for arg, setting in match_device_arguments.items() %}
+{% if arg in member -%}
+{{ setting }}={{ member[arg] }}
 {% endif %}
-{% if "path" in member -%}
-Path={{ member.path }}
+{% endfor %}
+{% for arg, setting in match_device_excludable_arguments.items() %}
+{% if arg in member -%}
+{{ setting }}={% if member["exclude_" + arg]|default(false) %}!{% endif %}{{ member[arg] }}
 {% endif %}
-{% if "driver" in member -%}
-Driver={% if member.exclude_driver|default(false) %}!{% endif %}{{ member.driver }}
-{% endif %}
-{% if "type" in member -%}
-Type={% if member.exclude_type|default(false) %}!{% endif %}{{ member.type }}
-{% endif %}
-{% if "kind" in member -%}
-Kind={% if member.exclude_kind|default(false) %}!{% endif %}{{ member.kind }}
-{% endif %}
-{% if "original_name" in member -%}
-OriginalName={{ member.original_name }}
-{% endif %}
-{% if "host" in member -%}
-Host={% if member.exclude_host|default(false) %}!{% endif %}{{ member.host }}
-{% endif %}
-{% if "virtualization" in member -%}
-Virtualization={% if member.exclude_virtualization|default(false) %}!{% endif %}{{ member.virtualization }}
-{% endif %}
-{% if "kernel_command_line" in member -%}
-KernelCommandLine={% if member.exclude_kernel_command_line|default(false) %}!{% endif %}{{ member.kernel_command_line }}
-{% endif %}
-{% if "kernel_version" in member -%}
-KernelVersion={% if member.exclude_kernel_version|default(false) %}!{% endif %}{{ member.kernel_version }}
-{% endif %}
-{% if "credential" in member -%}
-Credential={% if member.exclude_credential|default(false) %}!{% endif %}{{ member.credential }}
-{% endif %}
-{% if "architecture" in member -%}
-Architecture={% if member.exclude_architecture|default(false) %}!{% endif %}{{ member.architecture }}
-{% endif %}
-{% if "firmware" in member -%}
-Firmware={% if member.exclude_firmware|default(false) %}!{% endif %}{{ member.firmware }}
-{% endif %}
+{% endfor %}
 {% if "property" in member -%}
 Property={% if member.exclude_property|default(false) %}!{% endif %}{% for p in member.property %}"{{ p.name }}={{ p.value }}"{% endfor %}
 {% endif %}

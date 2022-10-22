@@ -7,6 +7,9 @@ argument_specs:
       This role will create (or update) one item in /etc/systemd/network for
       each specified dummy: a .netdev file for the dummy device
     options:
+      suppress_reload:
+        description: Suppress the reloading of systemd-networkd if changes are made.
+        type: bool
       dummies:
         description: Attributes of the dummy devices to be managed.
         type: list

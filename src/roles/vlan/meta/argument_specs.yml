@@ -13,6 +13,9 @@ argument_specs:
 
       Detailed descriptions of parameters and their behavior can be found in 'man systemd.netdev'.
     options:
+      suppress_reload:
+        description: Suppress the reloading of systemd-networkd if changes are made.
+        type: bool
       vlans:
         description: Attributes of the devices to be managed.
         type: list

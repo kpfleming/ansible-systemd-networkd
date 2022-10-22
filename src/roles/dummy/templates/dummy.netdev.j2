@@ -1,24 +1,11 @@
 {% if "match" in dummy -%}
 {% set m=dummy.match %}
 [Match]
-{% if "host" in m -%}
-Host={% if m.exclude_host|default(false) %}!{% endif %}{{ m.host }}
+{% for arg, setting in match_system_arguments.items() %}
+{% if arg in m -%}
+{{ setting }}={% if m["exclude_" + arg]|default(false) %}!{% endif %}{{ m[arg] }}
 {% endif %}
-{% if "virtualization" in m -%}
-Virtualization={% if m.exclude_virtualization|default(false) %}!{% endif %}{{ m.virtualization }}
-{% endif %}
-{% if "kernel_command_line" in m -%}
-KernelCommandLine={% if m.exclude_kernel_command_line|default(false) %}!{% endif %}{{ m.kernel_command_line }}
-{% endif %}
-{% if "kernel_version" in m -%}
-KernelVersion={% if m.exclude_kernel_version|default(false) %}!{% endif %}{{ m.kernel_version }}
-{% endif %}
-{% if "architecture" in m -%}
-Architecture={% if m.exclude_architecture|default(false) %}!{% endif %}{{ m.architecture }}
-{% endif %}
-{% if "firmware" in m -%}
-Firmware={% if m.exclude_firmware|default(false) %}!{% endif %}{{ m.firmware }}
-{% endif %}
+{% endfor %}
 
 {% endif %}
 [NetDev]

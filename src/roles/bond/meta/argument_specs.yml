@@ -23,6 +23,9 @@ argument_specs:
       Detailed descriptions of parameters and their behavior can be found in 'man systemd.netdev'
       and 'man systemd.link'.
     options:
+      suppress_reload:
+        description: Suppress the reloading of systemd-networkd if changes are made.
+        type: bool
       bonds:
         description: Attributes of the bond devices to be managed.
         type: list
