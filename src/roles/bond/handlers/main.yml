@@ -2,7 +2,7 @@
 ---
 - name: reload
   when:
-    - not systemd_networkd_bond_reboot_required
+    - not systemd_networkd_link_reboot_required
     - not suppress_reload|default(false)
   ansible.builtin.command:
     argv:
