@@ -1,12 +1,13 @@
 %YAML 1.2
 ---
 - name: manage bond member names
-  notify: "{{ ansible_role_name ~ ' : reload' }}"
-  register: _link
-  ansible.builtin.template:
-    src: bond-member.link.j2
-    dest: "{{ '/etc/systemd/network/00-' ~  bond.name ~ '-' ~ ansible_loop.index ~ '.link' }}"
-    mode: u=rw,go=r
+  ansible.builtin.include_role:
+    name: kpfleming.systemd_networkd.link
+    tasks_from: link.yml
+  vars:
+    link:
+      name: "{{ bond.name ~ '-' ~ ansible_loop.index }}"
+      match: "{{ member }}"
   loop: "{{ bond.members }}"
   loop_control:
     loop_var: member
@@ -29,8 +30,3 @@
     src: bond.netdev.j2
     dest: "{{ '/etc/systemd/network/' ~ bond.name ~ '.netdev' }}"
     mode: u=rw,go=r
-
-- name: set reboot fact
-  when: ansible_distribution == "Debian"
-  ansible.builtin.set_fact:
-    systemd_networkd_bond_reboot_required: "{{ _link.changed }}"

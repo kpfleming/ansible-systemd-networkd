@@ -1,0 +1,10 @@
+%YAML 1.2
+---
+- name: reload
+  when:
+    - not systemd_networkd_link_reboot_required
+    - not suppress_reload|default(false)
+  ansible.builtin.command:
+    argv:
+      - networkctl
+      - reload

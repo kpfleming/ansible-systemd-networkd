@@ -1,0 +1,11 @@
+%YAML 1.2
+---
+- name: manage links
+  ansible.builtin.include_tasks: "{{ role_path }}/tasks/link.yml"
+  loop: "{{ links }}"
+  loop_control:
+    loop_var: link
+    label: "{{ link.name }}"
+
+- name: run handlers if needed
+  ansible.builtin.meta: flush_handlers

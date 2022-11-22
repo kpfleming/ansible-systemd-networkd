@@ -2,15 +2,10 @@
 ---
 argument_specs:
   main:
-    short_description: Manages systemd-networkd bonded network devices.
+    short_description: Manages systemd-networkd links.
     description: |
-      This role will create (or update) a number of items in /etc/systemd/network for
-      each specified bonded device:
-      1) A .netdev file for the bond device
-      2) .network files for each link that is a member of the bond; files will be named
-      with the bond device's name and a numeric suffix
-      3) .link files for each interface that is a member of the bond; files will be named
-      with the bond device's name and a numeric suffix
+      This role will create (or update) one item in /etc/systemd/network for
+      each specified link: a .link file for the link.
 
       On Debian and Debian-derivative systems the .link files are
       copied into the initramfs by the `update-initramfs` tool, which
@@ -18,111 +13,26 @@ argument_specs:
       files to take effect. In this situation the role will set a fact
       named 'systemd_networkd_link_reboot_required' and the system
       should be rebooted before any additional configuration of the
-      bonded network links is attempted.
+      links is attempted.
 
-      Detailed descriptions of parameters and their behavior can be found in 'man systemd.netdev'
-      and 'man systemd.link'.
+      Detailed descriptions of parameters and their behavior can be found in 'man systemd.link'.
     options:
       suppress_reload:
         description: Suppress the reloading of systemd-networkd if changes are made.
         type: bool
-      bonds:
-        description: Attributes of the bond devices to be managed.
+      links:
+        description: Attributes of the links to be managed.
         type: list
         elements: dict
         required: true
         options:
           name:
-            description: Name of the network device.
+            description: Name of the link.
             type: str
             required: true
-          mac_address:
-            description: MAC address to use on the device.
-            type: list
-            elements: str
-          mode:
-            description: Bonding mode.
-            type: str
-            choices:
-              - balance-rr
-              - active-backup
-              - balance-xor
-              - broadcast
-              - 802.3ad
-              - balance-tlb
-              - balance-alb
-          transmit_hash_policy:
-            description: Policy for member selection during transmit.
-            type: str
-            choices:
-              - layer2
-              - layer3+4
-              - layer2+3
-              - encap2+3
-              - encap3+4
-          lacp_transmit_rate:
-            description: LACP data unit transmission rate (only used in 802.3ad mode).
-            type: str
-            choices:
-              - slow
-              - fast
-          mii_monitor_sec:
-            description: Frequency of MII link monitoring.
-            type: str
-          min_links:
-            description: Minimum number of active members for the device to report that it 'has carrier'.
-            type: int
-          up_delay_sec:
-            description: Delay between the minimum number of members reaching 'link up' and 'link up' being reported for the bond.
-            type: str
-          down_delay_sec:
-            description: Delay between the minimum number of members reaching 'link down' and 'link down' being reported for the bond.
-            type: str
           match:
-            description: Matching attributes of the network device.
+            description: Matching attributes of the link.
             type: dict
-            options:
-              host:
-                description: Match hostname or machine ID.
-                type: str
-              exclude_host:
-                description: Negate 'host' match.
-                type: bool
-              virtualization:
-                description: Match virtualization type.
-                type: str
-              exclude_virtualization:
-                description: Negate 'virtualization' match.
-                type: bool
-              kernel_command_line:
-                description: Match kernel command line option presence.
-                type: str
-              exclude_kernel_command_line:
-                description: Negate 'kernel_command_line' match.
-                type: bool
-              kernel_version:
-                description: Match kernel version expression.
-                type: str
-              exclude_kernel_version:
-                description: Negate 'kernel_version' match.
-                type: bool
-              architecture:
-                description: Match system architecture.
-                type: str
-              exclude_architecture:
-                description: Negate 'architecture' match.
-                type: bool
-              firmware:
-                description: Match system firmware.
-                type: str
-              exclude_firmware:
-                description: Negate 'firmware' match.
-                type: bool
-          members:
-            description: Matching attributes of the bond's member interfaces.
-            type: list
-            elements: dict
-            required: true
             options:
               mac_address:
                 description: Match current MAC address.

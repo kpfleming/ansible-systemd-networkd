@@ -1,0 +1,27 @@
+{% if "match" in link -%}
+{% set m=link.match %}
+[Match]
+{% for arg, setting in match_system_arguments.items() %}
+{% if arg in m -%}
+{{ setting }}={% if m["exclude_" + arg]|default(false) %}!{% endif %}{{ m[arg] }}
+{% endif %}
+{% endfor %}
+{% for arg, setting in match_device_arguments.items() %}
+{% if arg in m -%}
+{{ setting }}={{ m[arg] }}
+{% endif %}
+{% endfor %}
+{% for arg, setting in match_device_excludable_arguments.items() %}
+{% if arg in m -%}
+{{ setting }}={% if m["exclude_" + arg]|default(false) %}!{% endif %}{{ m[arg] }}
+{% endif %}
+{% endfor %}
+{% if "property" in m -%}
+Property={% if link.exclude_property|default(false) %}!{% endif %}{% for p in m.property %}"{{ p.name }}={{ p.value }}"{% endfor %}
+{% endif %}
+
+{% endif %}
+[Link]
+{% if "name" in link -%}
+Name={{ link.name }}
+{% endif %}

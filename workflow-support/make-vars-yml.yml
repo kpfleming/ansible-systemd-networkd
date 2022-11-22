@@ -17,6 +17,7 @@
       loop:
         - [bond-vars.yml.j2, bond/vars/main.yml]
         - [dummy-vars.yml.j2, dummy/vars/main.yml]
+        - [link-vars.yml.j2, link/vars/main.yml]
         - [tunnel-vars.yml.j2, tunnel/vars/main.yml]
         - [vlan-vars.yml.j2, vlan/vars/main.yml]
       vars:
