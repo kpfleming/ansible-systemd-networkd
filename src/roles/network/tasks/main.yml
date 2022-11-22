@@ -1,0 +1,11 @@
+%YAML 1.2
+---
+- name: manage networks
+  ansible.builtin.include_tasks: "{{ role_path }}/tasks/network.yml"
+  loop: "{{ networks }}"
+  loop_control:
+    loop_var: network
+    label: "{{ network.name }}"
+
+- name: run handlers if needed
+  ansible.builtin.meta: flush_handlers

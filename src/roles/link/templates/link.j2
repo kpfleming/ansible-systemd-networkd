@@ -22,6 +22,8 @@ Property={% if link.exclude_property|default(false) %}!{% endif %}{% for p in m.
 
 {% endif %}
 [Link]
-{% if "name" in link -%}
-Name={{ link.name }}
+{% for arg, setting in link_arguments.items() %}
+{% if arg in link -%}
+{{ setting }}={{ link[arg] }}
 {% endif %}
+{% endfor %}

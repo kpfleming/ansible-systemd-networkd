@@ -14,3 +14,8 @@ match_device_excludable_arguments:
 {% for item in match_device_excludable_arguments|dict2items %}
   {{ item.key }}: {{ item.value }}
 {% endfor %}
+
+link_arguments:
+{% for item in link_arguments|dict2items %}
+  {{ item.key }}: {{ item.value }}
+{% endfor %}

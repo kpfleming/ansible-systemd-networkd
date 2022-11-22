@@ -18,6 +18,7 @@
         - [bond-vars.yml.j2, bond/vars/main.yml]
         - [dummy-vars.yml.j2, dummy/vars/main.yml]
         - [link-vars.yml.j2, link/vars/main.yml]
+        - [network-vars.yml.j2, network/vars/main.yml]
         - [tunnel-vars.yml.j2, tunnel/vars/main.yml]
         - [vlan-vars.yml.j2, vlan/vars/main.yml]
       vars:
@@ -53,3 +54,41 @@
           local: Local
           remote: Remote
           ttl: TTL
+        link_arguments:
+          name: Name
+          description: Description
+          mac_address_policy: MACAddressPolicy
+          name_policy: NamePolicy
+          mtu_bytes: MTUBytes
+        network_arguments:
+          description: Description
+          dhcp: DHCP
+          link_local_addressing: LinkLocalAddressing
+          lldp: LLDP
+          emit_lldp: EmitLLDP
+          ip_forward: IPForward
+          ipv6_proxy_ndp: IPV6ProxyNDP
+          configure_without_carrier: ConfigureWithoutCarrier
+          keep_configuration: KeepConfiguration
+        network_list_arguments:
+          bind_carrier: BindCarrier
+          address: Address
+          gateway: Gateway
+          dns: DNS
+          ntp: NTP
+          ipv6_proxy_ndp_address: IPV6ProxyNDPAddress
+        network_link_arguments:
+          mac_address: MACAddress
+          mtu_bytes: MTUBytes
+          required_for_online: RequiredForOnline
+          activation_policy: ActivationPolicy
+        network_address_arguments:
+          foo: bar
+        network_route_arguments:
+          foo: bar
+        network_dhcpv4_arguments:
+          foo: bar
+        network_dhcpv6_arguments:
+          foo: bar
+        network_ipv6acceptra_arguments:
+          foo: bar

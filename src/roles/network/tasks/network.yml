@@ -1,0 +1,9 @@
+%YAML 1.2
+---
+- name: manage network
+  register: _network
+  notify: "{{ ansible_role_name ~ ' : reload' }}"
+  ansible.builtin.template:
+    src: network.j2
+    dest: "{{ '/etc/systemd/network/' ~ network.name ~ '.network' }}"
+    mode: u=rw,go=r

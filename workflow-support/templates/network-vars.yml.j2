@@ -1,0 +1,56 @@
+%YAML 1.2
+---
+match_system_arguments:
+{% for item in match_system_arguments|dict2items %}
+  {{ item.key }}: {{ item.value }}
+{% endfor %}
+
+match_device_arguments:
+{% for item in match_device_arguments|dict2items %}
+  {{ item.key }}: {{ item.value }}
+{% endfor %}
+
+match_device_excludable_arguments:
+{% for item in match_device_excludable_arguments|dict2items %}
+  {{ item.key }}: {{ item.value }}
+{% endfor %}
+
+network_link_arguments:
+{% for item in network_link_arguments|dict2items %}
+  {{ item.key }}: {{ item.value }}
+{% endfor %}
+
+network_arguments:
+{% for item in network_arguments|dict2items %}
+  {{ item.key }}: {{ item.value }}
+{% endfor %}
+
+network_list_arguments:
+{% for item in network_list_arguments|dict2items %}
+  {{ item.key }}: {{ item.value }}
+{% endfor %}
+
+network_address_arguments:
+{% for item in network_address_arguments|dict2items %}
+  {{ item.key }}: {{ item.value }}
+{% endfor %}
+
+network_route_arguments:
+{% for item in network_route_arguments|dict2items %}
+  {{ item.key }}: {{ item.value }}
+{% endfor %}
+
+network_dhcpv4_arguments:
+{% for item in network_dhcpv4_arguments|dict2items %}
+  {{ item.key }}: {{ item.value }}
+{% endfor %}
+
+network_dhcpv6_arguments:
+{% for item in network_dhcpv6_arguments|dict2items %}
+  {{ item.key }}: {{ item.value }}
+{% endfor %}
+
+network_ipv6acceptra_arguments:
+{% for item in network_ipv6acceptra_arguments|dict2items %}
+  {{ item.key }}: {{ item.value }}
+{% endfor %}

@@ -2,35 +2,28 @@
 ---
 argument_specs:
   main:
-    short_description: Manages systemd-networkd links.
+    short_description: Manages systemd-networkd networks.
     description: |
       This role will create (or update) one item in /etc/systemd/network for
-      each specified link: a .link file for the link.
+      each specified network: a .network file for the network.
 
-      On Debian and Debian-derivative systems the .link files are
-      copied into the initramfs by the `update-initramfs` tool, which
-      means that the system must be rebooted for changes in those
-      files to take effect. In this situation the role will set a fact
-      named 'systemd_networkd_link_reboot_required' and the system
-      should be rebooted before any additional configuration of the
-      links is attempted.
-
-      Detailed descriptions of parameters and their behavior can be found in 'man systemd.link'.
+      Detailed descriptions of parameters and their behavior can be found in 'man systemd.network'.
     options:
       suppress_reload:
         description: Suppress the reloading of systemd-networkd if changes are made.
         type: bool
-      links:
-        description: Attributes of the links to be managed.
+      networks:
+        description: Attributes of the networks to be managed.
         type: list
         elements: dict
         required: true
         options:
           name:
-            description: Name of the link.
+            description: Name of the network.
             type: str
+            required: true
           match:
-            description: Matching attributes of the link.
+            description: Matching attributes of the network.
             type: dict
             options:
               mac_address:
