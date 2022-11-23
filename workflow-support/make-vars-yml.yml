@@ -66,7 +66,7 @@
           lldp: LLDP
           emit_lldp: EmitLLDP
           ip_forward: IPForward
-          ipv6_proxy_ndp: IPV6ProxyNDP
+          ipv6_proxy_ndp: IPv6ProxyNDP
           configure_without_carrier: ConfigureWithoutCarrier
           keep_configuration: KeepConfiguration
           ipv6_accept_ra: IPv6AcceptRA
@@ -74,7 +74,7 @@
           bind_carrier: BindCarrier
           dns: DNS
           ntp: NTP
-          ipv6_proxy_ndp_address: IPV6ProxyNDPAddress
+          ipv6_proxy_ndp_address: IPv6ProxyNDPAddress
         network_match_arguments:
           name: Name
         network_link_arguments:
