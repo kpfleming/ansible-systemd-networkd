@@ -1,6 +1,7 @@
 %YAML 1.2
 ---
 - name: manage bond member names
+  register: _link
   ansible.builtin.include_role:
     name: kpfleming.systemd_networkd.link
     tasks_from: link.yml
@@ -14,6 +15,7 @@
     extended: true
 
 - name: manage bond member networks
+  register: _member
   notify: "{{ ansible_role_name ~ ' : reload' }}"
   ansible.builtin.template:
     src: bond-member.network.j2
@@ -25,8 +27,13 @@
     extended: true
 
 - name: manage bond network device
+  register: _netdev
   notify: "{{ ansible_role_name ~ ' : reload' }}"
   ansible.builtin.template:
     src: bond.netdev.j2
     dest: "{{ systemd_root ~ '/etc/systemd/network/' ~ bond.name ~ '.netdev' }}"
     mode: u=rw,go=r
+
+- name: set fact to indicate result
+  ansible.builtin.set_fact:
+    systemd_networkd_bond_changed: "{{ systemd_networkd_bond_changed|default(false) or _link.changed or _member.changed or _netdev.changed }}"

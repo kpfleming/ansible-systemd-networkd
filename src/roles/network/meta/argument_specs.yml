@@ -8,6 +8,9 @@ argument_specs:
       each specified network: a .network file for the network.
 
       Detailed descriptions of parameters and their behavior can be found in 'man systemd.network'.
+
+      Sets fact named 'systemd_networkd_network_changed' to either true or false to indicate whether
+      any changes were made.
     options:
       suppress_reload:
         description: Suppress the reloading of systemd-networkd if changes are made.
@@ -16,7 +19,7 @@ argument_specs:
       systemd_root:
         description: Root path of filesystem containing systemd-networkd configuration files.
         type: str
-        default: ''
+        default: ""
       networks:
         description: Attributes of the networks to be managed.
         type: list

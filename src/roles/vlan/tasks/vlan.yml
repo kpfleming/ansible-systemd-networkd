@@ -7,6 +7,7 @@
     mode: u=rwx,go=rx
 
 - name: manage network device for VLAN
+  register: _netdev
   notify: "{{ ansible_role_name ~ ' : reload' }}"
   ansible.builtin.template:
     src: vlan.netdev.j2
@@ -14,8 +15,13 @@
     mode: u=rw,go=r
 
 - name: manage network drop-in for VLAN
+  register: _network
   notify: "{{ ansible_role_name ~ ' : reload' }}"
   ansible.builtin.template:
     src: vlan-dropin.j2
     dest: "{{ systemd_root ~ '/etc/systemd/network/' ~ vlan.underlying_name ~ '.network.d/vlan-' ~ vlan.name ~ '.conf' }}"
     mode: u=rw,go=r
+
+- name: set fact to indicate result
+  ansible.builtin.set_fact:
+    systemd_networkd_vlan_changed: "{{ systemd_networkd_vlan_changed|default(false) or _netdev.changed or _network.changed }}"

@@ -1,8 +1,13 @@
 %YAML 1.2
 ---
 - name: manage network device for dummy
+  register: _netdev
   notify: "{{ ansible_role_name ~ ' : reload' }}"
   ansible.builtin.template:
     src: dummy.netdev.j2
     dest: "{{ systemd_root ~ '/etc/systemd/network/' ~ dummy.name ~ '.netdev' }}"
     mode: u=rw,go=r
+
+- name: set fact to indicate result
+  ansible.builtin.set_fact:
+    systemd_networkd_dummy_changed: "{{ systemd_networkd_dummy_changed|default(false) or _netdev.changed }}"

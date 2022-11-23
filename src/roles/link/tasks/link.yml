@@ -12,3 +12,7 @@
   when: ansible_distribution == "Debian"
   ansible.builtin.set_fact:
     systemd_networkd_link_reboot_required: "{{ systemd_networkd_link_reboot_required|default(false) or _link.changed }}"
+
+- name: set fact to indicate result
+  ansible.builtin.set_fact:
+    systemd_networkd_link_changed: "{{ systemd_networkd_link_changed|default(false) or _link.changed }}"
