@@ -42,7 +42,7 @@ Property={% if network.exclude_property|default(false) %}!{% endif %}{% for p in
 {{ setting }}={{ network[arg] }}
 {% endif %}
 {% endfor %}
-{% for arg, setting in network_list_arguments.items() %}
+{% for arg, setting in network_multi_arguments.items() %}
 {% if arg in network -%}
 {% for v in network[arg] }}
 {{ setting }}={{ v }}

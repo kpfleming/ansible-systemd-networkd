@@ -69,7 +69,7 @@
           ipv6_proxy_ndp: IPV6ProxyNDP
           configure_without_carrier: ConfigureWithoutCarrier
           keep_configuration: KeepConfiguration
-        network_list_arguments:
+        network_multi_arguments:
           bind_carrier: BindCarrier
           address: Address
           gateway: Gateway
