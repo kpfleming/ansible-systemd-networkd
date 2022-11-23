@@ -82,12 +82,36 @@
           required_for_online: RequiredForOnline
           activation_policy: ActivationPolicy
         network_address_arguments:
-          foo: bar
+          address: Address
+          peer: Peer
+          broadcast: Broadcast
+          home_address: HomeAddress
         network_route_arguments:
-          foo: bar
+          gateway: Gateway
+          destination: Destination
+          source: Source
+          metric: Metric
+          preferred_source: PreferredSource
+          type: Type
+          mtu_bytes: MTUBytes
         network_dhcpv4_arguments:
-          foo: bar
+          send_hostname: SendHostname
+          hostname: Hostname
+          client_identifier: ClientIdentifier
+          use_dns: UseDNS
+          routes_to_dns: RoutesToDNS
+          use_ntp: UseNTP
+          routes_to_ntp: RoutesToNTP
+          use_hostname: UseHostname
+          use_routes: UseRoutes
+          use_gateway: UseGateway
+          send_release: SendRelease
         network_dhcpv6_arguments:
-          foo: bar
+          use_dns: UseDNS
+          use_ntp: UseNTP
+          without_ra: WithoutRA
         network_ipv6acceptra_arguments:
-          foo: bar
+          token: Token
+          use_dns: UseDNS
+          use_mtu: UseMTU
+          use_gateway: UseGateway
