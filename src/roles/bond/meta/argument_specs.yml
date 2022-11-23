@@ -38,8 +38,10 @@ argument_specs:
             required: true
           mac_address:
             description: MAC address to use on the device.
-            type: list
-            elements: str
+            type: str
+          mtu_bytes:
+            description: The MTU for the tunnel.
+            type: str
           mode:
             description: Bonding mode.
             type: str
