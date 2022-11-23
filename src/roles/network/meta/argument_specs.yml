@@ -18,7 +18,10 @@ argument_specs:
         elements: dict
         required: true
         options:
-          description: Description
+          name:
+            description: Name of the network.
+            type: str
+            required: true
           dhcp:
             description: Configure DHCP clients on the network.
             type: str
@@ -221,6 +224,9 @@ argument_specs:
                 type: bool
               use_ntp:
                 description: Whether NTP server(s) provided by the DHCP server should be used.
+                type: bool
+              use_hostname:
+                description: Whether the hostname provided by the DHCP server should be used.
                 type: bool
               without_ra:
                 description: Whether the client should be started even if an RA does not indicate it is needed.

@@ -44,11 +44,12 @@ Property={% if network.exclude_property|default(false) %}!{% endif %}{% for p in
 {% endfor %}
 {% for arg, setting in network_multi_arguments.items() %}
 {% if arg in network -%}
-{% for v in network[arg] }}
+{% for v in network[arg] %}
 {{ setting }}={{ v }}
 {% endfor %}
 {% endif %}
 {% endfor %}
+
 {% if "dhcpv4" in network -%}
 {% set v=network.dhcpv4 %}
 [DHCPv4]

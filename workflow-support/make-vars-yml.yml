@@ -109,6 +109,7 @@
         network_dhcpv6_arguments:
           use_dns: UseDNS
           use_ntp: UseNTP
+          use_hostname: UseHostname
           without_ra: WithoutRA
         network_ipv6acceptra_arguments:
           token: Token
