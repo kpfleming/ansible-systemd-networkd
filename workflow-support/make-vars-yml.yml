@@ -89,6 +89,7 @@
         network_route_arguments:
           gateway: Gateway
           destination: Destination
+          scope: Scope
           source: Source
           metric: Metric
           preferred_source: PreferredSource

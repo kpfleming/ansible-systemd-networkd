@@ -119,8 +119,8 @@ argument_specs:
                   - manual
                   - down
                   - always-down
-          address:
-            description: An address to be used on the network.
+          addresses:
+            description: Addresses to be used on the network.
             type: list
             elements: dict
             options:
@@ -136,8 +136,8 @@ argument_specs:
               home_address:
                 description: Whether this network is the system's home address.
                 type: bool
-          route:
-            description: A route to be used by the network.
+          routes:
+            description: Routes to be used by the network.
             type: list
             elements: dict
             options:
@@ -147,6 +147,15 @@ argument_specs:
               destination:
                 description: IPv4 or IPv6 subnet which can be reached through gateway.
                 type: str
+              scope:
+                description: Scope of the route (IPv4 only).
+                type: str
+                choices:
+                  - global
+                  - site
+                  - link
+                  - host
+                  - nowhere
               source:
                 description: IPv4 or IPv6 subnet matched against source addresses for selection of this route.
                 type: str
