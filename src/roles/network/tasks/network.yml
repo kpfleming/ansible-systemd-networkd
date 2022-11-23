@@ -1,5 +1,11 @@
 %YAML 1.2
 ---
+- name: manage network drop-in directory
+  ansible.builtin.file:
+    path: "{{ systemd_root ~ '/etc/systemd/network/' ~ network.name ~ '.network.d' }}"
+    state: directory
+    mode: u=rwx,go=rx
+
 - name: manage network
   register: _network
   notify: "{{ ansible_role_name ~ ' : reload' }}"
