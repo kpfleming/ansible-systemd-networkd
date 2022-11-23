@@ -5,16 +5,6 @@ match_system_arguments:
   {{ item.key }}: {{ item.value }}
 {% endfor %}
 
-match_device_arguments:
-{% for item in match_device_arguments|dict2items %}
-  {{ item.key }}: {{ item.value }}
-{% endfor %}
-
-match_device_excludable_arguments:
-{% for item in match_device_excludable_arguments|dict2items %}
-  {{ item.key }}: {{ item.value }}
-{% endfor %}
-
 netdev_arguments:
 {% for item in netdev_arguments|dict2items %}
   {{ item.key }}: {{ item.value }}
