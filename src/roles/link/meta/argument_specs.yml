@@ -27,7 +27,28 @@ argument_specs:
         required: true
         options:
           name:
-            description: Name of the link.
+            description: Name to set on the link.
+            type: str
+          mac_address_policy:
+            description: Policy for setting the MAC address of the link.
+            type: str
+            choices:
+              - persistent
+              - random
+              - none
+          name_policy:
+            description: Policy for setting the name of the link.
+            type: str
+            choices:
+              - kernel
+              - database
+              - onboard
+              - slot
+              - path
+              - mac
+              - keep
+          mtu_bytes:
+            description: The MTU for the link.
             type: str
           match:
             description: Matching attributes of the link.
