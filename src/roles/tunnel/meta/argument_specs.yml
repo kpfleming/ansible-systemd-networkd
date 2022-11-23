@@ -92,6 +92,9 @@ argument_specs:
           mtu_bytes:
             description: The MTU for the tunnel.
             type: str
+          mac_address:
+            description: The MAC address to be used for the tunnel.
+            type: str
           local:
             description: Local address for tunneled packets.
             type: str
