@@ -71,8 +71,6 @@
           keep_configuration: KeepConfiguration
         network_multi_arguments:
           bind_carrier: BindCarrier
-          address: Address
-          gateway: Gateway
           dns: DNS
           ntp: NTP
           ipv6_proxy_ndp_address: IPV6ProxyNDPAddress
