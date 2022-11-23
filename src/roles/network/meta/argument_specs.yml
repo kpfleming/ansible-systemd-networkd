@@ -75,7 +75,7 @@ argument_specs:
               exclude_property:
                 description: Negate 'property' matches.
                 type: bool
-              original_name:
+              name:
                 description: Match udev INTERFACE.
                 type: list
                 elements: str

@@ -1,6 +1,11 @@
 {% if "match" in link -%}
 {% set m=link.match %}
 [Match]
+{% for arg, setting in link_match_arguments.items() %}
+{% if arg in m -%}
+{{ setting }}={{ m[arg] }}
+{% endif %}
+{% endfor %}
 {% for arg, setting in match_system_arguments.items() %}
 {% if arg in m -%}
 {{ setting }}={% if m["exclude_" + arg]|default(false) %}!{% endif %}{{ m[arg] }}

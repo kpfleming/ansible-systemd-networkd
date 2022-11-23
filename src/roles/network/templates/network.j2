@@ -1,6 +1,11 @@
 {% if "match" in network -%}
 {% set v=network.match %}
 [Match]
+{% for arg, setting in network_match_arguments.items() %}
+{% if arg in v -%}
+{{ setting }}={{ v[arg] }}
+{% endif %}
+{% endfor %}
 {% for arg, setting in match_system_arguments.items() %}
 {% if arg in v -%}
 {{ setting }}={% if v["exclude_" + arg]|default(false) %}!{% endif %}{{ v[arg] }}
