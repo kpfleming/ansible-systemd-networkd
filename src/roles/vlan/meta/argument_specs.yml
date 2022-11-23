@@ -16,6 +16,11 @@ argument_specs:
       suppress_reload:
         description: Suppress the reloading of systemd-networkd if changes are made.
         type: bool
+        default: false
+      systemd_root:
+        description: Root path of filesystem containing systemd-networkd configuration files.
+        type: str
+        default: ''
       vlans:
         description: Attributes of the devices to be managed.
         type: list

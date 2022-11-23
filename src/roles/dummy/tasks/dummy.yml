@@ -4,5 +4,5 @@
   notify: "{{ ansible_role_name ~ ' : reload' }}"
   ansible.builtin.template:
     src: dummy.netdev.j2
-    dest: "{{ '/etc/systemd/network/' ~ dummy.name ~ '.netdev' }}"
+    dest: "{{ systemd_root ~ '/etc/systemd/network/' ~ dummy.name ~ '.netdev' }}"
     mode: u=rw,go=r
