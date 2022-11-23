@@ -18,10 +18,233 @@ argument_specs:
         elements: dict
         required: true
         options:
-          name:
-            description: Name of the network.
+          description: Description
+          dhcp:
+            description: Configure DHCP clients on the network.
             type: str
-            required: true
+            choices:
+              - ipv4
+              - ipv6
+              - true
+              - false
+          link_local_addressing:
+            description: Configure link-local addressing on the network.
+            type: str
+            choices:
+              - ipv4
+              - ipv6
+              - true
+              - false
+          lldp:
+            description: Configure LLDP reception on the network.
+            type: str
+            choices:
+              - routers-only
+              - true
+              - false
+          emit_lldp:
+            description: Configure LLDP emission on the network.
+            type: str
+            choices:
+              - nearest-bridge
+              - true
+              - false
+          ip_forward:
+            description: Configure IP forwarding (system-wide).
+            type: str
+            choices:
+              - ipv4
+              - ipv6
+              - true
+              - false
+          ipv6_proxy_ndp:
+            description: Configure Proxy NDP support on the network.
+            type: bool
+          configure_without_carrier:
+            description: Allow network configuration without carrier.
+            type: bool
+          keep_configuration:
+            description: Manage configuration when network is stopped.
+            type: str
+            choices:
+              - static
+              - dhcp
+              - dhcp-on-stop
+              - true
+              - false
+          bind_carrier:
+            description: Bind carrier status to other networks.
+            type: list
+            elements: str
+          dns:
+            description: Configure DNS servers on the network.
+            type: list
+            elements: str
+          ntp:
+            description: Configure NTP servers on the network.
+            type: list
+            elements: str
+          ipv6_proxy_ndp_address:
+            description: Configure Proxy NDP addresses on the network.
+            type: list
+            elements: str
+          link:
+            description: Attributes of the link used by the network.
+            type: list
+            elements: dict
+            options:
+              mac_address:
+                description: The MAC address to be used for the network.
+                type: str
+              mtu_bytes:
+                description: The MTU for the network.
+                type: str
+              required_for_online:
+                description: Whether the network is included in the 'online' status determination.
+                type: str
+                choices:
+                  - any
+                  - both
+                  - ipv4
+                  - ipv6
+              activation_policy:
+                description: How the network should or should not be activated.
+                type: str
+                choices:
+                  - up
+                  - always-up
+                  - manual
+                  - down
+                  - always-down
+          address:
+            description: An address to be used on the network.
+            type: list
+            elements: dict
+            options:
+              address:
+                description: An IPv4 or IPv6 address.
+                type: str
+              peer:
+                description: The address of the peer on a point-to-point network.
+                type: str
+              broadcast:
+                description: The broadcast address of the network.
+                type: str
+              home_address:
+                description: Whether this network is the system's home address.
+                type: bool
+          route:
+            description: A route to be used by the network.
+            type: list
+            elements: dict
+            options:
+              gateway:
+                description: IPv4 or IPv6 address of next-hop router.
+                type: str
+              destination:
+                description: IPv4 or IPv6 subnet which can be reached through gateway.
+                type: str
+              source:
+                description: IPv4 or IPv6 subnet matched against source addresses for selection of this route.
+                type: str
+              metric:
+                description: The route metric.
+                type: str
+              preferred_source:
+                description: IPv4 or IPv6 address to be preferred when sending packets via this route.
+                type: str
+              type:
+                description: Type of route.
+                type: str
+                choices:
+                  - unicast
+                  - local
+                  - broadcast
+                  - anycast
+                  - multicast
+                  - blackhole
+                  - unreachable
+                  - prohibit
+                  - throw
+                  - nat
+                  - xresolve
+              mtu_bytes:
+                description: The MTU to be applied to this route.
+                type: str
+          dhcpv4:
+            description: Attributes of the DHCPv4 client on the network.
+            type: dict
+            options:
+              send_hostname:
+                description: Whether local hostname should be sent to the DHCP server.
+                type: bool
+              hostname:
+                description: Hostname to be sent.
+                type: str
+              client_identifier:
+                description: Method used to construct the Client Identifier.
+                type: str
+                choices:
+                  - mac
+                  - duid
+                  - duid-only
+              use_dns:
+                description: Whether DNS server(s) provided by the DHCP server should be used.
+                type: bool
+              routes_to_dns:
+                description: Whether routes to the provided DNS server(s) should be added to the routing table.
+                type: bool
+              use_ntp:
+                description: Whether NTP server(s) provided by the DHCP server should be used.
+                type: bool
+              routes_to_ntp:
+                description: Whether routes to the provided NTP server(s) should be added to the routing table.
+                type: bool
+              use_hostname:
+                description: Whether the hostname provided by the DHCP server should be used.
+                type: bool
+              use_routes:
+                description: Whether routes provided by the DHCP server should be added to the routing table.
+                type: bool
+              use_gateway:
+                description: Whether the default route provided by the DHCP server should be added to the routing table.
+                type: bool
+              send_release:
+                description: Whether an assigned address should be released when the network is stopped.
+                type: bool
+          dhcpv6:
+            description: Attributes of the DHCPv6 client on the network.
+            type: dict
+            options:
+              use_dns:
+                description: Whether DNS server(s) provided by the DHCP server should be used.
+                type: bool
+              use_ntp:
+                description: Whether NTP server(s) provided by the DHCP server should be used.
+                type: bool
+              without_ra:
+                description: Whether the client should be started even if an RA does not indicate it is needed.
+                type: str
+                choices:
+                  - false
+                  - solicit
+                  - information-request
+          ipv6acceptra:
+            description: Attributes of the IPv6 RA client on the network.
+            type: dict
+            options:
+              token:
+                description: Mode, and pattern, used to generate a SLAAC address.
+                type: str
+              use_dns:
+                description: Whether DNS server(s) provided by the RA should be used.
+                type: bool
+              use_mtu:
+                description: Whether the MTU provided by the RA should be used.
+                type: bool
+              use_gateway:
+                description: Whether the default route provided by the RA should be added to the routing table.
+                type: bool
           match:
             description: Matching attributes of the network.
             type: dict
