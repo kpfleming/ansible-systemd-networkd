@@ -83,6 +83,9 @@ argument_specs:
               - dhcp-on-stop
               - true
               - false
+          ipv6_accept_ra:
+            description: Whether Router Advertisements should be accepted on the network.
+            type: bool
           bind_carrier:
             description: Bind carrier status to other networks.
             type: list

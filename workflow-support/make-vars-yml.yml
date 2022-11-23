@@ -69,6 +69,7 @@
           ipv6_proxy_ndp: IPV6ProxyNDP
           configure_without_carrier: ConfigureWithoutCarrier
           keep_configuration: KeepConfiguration
+          ipv6_accept_ra: IPv6AcceptRA
         network_multi_arguments:
           bind_carrier: BindCarrier
           dns: DNS
