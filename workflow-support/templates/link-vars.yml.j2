@@ -1,26 +1,11 @@
 %YAML 1.2
 ---
-match_system_arguments:
-{% for item in match_system_arguments|dict2items %}
-  {{ item.key }}: {{ item.value }}
-{% endfor %}
+match_system_arguments: {{ match_system_arguments }}
 
-match_device_arguments:
-{% for item in match_device_arguments|dict2items %}
-  {{ item.key }}: {{ item.value }}
-{% endfor %}
+match_device_arguments: {{ match_device_arguments }}
 
-match_device_excludable_arguments:
-{% for item in match_device_excludable_arguments|dict2items %}
-  {{ item.key }}: {{ item.value }}
-{% endfor %}
+match_device_excludable_arguments: {{ match_device_excludable_arguments }}
 
-link_arguments:
-{% for item in link_arguments|dict2items %}
-  {{ item.key }}: {{ item.value }}
-{% endfor %}
+link_arguments: {{ link_arguments }}
 
-link_match_arguments:
-{% for item in link_match_arguments|dict2items %}
-  {{ item.key }}: {{ item.value }}
-{% endfor %}
+link_match_arguments: {{ link_match_arguments }}

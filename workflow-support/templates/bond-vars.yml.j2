@@ -1,16 +1,7 @@
 %YAML 1.2
 ---
-match_system_arguments:
-{% for item in match_system_arguments|dict2items %}
-  {{ item.key }}: {{ item.value }}
-{% endfor %}
+match_system_arguments: {{ match_system_arguments }}
 
-netdev_arguments:
-{% for item in netdev_arguments|dict2items %}
-  {{ item.key }}: {{ item.value }}
-{% endfor %}
+netdev_arguments: {{ netdev_arguments }}
 
-bond_arguments:
-{% for item in bond_arguments|dict2items %}
-  {{ item.key }}: {{ item.value }}
-{% endfor %}
+bond_arguments: {{ bond_arguments }}
