@@ -11,17 +11,31 @@
 [NetDev]
 Name={{ tunnel.name }}
 Kind={{ tunnel.kind }}
-{% for arg, setting in netdev_arguments.items() %}
-{% if arg in tunnel -%}
-{{ setting }}={{ tunnel[arg] }}
+{% if "netdev" in tunnel -%}
+{% for arg, value in tunnel.netdev.items() %}
+{% if value is string or value is integer %}
+{{ netdev_arguments[arg] }}={{ value }}
+{% elif value is boolean %}
+{{ netdev_arguments[arg] }}={{ value|ternary('yes','no') }}
+{% else %}
+{% for v in value %}
+{{ netdev_arguments[arg] }}={{ v }}
+{% endfor %}
 {% endif %}
 {% endfor %}
+{% endif %}
 
 {% if tunnel.kind in ["ipip", "sit", "gre", "gretap", "ip6gre", "ip6gretap", "vti", "vti6", "iptnl"] %}
 [Tunnel]
-{% for arg, setting in tunnel_arguments.items() %}
-{% if arg in tunnel -%}
-{{ setting }}={{ tunnel[arg] }}
+{% for arg, value in tunnel.items() if (arg != 'name') and (value is not mapping) and ((value is not sequence) or (value[0] is not mapping)) %}
+{% if value is string or value is integer  %}
+{{ tunnel_arguments[arg] }}={{ value }}
+{% elif value is boolean %}
+{{ tunnel_arguments[arg] }}={{ value|ternary('yes','no') }}
+{% else %}
+{% for v in value %}
+{{ tunnel_arguments[arg] }}={{ v }}
+{% endfor %}
 {% endif %}
 {% endfor %}
 

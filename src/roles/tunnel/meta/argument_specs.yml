@@ -38,6 +38,44 @@ argument_specs:
             description: The underlying network.
             type: str
             required: true
+          kind:
+            description: Type of tunnel.
+            type: str
+            required: true
+            choices:
+              - gre
+              - gretap
+              - ip6gre
+              - ip6tnl
+              - ip6gretap
+              - ipip
+              - sit
+              - vti
+              - vti6
+              - l2tp
+              - wireguard
+              - fou
+              - xfrm
+              - bareudp
+          local:
+            description: Local address for tunneled packets.
+            type: str
+          remote:
+            description: Remote address for tunneled packets.
+            type: str
+          ttl:
+            description: Time-To-Live for tunneled packets.
+            type: int
+          netdev:
+            description: Attributes of the bond network device.
+            type: dict
+            options:
+              mac_address:
+                description: MAC address to use on the device.
+                type: str
+              mtu_bytes:
+                description: The MTU for the tunnel.
+                type: str
           match:
             description: Matching attributes of the network device.
             type: dict
@@ -78,37 +116,3 @@ argument_specs:
               exclude_firmware:
                 description: Negate 'firmware' match.
                 type: bool
-          kind:
-            description: Type of tunnel.
-            type: str
-            required: true
-            choices:
-              - gre
-              - gretap
-              - ip6gre
-              - ip6tnl
-              - ip6gretap
-              - ipip
-              - sit
-              - vti
-              - vti6
-              - l2tp
-              - wireguard
-              - fou
-              - xfrm
-              - bareudp
-          mtu_bytes:
-            description: The MTU for the tunnel.
-            type: str
-          mac_address:
-            description: The MAC address to be used for the tunnel.
-            type: str
-          local:
-            description: Local address for tunneled packets.
-            type: str
-          remote:
-            description: Remote address for tunneled packets.
-            type: str
-          ttl:
-            description: Time-To-Live for tunneled packets.
-            type: int
