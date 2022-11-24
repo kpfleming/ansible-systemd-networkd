@@ -27,55 +27,74 @@ Property={% if network.exclude_property|default(false) %}!{% endif %}{% for p in
 
 {% endif %}
 {% if "link" in network -%}
-{% set v=network.link %}
 [Link]
-{% for arg, setting in network_link_arguments.items() %}
-{% if arg in v -%}
-{{ setting }}={{ v[arg] }}
+{% for arg, value in network.link.items() %}
+{% if value is string %}
+{{ network_link_arguments[arg] }}={{ value }}
+{% elif value is boolean %}
+{{ network_link_arguments[arg] }}={{ value|ternary('yes','no') }}
+{% else %}
+{% for v in value %}
+{{ network_link_arguments[arg] }}={{ v }}
+{% endfor %}
 {% endif %}
 {% endfor %}
 
 {% endif %}
 [Network]
-{% for arg, setting in network_arguments.items() %}
-{% if arg in network -%}
-{{ setting }}={{ network[arg] }}
-{% endif %}
-{% endfor %}
-{% for arg, setting in network_multi_arguments.items() %}
-{% if arg in network -%}
-{% for v in network[arg] %}
-{{ setting }}={{ v }}
+{% for arg, value in network.items() if (arg != 'name') and (value is not mapping) and ((value is not sequence) or (value[0] is not mapping)) %}
+{% if value is string %}
+{{ network_arguments[arg] }}={{ value }}
+{% elif value is boolean %}
+{{ network_arguments[arg] }}={{ value|ternary('yes','no') }}
+{% else %}
+{% for v in value %}
+{{ network_arguments[arg] }}={{ v }}
 {% endfor %}
 {% endif %}
 {% endfor %}
 
 {% if "dhcpv4" in network -%}
-{% set v=network.dhcpv4 %}
 [DHCPv4]
-{% for arg, setting in network_dhcpv4_arguments.items() %}
-{% if arg in v -%}
-{{ setting }}={{ v[arg] }}
+{% for arg, value in network.dhcpv4.items() %}
+{% if value is string %}
+{{ network_dhcpv4_arguments[arg] }}={{ value }}
+{% elif value is boolean %}
+{{ network_dhcpv4_arguments[arg] }}={{ value|ternary('yes','no') }}
+{% else %}
+{% for v in value %}
+{{ network_dhcpv4_arguments[arg] }}={{ v }}
+{% endfor %}
 {% endif %}
 {% endfor %}
 
 {% endif %}
 {% if "dhcpv6" in network -%}
-{% set v=network.dhcpv6 %}
 [DHCPv6]
-{% for arg, setting in network_dhcpv6_arguments.items() %}
-{% if arg in v -%}
-{{ setting }}={{ v[arg] }}
+{% for arg, value in network.dhcpv6.items() %}
+{% if value is string %}
+{{ network_dhcpv6_arguments[arg] }}={{ value }}
+{% elif value is boolean %}
+{{ network_dhcpv6_arguments[arg] }}={{ value|ternary('yes','no') }}
+{% else %}
+{% for v in value %}
+{{ network_dhcpv6_arguments[arg] }}={{ v }}
+{% endfor %}
 {% endif %}
 {% endfor %}
 
 {% endif %}
 {% if "ipv6acceptra" in network -%}
-{% set v=network.ipv6acceptra %}
 [IPV6AcceptRA]
-{% for arg, setting in network_ipv6acceptra_arguments.items() %}
-{% if arg in v -%}
-{{ setting }}={{ v[arg] }}
+{% for arg, value in network.ipv6acceptra.items() %}
+{% if value is string %}
+{{ network_ipv6acceptra_arguments[arg] }}={{ value }}
+{% elif value is boolean %}
+{{ network_ipv6acceptra_arguments[arg] }}={{ value|ternary('yes','no') }}
+{% else %}
+{% for v in value %}
+{{ network_ipv6acceptra_arguments[arg] }}={{ v }}
+{% endfor %}
 {% endif %}
 {% endfor %}
 
@@ -83,9 +102,15 @@ Property={% if network.exclude_property|default(false) %}!{% endif %}{% for p in
 {% if "addresses" in network -%}
 {% for v in network.addresses -%}
 [Address]
-{% for arg, setting in network_address_arguments.items() %}
-{% if arg in v -%}
-{{ setting }}={{ v[arg] }}
+{% for arg, value in v.items() %}
+{% if value is string %}
+{{ network_address_arguments[arg] }}={{ value }}
+{% elif value is boolean %}
+{{ network_address_arguments[arg] }}={{ value|ternary('yes','no') }}
+{% else %}
+{% for v in value %}
+{{ network_address_arguments[arg] }}={{ v }}
+{% endfor %}
 {% endif %}
 {% endfor %}
 
@@ -94,9 +119,15 @@ Property={% if network.exclude_property|default(false) %}!{% endif %}{% for p in
 {% if "routes" in network -%}
 {% for v in network.routes -%}
 [Route]
-{% for arg, setting in network_route_arguments.items() %}
-{% if arg in v -%}
-{{ setting }}={{ v[arg] }}
+{% for arg, value in v.items() %}
+{% if value is string %}
+{{ network_route_arguments[arg] }}={{ value }}
+{% elif value is boolean %}
+{{ network_route_arguments[arg] }}={{ value|ternary('yes','no') }}
+{% else %}
+{% for v in value %}
+{{ network_route_arguments[arg] }}={{ v }}
+{% endfor %}
 {% endif %}
 {% endfor %}
 

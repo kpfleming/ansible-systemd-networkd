@@ -4,6 +4,7 @@ exclude_paths:
   - .cache
   - .github
   - workflow-support/image_files.yml
+  - "**/vars/main.yml"
 
 skip_list:
   - name[casing]
