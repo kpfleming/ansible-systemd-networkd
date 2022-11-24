@@ -111,8 +111,7 @@ argument_specs:
             elements: str
           link:
             description: Attributes of the link used by the network.
-            type: list
-            elements: dict
+            type: dict
             options:
               mac_address:
                 description: The MAC address to be used for the network.
