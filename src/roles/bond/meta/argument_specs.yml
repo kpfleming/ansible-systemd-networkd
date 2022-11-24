@@ -44,12 +44,6 @@ argument_specs:
             description: Name of the network device.
             type: str
             required: true
-          mac_address:
-            description: MAC address to use on the device.
-            type: str
-          mtu_bytes:
-            description: The MTU for the tunnel.
-            type: str
           mode:
             description: Bonding mode.
             type: str
@@ -88,8 +82,18 @@ argument_specs:
           down_delay_sec:
             description: Delay between the minimum number of members reaching 'link down' and 'link down' being reported for the bond.
             type: str
+          netdev:
+            description: Attributes of the bond network device.
+            type: dict
+            options:
+              mac_address:
+                description: MAC address to use on the device.
+                type: str
+              mtu_bytes:
+                description: The MTU for the tunnel.
+                type: str
           match:
-            description: Matching attributes of the network device.
+            description: Matching attributes of the bond network device.
             type: dict
             options:
               host:

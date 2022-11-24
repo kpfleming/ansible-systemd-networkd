@@ -11,15 +11,29 @@
 [NetDev]
 Name={{ bond.name }}
 Kind=bond
-{% for arg, setting in netdev_arguments.items() %}
-{% if arg in bond -%}
-{{ setting }}={{ bond[arg] }}
+{% if "netdev" in bond -%}
+{% for arg, value in bond.netdev.items() %}
+{% if value is string or value is integer %}
+{{ netdev_arguments[arg] }}={{ value }}
+{% elif value is boolean %}
+{{ netdev_arguments[arg] }}={{ value|ternary('yes','no') }}
+{% else %}
+{% for v in value %}
+{{ netdev_arguments[arg] }}={{ v }}
+{% endfor %}
 {% endif %}
 {% endfor %}
+{% endif %}
 
 [Bond]
-{% for arg, setting in bond_arguments.items() %}
-{% if arg in bond -%}
-{{ setting }}={{ bond[arg] }}
+{% for arg, value in bond.items() if (arg != 'name') and (value is not mapping) and ((value is not sequence) or (value[0] is not mapping)) %}
+{% if value is string or value is integer  %}
+{{ bond_arguments[arg] }}={{ value }}
+{% elif value is boolean %}
+{{ bond_arguments[arg] }}={{ value|ternary('yes','no') }}
+{% else %}
+{% for v in value %}
+{{ bond_arguments[arg] }}={{ v }}
+{% endfor %}
 {% endif %}
 {% endfor %}
