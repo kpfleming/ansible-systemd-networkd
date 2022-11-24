@@ -29,7 +29,7 @@ Property={% if network.exclude_property|default(false) %}!{% endif %}{% for p in
 {% if "link" in network -%}
 [Link]
 {% for arg, value in network.link.items() %}
-{% if value is string %}
+{% if value is string or value is integer %}
 {{ network_link_arguments[arg] }}={{ value }}
 {% elif value is boolean %}
 {{ network_link_arguments[arg] }}={{ value|ternary('yes','no') }}
@@ -43,7 +43,7 @@ Property={% if network.exclude_property|default(false) %}!{% endif %}{% for p in
 {% endif %}
 [Network]
 {% for arg, value in network.items() if (arg != 'name') and (value is not mapping) and ((value is not sequence) or (value[0] is not mapping)) %}
-{% if value is string %}
+{% if value is string or value is integer %}
 {{ network_arguments[arg] }}={{ value }}
 {% elif value is boolean %}
 {{ network_arguments[arg] }}={{ value|ternary('yes','no') }}
@@ -57,7 +57,7 @@ Property={% if network.exclude_property|default(false) %}!{% endif %}{% for p in
 {% if "dhcpv4" in network -%}
 [DHCPv4]
 {% for arg, value in network.dhcpv4.items() %}
-{% if value is string %}
+{% if value is string or value is integer %}
 {{ network_dhcpv4_arguments[arg] }}={{ value }}
 {% elif value is boolean %}
 {{ network_dhcpv4_arguments[arg] }}={{ value|ternary('yes','no') }}
@@ -72,7 +72,7 @@ Property={% if network.exclude_property|default(false) %}!{% endif %}{% for p in
 {% if "dhcpv6" in network -%}
 [DHCPv6]
 {% for arg, value in network.dhcpv6.items() %}
-{% if value is string %}
+{% if value is string or value is integer %}
 {{ network_dhcpv6_arguments[arg] }}={{ value }}
 {% elif value is boolean %}
 {{ network_dhcpv6_arguments[arg] }}={{ value|ternary('yes','no') }}
@@ -87,7 +87,7 @@ Property={% if network.exclude_property|default(false) %}!{% endif %}{% for p in
 {% if "ipv6acceptra" in network -%}
 [IPV6AcceptRA]
 {% for arg, value in network.ipv6acceptra.items() %}
-{% if value is string %}
+{% if value is string or value is integer %}
 {{ network_ipv6acceptra_arguments[arg] }}={{ value }}
 {% elif value is boolean %}
 {{ network_ipv6acceptra_arguments[arg] }}={{ value|ternary('yes','no') }}
@@ -103,7 +103,7 @@ Property={% if network.exclude_property|default(false) %}!{% endif %}{% for p in
 {% for v in network.addresses -%}
 [Address]
 {% for arg, value in v.items() %}
-{% if value is string %}
+{% if value is string or value is integer %}
 {{ network_address_arguments[arg] }}={{ value }}
 {% elif value is boolean %}
 {{ network_address_arguments[arg] }}={{ value|ternary('yes','no') }}
@@ -120,7 +120,7 @@ Property={% if network.exclude_property|default(false) %}!{% endif %}{% for p in
 {% for v in network.routes -%}
 [Route]
 {% for arg, value in v.items() %}
-{% if value is string %}
+{% if value is string or value is integer %}
 {{ network_route_arguments[arg] }}={{ value }}
 {% elif value is boolean %}
 {{ network_route_arguments[arg] }}={{ value|ternary('yes','no') }}
