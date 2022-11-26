@@ -26,7 +26,7 @@ Kind=bond
 {% endif %}
 
 [Bond]
-{% for arg, value in bond.items() if (arg != 'name') and (value is not mapping) and ((value is not sequence) or (value[0] is not mapping)) %}
+{% for arg, value in bond.items() if arg in bond_arguments.keys() %}
 {% if value is string or value is integer  %}
 {{ bond_arguments[arg] }}={{ value }}
 {% elif value is boolean %}

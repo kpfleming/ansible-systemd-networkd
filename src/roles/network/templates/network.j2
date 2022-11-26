@@ -42,7 +42,7 @@ Property={% if network.exclude_property|default(false) %}!{% endif %}{% for p in
 
 {% endif %}
 [Network]
-{% for arg, value in network.items() if (arg != 'name') and (value is not mapping) and ((value is not sequence) or (value[0] is not mapping)) %}
+{% for arg, value in network.items() if arg in network_arguments.keys() %}
 {% if value is string or value is integer %}
 {{ network_arguments[arg] }}={{ value }}
 {% elif value is boolean %}
