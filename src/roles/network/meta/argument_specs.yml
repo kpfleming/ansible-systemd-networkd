@@ -281,98 +281,64 @@ argument_specs:
             description: Matching attributes of the network.
             type: dict
             options:
-              mac_address:
-                description: Match current MAC address.
-                type: list
-                elements: str
-              permanent_mac_address:
-                description: Match permanent MAC address.
-                type: list
-                elements: str
-              path:
-                description: Match udev ID_PATH.
-                type: list
-                elements: str
-              driver:
-                description: Match udev ID_NET_DRIVER.
-                type: list
-                elements: str
-              exclude_driver:
-                description: Negate 'driver' match.
-                type: bool
-              type:
-                description: Match udev DEVTYPE.
-                type: list
-                elements: str
-              exclude_type:
-                description: Negate 'type' match.
-                type: bool
-              kind:
-                description: Match netlink IFLA_INFO_KIND.
-                type: list
-                elements: str
-              exclude_kind:
-                description: Negate 'kind' match.
-                type: bool
-              property:
-                description: Match udev property.
-                type: list
-                elements: dict
+              device:
+                description: Device-specific attributes to be matched.
+                type: dict
                 options:
+                  driver:
+                    description: Match udev ID_NET_DRIVER.
+                    type: list
+                    elements: str
+                  kind:
+                    description: Match netlink IFLA_INFO_KIND.
+                    type: list
+                    elements: str
+                  mac_address:
+                    description: Match current MAC address.
+                    type: list
+                    elements: str
                   name:
-                    description: Property name.
+                    description: Match udev INTERFACE.
+                    type: list
+                    elements: str
+                  path:
+                    description: Match udev ID_PATH.
+                    type: list
+                    elements: str
+                  permanent_mac_address:
+                    description: Match permanent MAC address.
+                    type: list
+                    elements: str
+                  property:
+                    description: Match udev property.
+                    type: list
+                    elements: str
+                  type:
+                    description: Match udev DEVTYPE.
+                    type: list
+                    elements: str
+              system:
+                description: System-specific attributes to be matched.
+                type: dict
+                options:
+                  architecture:
+                    description: Match system architecture.
                     type: str
-                    required: true
-                  value:
-                    description: Property value.
+                  credential:
+                    description: Match service credential.
                     type: str
-                    required: true
-              exclude_property:
-                description: Negate 'property' matches.
-                type: bool
-              name:
-                description: Match udev INTERFACE.
-                type: list
-                elements: str
-              host:
-                description: Match hostname or machine ID.
-                type: str
-              exclude_host:
-                description: Negate 'host' match.
-                type: bool
-              virtualization:
-                description: Match virtualization type.
-                type: str
-              exclude_virtualization:
-                description: Negate 'virtualization' match.
-                type: bool
-              kernel_command_line:
-                description: Match kernel command line option presence.
-                type: str
-              exclude_kernel_command_line:
-                description: Negate 'kernel_command_line' match.
-                type: bool
-              kernel_version:
-                description: Match kernel version expression.
-                type: str
-              exclude_kernel_version:
-                description: Negate 'kernel_version' match.
-                type: bool
-              credential:
-                description: Match service credential.
-                type: str
-              exclude_credential:
-                description: Negate 'credential' match.
-                type: bool
-              architecture:
-                description: Match system architecture.
-                type: str
-              exclude_architecture:
-                description: Negate 'architecture' match.
-                type: bool
-              firmware:
-                description: Match system firmware.
-                type: str
-              exclude_firmware:
-                description: Negate 'firmware' match.
-                type: bool
+                  firmware:
+                    description: Match system firmware.
+                    type: str
+                  host:
+                    description: Match hostname or machine ID.
+                    type: str
+                  kernel_command_line:
+                    description: Match kernel command line option presence.
+                    type: str
+                  kernel_version:
+                    description: Match kernel version expression.
+                    type: str
+                  virtualization:
+                    description: Match virtualization type.
+                    type: str

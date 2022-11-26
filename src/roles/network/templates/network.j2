@@ -1,28 +1,29 @@
 {% if "match" in network -%}
-{% set v=network.match %}
+{% set m=network.match %}
 [Match]
-{% for arg, setting in network_match_arguments.items() %}
-{% if arg in v -%}
-{{ setting }}={{ v[arg] }}
+{% if "device" in m -%}
+{% for arg, value in m.device.items() %}
+{% if value is string or value is integer  %}
+{{ match_device_arguments[arg] }}={{ value }}
+{% elif value is boolean %}
+{{ match_device_arguments[arg] }}={{ value|ternary('yes','no') }}
+{% else %}
+{{ match_device_arguments[arg] }}={{ value|join(' ') }}
 {% endif %}
 {% endfor %}
-{% for arg, setting in match_system_arguments.items() %}
-{% if arg in v -%}
-{{ setting }}={% if v["exclude_" + arg]|default(false) %}!{% endif %}{{ v[arg] }}
+{% endif %}
+{% if "system" in m -%}
+{% for arg, value in m.system.items() %}
+{% if value is string or value is integer  %}
+{{ match_system_arguments[arg] }}={{ value }}
+{% elif value is boolean %}
+{{ match_system_arguments[arg] }}={{ value|ternary('yes','no') }}
+{% else %}
+{% for v in value %}
+{{ match_system_arguments[arg] }}={{ v }}
+{% endfor %}
 {% endif %}
 {% endfor %}
-{% for arg, setting in match_device_arguments.items() %}
-{% if arg in v -%}
-{{ setting }}={{ v[arg] }}
-{% endif %}
-{% endfor %}
-{% for arg, setting in match_device_excludable_arguments.items() %}
-{% if arg in v -%}
-{{ setting }}={% if v["exclude_" + arg]|default(false) %}!{% endif %}{{ v[arg] }}
-{% endif %}
-{% endfor %}
-{% if "property" in v -%}
-Property={% if network.exclude_property|default(false) %}!{% endif %}{% for p in v.property %}"{{ p.name }}={{ p.value }}"{% endfor %}
 {% endif %}
 
 {% endif %}

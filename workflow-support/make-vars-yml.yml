@@ -23,97 +23,94 @@
         - [vlan-vars.yml.j2, vlan/vars/main.yml]
       vars:
         match_system_arguments:
+          architecture: Architecture
+          credential: Credential
+          firmware: Firmware
           host: Host
-          virtualization: Virtualization
           kernel_command_line: KernelCommandLine
           kernel_version: KernelVersion
-          architecture: Architecture
-          firmware: Firmware
+          virtualization: Virtualization
         match_device_arguments:
-          mac_address: MACAddress
-          permanent_mac_address: PermanentMACAddress
-          path: Path
-        match_device_excludable_arguments:
           driver: Driver
-          type: Type
           kind: Kind
-          credential: Credential
+          mac_address: MACAddress
+          name: Name
+          original_name: OriginalName
+          path: Path
+          permanent_mac_address: PermanentMACAddress
+          type: Type
         netdev_arguments:
           mac_address: MACAddress
           mtu_bytes: MTUBytes
         bond_arguments:
+          down_delay_sec: DownDelaySec
+          lacp_transmit_rate: LACPTransmitRate
+          mii_monitor_sec: MIIMonitorSec
+          min_links: MinLinks
           mode: Mode
           transmit_hash_policy: TransmitHashPolicy
-          mii_monitor_sec: MIIMonitorSec
           up_delay_sec: UpDelaySec
-          down_delay_sec: DownDelaySec
-          min_links: MinLinks
-          lacp_transmit_rate: LACPTransmitRate
         tunnel_arguments:
           local: Local
           remote: Remote
           ttl: TTL
         link_arguments:
-          name: Name
           mac_address_policy: MACAddressPolicy
-          name_policy: NamePolicy
           mtu_bytes: MTUBytes
-        link_match_arguments:
-          original_name: OriginalName
+          name: Name
+          name_policy: NamePolicy
         network_arguments:
+          bind_carrier: BindCarrier
+          configure_without_carrier: ConfigureWithoutCarrier
           dhcp: DHCP
-          link_local_addressing: LinkLocalAddressing
-          lldp: LLDP
+          dns: DNS
           emit_lldp: EmitLLDP
           ip_forward: IPForward
-          ipv6_proxy_ndp: IPv6ProxyNDP
-          configure_without_carrier: ConfigureWithoutCarrier
-          keep_configuration: KeepConfiguration
           ipv6_accept_ra: IPv6AcceptRA
-          bind_carrier: BindCarrier
-          dns: DNS
-          ntp: NTP
+          ipv6_proxy_ndp: IPv6ProxyNDP
           ipv6_proxy_ndp_address: IPv6ProxyNDPAddress
-        network_match_arguments:
-          name: Name
+          keep_configuration: KeepConfiguration
+          link_local_addressing: LinkLocalAddressing
+          lldp: LLDP
+          ntp: NTP
         network_link_arguments:
+          activation_policy: ActivationPolicy
           mac_address: MACAddress
           mtu_bytes: MTUBytes
           required_for_online: RequiredForOnline
-          activation_policy: ActivationPolicy
         network_address_arguments:
           address: Address
-          peer: Peer
           broadcast: Broadcast
           home_address: HomeAddress
+          peer: Peer
         network_route_arguments:
-          gateway: Gateway
           destination: Destination
+          gateway: Gateway
+          metric: Metric
+          mtu_bytes: MTUBytes
+          preferred_source: PreferredSource
           scope: Scope
           source: Source
-          metric: Metric
-          preferred_source: PreferredSource
           type: Type
-          mtu_bytes: MTUBytes
         network_dhcpv4_arguments:
-          send_hostname: SendHostname
-          hostname: Hostname
           client_identifier: ClientIdentifier
-          use_dns: UseDNS
+          hostname: Hostname
           routes_to_dns: RoutesToDNS
-          use_ntp: UseNTP
           routes_to_ntp: RoutesToNTP
-          use_hostname: UseHostname
-          use_routes: UseRoutes
-          use_gateway: UseGateway
+          send_hostname: SendHostname
           send_release: SendRelease
+          use_dns: UseDNS
+          use_gateway: UseGateway
+          use_hostname: UseHostname
+          use_ntp: UseNTP
+          use_routes: UseRoutes
         network_dhcpv6_arguments:
           use_dns: UseDNS
-          use_ntp: UseNTP
           use_hostname: UseHostname
+          use_ntp: UseNTP
           without_ra: WithoutRA
         network_ipv6acceptra_arguments:
           token: Token
           use_dns: UseDNS
-          use_mtu: UseMTU
           use_gateway: UseGateway
+          use_mtu: UseMTU
