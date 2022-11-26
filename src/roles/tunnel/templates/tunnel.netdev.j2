@@ -27,7 +27,7 @@ Kind={{ tunnel.kind }}
 
 {% if tunnel.kind in ["ipip", "sit", "gre", "gretap", "ip6gre", "ip6gretap", "vti", "vti6", "iptnl"] %}
 [Tunnel]
-{% for arg, value in tunnel.items() if (arg != 'name') and (value is not mapping) and ((value is not sequence) or (value[0] is not mapping)) %}
+{% for arg, value in tunnel.items() if (arg not in ['name','underlying_name', 'kind']) and (value is not mapping) and ((value is not sequence) or (value[0] is not mapping)) %}
 {% if value is string or value is integer  %}
 {{ tunnel_arguments[arg] }}={{ value }}
 {% elif value is boolean %}
