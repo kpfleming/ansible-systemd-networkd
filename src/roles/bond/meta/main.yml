@@ -2,10 +2,10 @@
 ---
 galaxy_info:
   author: Kevin P, Fleming <kevin@km6g.us> @kpfleming:irc/libera.chat
-  description:  Role to manage configuration of 'bond' devices in systemd-networkd.
+  description: Role to manage configuration of 'bond' devices in systemd-networkd.
   license: Apache-2.0
   issue_tracker_url: https://github.com/kpfleming/ansible-systemd-networkd/issues
-  min_ansible_version: 6.0
+  min_ansible_version: "6.0"
   platforms:
     - name: GenericLinux
       versions:
