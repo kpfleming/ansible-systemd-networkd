@@ -14,10 +14,13 @@ Open Source software: [Apache License 2.0](https://spdx.org/licenses/Apache-2.0.
 ## Included content
 
 * Roles:
-  - kpfleming.systemd_networkd.bond: manage bond virtual devices
-  - kpfleming.systemd_networkd.dummy: manage dummy virtual devices
-  - kpfleming.systemd_networkd.tunnel: manage tunnel virtual devices
-  - kpfleming.systemd_networkd.vlan: manage VLAN virtual devices
+  - [kpfleming.systemd_networkd.bond](src/roles/docs.bond.md): manage bond virtual devices
+  - [kpfleming.systemd_networkd.dummy](src/roles/docs.dummy.md): manage dummy virtual devices
+  - [kpfleming.systemd_networkd.link](src/roles/docs.link.md): manage links
+  - [kpfleming.systemd_networkd.network](src/roles/docs.network.md): manage network devices
+  - [kpfleming.systemd_networkd.tunnel](src/roles/docs.tunnel.md): manage tunnel virtual devices
+  - [kpfleming.systemd_networkd.vlan](src/roles/docs.vlan.md): manage vlan virtual devices
+
 
 ## Using this collection
 
@@ -37,9 +40,11 @@ collections:
 
 See [Ansible Using collections](https://docs.ansible.com/ansible/latest/user_guide/collections_using.html) for more details.
 
+
 ## Examples
 
 TBD
+
 
 ## Contributing to this collection
 
@@ -53,6 +58,7 @@ You can find more information in the [developer guide for
 collections](https://docs.ansible.com/ansible/devel/dev_guide/developing_collections.html#contributing-to-collections),
 and in the [Ansible Community
 Guide](https://docs.ansible.com/ansible/latest/community/index.html).
+
 
 ## More information
 
