@@ -3,10 +3,10 @@
 exclude_paths:
   - .cache
   - .github
-  - workflow-support/image_files.yml
   - "**/vars/main.yml"
 
 skip_list:
+  - experimental
   - name[casing]
   - name[play]
   - no-changed-when

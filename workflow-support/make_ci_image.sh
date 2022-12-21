@@ -8,7 +8,7 @@ image_name=${1}; shift
 
 lint_deps=(shellcheck)
 
-c=$(buildah from "${base_image}":bullseye-main)
+c=$(buildah from "${base_image}")
 
 buildcmd() {
     buildah run --network host "${c}" -- "$@"
