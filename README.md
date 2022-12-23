@@ -14,12 +14,12 @@ Open Source software: [Apache License 2.0](https://spdx.org/licenses/Apache-2.0.
 ## Included content
 
 * Roles:
-  - [kpfleming.systemd_networkd.bond](src/docs/bond.md): manage bond virtual devices
-  - [kpfleming.systemd_networkd.dummy](src/docs/dummy.md): manage dummy virtual devices
-  - [kpfleming.systemd_networkd.link](src/docs/link.md): manage links
-  - [kpfleming.systemd_networkd.network](src/docs/network.md): manage network devices
-  - [kpfleming.systemd_networkd.tunnel](src/docs/tunnel.md): manage tunnel virtual devices
-  - [kpfleming.systemd_networkd.vlan](src/docs/vlan.md): manage vlan virtual devices
+  - [kpfleming.systemd_networkd.bond](src/roles/bond/README.md): manage bond virtual devices
+  - [kpfleming.systemd_networkd.dummy](src/roles/dummy/README.md): manage dummy virtual devices
+  - [kpfleming.systemd_networkd.link](src/roles/link/README.md): manage links
+  - [kpfleming.systemd_networkd.network](src/roles/network/README.md): manage network devices
+  - [kpfleming.systemd_networkd.tunnel](src/roles/tunnel/README.md): manage tunnel virtual devices
+  - [kpfleming.systemd_networkd.vlan](src/roles/vlan/README.md): manage vlan virtual devices
 
 ## Features of this collection
 
