@@ -21,6 +21,11 @@ Open Source software: [Apache License 2.0](https://spdx.org/licenses/Apache-2.0.
   - [kpfleming.systemd_networkd.tunnel](src/docs/tunnel.md): manage tunnel virtual devices
   - [kpfleming.systemd_networkd.vlan](src/docs/vlan.md): manage vlan virtual devices
 
+## Features of this collection
+
+* argument validation
+* composition
+* use of drop-in directories
 
 ## Using this collection
 
@@ -43,7 +48,144 @@ See [Ansible Using collections](https://docs.ansible.com/ansible/latest/user_gui
 
 ## Examples
 
-TBD
+This playbook example combines six of the roles in this collection. It features:
+
+* Renaming of two NICs (matched using their PCI paths) and bonding them using
+  802.3ad (LACP).
+* Two VLANs on top of of the bonded interface.
+* A SIT (IPv6-in-IPv4) tunnel on top of one of the VLANs.
+* Three dummy interfaces used for application addresses.
+* Various attributes and features of the 'network' role.
+
+```yaml
+- name: manage bond devices
+  ansible.builtin.include_role:
+    name: kpfleming.systemd_networkd.bond
+    vars:
+      bonds:
+        - name: transport
+          mode: 802.3ad
+          transmit_hash_policy: layer2+3
+          mii_monitor_sec: 1s
+          up_delay_sec: 5s
+          min_links: 1
+          members:
+            - device:
+                path: pci-0000:01:00.0
+            - device:
+                path: pci-0000:02:00.0
+
+- name: manage VLAN devices
+  ansible.builtin.include_role:
+    name: kpfleming.systemd_networkd.vlan
+    vars:
+      vlans:
+        - name: fios
+          underlying_name: transport
+          id: 3000
+        - name: corosync
+          underlying_name: transport
+          id: 101
+
+- name: manage tunnel devices
+  ansible.builtin.include_role:
+    name: kpfleming.systemd_networkd.tunnel
+    vars:
+      tunnels:
+        - name: hetunnel
+          underlying_name: fios
+          kind: sit
+          local: dhcp4
+          remote: 209.51.161.14
+          ttl: 255
+          netdev:
+            mtu_bytes: 1480
+
+- name: manage dummy devices
+  ansible.builtin.include_role:
+    name: kpfleming.systemd_networkd.dummy
+    vars:
+      dummies:
+        - name: mgmt
+        - name: ntp
+        - name: dns
+
+- name: manage networks
+  ansible.builtin.include_role:
+    name: kpfleming.systemd_networkd.network
+    vars:
+      networks:
+        - name: transport
+          match:
+            device:
+              name: transport
+          ip_forward: true
+          ntp:
+            - 2001:470:8afe:255::1
+          addresses:
+            - address: 192.168.121.3/24
+        - name: mgmt
+          match:
+            device:
+              name: mgmt
+          addresses:
+            - address: 192.168.120.3/32
+            - address: 2001:470:8afe:120::3/128
+              home_address: true
+        - name: dns
+          match:
+            device:
+              name: dns
+          link:
+            activation_policy: manual
+          addresses:
+            - address: 192.168.255.2/32
+            - address: 2001:470:8afe:255::2/128
+        - name: ntp
+          match:
+            device:
+              name: ntp
+          link:
+            activation_policy: manual
+          addresses:
+            - address: 192.168.255.1/32
+            - address: 2001:470:8afe:255::1/128
+        - name: corosync
+          match:
+            device:
+              name: corosync
+          link:
+            activation_policy: always-up
+          dhcp: false
+          configure_without_carrier: true
+          link_local_addressing: false
+          addresses:
+            - address: 192.168.101.3/24
+        - name: fios
+          match:
+            device:
+              name: fios
+          link:
+            activation_policy: manual
+            mac_address: 56:a2:d0:4b:bb:1f
+          dhcp: ipv4
+          ip_forward: true
+          link_local_addressing: false
+          dhcpv4:
+            use_hostname: false
+            send_release: false
+        - name: hetunnel
+          match:
+            device:
+              name: hetunnel
+          ip_forward: true
+          bind_carrier:
+            - fios
+          addresses:
+            - address: 2001:470:1f06:fab::2/64
+          routes:
+            - gateway: 2001:470:1f06:fab::1
+```
 
 
 ## Contributing to this collection
