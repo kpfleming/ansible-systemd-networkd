@@ -34,7 +34,6 @@ jobs:
     outputs:
       image_base: ${{ steps.details.outputs.image_base }}
       image_tag: ${{ steps.preflight.outputs.image_tag }}
-      versions: ${{ steps.get_versions.outputs.versions }}
     steps:
     - id: details
       uses: kpfleming/composite-actions/image-details@main
