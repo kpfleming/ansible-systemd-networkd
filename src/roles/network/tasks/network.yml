@@ -17,7 +17,7 @@
 
 - name: manage network dropin
   when: dropin_for is defined
-  register: _network
+  register: _network_dropin
   notify: "{{ ansible_role_name ~ ' : reload' }}"
   ansible.builtin.template:
     src: network.j2
@@ -26,4 +26,4 @@
 
 - name: set fact to indicate result
   ansible.builtin.set_fact:
-    systemd_networkd_network_changed: "{{ systemd_networkd_network_changed|default(false) or _network.changed }}"
+    systemd_networkd_network_changed: "{{ systemd_networkd_network_changed|default(false) or _network.changed or _network_dropin.changed }}"
