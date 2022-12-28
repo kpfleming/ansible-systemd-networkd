@@ -40,6 +40,14 @@
         file: "{{ collection_dir ~ '/galaxy.yml' }}"
         name: details
 
+    - name: Build the collection.
+      ansible.builtin.command:
+        chdir: "{{ collection_dir }}"
+        argv:
+          - ansible-galaxy
+          - collection
+          - build
+
     - name: Publish the collection.
       ansible.builtin.command:
         argv:
