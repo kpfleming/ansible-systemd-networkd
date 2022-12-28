@@ -1,7 +1,7 @@
 <!-- BEGIN_ANSIBLE_DOCS -->
 # Ansible Role: kpfleming.systemd_networkd.tunnel
 ---
-Version: main
+Version: 0.0.0
 
 Role to manage configuration of 'tunnel' devices in systemd-networkd.
 

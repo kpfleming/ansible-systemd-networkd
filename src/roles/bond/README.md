@@ -1,7 +1,7 @@
 <!-- BEGIN_ANSIBLE_DOCS -->
 # Ansible Role: kpfleming.systemd_networkd.bond
 ---
-Version: main
+Version: 0.0.0
 
 Role to manage configuration of 'bond' devices in systemd-networkd.
 

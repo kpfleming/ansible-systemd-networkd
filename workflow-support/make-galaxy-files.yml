@@ -5,14 +5,18 @@
   gather_facts: false
 
   vars:
-    tag: 0.0.0
+    tag: "{{ lookup('env','TAG') }}"
     collection_dir: ../src
     ansible_python_interpreter: python
 
-  tasks:
-    - ansible.builtin.debug:
-        var: ansible_python_interpreter
+  pre_tasks:
+    - name: Ensure the TAG environment variable is set.
+      ansible.builtin.assert:
+        that:
+          - lookup('env','TAG') != ''
+        fail_msg: TAG is not set.
 
+  tasks:
     - name: Template out the galaxy.yml file.
       ansible.builtin.template:
         src: templates/galaxy.yml.j2

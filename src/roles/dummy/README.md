@@ -1,7 +1,7 @@
 <!-- BEGIN_ANSIBLE_DOCS -->
 # Ansible Role: kpfleming.systemd_networkd.dummy
 ---
-Version: main
+Version: 0.0.0
 
 Role to manage configuration of 'dummy' devices in systemd-networkd.
 

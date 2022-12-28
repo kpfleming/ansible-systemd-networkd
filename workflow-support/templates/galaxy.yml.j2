@@ -1,6 +1,6 @@
 namespace: kpfleming
 name: systemd_networkd
-version: {{ tag }}
+version: {{ "0.0.0" if tag == "main" else tag }}
 readme: README.md
 authors:
 - Kevin P, Fleming <kevin@km6g.us> @kpfleming:irc/libera.chat
