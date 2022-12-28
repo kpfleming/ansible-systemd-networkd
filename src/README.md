@@ -192,27 +192,15 @@ This playbook example combines six of the roles in this collection. It features:
             - gateway: 2001:470:1f06:fab::1
 ```
 
+## Contributing to this collection, or reporting issues
 
-## Contributing to this collection
-
-If you want to develop new content for this collection or improve what
-is already here, the easiest way to work on the collection is to clone
-it into one of the configured
-[`COLLECTIONS_PATH`](https://docs.ansible.com/ansible/latest/reference_appendices/config.html#collections-paths),
-and work on it there.
-
-You can find more information in the [developer guide for
-collections](https://docs.ansible.com/ansible/devel/dev_guide/developing_collections.html#contributing-to-collections),
-and in the [Ansible Community
-Guide](https://docs.ansible.com/ansible/latest/community/index.html).
+This collection is developed in
+[this](https://github.com/kpfleming/ansible-systemd-networkd)
+repository on GitHub. Issues can be reported in the [issue
+tracker](https://github.com/kpfleming/ansible-systemd-networkd/issues).
 
 ## More information
 
 Open Source software: [Apache License 2.0](https://spdx.org/licenses/Apache-2.0.html)
 
 Role documentation generated using [ansible-role-docs](https://gitlab.com/kpfleming/ansible-role-docs).
-
-- [Ansible Collection overview](https://github.com/ansible-collections/overview)
-- [Ansible User guide](https://docs.ansible.com/ansible/latest/user_guide/index.html)
-- [Ansible Developer guide](https://docs.ansible.com/ansible/latest/dev_guide/index.html)
-- [Ansible Collections Checklist](https://github.com/ansible-collections/overview/blob/master/collection_requirements.rst)
