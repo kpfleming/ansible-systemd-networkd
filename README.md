@@ -23,9 +23,29 @@ Open Source software: [Apache License 2.0](https://spdx.org/licenses/Apache-2.0.
 
 ## Features of this collection
 
-* argument validation
-* composition
-* use of drop-in directories
+* Ansible-style arguments with extensive validation
+
+  systemd's argument naming format is not compatible with Ansible best practices, so these roles
+  use Ansible-style names and translate them when producing configuration files for systemd-networkd.
+  For example, 'MACAddress' (systemd) becomes 'mac_address' (Ansible), 'IPv6ProxyNDPAddress' (systemd)
+  becomes 'ipv6_proxy_ndp_address' (Ansible), etc.
+
+  In addition Ansible's role `argument_specs` feature is used to fully document and validate all
+  arguments passed to the roles, ensuring that configuration errors are discovered before the roles
+  generate configuration files. The documentation linked in the 'Included content' section above is generated
+  from the `argument_specs`.
+
+* Composition (one role per networkd object, usually)
+
+  Rather than providing a higher-level abstraction of a 'network' with all of its possible configuration
+  options, these roles provide direct access to the systemd-networkd objects so that the user can configure
+  and compose them in any way that they wish. See the 'Examples' section below for a complex real-world
+  configuration.
+
+* Use of drop-in directories
+
+  In order to avoid multiple roles attempting to manage content in the same files, all of the roles make
+  use of the systemd-networkd 'drop-in directory' feature where it is applicable.
 
 ## Using this collection
 
@@ -44,7 +64,6 @@ collections:
 ```
 
 See [Ansible Using collections](https://docs.ansible.com/ansible/latest/user_guide/collections_using.html) for more details.
-
 
 ## Examples
 
@@ -203,6 +222,8 @@ Guide](https://docs.ansible.com/ansible/latest/community/index.html).
 
 
 ## More information
+
+Role documentation generated using [ansible-role-docs](https://gitlab.com/kpfleming/ansible-role-docs).
 
 - [Ansible Collection overview](https://github.com/ansible-collections/overview)
 - [Ansible User guide](https://docs.ansible.com/ansible/latest/user_guide/index.html)
