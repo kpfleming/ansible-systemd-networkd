@@ -1,7 +1,7 @@
 <!-- BEGIN_ANSIBLE_DOCS -->
 # Ansible Role: kpfleming.systemd_networkd.vlan
 ---
-Version: 0.0.0
+Version: main
 
 Role to manage configuration of 'vlan' devices in systemd-networkd.
 

@@ -18,3 +18,9 @@
         src: templates/galaxy.yml.j2
         dest: "{{ collection_dir ~ '/galaxy.yml' }}"
         mode: u=rw,go=r
+
+    - name: Template out the Galaxy README file.
+      ansible.builtin.template:
+        src: templates/galaxy-readme.md.j2
+        dest: "{{ collection_dir ~ '/README.md' }}"
+        mode: u=rw,go=r
