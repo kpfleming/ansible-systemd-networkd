@@ -1,7 +1,7 @@
 <!-- BEGIN_ANSIBLE_DOCS -->
 # Ansible Role: kpfleming.systemd_networkd.network
 ---
-Version: 0.0.0
+Version: 0.9.6
 
 Role to manage configuration of 'network' devices in systemd-networkd.
 
