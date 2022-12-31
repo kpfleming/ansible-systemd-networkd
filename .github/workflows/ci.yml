@@ -4,13 +4,6 @@ on:
   push:
     branches:
     - main
-    paths:
-    - 'src/**.yml'
-    - 'tox.ini'
-    - 'workflow-support/make-vars-yml.yml'
-    - 'workflow-support/templates/*-vars.yml.j2'
-    - 'workflow-support/make_ci_image.sh'
-    - '.github/workflows/ci.yml'
   pull_request:
     types:
     - opened
@@ -18,13 +11,6 @@ on:
     - synchronize
     branches:
     - main
-    paths:
-    - 'src/**.yml'
-    - 'tox.ini'
-    - 'workflow-support/make-vars-yml.yml'
-    - 'workflow-support/templates/*-vars.yml.j2'
-    - 'workflow-support/make_ci_image.sh'
-    - '.github/workflows/ci.yml'
   schedule:
     - cron: "35 4 * * 6"
 
@@ -40,10 +26,19 @@ jobs:
       with:
         base_image: python:bullseye-main
     - uses: actions/checkout@v3
+    - id: paths
+      uses: dorny/paths-filter@v2
+      with:
+        filters: |
+          paths:
+          - 'tox.ini'
+          - 'workflow-support/make_ci_image.sh'
+          - '.github/workflows/ci.yml'
     - id: preflight
+      if: (github.event_name != 'pull_request') || (steps.paths.outputs.path == 'true')
       uses: kpfleming/composite-actions/ci-preflight@main
       with:
-        files_hash: ${{ hashfiles('tox.ini', 'workflow-support/make_ci_image.sh') }}
+        files_hash: ${{ hashfiles('tox.ini', 'workflow-support/make_ci_image.sh', '.github/workflows/ci.yml') }}
         base_image_hash: ${{ steps.details.outputs.base_image_hash }}
     - id: make-ci-image
       uses: kpfleming/composite-actions/make-ci-image@main
