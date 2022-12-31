@@ -35,7 +35,7 @@ jobs:
           - 'workflow-support/make_ci_image.sh'
           - '.github/workflows/ci.yml'
     - id: preflight
-      if: (github.event_name != 'pull_request') || (steps.paths.outputs.path == 'true')
+      if: (github.event_name != 'pull_request') || (steps.paths.outputs.paths == 'true')
       uses: kpfleming/composite-actions/ci-preflight@main
       with:
         files_hash: ${{ hashfiles('tox.ini', 'workflow-support/make_ci_image.sh', '.github/workflows/ci.yml') }}

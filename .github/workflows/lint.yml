@@ -33,4 +33,4 @@ jobs:
           - 'workflow-support/templates/*-vars.yml.j2'
           - '.github/workflows/lint.yml'
     - uses: kpfleming/composite-actions/lint-tox@main
-      if: steps.paths.outputs.path == 'true'
+      if: steps.paths.outputs.paths == 'true'
