@@ -4,13 +4,6 @@ on:
   pull_request:
     branches:
     - main
-    paths:
-    - 'src/**.yml'
-    - 'tox.ini'
-    - 'workflow-support/*.sh'
-    - 'workflow-support/make-vars-yml.yml'
-    - 'workflow-support/templates/*-vars.yml.j2'
-    - '.github/workflows/lint.yml'
 
 jobs:
   image_details:
@@ -27,4 +20,17 @@ jobs:
     container:
       image: ${{ needs.image_details.outputs.image_base }}:main
     steps:
+    - uses: actions/checkout@v3
+    - id: paths
+      uses: dorny/paths-filter@v2
+      with:
+        filters: |
+          paths:
+          - 'src/**.yml'
+          - 'tox.ini'
+          - 'workflow-support/*.sh'
+          - 'workflow-support/*.yml'
+          - 'workflow-support/templates/*-vars.yml.j2'
+          - '.github/workflows/lint.yml'
     - uses: kpfleming/composite-actions/lint-tox@main
+      if: steps.paths.outputs.path == 'true'
