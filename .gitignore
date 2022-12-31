@@ -1,5 +1,5 @@
 .tox
 *.tar.gz
 src/galaxy.yml
-src/README.md
+src/roles/*/README.md
 src/roles/*/vars/main.yml
