@@ -6,20 +6,10 @@ on:
     - main
 
 jobs:
-  image_details:
+  check_paths:
     runs-on: ubuntu-22.04
     outputs:
-      image_base: ${{ steps.details.outputs.image_base }}
-    steps:
-    - id: details
-      uses: kpfleming/composite-actions/image-details@main
-  lint:
-    if: false
-    runs-on: ubuntu-22.04
-    needs:
-    - image_details
-    container:
-      image: ${{ needs.image_details.outputs.image_base }}:main
+      need_lint: ${{ steps.paths.outputs.paths }}
     steps:
     - uses: actions/checkout@v3
     - id: paths
@@ -33,5 +23,24 @@ jobs:
           - 'workflow-support/*.yml'
           - 'workflow-support/templates/*-vars.yml.j2'
           - '.github/workflows/lint.yml'
+  image_details:
+    if: needs.check_paths.outputs.need_lint == 'true'
+    runs-on: ubuntu-22.04
+    needs:
+    - check_paths
+    outputs:
+      image_base: ${{ steps.details.outputs.image_base }}
+    steps:
+    - id: details
+      uses: kpfleming/composite-actions/image-details@main
+  lint:
+    if: needs.check_paths.outputs.need_lint == 'true'
+    runs-on: ubuntu-22.04
+    needs:
+    - check_paths
+    - image_details
+    container:
+      image: ${{ needs.image_details.outputs.image_base }}:main
+    steps:
+    - uses: actions/checkout@v3
     - uses: kpfleming/composite-actions/lint-tox@main
-      if: steps.paths.outputs.paths == 'true'
