@@ -21,10 +21,6 @@ jobs:
       image_base: ${{ steps.details.outputs.image_base }}
       image_tag: ${{ steps.preflight.outputs.image_tag }}
     steps:
-    - id: details
-      uses: kpfleming/composite-actions/image-details@main
-      with:
-        base_image: python:bullseye-main
     - uses: actions/checkout@v3
     - id: paths
       uses: dorny/paths-filter@v2
@@ -34,6 +30,10 @@ jobs:
           - 'tox.ini'
           - 'workflow-support/make_ci_image.sh'
           - '.github/workflows/ci.yml'
+    - id: details
+      uses: kpfleming/composite-actions/image-details@main
+      with:
+        base_image: python:bullseye-main
     - id: preflight
       if: (github.event_name != 'pull_request') || (steps.paths.outputs.paths == 'true')
       uses: kpfleming/composite-actions/ci-preflight@main
