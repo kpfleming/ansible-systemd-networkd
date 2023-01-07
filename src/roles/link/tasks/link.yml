@@ -1,6 +1,7 @@
 %YAML 1.2
 ---
 - name: manage link
+  become: true
   register: _link
   notify: "{{ ansible_role_name ~ ' : reload' }}"
   ansible.builtin.template:

@@ -15,6 +15,7 @@
     extended: true
 
 - name: manage bond member networks
+  become: true
   register: _member
   notify: "{{ ansible_role_name ~ ' : reload' }}"
   ansible.builtin.template:
@@ -27,6 +28,7 @@
     extended: true
 
 - name: manage bond network device
+  become: true
   register: _netdev
   notify: "{{ ansible_role_name ~ ' : reload' }}"
   ansible.builtin.template:

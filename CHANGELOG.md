@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+* Use explicit privilege escalation where required.
+
 ## 1.0.1 - 2022-12-31
 
 * Fix bugs in Galaxy packaging process.

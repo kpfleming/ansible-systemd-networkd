@@ -1,6 +1,7 @@
 %YAML 1.2
 ---
 - name: reload
+  become: true
   when: not suppress_reload
   ansible.builtin.command:
     argv:

@@ -1,6 +1,7 @@
 %YAML 1.2
 ---
 - name: manage network device for dummy
+  become: true
   register: _netdev
   notify: "{{ ansible_role_name ~ ' : reload' }}"
   ansible.builtin.template:
