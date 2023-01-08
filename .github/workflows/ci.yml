@@ -55,6 +55,6 @@ jobs:
       image: ${{ needs.preflight.outputs.image_base }}:${{ needs.preflight.outputs.image_tag }}
     steps:
     - uses: actions/checkout@v3
-    - uses: kpfleming/composite-actions/ci-tox@main
+    - uses: kpfleming/composite-actions/ci-tox@v2
       with:
         python: ${{ matrix.python }}

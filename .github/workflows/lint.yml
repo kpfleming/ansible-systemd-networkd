@@ -18,7 +18,7 @@ jobs:
       with:
         base_image: python:bullseye-main
     - id: preflight
-      uses: kpfleming/composite-actions/lint-preflight@main
+      uses: kpfleming/composite-actions/lint-preflight@v2
       with:
         lint_paths: workflow-support/lint_paths.yml
   lint:
