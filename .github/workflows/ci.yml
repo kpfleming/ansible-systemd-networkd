@@ -20,8 +20,11 @@ jobs:
     outputs:
       image_base: ${{ steps.details.outputs.image_base }}
       image_tag: ${{ steps.preflight.outputs.image_tag }}
+      versions: ${{ steps.get_versions.outputs.versions }}
     steps:
     - uses: actions/checkout@v3
+    - id: get_versions
+      run: cat workflow-support/versions.json >> $GITHUB_OUTPUT
     - id: details
       uses: kpfleming/composite-actions/image-details@v2
       with:
@@ -44,7 +47,14 @@ jobs:
     runs-on: ubuntu-22.04
     needs:
     - preflight
+    strategy:
+      matrix:
+        python: ${{ fromJSON(needs.preflight.outputs.versions).python }}
+      fail-fast: false
     container:
       image: ${{ needs.preflight.outputs.image_base }}:${{ needs.preflight.outputs.image_tag }}
     steps:
     - uses: actions/checkout@v3
+    - uses: kpfleming/composite-actions/ci-tox@main
+      with:
+        python: ${{ matrix.python }}
