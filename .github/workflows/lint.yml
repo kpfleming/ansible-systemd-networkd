@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-22.04
     outputs:
       image_base: ${{ steps.details.outputs.image_base }}
-      need_lint: ${{ steps.preflight.outputs_need_lint == 'true' }}
+      need_lint: ${{ steps.preflight.outputs.need_lint == 'true' }}
     steps:
     - uses: actions/checkout@v3
     - id: details

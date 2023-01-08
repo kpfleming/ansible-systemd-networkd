@@ -4,6 +4,7 @@ exclude_paths:
   - .cache
   - .github
   - "**/vars/main.yml"
+  - "workflow-support/lint_paths.yml"
 
 skip_list:
   - experimental
