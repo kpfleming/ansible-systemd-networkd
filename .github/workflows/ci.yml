@@ -1,4 +1,4 @@
-name: CI
+name: CI checks
 
 on:
   push:
@@ -15,33 +15,24 @@ on:
     - cron: "35 4 * * 6"
 
 jobs:
-  ci-image:
+  preflight:
     runs-on: ubuntu-22.04
     outputs:
       image_base: ${{ steps.details.outputs.image_base }}
       image_tag: ${{ steps.preflight.outputs.image_tag }}
     steps:
     - uses: actions/checkout@v3
-    - id: paths
-      uses: dorny/paths-filter@v2
-      with:
-        filters: |
-          paths:
-          - 'tox.ini'
-          - 'workflow-support/make_ci_image.sh'
-          - '.github/workflows/ci.yml'
     - id: details
-      uses: kpfleming/composite-actions/image-details@main
+      uses: kpfleming/composite-actions/image-details@v2
       with:
         base_image: python:bullseye-main
     - id: preflight
-      if: (github.event_name != 'pull_request') || (steps.paths.outputs.paths == 'true')
-      uses: kpfleming/composite-actions/ci-preflight@main
+      uses: kpfleming/composite-actions/ci-preflight@v2
       with:
         files_hash: ${{ hashfiles('tox.ini', 'workflow-support/make_ci_image.sh', '.github/workflows/ci.yml') }}
         base_image_hash: ${{ steps.details.outputs.base_image_hash }}
     - id: make-ci-image
-      uses: kpfleming/composite-actions/make-ci-image@main
+      uses: kpfleming/composite-actions/make-ci-image@v2
       if: steps.preflight.outputs.need_image == 'true'
       with:
         base_image: ${{ steps.details.outputs.base_image }}
@@ -49,3 +40,11 @@ jobs:
         image_registry: ${{ steps.details.outputs.image_registry }}
         registry_username: ${{ secrets.QUAY_BOT_NAME }}
         registry_password: ${{ secrets.QUAY_BOT_PASSWORD }}
+  ci:
+    runs-on: ubuntu-22.04
+    needs:
+    - preflight
+    container:
+      image: ${{ needs.preflight.outputs.image_base }}:${{ needs.preflight.outputs.image_tag }}
+    steps:
+    - uses: actions/checkout@v3

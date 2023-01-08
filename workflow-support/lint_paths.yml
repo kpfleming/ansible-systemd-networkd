@@ -1,0 +1,7 @@
+paths:
+  - 'src/**/*.yml'
+  - 'tox.ini'
+  - 'workflow-support/*.sh'
+  - 'workflow-support/*.yml'
+  - 'workflow-support/templates/*-vars.yml.j2'
+  - '.github/workflows/lint.yml'
