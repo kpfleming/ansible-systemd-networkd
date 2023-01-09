@@ -1,0 +1,8 @@
+paths:
+  - 'src/**/*.yml'
+  - 'tox.ini'
+  - 'workflow-support/versions.json'
+  - 'workflow-support/*.yml'
+  - 'workflow-support/templates/*-vars.yml.j2'
+  - '.github/workflows/ci.yml'
+  - '.github/workflows/test.yml'

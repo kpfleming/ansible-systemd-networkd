@@ -21,6 +21,7 @@ jobs:
       image_base: ${{ steps.details.outputs.image_base }}
       image_tag: ${{ steps.preflight.outputs.image_tag }}
       versions: ${{ steps.get_versions.outputs.versions }}
+      need_ci: ${{ (steps.preflight.outputs.need_ci == 'true') || (steps.preflight.outputs.need_image == 'true') }}
     steps:
     - uses: actions/checkout@v3
     - id: get_versions
@@ -32,6 +33,7 @@ jobs:
     - id: preflight
       uses: kpfleming/composite-actions/ci-preflight@v2
       with:
+        ci_paths: workflow-support/ci_paths.yml
         files_hash: ${{ hashfiles('tox.ini', 'workflow-support/make_ci_image.sh', '.github/workflows/ci.yml') }}
         base_image_hash: ${{ steps.details.outputs.base_image_hash }}
     - id: make-ci-image
@@ -44,17 +46,14 @@ jobs:
         registry_username: ${{ secrets.QUAY_BOT_NAME }}
         registry_password: ${{ secrets.QUAY_BOT_PASSWORD }}
   ci:
-    runs-on: ubuntu-22.04
     needs:
     - preflight
     strategy:
       matrix:
         python: ${{ fromJSON(needs.preflight.outputs.versions).python }}
       fail-fast: false
-    container:
+    uses: ./.github/workflows/test.yml
+    with:
+      if: ${{ needs.preflight.outputs.need_ci == 'true' }}
       image: ${{ needs.preflight.outputs.image_base }}:${{ needs.preflight.outputs.image_tag }}
-    steps:
-    - uses: actions/checkout@v3
-    - uses: kpfleming/composite-actions/ci-tox@v2
-      with:
-        python: ${{ matrix.python }}
+      python: ${{ matrix.python }}
