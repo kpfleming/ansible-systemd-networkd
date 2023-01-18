@@ -8,8 +8,6 @@ galaxy_info:
   min_ansible_version: "6.0"
   platforms:
     - name: GenericLinux
-      versions:
-        - any
   galaxy_tags:
     - systemd
     - network
