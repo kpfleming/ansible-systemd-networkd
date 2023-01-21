@@ -2,6 +2,10 @@
 
 set -ex
 
+projname="ansible-systemd-networkd"
+
+scriptdir=$(realpath "$(dirname "${BASH_SOURCE[0]}")")
+containersrcdir="/__w/${projname}/${projname}"
 base_image=${1}; shift
 image_name=${1}; shift
 
@@ -11,22 +15,26 @@ toxenvs=(lint-action py311-ci-action publish-action)
 
 c=$(buildah from "${base_image}")
 
-buildcmd() {
+build_cmd() {
     buildah run --network host "${c}" -- "$@"
 }
 
-buildcmd apt-get update --quiet=2
-buildcmd apt-get install --yes --quiet=2 "${lint_deps[@]}"
+build_cmd_with_source() {
+    buildah run --network host --volume "$(realpath "${scriptdir}/.."):${containersrcdir}" --workingdir "${containersrcdir}" "${c}" -- "$@"
+}
+
+build_cmd apt-get update --quiet=2
+build_cmd apt-get install --yes --quiet=2 "${lint_deps[@]}"
 
 for env in "${toxenvs[@]}"; do
-    buildcmd tox exec -e "${env}" -- pip list
+    build_cmd_with_source tox exec -e "${env}" -- pip list
 done
 
-buildcmd apt-get autoremove --yes --purge
-buildcmd apt-get clean autoclean
-buildcmd sh -c "rm -rf /var/lib/apt/lists/*"
+build_cmd apt-get autoremove --yes --purge
+build_cmd apt-get clean autoclean
+build_cmd sh -c "rm -rf /var/lib/apt/lists/*"
 
-buildcmd rm -rf /root/.cache
+build_cmd rm -rf /root/.cache
 
 if buildah images --quiet "${image_name}"; then
     buildah rmi "${image_name}"

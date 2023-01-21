@@ -4,6 +4,8 @@ on:
   pull_request:
     branches:
     - main
+  schedule:
+    - cron: "35 4 * * 6"
 
 jobs:
   preflight:
