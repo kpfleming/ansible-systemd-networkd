@@ -34,7 +34,7 @@ jobs:
       uses: kpfleming/composite-actions/ci-preflight@v2
       with:
         ci_paths: workflow-support/ci_paths.yml
-        files_hash: ${{ hashfiles('tox.ini', 'workflow-support/make_ci_image.sh', '.github/workflows/ci.yml') }}
+        files_hash: ${{ hashfiles('tox.ini', 'workflow-support/make_ci_image.sh', '.github/workflows/ci.yml', 'workflow-support/versions.json') }}
         base_image_hash: ${{ steps.details.outputs.base_image_hash }}
     - id: make-ci-image
       uses: kpfleming/composite-actions/make-ci-image@v2
