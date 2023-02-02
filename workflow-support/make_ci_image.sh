@@ -2,10 +2,8 @@
 
 set -ex
 
-projname="ansible-systemd-networkd"
-
 scriptdir=$(realpath "$(dirname "${BASH_SOURCE[0]}")")
-containersrcdir="/__w/${projname}/${projname}"
+containersrcdir="/__w/${GITHUB_REPOSITORY}/${GITHUB_REPOSITORY}"
 base_image=${1}; shift
 image_name=${1}; shift
 
