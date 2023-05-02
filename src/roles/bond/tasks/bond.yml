@@ -21,7 +21,8 @@
   ansible.builtin.template:
     src: bond-member.network.j2
     dest: "{{ systemd_root ~ '/etc/systemd/network/' ~ bond.name ~ '-' ~ ansible_loop.index ~ '.network' }}"
-    mode: u=rw,go=r
+    mode: u=rw,g=r
+    group: systemd-network
   loop: "{{ bond.members }}"
   loop_control:
     loop_var: member
@@ -34,7 +35,8 @@
   ansible.builtin.template:
     src: bond.netdev.j2
     dest: "{{ systemd_root ~ '/etc/systemd/network/' ~ bond.name ~ '.netdev' }}"
-    mode: u=rw,go=r
+    mode: u=rw,g=r
+    group: systemd-network
 
 - name: set fact to indicate result
   ansible.builtin.set_fact:

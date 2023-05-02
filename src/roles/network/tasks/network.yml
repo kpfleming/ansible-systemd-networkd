@@ -5,7 +5,8 @@
   ansible.builtin.file:
     path: "{{ systemd_root ~ '/etc/systemd/network/' ~ network.name ~ '.network.d' }}"
     state: directory
-    mode: u=rwx,go=rx
+    mode: u=rwx,g=rx
+    group: systemd-network
 
 - name: manage network
   become: true
@@ -15,7 +16,8 @@
   ansible.builtin.template:
     src: network.j2
     dest: "{{ systemd_root ~ '/etc/systemd/network/' ~ network.name ~ '.network' }}"
-    mode: u=rw,go=r
+    mode: u=rw,g=r
+    group: systemd-network
 
 - name: manage network dropin
   become: true
@@ -25,7 +27,8 @@
   ansible.builtin.template:
     src: network.j2
     dest: "{{ systemd_root ~ '/etc/systemd/network/' ~ dropin_for ~ '.network.d/' ~ network.name ~ '.conf' }}"
-    mode: u=rw,go=r
+    mode: u=rw,g=r
+    group: systemd-network
 
 - name: set fact to indicate result
   ansible.builtin.set_fact:

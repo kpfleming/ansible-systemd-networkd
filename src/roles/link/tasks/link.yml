@@ -7,7 +7,8 @@
   ansible.builtin.template:
     src: link.j2
     dest: "{{ systemd_root ~ '/etc/systemd/network/00-' ~ link.name ~ '.link' }}"
-    mode: u=rw,go=r
+    mode: u=rw,g=r
+    group: systemd-network
 
 - name: set reboot fact
   when: ansible_distribution == "Debian"

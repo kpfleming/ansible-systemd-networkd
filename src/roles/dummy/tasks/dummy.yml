@@ -7,7 +7,8 @@
   ansible.builtin.template:
     src: dummy.netdev.j2
     dest: "{{ systemd_root ~ '/etc/systemd/network/' ~ dummy.name ~ '.netdev' }}"
-    mode: u=rw,go=r
+    mode: u=rw,g=r
+    group: systemd-network
 
 - name: set fact to indicate result
   ansible.builtin.set_fact:
