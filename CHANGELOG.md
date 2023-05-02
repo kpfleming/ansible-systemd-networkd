@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] - 2023-05-02
+
+* All configuration files and directories are now group-owned by
+  'systemd-network' and are not readable by any users outside of that
+  group (and root).
+
 ## [1.1.0] - 2023-01-07
 
 * Use explicit privilege escalation where required.
@@ -19,7 +25,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 First release!
 
-[unreleased]: https://github.com/kpfleming/ansible-systemd-networkd/compare/1.1.0...HEAD
+[unreleased]: https://github.com/kpfleming/ansible-systemd-networkd/compare/1.2.0...HEAD
+[1.2.0]: https://github.com/kpfleming/ansible-systemd-networkd/compare/1.1.0...1.2.0
 [1.1.0]: https://github.com/kpfleming/ansible-systemd-networkd/compare/1.0.1...1.1.0
 [1.0.1]: https://github.com/kpfleming/ansible-systemd-networkd/compare/1.0.0...1.0.1
 [1.0.0]: https://github.com/kpfleming/ansible-systemd-networkd/compare/4b825dc642cb6eb9a060e54bf8d69288fbee4904...1.0.0
