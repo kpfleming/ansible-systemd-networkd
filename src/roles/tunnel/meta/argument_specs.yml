@@ -67,7 +67,7 @@ argument_specs:
             description: Time-To-Live for tunneled packets.
             type: int
           netdev:
-            description: Attributes of the bond network device.
+            description: Attributes of the tunnel network device.
             type: dict
             options:
               mac_address:
