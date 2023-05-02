@@ -1,12 +1,12 @@
 ## Included content
 
 * Roles:
-  - [kpfleming.systemd_networkd.bond](https://github.com/kpfleming/ansible-systemd-networkd/blob/main/src/roles/bond/README.md): manage bond virtual devices
-  - [kpfleming.systemd_networkd.dummy](https://github.com/kpfleming/ansible-systemd-networkd/blob/main/src/roles/dummy/README.md): manage dummy virtual devices
-  - [kpfleming.systemd_networkd.link](https://github.com/kpfleming/ansible-systemd-networkd/blob/main/src/roles/link/README.md): manage links
-  - [kpfleming.systemd_networkd.network](https://github.com/kpfleming/ansible-systemd-networkd/blob/main/src/roles/network/README.md): manage network devices
-  - [kpfleming.systemd_networkd.tunnel](https://github.com/kpfleming/ansible-systemd-networkd/blob/main/src/roles/tunnel/README.md): manage tunnel virtual devices
-  - [kpfleming.systemd_networkd.vlan](https://github.com/kpfleming/ansible-systemd-networkd/blob/main/src/roles/vlan/README.md): manage vlan virtual devices
+  - [kpfleming.systemd_networkd.bond](https://github.com/kpfleming/ansible-systemd-networkd/blob/1.2.1/src/roles/bond/README.md): manage bond virtual devices
+  - [kpfleming.systemd_networkd.dummy](https://github.com/kpfleming/ansible-systemd-networkd/blob/1.2.1/src/roles/dummy/README.md): manage dummy virtual devices
+  - [kpfleming.systemd_networkd.link](https://github.com/kpfleming/ansible-systemd-networkd/blob/1.2.1/src/roles/link/README.md): manage links
+  - [kpfleming.systemd_networkd.network](https://github.com/kpfleming/ansible-systemd-networkd/blob/1.2.1/src/roles/network/README.md): manage network devices
+  - [kpfleming.systemd_networkd.tunnel](https://github.com/kpfleming/ansible-systemd-networkd/blob/1.2.1/src/roles/tunnel/README.md): manage tunnel virtual devices
+  - [kpfleming.systemd_networkd.vlan](https://github.com/kpfleming/ansible-systemd-networkd/blob/1.2.1/src/roles/vlan/README.md): manage vlan virtual devices
 
 ## Features of this collection
 
