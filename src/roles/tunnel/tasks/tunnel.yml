@@ -5,7 +5,7 @@
   ansible.builtin.file:
     path: "{{ systemd_root ~ '/etc/systemd/network/' ~ tunnel.underlying_name ~ '.network.d' }}"
     state: directory
-    mode: u=rwx,g=rx
+    mode: u=rwx,g=rx,o=
     group: systemd-network
 
 - name: manage network device for tunnel
@@ -15,7 +15,7 @@
   ansible.builtin.template:
     src: tunnel.netdev.j2
     dest: "{{ systemd_root ~ '/etc/systemd/network/' ~ tunnel.name ~ '.netdev' }}"
-    mode: u=rw,g=r
+    mode: u=rw,g=r,o=
     group: systemd-network
 
 - name: manage network drop-in for tunnel
@@ -25,7 +25,7 @@
   ansible.builtin.template:
     src: tunnel-dropin.j2
     dest: "{{ systemd_root ~ '/etc/systemd/network/' ~ tunnel.underlying_name ~ '.network.d/tunnel-' ~ tunnel.name ~ '.conf' }}"
-    mode: u=rw,g=r
+    mode: u=rw,g=r,o=
     group: systemd-network
 
 - name: set fact to indicate result

@@ -5,7 +5,7 @@
   ansible.builtin.file:
     path: "{{ systemd_root ~ '/etc/systemd/network/' ~ vlan.underlying_name ~ '.network.d' }}"
     state: directory
-    mode: u=rwx,g=rx
+    mode: u=rwx,g=rx,o=
     group: systemd-network
 
 - name: manage network device for VLAN
@@ -15,7 +15,7 @@
   ansible.builtin.template:
     src: vlan.netdev.j2
     dest: "{{ systemd_root ~ '/etc/systemd/network/' ~ vlan.name ~ '.netdev' }}"
-    mode: u=rw,g=r
+    mode: u=rw,g=r,o=
     group: systemd-network
 
 - name: manage network drop-in for VLAN
@@ -25,7 +25,7 @@
   ansible.builtin.template:
     src: vlan-dropin.j2
     dest: "{{ systemd_root ~ '/etc/systemd/network/' ~ vlan.underlying_name ~ '.network.d/vlan-' ~ vlan.name ~ '.conf' }}"
-    mode: u=rw,g=r
+    mode: u=rw,g=r,o=
     group: systemd-network
 
 - name: set fact to indicate result
