@@ -1,7 +1,7 @@
 <!-- BEGIN_ANSIBLE_DOCS -->
 # Ansible Role: kpfleming.systemd_networkd.link
 ---
-Version: 0.0.0
+Version: 1.2.0
 
 Role to manage configuration of 'link' devices in systemd-networkd.
 
@@ -11,7 +11,7 @@ Tags: systemd, network
 ---
 | Platform | Versions |
 | -------- | -------- |
-| GenericLinux | any |
+| GenericLinux |  |
 
 ## Role Arguments
 ---
