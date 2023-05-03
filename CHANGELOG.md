@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.0] - 2023-05-03
+
 Additions:
 
 * New role: `wireguard_tunnel`, for managing WireGuard tunnel devices.
@@ -42,7 +44,8 @@ Changes:
 
 First release!
 
-[unreleased]: https://github.com/kpfleming/ansible-systemd-networkd/compare/1.2.1...HEAD
+[unreleased]: https://github.com/kpfleming/ansible-systemd-networkd/compare/2.0.0...HEAD
+[2.0.0]: https://github.com/kpfleming/ansible-systemd-networkd/compare/1.2.1...2.0.0
 [1.2.1]: https://github.com/kpfleming/ansible-systemd-networkd/compare/1.2.0...1.2.1
 [1.2.0]: https://github.com/kpfleming/ansible-systemd-networkd/compare/1.1.0...1.2.0
 [1.1.0]: https://github.com/kpfleming/ansible-systemd-networkd/compare/1.0.1...1.1.0
