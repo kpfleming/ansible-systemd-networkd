@@ -1,0 +1,66 @@
+{% if "match" in tunnel -%}
+{% set m=tunnel.match %}
+[Match]
+{% if "system" in m -%}
+{% for arg, value in m.system.items() %}
+{% if value is string or value is integer  %}
+{{ match_system_arguments[arg] }}={{ value }}
+{% elif value is boolean %}
+{{ match_system_arguments[arg] }}={{ value|ternary('yes','no') }}
+{% else %}
+{% for v in value %}
+{{ match_system_arguments[arg] }}={{ v }}
+{% endfor %}
+{% endif %}
+{% endfor %}
+{% endif %}
+
+{% endif %}
+[NetDev]
+Name={{ tunnel.name }}
+Kind=wireguard
+{% if "netdev" in tunnel -%}
+{% for arg, value in tunnel.netdev.items() %}
+{% if value is string or value is integer %}
+{{ netdev_arguments[arg] }}={{ value }}
+{% elif value is boolean %}
+{{ netdev_arguments[arg] }}={{ value|ternary('yes','no') }}
+{% else %}
+{% for v in value %}
+{{ netdev_arguments[arg] }}={{ v }}
+{% endfor %}
+{% endif %}
+{% endfor %}
+{% endif %}
+
+[WireGuard]
+{% for arg, value in tunnel.items() if arg in wireguard_arguments.keys() %}
+{% if value is string or value is integer  %}
+{{ wireguard_arguments[arg] }}={{ value }}
+{% elif value is boolean %}
+{{ wireguard_arguments[arg] }}={{ value|ternary('yes','no') }}
+{% else %}
+{% for v in value %}
+{{ wireguard_arguments[arg] }}={{ v }}
+{% endfor %}
+{% endif %}
+{% endfor %}
+
+{% for v in tunnel.peers -%}
+[WireGuardPeer]
+{% if "name" in v %}
+# {{ v.name }}
+{% endif %}
+{% for arg, value in v.items() if arg in wireguard_peer_arguments.keys() %}
+{% if value is string or value is integer %}
+{{ wireguard_peer_arguments[arg] }}={{ value }}
+{% elif value is boolean %}
+{{ wireguard_peer_arguments[arg] }}={{ value|ternary('yes','no') }}
+{% else %}
+{% for v in value %}
+{{ wireguard_peer_arguments[arg] }}={{ v }}
+{% endfor %}
+{% endif %}
+{% endfor %}
+
+{% endfor %}

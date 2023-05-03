@@ -21,6 +21,7 @@
         - [network-vars.yml.j2, network/vars/main.yml]
         - [tunnel-vars.yml.j2, tunnel/vars/main.yml]
         - [vlan-vars.yml.j2, vlan/vars/main.yml]
+        - [wireguard_tunnel-vars.yml.j2, wireguard_tunnel/vars/main.yml]
       vars:
         match_system_arguments:
           architecture: Architecture
@@ -114,3 +115,19 @@
           use_dns: UseDNS
           use_gateway: UseGateway
           use_mtu: UseMTU
+        wireguard_arguments:
+          private_key: PrivateKey
+          private_key_file: PrivateKeyFile
+          listen_port: ListenPort
+          firewall_mark: FirewallMark
+          route_table: RouteTable
+          route_metric: RouteMetric
+        wireguard_peer_arguments:
+          public_key: PublicKey
+          preshared_key: PresharedKey
+          preshared_key_file: PresharedKeyFile
+          allowed_ips: AllowedIPs
+          endpoint: Endpoint
+          persistent_keepalive: PersistentKeepalive
+          route_table: RouteTable
+          route_metric: RouteMetric

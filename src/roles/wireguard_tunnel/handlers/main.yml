@@ -1,0 +1,16 @@
+%YAML 1.2
+---
+- name: reload
+  become: true
+  when: not suppress_reload
+  ansible.builtin.command:
+    argv:
+      - networkctl
+      - reload
+
+- name: restart
+  become: true
+  when: not suppress_restart
+  ansible.builtin.systemd:
+    name: systemd-networkd.service
+    state: restarted

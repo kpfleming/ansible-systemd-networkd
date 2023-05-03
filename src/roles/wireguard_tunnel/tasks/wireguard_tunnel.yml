@@ -1,0 +1,34 @@
+%YAML 1.2
+---
+- name: manage network drop-in directory
+  become: true
+  ansible.builtin.file:
+    path: "{{ systemd_root ~ '/etc/systemd/network/' ~ tunnel.underlying_name ~ '.network.d' }}"
+    state: directory
+    mode: u=rwx,g=rx,o=
+    group: systemd-network
+
+- name: manage network device for tunnel
+  become: true
+  register: _netdev
+  notify: "{{ ansible_role_name ~ ' : restart' }}"
+  ansible.builtin.template:
+    src: wireguard.netdev.j2
+    dest: "{{ systemd_root ~ '/etc/systemd/network/' ~ tunnel.name ~ '.netdev' }}"
+    mode: u=rw,g=r,o=
+    group: systemd-network
+
+- name: manage network drop-in for tunnel
+  become: true
+  register: _network
+  notify: "{{ ansible_role_name ~ ' : reload' }}"
+  when: '"underlying_name" in tunnel'
+  ansible.builtin.template:
+    src: wireguard-dropin.j2
+    dest: "{{ systemd_root ~ '/etc/systemd/network/' ~ tunnel.underlying_name ~ '.network.d/tunnel-' ~ tunnel.name ~ '.conf' }}"
+    mode: u=rw,g=r,o=
+    group: systemd-network
+
+- name: set fact to indicate result
+  ansible.builtin.set_fact:
+    systemd_networkd_wireguard_tunnel_changed: "{{ systemd_networkd_wireguard_tunnel_changed|default(false) or _netdev.changed or _network.changed }}"

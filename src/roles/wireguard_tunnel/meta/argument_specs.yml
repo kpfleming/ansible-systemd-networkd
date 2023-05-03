@@ -1,0 +1,145 @@
+%YAML 1.2
+---
+argument_specs:
+  main:
+    short_description: Manages systemd-networkd WireGuard tunnel virtual network devices.
+    description: |
+      This role will create (or update) three items in /etc/systemd/network for
+      each specified tunnel:
+      1) A drop-in directory for the underlying network
+      2) A .netdev file for the tunnel device
+      3) A .conf file in the drop-in directory connecting the tunnel device
+      to the underlying network
+
+      Detailed descriptions of parameters and their behavior can be
+      found in 'man systemd.netdev'.
+
+      Sets fact named 'systemd_networkd_wireguard_tunnel_changed' to
+      either true or false to indicate whether any changes were made.
+    options:
+      suppress_reload:
+        description: Suppress the reloading of systemd-networkd if changes are made.
+        type: bool
+        default: false
+      suppress_restart:
+        description: Suppress the restarting of systemd-networkd if changes are made to the netdev configuration.
+        type: bool
+        default: false
+      systemd_root:
+        description: Root path of filesystem containing systemd-networkd configuration files.
+        type: str
+        default: ""
+      wireguard_tunnels:
+        description: Attributes of the tunnels to be managed.
+        type: list
+        elements: dict
+        required: true
+        options:
+          name:
+            description: Name of the network device.
+            type: str
+            required: true
+          underlying_name:
+            description: The underlying network.
+            type: str
+          netdev:
+            description: Attributes of the tunnel network device.
+            type: dict
+            options:
+              mac_address:
+                description: MAC address to use on the device.
+                type: str
+              mtu_bytes:
+                description: The MTU for the tunnel.
+                type: str
+          match:
+            description: Matching attributes of the network device.
+            type: dict
+            options:
+              system:
+                description: System-specific attributes to be matched.
+                type: dict
+                options:
+                  architecture:
+                    description: Match system architecture.
+                    type: str
+                  credential:
+                    description: Match service credential.
+                    type: str
+                  firmware:
+                    description: Match system firmware.
+                    type: str
+                  host:
+                    description: Match hostname or machine ID.
+                    type: str
+                  kernel_command_line:
+                    description: Match kernel command line option presence.
+                    type: str
+                  kernel_version:
+                    description: Match kernel version expression.
+                    type: str
+                  virtualization:
+                    description: Match virtualization type.
+                    type: str
+          private_key:
+            description: Base64-encoded private key.
+            type: str
+          private_key_file:
+            description: Path to file containing a base64-encoded private key.
+            type: path
+          listen_port:
+            description: UDP Port to listen for incoming traffic. If not specified, a port will be chosen based on the interface name.
+            type: int
+          firewall_mark:
+            description: Mark to be set on outgoing packets from this interface.
+            type: int
+          route_table:
+            description: Route table name (from networkd.conf), number, or predefined name ("default", "main", or "local").
+            type: str
+          route_metric:
+            description: Metric value for routes added when route_table is specified.
+            type: int
+          peers:
+            description: Attributes of the peers for the tunnel.
+            type: list
+            elements: dict
+            required: true
+            options:
+              name:
+                description: Name of the peer (will only be used as a comment in the configuration file).
+                type: str
+              public_key:
+                description: Base64-encoded public key of the peer.
+                type: str
+                required: true
+              preshared_key:
+                description: Base64-encoded preshared key with the peer.
+                type: str
+              preshared_key_file:
+                description: Path to file containing a base64-encoded preshared key with the peer.
+                type: path
+              endpoint:
+                description: Initial address and port to be used for traffic to this peer.
+                type: str
+              persistent_keepalive:
+                description: Interval, in seconds, to send empty-but-authenticated packets to this peer.
+                type: int
+              allowed_ips:
+                description: |
+                  Addresses, with optional netmasks, which the peer is allowed to use for sending traffic,
+                  and for which traffic will be sent to the peer.
+                type: list
+                elements: str
+                required: true
+              route_table:
+                description: |
+                  Route table name (from networkd.conf), number, or predefined name ("default", "main", or "local").
+
+                  Overrides the setting from the tunnel, if specified.
+                type: str
+              route_metric:
+                description: |
+                  Metric value for routes added when route_table is specified.
+
+                  Overrides the setting from the tunnel, if specified.
+                type: int

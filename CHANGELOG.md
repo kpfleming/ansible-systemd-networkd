@@ -7,12 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+Additions:
+
+* New role: `wireguard_tunnel`, for managing WireGuard tunnel devices.
+
 ## [1.2.1] - 2023-05-02
+
+Breaking Changes:
 
 * Ensure that 'other' permissions are removed from existing files and
   directories.
 
 ## [1.2.0] - 2023-05-02
+
+Breaking Changes:
 
 * All configuration files and directories are now group-owned by
   'systemd-network' and are not readable by any users outside of that
@@ -20,9 +28,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.1.0] - 2023-01-07
 
+Changes:
+
 * Use explicit privilege escalation where required.
 
 ## [1.0.1] - 2022-12-31
+
+Changes:
 
 * Fix bugs in Galaxy packaging process.
 
@@ -30,7 +42,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 First release!
 
-[unreleased]: https://github.com/kpfleming/ansible-systemd-networkd/compare/1.2.0...HEAD
+[unreleased]: https://github.com/kpfleming/ansible-systemd-networkd/compare/1.2.1...HEAD
+[1.2.1]: https://github.com/kpfleming/ansible-systemd-networkd/compare/1.2.0...1.2.1
 [1.2.0]: https://github.com/kpfleming/ansible-systemd-networkd/compare/1.1.0...1.2.0
 [1.1.0]: https://github.com/kpfleming/ansible-systemd-networkd/compare/1.0.1...1.1.0
 [1.0.1]: https://github.com/kpfleming/ansible-systemd-networkd/compare/1.0.0...1.0.1
