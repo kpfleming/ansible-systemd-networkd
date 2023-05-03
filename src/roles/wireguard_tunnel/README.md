@@ -1,7 +1,7 @@
 <!-- BEGIN_ANSIBLE_DOCS -->
 # Ansible Role: kpfleming.systemd_networkd.wireguard_tunnel
 ---
-Version: 0.0.0
+Version: 2.0.0
 
 Role to manage configuration of WireGuard 'tunnel' devices in systemd-networkd.
 
