@@ -11,7 +11,7 @@ Tags: systemd, network
 ---
 | Platform | Versions |
 | -------- | -------- |
-| GenericLinux | any |
+| GenericLinux |  |
 
 ## Role Arguments
 ---

@@ -11,7 +11,7 @@ Tags: systemd, network
 ---
 | Platform | Versions |
 | -------- | -------- |
-| GenericLinux | any |
+| GenericLinux |  |
 
 ## Role Arguments
 ---
@@ -35,7 +35,7 @@ Manages systemd-networkd tunnel virtual network devices.
 | local | Local address for tunneled packets. | str | no |  |
 | remote | Remote address for tunneled packets. | str | no |  |
 | ttl | Time-To-Live for tunneled packets. | int | no |  |
-| netdev | Attributes of the bond network device. | dict of 'netdev' options | no |  |
+| netdev | Attributes of the tunnel network device. | dict of 'netdev' options | no |  |
 | match | Matching attributes of the network device. | dict of 'match' options | no |  |
 
 #### Options for main > tunnels > netdev
@@ -76,11 +76,6 @@ Manages systemd-networkd tunnel virtual network devices.
 | sit |
 | vti |
 | vti6 |
-| l2tp |
-| wireguard |
-| fou |
-| xfrm |
-| bareudp |
 
 
 ## Dependencies

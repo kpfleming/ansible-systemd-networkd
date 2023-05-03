@@ -52,11 +52,6 @@ argument_specs:
               - sit
               - vti
               - vti6
-              - l2tp
-              - wireguard
-              - fou
-              - xfrm
-              - bareudp
           local:
             description: Local address for tunneled packets.
             type: str
