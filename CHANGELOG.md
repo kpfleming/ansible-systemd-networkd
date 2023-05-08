@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+Changes:
+
+* wireguard_tunnel: Removed unnecessary drop-in for 'Tunnel' assignment.
+
 ## [2.0.0] - 2023-05-03
 
 Additions:
