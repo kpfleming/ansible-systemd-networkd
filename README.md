@@ -20,7 +20,7 @@ Open Source software: [Apache License 2.0](https://spdx.org/licenses/Apache-2.0.
   - [kpfleming.systemd_networkd.network](src/roles/network/README.md): manage network devices
   - [kpfleming.systemd_networkd.tunnel](src/roles/tunnel/README.md): manage generic tunnel virtual devices
   - [kpfleming.systemd_networkd.vlan](src/roles/vlan/README.md): manage vlan virtual devices
-  - [kpfleming.systemd_networkd.wireguard_tunnel](src/roles/wireguard_tunnel/README.md): manage WireGuard tunnel virtual devices
+  - [kpfleming.systemd_networkd.wireguard](src/roles/wireguard/README.md): manage WireGuard virtual devices
 
 ## Features of this collection
 

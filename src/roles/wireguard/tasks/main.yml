@@ -1,8 +1,8 @@
 %YAML 1.2
 ---
 - name: manage WireGuard tunnel devices
-  ansible.builtin.include_tasks: "{{ role_path }}/tasks/wireguard_tunnel.yml"
-  loop: "{{ wireguard_tunnels }}"
+  ansible.builtin.include_tasks: "{{ role_path }}/tasks/wireguard.yml"
+  loop: "{{ wireguards }}"
   loop_control:
     loop_var: tunnel
     label: "{{ tunnel.name }}"

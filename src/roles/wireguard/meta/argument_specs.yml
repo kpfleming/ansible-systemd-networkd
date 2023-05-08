@@ -14,7 +14,7 @@ argument_specs:
       Detailed descriptions of parameters and their behavior can be
       found in 'man systemd.netdev'.
 
-      Sets fact named 'systemd_networkd_wireguard_tunnel_changed' to
+      Sets fact named 'systemd_networkd_wireguard_changed' to
       either true or false to indicate whether any changes were made.
     options:
       suppress_reload:
@@ -29,8 +29,8 @@ argument_specs:
         description: Root path of filesystem containing systemd-networkd configuration files.
         type: str
         default: ""
-      wireguard_tunnels:
-        description: Attributes of the tunnels to be managed.
+      wireguards:
+        description: Attributes of the interfaces to be managed.
         type: list
         elements: dict
         required: true

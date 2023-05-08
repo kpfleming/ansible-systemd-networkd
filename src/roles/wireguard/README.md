@@ -1,5 +1,5 @@
 <!-- BEGIN_ANSIBLE_DOCS -->
-# Ansible Role: kpfleming.systemd_networkd.wireguard_tunnel
+# Ansible Role: kpfleming.systemd_networkd.wireguard
 ---
 Version: 0.0.0
 
@@ -24,9 +24,9 @@ Manages systemd-networkd WireGuard tunnel virtual network devices.
 | suppress_reload | Suppress the reloading of systemd-networkd if changes are made. | bool | no | false |
 | suppress_restart | Suppress the restarting of systemd-networkd if changes are made to the netdev configuration. | bool | no | false |
 | systemd_root | Root path of filesystem containing systemd-networkd configuration files. | str | no |  |
-| wireguard_tunnels | Attributes of the tunnels to be managed. | list of dicts of 'wireguard_tunnels' options | yes |  |
+| wireguards | Attributes of the interfaces to be managed. | list of dicts of 'wireguards' options | yes |  |
 
-#### Options for main > wireguard_tunnels
+#### Options for main > wireguards
 ---
 |Option|Description|Type|Required|Default|
 |---|---|---|---|---|
@@ -42,20 +42,20 @@ Manages systemd-networkd WireGuard tunnel virtual network devices.
 | route_metric | Metric value for routes added when route_table is specified. | int | no |  |
 | peers | Attributes of the peers for the tunnel. | list of dicts of 'peers' options | yes |  |
 
-#### Options for main > wireguard_tunnels > netdev
+#### Options for main > wireguards > netdev
 ---
 |Option|Description|Type|Required|Default|
 |---|---|---|---|---|
 | mac_address | MAC address to use on the device. | str | no |  |
 | mtu_bytes | The MTU for the tunnel. | str | no |  |
 
-#### Options for main > wireguard_tunnels > match
+#### Options for main > wireguards > match
 ---
 |Option|Description|Type|Required|Default|
 |---|---|---|---|---|
 | system | System-specific attributes to be matched. | dict of 'system' options | no |  |
 
-#### Options for main > wireguard_tunnels > match > system
+#### Options for main > wireguards > match > system
 ---
 |Option|Description|Type|Required|Default|
 |---|---|---|---|---|
@@ -67,7 +67,7 @@ Manages systemd-networkd WireGuard tunnel virtual network devices.
 | kernel_version | Match kernel version expression. | str | no |  |
 | virtualization | Match virtualization type. | str | no |  |
 
-#### Options for main > wireguard_tunnels > peers
+#### Options for main > wireguards > peers
 ---
 |Option|Description|Type|Required|Default|
 |---|---|---|---|---|
@@ -91,11 +91,11 @@ None.
 ```
 - hosts: all
   tasks:
-    - name: Importing role: kpfleming.systemd_networkd.wireguard_tunnel
+    - name: Importing role: kpfleming.systemd_networkd.wireguard
       ansible.builtin.import_role:
-        name: kpfleming.systemd_networkd.wireguard_tunnel
+        name: kpfleming.systemd_networkd.wireguard
       vars:
-        wireguard_tunnels: # required, type: list
+        wireguards: # required, type: list
 ```
 
 ## License

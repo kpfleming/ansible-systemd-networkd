@@ -7,7 +7,7 @@
   - [kpfleming.systemd_networkd.network](https://github.com/kpfleming/ansible-systemd-networkd/blob/main/src/roles/network/README.md): manage network devices
   - [kpfleming.systemd_networkd.tunnel](https://github.com/kpfleming/ansible-systemd-networkd/blob/main/src/roles/tunnel/README.md): manage generic tunnel virtual devices
   - [kpfleming.systemd_networkd.vlan](https://github.com/kpfleming/ansible-systemd-networkd/blob/main/src/roles/vlan/README.md): manage vlan virtual devices
-  - [kpfleming.systemd_networkd.wireguard_tunnel](https://github.com/kpfleming/ansible-systemd-networkd/blob/main/src/roles/wireguard_tunnel/README.md): manage WireGuard tunnel virtual devices
+  - [kpfleming.systemd_networkd.wireguard](https://github.com/kpfleming/ansible-systemd-networkd/blob/main/src/roles/wireguard/README.md): manage WireGuard virtual devices
 
 ## Features of this collection
 

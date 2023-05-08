@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+Breaking Changes:
+
+* wireguard: Renamed from 'wireguard_tunnel' as systemd-networkd does
+  not consider this interface type a 'tunnel'.
+
 Changes:
 
 * wireguard_tunnel: Removed unnecessary drop-in for 'Tunnel' assignment.
