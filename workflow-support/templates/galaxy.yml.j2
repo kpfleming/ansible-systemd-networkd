@@ -3,10 +3,14 @@ name: systemd_networkd
 version: {{ "0.0.0" if tag == "main" else tag }}
 readme: README.md
 authors:
-- Kevin P, Fleming <kevin@km6g.us> @kpfleming:irc/libera.chat
+  - Kevin P, Fleming <kevin@km6g.us> @kpfleming:irc/libera.chat
 description: Roles to manage configuration of systemd-networkd.
 license:
-- Apache-2.0
+  - Apache-2.0
 repository: https://github.com/kpfleming/ansible-systemd-networkd
 issues: https://github.com/kpfleming/ansible-systemd-networkd/issues
 build_ignore: ['*~']
+tags:
+  - linux
+  - infrastructure
+  - networking
