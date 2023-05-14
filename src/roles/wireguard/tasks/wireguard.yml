@@ -1,15 +1,15 @@
 %YAML 1.2
 ---
-- name: manage network device for tunnel
+- name: manage network device
   become: true
   register: _netdev
   notify: "{{ ansible_role_name ~ ' : restart' }}"
   ansible.builtin.template:
     src: wireguard.netdev.j2
-    dest: "{{ systemd_root ~ '/etc/systemd/network/' ~ tunnel.name ~ '.netdev' }}"
+    dest: "{{ systemd_root ~ '/etc/systemd/network/' ~ wireguard.name ~ '.netdev' }}"
     mode: u=rw,g=r,o=
     group: systemd-network
 
 - name: set fact to indicate result
   ansible.builtin.set_fact:
-    systemd_networkd_wireguard_changed: "{{ systemd_networkd_wireguard_changed|default(false) or _netdev.changed or _network.changed }}"
+    systemd_networkd_wireguard_changed: "{{ systemd_networkd_wireguard_changed|default(false) or _netdev.changed }}"

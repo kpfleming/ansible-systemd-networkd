@@ -4,8 +4,8 @@
   ansible.builtin.include_tasks: "{{ role_path }}/tasks/wireguard.yml"
   loop: "{{ wireguards }}"
   loop_control:
-    loop_var: tunnel
-    label: "{{ tunnel.name }}"
+    loop_var: wireguard
+    label: "{{ wireguard.name }}"
 
 - name: run handlers if needed
   ansible.builtin.meta: flush_handlers

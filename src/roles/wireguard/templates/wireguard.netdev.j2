@@ -1,5 +1,5 @@
-{% if "match" in tunnel -%}
-{% set m=tunnel.match %}
+{% if "match" in wireguard -%}
+{% set m=wireguard.match %}
 [Match]
 {% if "system" in m -%}
 {% for arg, value in m.system.items() %}
@@ -17,10 +17,10 @@
 
 {% endif %}
 [NetDev]
-Name={{ tunnel.name }}
+Name={{ wireguard.name }}
 Kind=wireguard
-{% if "netdev" in tunnel -%}
-{% for arg, value in tunnel.netdev.items() %}
+{% if "netdev" in wireguard -%}
+{% for arg, value in wireguard.netdev.items() %}
 {% if value is string or value is integer %}
 {{ netdev_arguments[arg] }}={{ value }}
 {% elif value is boolean %}
@@ -34,7 +34,7 @@ Kind=wireguard
 {% endif %}
 
 [WireGuard]
-{% for arg, value in tunnel.items() if arg in wireguard_arguments.keys() %}
+{% for arg, value in wireguard.items() if arg in wireguard_arguments.keys() %}
 {% if value is string or value is integer  %}
 {{ wireguard_arguments[arg] }}={{ value }}
 {% elif value is boolean %}
@@ -46,7 +46,7 @@ Kind=wireguard
 {% endif %}
 {% endfor %}
 
-{% for v in tunnel.peers -%}
+{% for v in wireguard.peers -%}
 [WireGuardPeer]
 {% if "name" in v %}
 # {{ v.name }}
