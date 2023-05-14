@@ -1,0 +1,7 @@
+%YAML 1.2
+---
+match_system_arguments: {'architecture': 'Architecture', 'credential': 'Credential', 'firmware': 'Firmware', 'host': 'Host', 'kernel_command_line': 'KernelCommandLine', 'kernel_version': 'KernelVersion', 'virtualization': 'Virtualization'}
+
+netdev_arguments: {'mac_address': 'MACAddress', 'mtu_bytes': 'MTUBytes'}
+
+bond_arguments: {'down_delay_sec': 'DownDelaySec', 'lacp_transmit_rate': 'LACPTransmitRate', 'mii_monitor_sec': 'MIIMonitorSec', 'min_links': 'MinLinks', 'mode': 'Mode', 'transmit_hash_policy': 'TransmitHashPolicy', 'up_delay_sec': 'UpDelaySec'}
