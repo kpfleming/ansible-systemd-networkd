@@ -123,6 +123,19 @@ argument_specs:
                 description: Whether the network is included in the 'online' status determination.
                 type: str
                 choices:
+                  - true
+                  - false
+                  - missing
+                  - no-carrier
+                  - dormant
+                  - degraded-carrier
+                  - carrier
+                  - enslaved
+                  - routable
+              required_family_for_online:
+                description: Which address family(ies) are considered when determining 'online' status.
+                type: str
+                choices:
                   - any
                   - both
                   - ipv4

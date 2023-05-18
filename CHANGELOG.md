@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.1.0] - 2023-05-18
+
+Additions:
+
+* network: Added 'required_family_for_online' parameter.
+
+Changes:
+
+* network: Corrected definition of 'required_for_online' parameter.
+
 ## [3.0.1] - 2023-05-14
 
 Changes:

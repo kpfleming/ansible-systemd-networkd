@@ -79,6 +79,7 @@
           mac_address: MACAddress
           mtu_bytes: MTUBytes
           required_for_online: RequiredForOnline
+          required_family_for_online: RequiredFamilyForOnline
         network_address_arguments:
           address: Address
           broadcast: Broadcast

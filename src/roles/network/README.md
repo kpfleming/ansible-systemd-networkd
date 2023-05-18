@@ -59,6 +59,7 @@ Manages systemd-networkd networks.
 | mac_address | The MAC address to be used for the network. | str | no |  |
 | mtu_bytes | The MTU for the network. | str | no |  |
 | required_for_online | Whether the network is included in the 'online' status determination. | str | no |  |
+| required_family_for_online | Which address family(ies) are considered when determining 'online' status. | str | no |  |
 | activation_policy | How the network should or should not be activated. | str | no |  |
 
 #### Options for main > networks > addresses
@@ -203,6 +204,20 @@ Manages systemd-networkd networks.
 | False |
 
 #### Choices for main > networks > link > required_for_online
+---
+|Choice|
+|---|
+| True |
+| False |
+| missing |
+| no-carrier |
+| dormant |
+| degraded-carrier |
+| carrier |
+| enslaved |
+| routable |
+
+#### Choices for main > networks > link > required_family_for_online
 ---
 |Choice|
 |---|
