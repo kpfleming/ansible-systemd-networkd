@@ -1,7 +1,9 @@
 paths:
+  - '.ansible-lint'
+  - '.github/workflows/lint.yml'
   - 'src/**/*.yml'
   - 'tox.ini'
   - 'workflow-support/*.sh'
   - 'workflow-support/*.yml'
+  - 'workflow-support/lint_paths.yml'
   - 'workflow-support/templates/*-vars.yml.j2'
-  - '.github/workflows/lint.yml'
