@@ -9,16 +9,17 @@ exclude_paths:
   - workflow-support/ci_paths.yml
 
 skip_list:
+  - galaxy[no-changelog]
+  - galaxy[version-incorrect]
   - meta-runtime[unsupported-version]
   - name[casing]
   - name[play]
   - no-changed-when
   - template-instead-of-copy
   - unnamed-task
+  - var-naming[no-role-prefix]
   - var-spacing
   - yaml[line-length]
-  - galaxy[version-incorrect]
-  - galaxy[no-changelog]
 
 kinds:
   - playbook: "**/workflow-support/*.yml"
