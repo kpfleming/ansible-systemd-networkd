@@ -1,1 +1,1 @@
-versions={"python": ["py311"]}
+versions={"python": ["py311", "py312"]}

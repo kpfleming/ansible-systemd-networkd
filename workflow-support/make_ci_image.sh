@@ -9,7 +9,7 @@ image_name=${1}; shift
 
 lint_deps=(shellcheck)
 
-toxenvs=(lint-action py311-ci-action publish-action)
+toxenvs=(lint-action py3{11,12}-ci-action publish-action)
 
 c=$(buildah from "${base_image}")
 
