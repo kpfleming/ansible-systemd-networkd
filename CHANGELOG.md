@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.2.0] - 2023-06-25
+
+Changes:
+
+* Switched to antsibull-docs for generating browseable documentation.
+
 ## [3.1.0] - 2023-05-18
 
 Additions:
@@ -71,7 +77,8 @@ Changes:
 
 First release!
 
-[unreleased]: https://github.com/kpfleming/ansible-systemd-networkd/compare/3.1.0...HEAD
+[unreleased]: https://github.com/kpfleming/ansible-systemd-networkd/compare/3.2.0...HEAD
+[3.2.0]: https://github.com/kpfleming/ansible-systemd-networkd/compare/3.1.0...3.2.0
 [3.1.0]: https://github.com/kpfleming/ansible-systemd-networkd/compare/3.0.1...3.1.0
 [3.0.1]: https://github.com/kpfleming/ansible-systemd-networkd/compare/3.0.0...3.0.1
 [3.0.0]: https://github.com/kpfleming/ansible-systemd-networkd/compare/2.0.0...3.0.0
