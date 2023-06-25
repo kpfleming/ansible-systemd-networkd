@@ -7,20 +7,20 @@
 This repo contains the `kpfleming.systemd_networkd` Ansible Collection. The collection includes roles to manage
 the configuration of various features of systemd-networkd.
 
-Open Source software: [Apache License 2.0](https://spdx.org/licenses/Apache-2.0.html)
+Open Source software: [Apache License 2.0][3]
 
 ## &nbsp;
 
 ## Included content
 
 * Roles:
-  - [kpfleming.systemd_networkd.bond](src/roles/bond/README.md): manage bond virtual devices
-  - [kpfleming.systemd_networkd.dummy](src/roles/dummy/README.md): manage dummy virtual devices
-  - [kpfleming.systemd_networkd.link](src/roles/link/README.md): manage links
-  - [kpfleming.systemd_networkd.network](src/roles/network/README.md): manage network devices
-  - [kpfleming.systemd_networkd.tunnel](src/roles/tunnel/README.md): manage generic tunnel virtual devices
-  - [kpfleming.systemd_networkd.vlan](src/roles/vlan/README.md): manage vlan virtual devices
-  - [kpfleming.systemd_networkd.wireguard](src/roles/wireguard/README.md): manage WireGuard virtual devices
+  - kpfleming.systemd_networkd.bond: manage bond virtual devices
+  - kpfleming.systemd_networkd.dummy: manage dummy virtual devices
+  - kpfleming.systemd_networkd.link: manage links
+  - kpfleming.systemd_networkd.network: manage network devices
+  - kpfleming.systemd_networkd.tunnel: manage generic tunnel virtual devices
+  - kpfleming.systemd_networkd.vlan: manage vlan virtual devices
+  - kpfleming.systemd_networkd.wireguard: manage WireGuard virtual devices
 
 ## Features of this collection
 
@@ -64,7 +64,7 @@ collections:
   - name: kpfleming.systemd_networkd
 ```
 
-See [Ansible Using collections](https://docs.ansible.com/ansible/latest/user_guide/collections_using.html) for more details.
+See [Ansible Using collections][5] for more details.
 
 ## Examples
 
@@ -207,19 +207,18 @@ This playbook example combines six of the roles in this collection. It features:
             - gateway: 2001:470:1f06:fab::1
 ```
 
+Documentation of the collections's modules and their arguments/return
+values can be found [here][1].
 
 ## Contributing to this collection
 
 If you want to develop new content for this collection or improve what
 is already here, the easiest way to work on the collection is to clone
-it into one of the configured
-[`COLLECTIONS_PATH`](https://docs.ansible.com/ansible/latest/reference_appendices/config.html#collections-paths),
-and work on it there.
+it into one of the configured [`COLLECTIONS_PATH`][6], and work on it
+there.
 
 You can find more information in the [developer guide for
-collections](https://docs.ansible.com/ansible/devel/dev_guide/developing_collections.html#contributing-to-collections),
-and in the [Ansible Community
-Guide](https://docs.ansible.com/ansible/latest/community/index.html).
+collections][7], and in the [Ansible Community Guide][8].
 
 
 ## More information
@@ -228,3 +227,10 @@ Guide](https://docs.ansible.com/ansible/latest/community/index.html).
 - [Ansible User guide](https://docs.ansible.com/ansible/latest/user_guide/index.html)
 - [Ansible Developer guide](https://docs.ansible.com/ansible/latest/dev_guide/index.html)
 - [Ansible Collections Checklist](https://github.com/ansible-collections/overview/blob/master/collection_requirements.rst)
+
+[1]: https://kpfleming.github.io/ansible-systemd-networkd
+[3]: https://spdx.org/licenses/Apache-2.0.html
+[5]: https://docs.ansible.com/ansible/latest/user_guide/collections_using.html
+[6]: https://docs.ansible.com/ansible/latest/reference_appendices/config.html#collections-paths
+[7]: https://docs.ansible.com/ansible/devel/dev_guide/developing_collections.html#contributing-to-collections
+[8]: https://docs.ansible.com/ansible/latest/community/index.html
