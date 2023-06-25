@@ -3,18 +3,21 @@
 argument_specs:
   main:
     short_description: Manages systemd-networkd networks.
-    description: |
-      This role operates in one of two modes:
-      1) When "dropin_for" is not specified, creates a .network file in /etc/systemd/network
-      using the supplied "name", and applies the configuration provided to that file.
-      2) When "dropin_for" is specified, creates a .conf file in the dropin directory for the
-      network specified, using the supplied "name", and applies the configuration provided to
-      that file.
+    description:
+      - |
+        This role operates in one of two modes:
+        1) When "dropin_for" is not specified, creates a .network file in /etc/systemd/network
+        using the supplied "name", and applies the configuration provided to that file.
+        2) When "dropin_for" is specified, creates a .conf file in the dropin directory for the
+        network specified, using the supplied "name", and applies the configuration provided to
+        that file.
 
-      Detailed descriptions of parameters and their behavior can be found in 'man systemd.network'.
+      - |
+        Detailed descriptions of parameters and their behavior can be found in 'man systemd.network'.
 
-      Sets fact named 'systemd_networkd_network_changed' to either true or false to indicate whether
-      any changes were made.
+      - |
+        Sets fact named 'systemd_networkd_network_changed' to either true or false to indicate whether
+        any changes were made.
     options:
       suppress_reload:
         description: Suppress the reloading of systemd-networkd if changes are made.

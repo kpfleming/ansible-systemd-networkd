@@ -1,14 +1,3 @@
-## Included content
-
-* Roles:
-  - [kpfleming.systemd_networkd.bond](https://github.com/kpfleming/ansible-systemd-networkd/blob/main/src/roles/bond/README.md): manage bond virtual devices
-  - [kpfleming.systemd_networkd.dummy](https://github.com/kpfleming/ansible-systemd-networkd/blob/main/src/roles/dummy/README.md): manage dummy virtual devices
-  - [kpfleming.systemd_networkd.link](https://github.com/kpfleming/ansible-systemd-networkd/blob/main/src/roles/link/README.md): manage links
-  - [kpfleming.systemd_networkd.network](https://github.com/kpfleming/ansible-systemd-networkd/blob/main/src/roles/network/README.md): manage network devices
-  - [kpfleming.systemd_networkd.tunnel](https://github.com/kpfleming/ansible-systemd-networkd/blob/main/src/roles/tunnel/README.md): manage generic tunnel virtual devices
-  - [kpfleming.systemd_networkd.vlan](https://github.com/kpfleming/ansible-systemd-networkd/blob/main/src/roles/vlan/README.md): manage vlan virtual devices
-  - [kpfleming.systemd_networkd.wireguard](https://github.com/kpfleming/ansible-systemd-networkd/blob/main/src/roles/wireguard/README.md): manage WireGuard virtual devices
-
 ## Features of this collection
 
 * Ansible-style arguments with extensive validation
@@ -34,23 +23,6 @@
 
   In order to avoid multiple roles attempting to manage content in the same files, all of the roles make
   use of the systemd-networkd 'drop-in directory' feature where it is applicable.
-
-## Using this collection
-
-In order to use this collection, you need to install it using the
-`ansible-galaxy` CLI:
-
-    ansible-galaxy collection install kpfleming.systemd_networkd
-
-You can also include it in a `requirements.yml` file and install it
-via `ansible-galaxy collection install -r requirements.yml` using the
-format:
-
-```yaml
-collections:
-  - name: kpfleming.systemd_networkd
-```
-See [Ansible Using collections](https://docs.ansible.com/ansible/latest/user_guide/collections_using.html) for more details.
 
 ## Examples
 
@@ -192,16 +164,3 @@ This playbook example combines six of the roles in this collection. It features:
           routes:
             - gateway: 2001:470:1f06:fab::1
 ```
-
-## Contributing to this collection, or reporting issues
-
-This collection is developed in
-[this](https://github.com/kpfleming/ansible-systemd-networkd)
-repository on GitHub. Issues can be reported in the [issue
-tracker](https://github.com/kpfleming/ansible-systemd-networkd/issues).
-
-## More information
-
-Open Source software: [Apache License 2.0](https://spdx.org/licenses/Apache-2.0.html)
-
-Role documentation generated using [ansible-role-docs](https://gitlab.com/kpfleming/ansible-role-docs).

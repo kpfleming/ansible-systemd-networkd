@@ -3,12 +3,14 @@
 argument_specs:
   main:
     short_description: Manages systemd-networkd dummy virtual network devices.
-    description: |
-      This role will create (or update) one item in /etc/systemd/network for
-      each specified dummy: a .netdev file for the dummy device
+    description:
+      - |
+        This role will create (or update) one item in /etc/systemd/network for
+        each specified dummy: a .netdev file for the dummy device
 
-      Sets fact named 'systemd_networkd_dummy_changed' to either true or false to indicate whether
-      any changes were made.
+      - |
+        Sets fact named 'systemd_networkd_dummy_changed' to either true or false to indicate whether
+        any changes were made.
     options:
       suppress_reload:
         description: Suppress the reloading of systemd-networkd if changes are made.

@@ -224,8 +224,6 @@ Guide](https://docs.ansible.com/ansible/latest/community/index.html).
 
 ## More information
 
-Role documentation generated using [ansible-role-docs](https://gitlab.com/kpfleming/ansible-role-docs).
-
 - [Ansible Collection overview](https://github.com/ansible-collections/overview)
 - [Ansible User guide](https://docs.ansible.com/ansible/latest/user_guide/index.html)
 - [Ansible Developer guide](https://docs.ansible.com/ansible/latest/dev_guide/index.html)

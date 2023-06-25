@@ -3,18 +3,21 @@
 argument_specs:
   main:
     short_description: Manages systemd-networkd VLAN virtual network devices.
-    description: |
-      This role will create (or update) three items in /etc/systemd/network for
-      each specified VLAN:
-      1) A drop-in directory for the underlying network
-      2) A .netdev file for the VLAN device
-      3) A .conf file in the drop-in directory connecting the VLAN device
-      to the underlying network
+    description:
+      - |
+        This role will create (or update) three items in /etc/systemd/network for
+        each specified VLAN:
+        1) A drop-in directory for the underlying network
+        2) A .netdev file for the VLAN device
+        3) A .conf file in the drop-in directory connecting the VLAN device
+        to the underlying network
 
-      Detailed descriptions of parameters and their behavior can be found in 'man systemd.netdev'.
+      - |
+        Detailed descriptions of parameters and their behavior can be found in 'man systemd.netdev'.
 
-      Sets fact named 'systemd_networkd_vlan_changed' to either true or false to indicate whether
-      any changes were made.
+      - |
+        Sets fact named 'systemd_networkd_vlan_changed' to either true or false to indicate whether
+        any changes were made.
     options:
       suppress_reload:
         description: Suppress the reloading of systemd-networkd if changes are made.

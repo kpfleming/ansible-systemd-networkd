@@ -3,28 +3,32 @@
 argument_specs:
   main:
     short_description: Manages systemd-networkd bonded network devices.
-    description: |
-      This role will create (or update) a number of items in /etc/systemd/network for
-      each specified bonded device:
-      1) A .netdev file for the bond device
-      2) .network files for each link that is a member of the bond; files will be named
-      with the bond device's name and a numeric suffix
-      3) .link files for each interface that is a member of the bond; files will be named
-      with the bond device's name and a numeric suffix
+    description:
+      - |
+        This role will create (or update) a number of items in /etc/systemd/network for
+        each specified bonded device:
+        1) A .netdev file for the bond device
+        2) .network files for each link that is a member of the bond; files will be named
+        with the bond device's name and a numeric suffix
+        3) .link files for each interface that is a member of the bond; files will be named
+        with the bond device's name and a numeric suffix
 
-      On Debian and Debian-derivative systems the .link files are
-      copied into the initramfs by the `update-initramfs` tool, which
-      means that the system must be rebooted for changes in those
-      files to take effect. In this situation the role will set a fact
-      named 'systemd_networkd_link_reboot_required' and the system
-      should be rebooted before any additional configuration of the
-      bonded network links is attempted.
+      - |
+        On Debian and Debian-derivative systems the .link files are
+        copied into the initramfs by the `update-initramfs` tool, which
+        means that the system must be rebooted for changes in those
+        files to take effect. In this situation the role will set a fact
+        named 'systemd_networkd_link_reboot_required' and the system
+        should be rebooted before any additional configuration of the
+        bonded network links is attempted.
 
-      Detailed descriptions of parameters and their behavior can be found in 'man systemd.netdev'
-      and 'man systemd.link'.
+      - |
+        Detailed descriptions of parameters and their behavior can be found in 'man systemd.netdev'
+        and 'man systemd.link'.
 
-      Sets fact named 'systemd_networkd_bond_changed' to either true or false to indicate whether
-      any changes were made.
+      - |
+        Sets fact named 'systemd_networkd_bond_changed' to either true or false to indicate whether
+        any changes were made.
     options:
       suppress_reload:
         description: Suppress the reloading of systemd-networkd if changes are made.
