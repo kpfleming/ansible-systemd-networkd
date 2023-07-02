@@ -1,0 +1,7 @@
+%YAML 1.2
+---
+match_system_arguments: {'architecture': 'Architecture', 'credential': 'Credential', 'firmware': 'Firmware', 'host': 'Host', 'kernel_command_line': 'KernelCommandLine', 'kernel_version': 'KernelVersion', 'virtualization': 'Virtualization'}
+
+match_device_arguments: {'driver': 'Driver', 'kind': 'Kind', 'mac_address': 'MACAddress', 'name': 'Name', 'original_name': 'OriginalName', 'path': 'Path', 'permanent_mac_address': 'PermanentMACAddress', 'type': 'Type'}
+
+link_arguments: {'mac_address_policy': 'MACAddressPolicy', 'mtu_bytes': 'MTUBytes', 'name': 'Name', 'name_policy': 'NamePolicy'}
