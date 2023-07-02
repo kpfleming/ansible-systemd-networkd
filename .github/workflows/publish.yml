@@ -1,4 +1,4 @@
-name: Publish to Ansible Galaxy
+name: Publish Artifacts
 
 on:
   push:
@@ -15,7 +15,7 @@ jobs:
       uses: kpfleming/composite-actions/image-details@v2
       with:
         base_image: python:bookworm-main
-  publish:
+  publish_galaxy:
     runs-on: ubuntu-22.04
     needs:
     - image_details
@@ -27,3 +27,21 @@ jobs:
       with:
         galaxy_token: ${{ secrets.ANSIBLE_GALAXY_TOKEN }}
         tag: ${{ github.ref_name }}
+  publish_docs:
+    runs-on: ubuntu-22.04
+    needs:
+    - publish_galaxy
+    container:
+      image: docker.io/python:3.11
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        ref: docsite
+        path: docsite
+    - run: docsite/workflow-support/make_docs.sh
+    - uses: EndBug/add-and-commit@v9
+      with:
+        cwd: docsite
+        add: . --no-ignore-removal
+        tag: docsite-${{ github.ref_name }} --force
+        tag_push: --force
