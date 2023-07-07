@@ -7,6 +7,7 @@ exclude_paths:
   - "**/vars/main.yml"
   - workflow-support/lint_paths.yml
   - workflow-support/ci_paths.yml
+  - workflow-support/parameter_mapping.yml
 
 skip_list:
   - galaxy[no-changelog]
@@ -20,6 +21,3 @@ skip_list:
   - var-naming[no-role-prefix]
   - var-spacing
   - yaml[line-length]
-
-kinds:
-  - playbook: "**/workflow-support/*.yml"
