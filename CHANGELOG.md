@@ -12,6 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Switched to fork of `j2cli` for rendering Galaxy metadata YAML file
   and role `vars` files (no behavioral changes).
 
+- Switched from `j2cli` to `jinjanator` for rendering metadata file.
+
 ## [3.2.3] - 2023-07-02
 
 No content changes, tag created for new docsite publishing workflow.
