@@ -134,3 +134,17 @@
 
 {% endfor %}
 {% endif %}
+{% if "cake" in network -%}
+[CAKE]
+{% for arg, value in network.cake.items() %}
+{% if value is string or value is integer %}
+{{ network_cake_arguments[arg] }}={{ value }}
+{% elif value is boolean %}
+{{ network_cake_arguments[arg] }}={{ value|ternary('yes','no') }}
+{% else %}
+{% for v in value %}
+{{ network_cake_arguments[arg] }}={{ v }}
+{% endfor %}
+{% endif %}
+{% endfor %}
+{% endif %}

@@ -105,6 +105,17 @@ network_ipv6acceptra_arguments:
   use_gateway: UseGateway
   use_mtu: UseMTU
 
+network_cake_arguments:
+  bandwidth: Bandwidth
+  overhead_bytes: OverheadBytes
+  mpu_bytes: MPUBytes
+  compensation_mode: CompensationMode
+  flow_isolation_mode: FlowIsolationMode
+  nat: NAT
+  priority_queueing_preset: PriorityQueueingPreset
+  wash: Wash
+  split_gso: SplitGSO
+
 wireguard_arguments:
   private_key: PrivateKey
   private_key_file: PrivateKeyFile
