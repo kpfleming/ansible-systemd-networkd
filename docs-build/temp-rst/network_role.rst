@@ -21,7 +21,7 @@ kpfleming.systemd_networkd.network role -- Manages systemd-networkd networks.
 .. Collection note
 
 .. note::
-    This role is part of the `kpfleming.systemd_networkd collection <https://galaxy.ansible.com/kpfleming/systemd_networkd>`_ (version 3.2.3).
+    This role is part of the `kpfleming.systemd_networkd collection <https://galaxy.ansible.com/kpfleming/systemd_networkd>`_ (version 24.1.0).
 
     It is not included in ``ansible-core``.
     To check whether it is installed, run :code:`ansible-galaxy collection list`.
@@ -435,6 +435,545 @@ Parameters
       .. raw:: html
 
         </div>
+
+  * - .. raw:: html
+
+        <div class="ansible-option-indent"></div><div class="ansible-option-cell">
+        <div class="ansibleOptionAnchor" id="parameter-main--networks/cake"></div>
+
+      .. raw:: latex
+
+        \hspace{0.02\textwidth}\begin{minipage}[t]{0.3\textwidth}
+
+      .. _ansible_collections.kpfleming.systemd_networkd.network_role__parameter-main__networks/cake:
+
+      .. rst-class:: ansible-option-title
+
+      **cake**
+
+      .. raw:: html
+
+        <a class="ansibleOptionLink" href="#parameter-main--networks/cake" title="Permalink to this option"></a>
+
+      .. ansible-option-type-line::
+
+        :ansible-option-type:`dictionary`
+
+      :ansible-option-versionadded:`added in kpfleming.systemd\_networkd 24.1`
+
+
+
+
+
+      .. raw:: html
+
+        </div>
+
+      .. raw:: latex
+
+        \end{minipage}
+
+    - .. raw:: html
+
+        <div class="ansible-option-indent-desc"></div><div class="ansible-option-cell">
+
+      Attributes of the Common Applications Kept Enhanced (CAKE) queueing discipline (qdisc).
+
+
+      .. raw:: html
+
+        </div>
+    
+  * - .. raw:: html
+
+        <div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+        <div class="ansibleOptionAnchor" id="parameter-main--networks/cake/bandwidth"></div>
+
+      .. raw:: latex
+
+        \hspace{0.04\textwidth}\begin{minipage}[t]{0.28\textwidth}
+
+      .. _ansible_collections.kpfleming.systemd_networkd.network_role__parameter-main__networks/cake/bandwidth:
+
+      .. rst-class:: ansible-option-title
+
+      **bandwidth**
+
+      .. raw:: html
+
+        <a class="ansibleOptionLink" href="#parameter-main--networks/cake/bandwidth" title="Permalink to this option"></a>
+
+      .. ansible-option-type-line::
+
+        :ansible-option-type:`string`
+
+      :ansible-option-versionadded:`added in kpfleming.systemd\_networkd 24.1`
+
+
+
+
+
+      .. raw:: html
+
+        </div>
+
+      .. raw:: latex
+
+        \end{minipage}
+
+    - .. raw:: html
+
+        <div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell">
+
+      Bandwidth for the shaper, in bits-per-second. Suffixes K, M, and G can be used.
+
+
+      .. raw:: html
+
+        </div>
+
+  * - .. raw:: html
+
+        <div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+        <div class="ansibleOptionAnchor" id="parameter-main--networks/cake/compensation_mode"></div>
+
+      .. raw:: latex
+
+        \hspace{0.04\textwidth}\begin{minipage}[t]{0.28\textwidth}
+
+      .. _ansible_collections.kpfleming.systemd_networkd.network_role__parameter-main__networks/cake/compensation_mode:
+
+      .. rst-class:: ansible-option-title
+
+      **compensation_mode**
+
+      .. raw:: html
+
+        <a class="ansibleOptionLink" href="#parameter-main--networks/cake/compensation_mode" title="Permalink to this option"></a>
+
+      .. ansible-option-type-line::
+
+        :ansible-option-type:`string`
+
+      :ansible-option-versionadded:`added in kpfleming.systemd\_networkd 24.1`
+
+
+
+
+
+      .. raw:: html
+
+        </div>
+
+      .. raw:: latex
+
+        \end{minipage}
+
+    - .. raw:: html
+
+        <div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell">
+
+      Compensate for ATM or PTM framing and bit encoding.
+
+
+      .. rst-class:: ansible-option-line
+
+      :ansible-option-choices:`Choices:`
+
+      - :ansible-option-choices-entry:`"none"`
+      - :ansible-option-choices-entry:`"atm"`
+      - :ansible-option-choices-entry:`"ptm"`
+
+
+      .. raw:: html
+
+        </div>
+
+  * - .. raw:: html
+
+        <div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+        <div class="ansibleOptionAnchor" id="parameter-main--networks/cake/flow_isolation_mode"></div>
+
+      .. raw:: latex
+
+        \hspace{0.04\textwidth}\begin{minipage}[t]{0.28\textwidth}
+
+      .. _ansible_collections.kpfleming.systemd_networkd.network_role__parameter-main__networks/cake/flow_isolation_mode:
+
+      .. rst-class:: ansible-option-title
+
+      **flow_isolation_mode**
+
+      .. raw:: html
+
+        <a class="ansibleOptionLink" href="#parameter-main--networks/cake/flow_isolation_mode" title="Permalink to this option"></a>
+
+      .. ansible-option-type-line::
+
+        :ansible-option-type:`string`
+
+      :ansible-option-versionadded:`added in kpfleming.systemd\_networkd 24.1`
+
+
+
+
+
+      .. raw:: html
+
+        </div>
+
+      .. raw:: latex
+
+        \end{minipage}
+
+    - .. raw:: html
+
+        <div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell">
+
+      Method use for providing fairness between queues in the shaper.
+
+
+      .. rst-class:: ansible-option-line
+
+      :ansible-option-choices:`Choices:`
+
+      - :ansible-option-choices-entry:`"none"`
+      - :ansible-option-choices-entry:`"src-host"`
+      - :ansible-option-choices-entry:`"dst-host"`
+      - :ansible-option-choices-entry:`"hosts"`
+      - :ansible-option-choices-entry:`"flows"`
+      - :ansible-option-choices-entry:`"dual-src-host"`
+      - :ansible-option-choices-entry:`"dual-dst-host"`
+      - :ansible-option-choices-entry:`"triple"`
+
+
+      .. raw:: html
+
+        </div>
+
+  * - .. raw:: html
+
+        <div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+        <div class="ansibleOptionAnchor" id="parameter-main--networks/cake/mpu_bytes"></div>
+
+      .. raw:: latex
+
+        \hspace{0.04\textwidth}\begin{minipage}[t]{0.28\textwidth}
+
+      .. _ansible_collections.kpfleming.systemd_networkd.network_role__parameter-main__networks/cake/mpu_bytes:
+
+      .. rst-class:: ansible-option-title
+
+      **mpu_bytes**
+
+      .. raw:: html
+
+        <a class="ansibleOptionLink" href="#parameter-main--networks/cake/mpu_bytes" title="Permalink to this option"></a>
+
+      .. ansible-option-type-line::
+
+        :ansible-option-type:`string`
+
+      :ansible-option-versionadded:`added in kpfleming.systemd\_networkd 24.1`
+
+
+
+
+
+      .. raw:: html
+
+        </div>
+
+      .. raw:: latex
+
+        \end{minipage}
+
+    - .. raw:: html
+
+        <div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell">
+
+      Round the net packet size (after overhead bytes have been added) to a minimum of this value.
+
+
+      .. raw:: html
+
+        </div>
+
+  * - .. raw:: html
+
+        <div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+        <div class="ansibleOptionAnchor" id="parameter-main--networks/cake/nat"></div>
+
+      .. raw:: latex
+
+        \hspace{0.04\textwidth}\begin{minipage}[t]{0.28\textwidth}
+
+      .. _ansible_collections.kpfleming.systemd_networkd.network_role__parameter-main__networks/cake/nat:
+
+      .. rst-class:: ansible-option-title
+
+      **nat**
+
+      .. raw:: html
+
+        <a class="ansibleOptionLink" href="#parameter-main--networks/cake/nat" title="Permalink to this option"></a>
+
+      .. ansible-option-type-line::
+
+        :ansible-option-type:`boolean`
+
+      :ansible-option-versionadded:`added in kpfleming.systemd\_networkd 24.1`
+
+
+
+
+
+      .. raw:: html
+
+        </div>
+
+      .. raw:: latex
+
+        \end{minipage}
+
+    - .. raw:: html
+
+        <div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell">
+
+      Perform NAT lookups to obtain true source host addresses before constructing flows.
+
+
+      .. rst-class:: ansible-option-line
+
+      :ansible-option-choices:`Choices:`
+
+      - :ansible-option-choices-entry:`false`
+      - :ansible-option-choices-entry:`true`
+
+
+      .. raw:: html
+
+        </div>
+
+  * - .. raw:: html
+
+        <div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+        <div class="ansibleOptionAnchor" id="parameter-main--networks/cake/overhead_bytes"></div>
+
+      .. raw:: latex
+
+        \hspace{0.04\textwidth}\begin{minipage}[t]{0.28\textwidth}
+
+      .. _ansible_collections.kpfleming.systemd_networkd.network_role__parameter-main__networks/cake/overhead_bytes:
+
+      .. rst-class:: ansible-option-title
+
+      **overhead_bytes**
+
+      .. raw:: html
+
+        <a class="ansibleOptionLink" href="#parameter-main--networks/cake/overhead_bytes" title="Permalink to this option"></a>
+
+      .. ansible-option-type-line::
+
+        :ansible-option-type:`string`
+
+      :ansible-option-versionadded:`added in kpfleming.systemd\_networkd 24.1`
+
+
+
+
+
+      .. raw:: html
+
+        </div>
+
+      .. raw:: latex
+
+        \end{minipage}
+
+    - .. raw:: html
+
+        <div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell">
+
+      Number of bytes to be added to the raw data size of each packet.
+
+
+      .. raw:: html
+
+        </div>
+
+  * - .. raw:: html
+
+        <div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+        <div class="ansibleOptionAnchor" id="parameter-main--networks/cake/priority_queueing_preset"></div>
+
+      .. raw:: latex
+
+        \hspace{0.04\textwidth}\begin{minipage}[t]{0.28\textwidth}
+
+      .. _ansible_collections.kpfleming.systemd_networkd.network_role__parameter-main__networks/cake/priority_queueing_preset:
+
+      .. rst-class:: ansible-option-title
+
+      **priority_queueing_preset**
+
+      .. raw:: html
+
+        <a class="ansibleOptionLink" href="#parameter-main--networks/cake/priority_queueing_preset" title="Permalink to this option"></a>
+
+      .. ansible-option-type-line::
+
+        :ansible-option-type:`string`
+
+      :ansible-option-versionadded:`added in kpfleming.systemd\_networkd 24.1`
+
+
+
+
+
+      .. raw:: html
+
+        </div>
+
+      .. raw:: latex
+
+        \end{minipage}
+
+    - .. raw:: html
+
+        <div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell">
+
+      Construct tins (of flow-isolation queues) using the selected mechanism.
+
+
+      .. rst-class:: ansible-option-line
+
+      :ansible-option-choices:`Choices:`
+
+      - :ansible-option-choices-entry:`"besteffort"`
+      - :ansible-option-choices-entry:`"precedence"`
+      - :ansible-option-choices-entry:`"diffserv8"`
+      - :ansible-option-choices-entry:`"diffserv4"`
+      - :ansible-option-choices-entry:`"diffserv3"`
+
+
+      .. raw:: html
+
+        </div>
+
+  * - .. raw:: html
+
+        <div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+        <div class="ansibleOptionAnchor" id="parameter-main--networks/cake/split_gso"></div>
+
+      .. raw:: latex
+
+        \hspace{0.04\textwidth}\begin{minipage}[t]{0.28\textwidth}
+
+      .. _ansible_collections.kpfleming.systemd_networkd.network_role__parameter-main__networks/cake/split_gso:
+
+      .. rst-class:: ansible-option-title
+
+      **split_gso**
+
+      .. raw:: html
+
+        <a class="ansibleOptionLink" href="#parameter-main--networks/cake/split_gso" title="Permalink to this option"></a>
+
+      .. ansible-option-type-line::
+
+        :ansible-option-type:`boolean`
+
+      :ansible-option-versionadded:`added in kpfleming.systemd\_networkd 24.1`
+
+
+
+
+
+      .. raw:: html
+
+        </div>
+
+      .. raw:: latex
+
+        \end{minipage}
+
+    - .. raw:: html
+
+        <div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell">
+
+      Split General Segmentation Offload (GSO) super-packets into their on-the-wire components and dequeue them individually.
+
+
+      .. rst-class:: ansible-option-line
+
+      :ansible-option-choices:`Choices:`
+
+      - :ansible-option-choices-entry:`false`
+      - :ansible-option-choices-entry:`true`
+
+
+      .. raw:: html
+
+        </div>
+
+  * - .. raw:: html
+
+        <div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+        <div class="ansibleOptionAnchor" id="parameter-main--networks/cake/wash"></div>
+
+      .. raw:: latex
+
+        \hspace{0.04\textwidth}\begin{minipage}[t]{0.28\textwidth}
+
+      .. _ansible_collections.kpfleming.systemd_networkd.network_role__parameter-main__networks/cake/wash:
+
+      .. rst-class:: ansible-option-title
+
+      **wash**
+
+      .. raw:: html
+
+        <a class="ansibleOptionLink" href="#parameter-main--networks/cake/wash" title="Permalink to this option"></a>
+
+      .. ansible-option-type-line::
+
+        :ansible-option-type:`boolean`
+
+      :ansible-option-versionadded:`added in kpfleming.systemd\_networkd 24.1`
+
+
+
+
+
+      .. raw:: html
+
+        </div>
+
+      .. raw:: latex
+
+        \end{minipage}
+
+    - .. raw:: html
+
+        <div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell">
+
+      Clear DSCP fields, except ECN bits, of packets which pass through the shaper.
+
+
+      .. rst-class:: ansible-option-line
+
+      :ansible-option-choices:`Choices:`
+
+      - :ansible-option-choices-entry:`false`
+      - :ansible-option-choices-entry:`true`
+
+
+      .. raw:: html
+
+        </div>
+
 
   * - .. raw:: html
 
