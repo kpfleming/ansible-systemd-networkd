@@ -1,24 +1,27 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<meta content="2.7.0" name="antsibull-docs" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>kpfleming.systemd_networkd.vlan role – Manages systemd-networkd VLAN virtual network devices. &mdash; Collections  documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/ansible.css" type="text/css" />
-      <link rel="stylesheet" href="_static/antsibull-minimal.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/rtd-ethical-ads.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5707b69d" />
+      <link rel="stylesheet" type="text/css" href="_static/css/ansible.css?v=c5b67dd2" />
+      <link rel="stylesheet" type="text/css" href="_static/antsibull-minimal.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/rtd-ethical-ads.css?v=289b023e" />
+
+  
     <link rel="shortcut icon" href="_static/images/Ansible-Mark-RGB_Black.png"/>
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=7f41d439"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="kpfleming.systemd_networkd.wireguard role – Manages systemd-networkd WireGuard tunnel virtual network devices." href="wireguard_role.html" />
@@ -33,11 +36,9 @@
 
 <div class="DocSite-globalNav ansibleNav">
   <ul>
-    <li><a href="https://www.ansible.com/ansiblefest" target="_blank">AnsibleFest</a></li>
-    <li><a href="https://www.ansible.com/tower" target="_blank">Products</a></li>
-    <li><a href="https://www.ansible.com/community" target="_blank">Community</a></li>
-    <li><a href="https://www.ansible.com/webinars-training" target="_blank">Webinars & Training</a></li>
     <li><a href="https://www.ansible.com/blog" target="_blank">Blog</a></li>
+    <li><a href="https://forum.ansible.com/" target="_blank">Ansible community forum</a></li>
+    <li><a href="https://docs.ansible.com/" target="_blank">Documentation</a></li>
   </ul>
 </div>
 
@@ -121,10 +122,12 @@
            <div itemprop="articleBody">
              
   <span class="target" id="ansible-collections-kpfleming-systemd-networkd-vlan-role"></span><section id="kpfleming-systemd-networkd-vlan-role-manages-systemd-networkd-vlan-virtual-network-devices">
-<h1>kpfleming.systemd_networkd.vlan role – Manages systemd-networkd VLAN virtual network devices.<a class="headerlink" href="#kpfleming-systemd-networkd-vlan-role-manages-systemd-networkd-vlan-virtual-network-devices" title="Permalink to this heading"></a></h1>
+<h1>kpfleming.systemd_networkd.vlan role – Manages systemd-networkd VLAN virtual network devices.<a class="headerlink" href="#kpfleming-systemd-networkd-vlan-role-manages-systemd-networkd-vlan-virtual-network-devices" title="Link to this heading"></a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This role is part of the <a class="reference external" href="https://galaxy.ansible.com/kpfleming/systemd_networkd">kpfleming.systemd_networkd collection</a> (version 3.2.3).</p>
+<p>It is not included in <code class="docutils literal notranslate"><span class="pre">ansible-core</span></code>.
+To check whether it is installed, run <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">list</span></code>.</p>
 <p>To install it use: <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">install</span> <span class="pre">kpfleming.systemd_networkd</span></code>.</p>
 <p>To use it in a playbook, specify: <code class="code docutils literal notranslate"><span class="pre">kpfleming.systemd_networkd.vlan</span></code>.</p>
 </div>
@@ -139,9 +142,9 @@
 </ul>
 </nav>
 <section id="entry-point-main-manages-systemd-networkd-vlan-virtual-network-devices">
-<h2><a class="toc-backref" href="#id1" role="doc-backlink">Entry point <code class="docutils literal notranslate"><span class="pre">main</span></code> – Manages systemd-networkd VLAN virtual network devices.</a><a class="headerlink" href="#entry-point-main-manages-systemd-networkd-vlan-virtual-network-devices" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Entry point <code class="docutils literal notranslate"><span class="pre">main</span></code> – Manages systemd-networkd VLAN virtual network devices.</a><a class="headerlink" href="#entry-point-main-manages-systemd-networkd-vlan-virtual-network-devices" title="Link to this heading"></a></h2>
 <section id="synopsis">
-<h3><a class="toc-backref" href="#id2" role="doc-backlink">Synopsis</a><a class="headerlink" href="#synopsis" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id2" role="doc-backlink">Synopsis</a><a class="headerlink" href="#synopsis" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>This role will create (or update) three items in /etc/systemd/network for
 each specified VLAN:
@@ -155,8 +158,8 @@ any changes were made.</p></li>
 </ul>
 </section>
 <section id="parameters">
-<h3><a class="toc-backref" href="#id3" role="doc-backlink">Parameters</a><a class="headerlink" href="#parameters" title="Permalink to this heading"></a></h3>
-<table class="ansible-option-table docutils align-default" style="width: 100%">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Parameters</a><a class="headerlink" href="#parameters" title="Link to this heading"></a></h3>
+<table class="longtable ansible-option-table docutils align-default" style="width: 100%">
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter</p></th>
 <th class="head"><p>Comments</p></th>
@@ -168,9 +171,9 @@ any changes were made.</p></li>
 <a class="ansibleOptionLink" href="#parameter-main--suppress_reload" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p>Suppress the reloading of systemd-networkd if changes are made.</p>
-<p class="ansible-option-line"><span class="ansible-option-choices">Choices:</span></p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
 <ul class="simple">
-<li><p><code class="ansible-option-default-bold docutils literal notranslate"><span class="pre">false</span></code> <span class="ansible-option-choices-default-mark">← (default)</span></p></li>
+<li><p><code class="ansible-option-default-bold docutils literal notranslate"><strong><span class="pre">false</span></strong></code> <span class="ansible-option-choices-default-mark">← (default)</span></p></li>
 <li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
 </ul>
 </div></td>
@@ -180,7 +183,7 @@ any changes were made.</p></li>
 <a class="ansibleOptionLink" href="#parameter-main--systemd_root" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p>Root path of filesystem containing systemd-networkd configuration files.</p>
-<p class="ansible-option-line"><span class="ansible-option-default-bold">Default:</span> <code class="ansible-option-default docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p>
+<p class="ansible-option-line"><strong class="ansible-option-default-bold">Default:</strong> <code class="ansible-option-default docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p>
 </div></td>
 </tr>
 <tr class="row-even"><td><div class="ansible-option-cell">
@@ -277,11 +280,12 @@ any changes were made.</p></li>
 </tbody>
 </table>
 <section id="collection-links">
-<h4>Collection links<a class="headerlink" href="#collection-links" title="Permalink to this heading"></a></h4>
-<p class="ansible-links">
-  <a href="https://github.com/kpfleming/ansible-systemd-networkd/issues" aria-role="button" target="_blank" rel="noopener external">Issue Tracker</a>
-  <a href="https://github.com/kpfleming/ansible-systemd-networkd" aria-role="button" target="_blank" rel="noopener external">Repository (Sources)</a>
-</p></section>
+<h4>Collection links<a class="headerlink" href="#collection-links" title="Link to this heading"></a></h4>
+<ul class="ansible-links">
+<li><span><a aria-role="button" class="ansible-link reference external" href="https://github.com/kpfleming/ansible-systemd-networkd/issues" rel="noopener external" target="_blank">Issue Tracker</a></span></li>
+<li><span><a aria-role="button" class="ansible-link reference external" href="https://github.com/kpfleming/ansible-systemd-networkd" rel="noopener external" target="_blank">Repository (Sources)</a></span></li>
+</ul>
+</section>
 </section>
 </section>
 </section>

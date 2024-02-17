@@ -3,27 +3,15 @@
 
 :orphan:
 
-.. role:: ansible-attribute-support-label
-.. role:: ansible-attribute-support-property
-.. role:: ansible-attribute-support-full
-.. role:: ansible-attribute-support-partial
-.. role:: ansible-attribute-support-none
-.. role:: ansible-attribute-support-na
-.. role:: ansible-option-type
-.. role:: ansible-option-elements
-.. role:: ansible-option-required
-.. role:: ansible-option-versionadded
-.. role:: ansible-option-aliases
-.. role:: ansible-option-choices
-.. role:: ansible-option-choices-default-mark
-.. role:: ansible-option-default-bold
+.. |antsibull-internal-nbsp| unicode:: 0xA0
+    :trim:
+
+.. meta::
+  :antsibull-docs: 2.7.0
 
 .. Anchors
 
 .. _ansible_collections.kpfleming.systemd_networkd.link_role:
-
-.. Anchors: aliases
-
 
 .. Title
 
@@ -34,6 +22,9 @@ kpfleming.systemd_networkd.link role -- Manages systemd-networkd links.
 
 .. note::
     This role is part of the `kpfleming.systemd_networkd collection <https://galaxy.ansible.com/kpfleming/systemd_networkd>`_ (version 3.2.3).
+
+    It is not included in ``ansible-core``.
+    To check whether it is installed, run :code:`ansible-galaxy collection list`.
 
     To install it use: :code:`ansible-galaxy collection install kpfleming.systemd\_networkd`.
 
@@ -85,12 +76,13 @@ Synopsis
 Parameters
 ^^^^^^^^^^
 
-.. rst-class:: ansible-option-table
+.. tabularcolumns:: \X{1}{3}\X{2}{3}
 
 .. list-table::
   :width: 100%
   :widths: auto
   :header-rows: 1
+  :class: longtable ansible-option-table
 
   * - Parameter
     - Comments
@@ -110,9 +102,9 @@ Parameters
 
         <a class="ansibleOptionLink" href="#parameter-main--links" title="Permalink to this option"></a>
 
-      .. rst-class:: ansible-option-type-line
+      .. ansible-option-type-line::
 
-      :ansible-option-type:`list` / :ansible-option-elements:`elements=dictionary` / :ansible-option-required:`required`
+        :ansible-option-type:`list` / :ansible-option-elements:`elements=dictionary` / :ansible-option-required:`required`
 
 
 
@@ -137,6 +129,10 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-main--links/mac_address_policy"></div>
 
+      .. raw:: latex
+
+        \hspace{0.02\textwidth}\begin{minipage}[t]{0.3\textwidth}
+
       .. _ansible_collections.kpfleming.systemd_networkd.link_role__parameter-main__links/mac_address_policy:
 
       .. rst-class:: ansible-option-title
@@ -147,9 +143,9 @@ Parameters
 
         <a class="ansibleOptionLink" href="#parameter-main--links/mac_address_policy" title="Permalink to this option"></a>
 
-      .. rst-class:: ansible-option-type-line
+      .. ansible-option-type-line::
 
-      :ansible-option-type:`string`
+        :ansible-option-type:`string`
 
 
 
@@ -157,6 +153,10 @@ Parameters
       .. raw:: html
 
         </div>
+
+      .. raw:: latex
+
+        \end{minipage}
 
     - .. raw:: html
 
@@ -183,6 +183,10 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-main--links/match"></div>
 
+      .. raw:: latex
+
+        \hspace{0.02\textwidth}\begin{minipage}[t]{0.3\textwidth}
+
       .. _ansible_collections.kpfleming.systemd_networkd.link_role__parameter-main__links/match:
 
       .. rst-class:: ansible-option-title
@@ -193,9 +197,9 @@ Parameters
 
         <a class="ansibleOptionLink" href="#parameter-main--links/match" title="Permalink to this option"></a>
 
-      .. rst-class:: ansible-option-type-line
+      .. ansible-option-type-line::
 
-      :ansible-option-type:`dictionary`
+        :ansible-option-type:`dictionary`
 
 
 
@@ -203,6 +207,10 @@ Parameters
       .. raw:: html
 
         </div>
+
+      .. raw:: latex
+
+        \end{minipage}
 
     - .. raw:: html
 
@@ -220,6 +228,10 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-main--links/match/device"></div>
 
+      .. raw:: latex
+
+        \hspace{0.04\textwidth}\begin{minipage}[t]{0.28\textwidth}
+
       .. _ansible_collections.kpfleming.systemd_networkd.link_role__parameter-main__links/match/device:
 
       .. rst-class:: ansible-option-title
@@ -230,9 +242,9 @@ Parameters
 
         <a class="ansibleOptionLink" href="#parameter-main--links/match/device" title="Permalink to this option"></a>
 
-      .. rst-class:: ansible-option-type-line
+      .. ansible-option-type-line::
 
-      :ansible-option-type:`dictionary`
+        :ansible-option-type:`dictionary`
 
 
 
@@ -240,6 +252,10 @@ Parameters
       .. raw:: html
 
         </div>
+
+      .. raw:: latex
+
+        \end{minipage}
 
     - .. raw:: html
 
@@ -257,6 +273,10 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-main--links/match/device/driver"></div>
 
+      .. raw:: latex
+
+        \hspace{0.06\textwidth}\begin{minipage}[t]{0.26\textwidth}
+
       .. _ansible_collections.kpfleming.systemd_networkd.link_role__parameter-main__links/match/device/driver:
 
       .. rst-class:: ansible-option-title
@@ -267,9 +287,9 @@ Parameters
 
         <a class="ansibleOptionLink" href="#parameter-main--links/match/device/driver" title="Permalink to this option"></a>
 
-      .. rst-class:: ansible-option-type-line
+      .. ansible-option-type-line::
 
-      :ansible-option-type:`list` / :ansible-option-elements:`elements=string`
+        :ansible-option-type:`list` / :ansible-option-elements:`elements=string`
 
 
 
@@ -277,6 +297,10 @@ Parameters
       .. raw:: html
 
         </div>
+
+      .. raw:: latex
+
+        \end{minipage}
 
     - .. raw:: html
 
@@ -294,6 +318,10 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-main--links/match/device/kind"></div>
 
+      .. raw:: latex
+
+        \hspace{0.06\textwidth}\begin{minipage}[t]{0.26\textwidth}
+
       .. _ansible_collections.kpfleming.systemd_networkd.link_role__parameter-main__links/match/device/kind:
 
       .. rst-class:: ansible-option-title
@@ -304,9 +332,9 @@ Parameters
 
         <a class="ansibleOptionLink" href="#parameter-main--links/match/device/kind" title="Permalink to this option"></a>
 
-      .. rst-class:: ansible-option-type-line
+      .. ansible-option-type-line::
 
-      :ansible-option-type:`list` / :ansible-option-elements:`elements=string`
+        :ansible-option-type:`list` / :ansible-option-elements:`elements=string`
 
 
 
@@ -314,6 +342,10 @@ Parameters
       .. raw:: html
 
         </div>
+
+      .. raw:: latex
+
+        \end{minipage}
 
     - .. raw:: html
 
@@ -331,6 +363,10 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-main--links/match/device/mac_address"></div>
 
+      .. raw:: latex
+
+        \hspace{0.06\textwidth}\begin{minipage}[t]{0.26\textwidth}
+
       .. _ansible_collections.kpfleming.systemd_networkd.link_role__parameter-main__links/match/device/mac_address:
 
       .. rst-class:: ansible-option-title
@@ -341,9 +377,9 @@ Parameters
 
         <a class="ansibleOptionLink" href="#parameter-main--links/match/device/mac_address" title="Permalink to this option"></a>
 
-      .. rst-class:: ansible-option-type-line
+      .. ansible-option-type-line::
 
-      :ansible-option-type:`list` / :ansible-option-elements:`elements=string`
+        :ansible-option-type:`list` / :ansible-option-elements:`elements=string`
 
 
 
@@ -351,6 +387,10 @@ Parameters
       .. raw:: html
 
         </div>
+
+      .. raw:: latex
+
+        \end{minipage}
 
     - .. raw:: html
 
@@ -368,6 +408,10 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-main--links/match/device/original_name"></div>
 
+      .. raw:: latex
+
+        \hspace{0.06\textwidth}\begin{minipage}[t]{0.26\textwidth}
+
       .. _ansible_collections.kpfleming.systemd_networkd.link_role__parameter-main__links/match/device/original_name:
 
       .. rst-class:: ansible-option-title
@@ -378,9 +422,9 @@ Parameters
 
         <a class="ansibleOptionLink" href="#parameter-main--links/match/device/original_name" title="Permalink to this option"></a>
 
-      .. rst-class:: ansible-option-type-line
+      .. ansible-option-type-line::
 
-      :ansible-option-type:`list` / :ansible-option-elements:`elements=string`
+        :ansible-option-type:`list` / :ansible-option-elements:`elements=string`
 
 
 
@@ -388,6 +432,10 @@ Parameters
       .. raw:: html
 
         </div>
+
+      .. raw:: latex
+
+        \end{minipage}
 
     - .. raw:: html
 
@@ -405,6 +453,10 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-main--links/match/device/path"></div>
 
+      .. raw:: latex
+
+        \hspace{0.06\textwidth}\begin{minipage}[t]{0.26\textwidth}
+
       .. _ansible_collections.kpfleming.systemd_networkd.link_role__parameter-main__links/match/device/path:
 
       .. rst-class:: ansible-option-title
@@ -415,9 +467,9 @@ Parameters
 
         <a class="ansibleOptionLink" href="#parameter-main--links/match/device/path" title="Permalink to this option"></a>
 
-      .. rst-class:: ansible-option-type-line
+      .. ansible-option-type-line::
 
-      :ansible-option-type:`list` / :ansible-option-elements:`elements=string`
+        :ansible-option-type:`list` / :ansible-option-elements:`elements=string`
 
 
 
@@ -425,6 +477,10 @@ Parameters
       .. raw:: html
 
         </div>
+
+      .. raw:: latex
+
+        \end{minipage}
 
     - .. raw:: html
 
@@ -442,6 +498,10 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-main--links/match/device/permanent_mac_address"></div>
 
+      .. raw:: latex
+
+        \hspace{0.06\textwidth}\begin{minipage}[t]{0.26\textwidth}
+
       .. _ansible_collections.kpfleming.systemd_networkd.link_role__parameter-main__links/match/device/permanent_mac_address:
 
       .. rst-class:: ansible-option-title
@@ -452,9 +512,9 @@ Parameters
 
         <a class="ansibleOptionLink" href="#parameter-main--links/match/device/permanent_mac_address" title="Permalink to this option"></a>
 
-      .. rst-class:: ansible-option-type-line
+      .. ansible-option-type-line::
 
-      :ansible-option-type:`list` / :ansible-option-elements:`elements=string`
+        :ansible-option-type:`list` / :ansible-option-elements:`elements=string`
 
 
 
@@ -462,6 +522,10 @@ Parameters
       .. raw:: html
 
         </div>
+
+      .. raw:: latex
+
+        \end{minipage}
 
     - .. raw:: html
 
@@ -479,6 +543,10 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-main--links/match/device/property"></div>
 
+      .. raw:: latex
+
+        \hspace{0.06\textwidth}\begin{minipage}[t]{0.26\textwidth}
+
       .. _ansible_collections.kpfleming.systemd_networkd.link_role__parameter-main__links/match/device/property:
 
       .. rst-class:: ansible-option-title
@@ -489,9 +557,9 @@ Parameters
 
         <a class="ansibleOptionLink" href="#parameter-main--links/match/device/property" title="Permalink to this option"></a>
 
-      .. rst-class:: ansible-option-type-line
+      .. ansible-option-type-line::
 
-      :ansible-option-type:`list` / :ansible-option-elements:`elements=string`
+        :ansible-option-type:`list` / :ansible-option-elements:`elements=string`
 
 
 
@@ -499,6 +567,10 @@ Parameters
       .. raw:: html
 
         </div>
+
+      .. raw:: latex
+
+        \end{minipage}
 
     - .. raw:: html
 
@@ -516,6 +588,10 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-main--links/match/device/type"></div>
 
+      .. raw:: latex
+
+        \hspace{0.06\textwidth}\begin{minipage}[t]{0.26\textwidth}
+
       .. _ansible_collections.kpfleming.systemd_networkd.link_role__parameter-main__links/match/device/type:
 
       .. rst-class:: ansible-option-title
@@ -526,9 +602,9 @@ Parameters
 
         <a class="ansibleOptionLink" href="#parameter-main--links/match/device/type" title="Permalink to this option"></a>
 
-      .. rst-class:: ansible-option-type-line
+      .. ansible-option-type-line::
 
-      :ansible-option-type:`list` / :ansible-option-elements:`elements=string`
+        :ansible-option-type:`list` / :ansible-option-elements:`elements=string`
 
 
 
@@ -536,6 +612,10 @@ Parameters
       .. raw:: html
 
         </div>
+
+      .. raw:: latex
+
+        \end{minipage}
 
     - .. raw:: html
 
@@ -554,6 +634,10 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-main--links/match/system"></div>
 
+      .. raw:: latex
+
+        \hspace{0.04\textwidth}\begin{minipage}[t]{0.28\textwidth}
+
       .. _ansible_collections.kpfleming.systemd_networkd.link_role__parameter-main__links/match/system:
 
       .. rst-class:: ansible-option-title
@@ -564,9 +648,9 @@ Parameters
 
         <a class="ansibleOptionLink" href="#parameter-main--links/match/system" title="Permalink to this option"></a>
 
-      .. rst-class:: ansible-option-type-line
+      .. ansible-option-type-line::
 
-      :ansible-option-type:`dictionary`
+        :ansible-option-type:`dictionary`
 
 
 
@@ -574,6 +658,10 @@ Parameters
       .. raw:: html
 
         </div>
+
+      .. raw:: latex
+
+        \end{minipage}
 
     - .. raw:: html
 
@@ -591,6 +679,10 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-main--links/match/system/architecture"></div>
 
+      .. raw:: latex
+
+        \hspace{0.06\textwidth}\begin{minipage}[t]{0.26\textwidth}
+
       .. _ansible_collections.kpfleming.systemd_networkd.link_role__parameter-main__links/match/system/architecture:
 
       .. rst-class:: ansible-option-title
@@ -601,9 +693,9 @@ Parameters
 
         <a class="ansibleOptionLink" href="#parameter-main--links/match/system/architecture" title="Permalink to this option"></a>
 
-      .. rst-class:: ansible-option-type-line
+      .. ansible-option-type-line::
 
-      :ansible-option-type:`string`
+        :ansible-option-type:`string`
 
 
 
@@ -611,6 +703,10 @@ Parameters
       .. raw:: html
 
         </div>
+
+      .. raw:: latex
+
+        \end{minipage}
 
     - .. raw:: html
 
@@ -628,6 +724,10 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-main--links/match/system/credential"></div>
 
+      .. raw:: latex
+
+        \hspace{0.06\textwidth}\begin{minipage}[t]{0.26\textwidth}
+
       .. _ansible_collections.kpfleming.systemd_networkd.link_role__parameter-main__links/match/system/credential:
 
       .. rst-class:: ansible-option-title
@@ -638,9 +738,9 @@ Parameters
 
         <a class="ansibleOptionLink" href="#parameter-main--links/match/system/credential" title="Permalink to this option"></a>
 
-      .. rst-class:: ansible-option-type-line
+      .. ansible-option-type-line::
 
-      :ansible-option-type:`string`
+        :ansible-option-type:`string`
 
 
 
@@ -648,6 +748,10 @@ Parameters
       .. raw:: html
 
         </div>
+
+      .. raw:: latex
+
+        \end{minipage}
 
     - .. raw:: html
 
@@ -665,6 +769,10 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-main--links/match/system/firmware"></div>
 
+      .. raw:: latex
+
+        \hspace{0.06\textwidth}\begin{minipage}[t]{0.26\textwidth}
+
       .. _ansible_collections.kpfleming.systemd_networkd.link_role__parameter-main__links/match/system/firmware:
 
       .. rst-class:: ansible-option-title
@@ -675,9 +783,9 @@ Parameters
 
         <a class="ansibleOptionLink" href="#parameter-main--links/match/system/firmware" title="Permalink to this option"></a>
 
-      .. rst-class:: ansible-option-type-line
+      .. ansible-option-type-line::
 
-      :ansible-option-type:`string`
+        :ansible-option-type:`string`
 
 
 
@@ -685,6 +793,10 @@ Parameters
       .. raw:: html
 
         </div>
+
+      .. raw:: latex
+
+        \end{minipage}
 
     - .. raw:: html
 
@@ -702,6 +814,10 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-main--links/match/system/host"></div>
 
+      .. raw:: latex
+
+        \hspace{0.06\textwidth}\begin{minipage}[t]{0.26\textwidth}
+
       .. _ansible_collections.kpfleming.systemd_networkd.link_role__parameter-main__links/match/system/host:
 
       .. rst-class:: ansible-option-title
@@ -712,9 +828,9 @@ Parameters
 
         <a class="ansibleOptionLink" href="#parameter-main--links/match/system/host" title="Permalink to this option"></a>
 
-      .. rst-class:: ansible-option-type-line
+      .. ansible-option-type-line::
 
-      :ansible-option-type:`string`
+        :ansible-option-type:`string`
 
 
 
@@ -722,6 +838,10 @@ Parameters
       .. raw:: html
 
         </div>
+
+      .. raw:: latex
+
+        \end{minipage}
 
     - .. raw:: html
 
@@ -739,6 +859,10 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-main--links/match/system/kernel_command_line"></div>
 
+      .. raw:: latex
+
+        \hspace{0.06\textwidth}\begin{minipage}[t]{0.26\textwidth}
+
       .. _ansible_collections.kpfleming.systemd_networkd.link_role__parameter-main__links/match/system/kernel_command_line:
 
       .. rst-class:: ansible-option-title
@@ -749,9 +873,9 @@ Parameters
 
         <a class="ansibleOptionLink" href="#parameter-main--links/match/system/kernel_command_line" title="Permalink to this option"></a>
 
-      .. rst-class:: ansible-option-type-line
+      .. ansible-option-type-line::
 
-      :ansible-option-type:`string`
+        :ansible-option-type:`string`
 
 
 
@@ -759,6 +883,10 @@ Parameters
       .. raw:: html
 
         </div>
+
+      .. raw:: latex
+
+        \end{minipage}
 
     - .. raw:: html
 
@@ -776,6 +904,10 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-main--links/match/system/kernel_version"></div>
 
+      .. raw:: latex
+
+        \hspace{0.06\textwidth}\begin{minipage}[t]{0.26\textwidth}
+
       .. _ansible_collections.kpfleming.systemd_networkd.link_role__parameter-main__links/match/system/kernel_version:
 
       .. rst-class:: ansible-option-title
@@ -786,9 +918,9 @@ Parameters
 
         <a class="ansibleOptionLink" href="#parameter-main--links/match/system/kernel_version" title="Permalink to this option"></a>
 
-      .. rst-class:: ansible-option-type-line
+      .. ansible-option-type-line::
 
-      :ansible-option-type:`string`
+        :ansible-option-type:`string`
 
 
 
@@ -796,6 +928,10 @@ Parameters
       .. raw:: html
 
         </div>
+
+      .. raw:: latex
+
+        \end{minipage}
 
     - .. raw:: html
 
@@ -813,6 +949,10 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-main--links/match/system/virtualization"></div>
 
+      .. raw:: latex
+
+        \hspace{0.06\textwidth}\begin{minipage}[t]{0.26\textwidth}
+
       .. _ansible_collections.kpfleming.systemd_networkd.link_role__parameter-main__links/match/system/virtualization:
 
       .. rst-class:: ansible-option-title
@@ -823,9 +963,9 @@ Parameters
 
         <a class="ansibleOptionLink" href="#parameter-main--links/match/system/virtualization" title="Permalink to this option"></a>
 
-      .. rst-class:: ansible-option-type-line
+      .. ansible-option-type-line::
 
-      :ansible-option-type:`string`
+        :ansible-option-type:`string`
 
 
 
@@ -833,6 +973,10 @@ Parameters
       .. raw:: html
 
         </div>
+
+      .. raw:: latex
+
+        \end{minipage}
 
     - .. raw:: html
 
@@ -852,6 +996,10 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-main--links/mtu_bytes"></div>
 
+      .. raw:: latex
+
+        \hspace{0.02\textwidth}\begin{minipage}[t]{0.3\textwidth}
+
       .. _ansible_collections.kpfleming.systemd_networkd.link_role__parameter-main__links/mtu_bytes:
 
       .. rst-class:: ansible-option-title
@@ -862,9 +1010,9 @@ Parameters
 
         <a class="ansibleOptionLink" href="#parameter-main--links/mtu_bytes" title="Permalink to this option"></a>
 
-      .. rst-class:: ansible-option-type-line
+      .. ansible-option-type-line::
 
-      :ansible-option-type:`string`
+        :ansible-option-type:`string`
 
 
 
@@ -872,6 +1020,10 @@ Parameters
       .. raw:: html
 
         </div>
+
+      .. raw:: latex
+
+        \end{minipage}
 
     - .. raw:: html
 
@@ -889,6 +1041,10 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-main--links/name"></div>
 
+      .. raw:: latex
+
+        \hspace{0.02\textwidth}\begin{minipage}[t]{0.3\textwidth}
+
       .. _ansible_collections.kpfleming.systemd_networkd.link_role__parameter-main__links/name:
 
       .. rst-class:: ansible-option-title
@@ -899,9 +1055,9 @@ Parameters
 
         <a class="ansibleOptionLink" href="#parameter-main--links/name" title="Permalink to this option"></a>
 
-      .. rst-class:: ansible-option-type-line
+      .. ansible-option-type-line::
 
-      :ansible-option-type:`string`
+        :ansible-option-type:`string`
 
 
 
@@ -909,6 +1065,10 @@ Parameters
       .. raw:: html
 
         </div>
+
+      .. raw:: latex
+
+        \end{minipage}
 
     - .. raw:: html
 
@@ -926,6 +1086,10 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-main--links/name_policy"></div>
 
+      .. raw:: latex
+
+        \hspace{0.02\textwidth}\begin{minipage}[t]{0.3\textwidth}
+
       .. _ansible_collections.kpfleming.systemd_networkd.link_role__parameter-main__links/name_policy:
 
       .. rst-class:: ansible-option-title
@@ -936,9 +1100,9 @@ Parameters
 
         <a class="ansibleOptionLink" href="#parameter-main--links/name_policy" title="Permalink to this option"></a>
 
-      .. rst-class:: ansible-option-type-line
+      .. ansible-option-type-line::
 
-      :ansible-option-type:`string`
+        :ansible-option-type:`string`
 
 
 
@@ -946,6 +1110,10 @@ Parameters
       .. raw:: html
 
         </div>
+
+      .. raw:: latex
+
+        \end{minipage}
 
     - .. raw:: html
 
@@ -987,9 +1155,9 @@ Parameters
 
         <a class="ansibleOptionLink" href="#parameter-main--suppress_reload" title="Permalink to this option"></a>
 
-      .. rst-class:: ansible-option-type-line
+      .. ansible-option-type-line::
 
-      :ansible-option-type:`boolean`
+        :ansible-option-type:`boolean`
 
 
 
@@ -1032,9 +1200,9 @@ Parameters
 
         <a class="ansibleOptionLink" href="#parameter-main--systemd_root" title="Permalink to this option"></a>
 
-      .. rst-class:: ansible-option-type-line
+      .. ansible-option-type-line::
 
-      :ansible-option-type:`string`
+        :ansible-option-type:`string`
 
 
 
@@ -1075,12 +1243,15 @@ Parameters
 Collection links
 ~~~~~~~~~~~~~~~~
 
-.. raw:: html
+.. ansible-links::
 
-  <p class="ansible-links">
-    <a href="https://github.com/kpfleming/ansible-systemd-networkd/issues" aria-role="button" target="_blank" rel="noopener external">Issue Tracker</a>
-    <a href="https://github.com/kpfleming/ansible-systemd-networkd" aria-role="button" target="_blank" rel="noopener external">Repository (Sources)</a>
-  </p>
+  - title: "Issue Tracker"
+    url: "https://github.com/kpfleming/ansible-systemd-networkd/issues"
+    external: true
+  - title: "Repository (Sources)"
+    url: "https://github.com/kpfleming/ansible-systemd-networkd"
+    external: true
+
 
 .. Parsing errors
 
