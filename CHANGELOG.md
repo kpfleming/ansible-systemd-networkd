@@ -2,17 +2,32 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+The format is based on [*Keep a
+Changelog*](https://keepachangelog.com/en/1.0.0/) and this project
+adheres to [*Calendar Versioning*](https://calver.org/).
+
+The **first number** of the version is the 2-digit year.
+
+The **second number** is incremented with each release, starting at 1
+for each year.
+
+The **third number** is for fixes made against older releases (only
+for emergencies).
 
 ## [Unreleased]
+
+## [24.1.0] - 2024-02-17
 
 ### Changed
 
 - Switched to fork of `j2cli` for rendering Galaxy metadata YAML file
   and role `vars` files (no behavioral changes).
 
-- Switched from `j2cli` to `jinjanator` for rendering metadata file.
+- Switched from `j2cli` to `jinjanator` for template rendering.
+
+- Added support for the 'CAKE' queueing discipline to the 'network' role.
+
+- Switched to CalVer.
 
 ## [3.2.3] - 2023-07-02
 
@@ -98,7 +113,8 @@ Changes:
 
 First release!
 
-[unreleased]: https://github.com/kpfleming/ansible-systemd-networkd/compare/3.2.3...HEAD
+[unreleased]: https://github.com/kpfleming/ansible-systemd-networkd/compare/24.1.0...HEAD
+[24.1.0]: https://github.com/kpfleming/ansible-systemd-networkd/compare/3.2.3...24.1.0
 [3.2.3]: https://github.com/kpfleming/ansible-systemd-networkd/compare/3.2.2...3.2.3
 [3.2.2]: https://github.com/kpfleming/ansible-systemd-networkd/compare/3.2.1...3.2.2
 [3.2.1]: https://github.com/kpfleming/ansible-systemd-networkd/compare/3.2.0...3.2.1
