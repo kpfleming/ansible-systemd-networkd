@@ -21,7 +21,7 @@ kpfleming.systemd_networkd.wireguard role -- Manages systemd-networkd WireGuard 
 .. Collection note
 
 .. note::
-    This role is part of the `kpfleming.systemd_networkd collection <https://galaxy.ansible.com/kpfleming/systemd_networkd>`_ (version 24.1.0).
+    This role is part of the `kpfleming.systemd_networkd collection <https://galaxy.ansible.com/kpfleming/systemd_networkd>`_ (version 24.1.1).
 
     It is not included in ``ansible-core``.
     To check whether it is installed, run :code:`ansible-galaxy collection list`.

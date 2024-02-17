@@ -21,7 +21,7 @@ kpfleming.systemd_networkd.network role -- Manages systemd-networkd networks.
 .. Collection note
 
 .. note::
-    This role is part of the `kpfleming.systemd_networkd collection <https://galaxy.ansible.com/kpfleming/systemd_networkd>`_ (version 24.1.0).
+    This role is part of the `kpfleming.systemd_networkd collection <https://galaxy.ansible.com/kpfleming/systemd_networkd>`_ (version 24.1.1).
 
     It is not included in ``ansible-core``.
     To check whether it is installed, run :code:`ansible-galaxy collection list`.
@@ -459,7 +459,7 @@ Parameters
 
         :ansible-option-type:`dictionary`
 
-      :ansible-option-versionadded:`added in kpfleming.systemd\_networkd 24.1`
+      :ansible-option-versionadded:`added in kpfleming.systemd\_networkd 24.1.0`
 
 
 
@@ -507,7 +507,7 @@ Parameters
 
         :ansible-option-type:`string`
 
-      :ansible-option-versionadded:`added in kpfleming.systemd\_networkd 24.1`
+      :ansible-option-versionadded:`added in kpfleming.systemd\_networkd 24.1.0`
 
 
 
@@ -555,7 +555,7 @@ Parameters
 
         :ansible-option-type:`string`
 
-      :ansible-option-versionadded:`added in kpfleming.systemd\_networkd 24.1`
+      :ansible-option-versionadded:`added in kpfleming.systemd\_networkd 24.1.0`
 
 
 
@@ -612,7 +612,7 @@ Parameters
 
         :ansible-option-type:`string`
 
-      :ansible-option-versionadded:`added in kpfleming.systemd\_networkd 24.1`
+      :ansible-option-versionadded:`added in kpfleming.systemd\_networkd 24.1.0`
 
 
 
@@ -674,7 +674,7 @@ Parameters
 
         :ansible-option-type:`string`
 
-      :ansible-option-versionadded:`added in kpfleming.systemd\_networkd 24.1`
+      :ansible-option-versionadded:`added in kpfleming.systemd\_networkd 24.1.0`
 
 
 
@@ -722,7 +722,7 @@ Parameters
 
         :ansible-option-type:`boolean`
 
-      :ansible-option-versionadded:`added in kpfleming.systemd\_networkd 24.1`
+      :ansible-option-versionadded:`added in kpfleming.systemd\_networkd 24.1.0`
 
 
 
@@ -778,7 +778,7 @@ Parameters
 
         :ansible-option-type:`string`
 
-      :ansible-option-versionadded:`added in kpfleming.systemd\_networkd 24.1`
+      :ansible-option-versionadded:`added in kpfleming.systemd\_networkd 24.1.0`
 
 
 
@@ -826,7 +826,7 @@ Parameters
 
         :ansible-option-type:`string`
 
-      :ansible-option-versionadded:`added in kpfleming.systemd\_networkd 24.1`
+      :ansible-option-versionadded:`added in kpfleming.systemd\_networkd 24.1.0`
 
 
 
@@ -885,7 +885,7 @@ Parameters
 
         :ansible-option-type:`boolean`
 
-      :ansible-option-versionadded:`added in kpfleming.systemd\_networkd 24.1`
+      :ansible-option-versionadded:`added in kpfleming.systemd\_networkd 24.1.0`
 
 
 
@@ -941,7 +941,7 @@ Parameters
 
         :ansible-option-type:`boolean`
 
-      :ansible-option-versionadded:`added in kpfleming.systemd\_networkd 24.1`
+      :ansible-option-versionadded:`added in kpfleming.systemd\_networkd 24.1.0`
 
 
 

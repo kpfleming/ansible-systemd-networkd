@@ -9,7 +9,7 @@
 Kpfleming.Systemd_Networkd
 ==========================
 
-Collection version 24.1.0
+Collection version 24.1.1
 
 .. contents::
    :local:
