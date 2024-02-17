@@ -21,12 +21,9 @@ jobs:
   publish_galaxy:
     runs-on: ubuntu-22.04
     outputs:
-      collection_namespace:
-        value: ${{ steps.publish.outputs.collection_namespace }}
-      collection_name:
-        value: ${{ steps.publish.outputs.collection_name }}
-      collection_tarball:
-        value: ${{ steps.publish.outputs.collection_tarball }}
+      collection_namespace: ${{ steps.publish.outputs.collection_namespace }}
+      collection_name: ${{ steps.publish.outputs.collection_name }}
+      collection_tarball: ${{ steps.publish.outputs.collection_tarball }}
     needs:
     - image_details
     container:
