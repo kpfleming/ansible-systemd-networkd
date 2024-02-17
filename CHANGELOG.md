@@ -16,6 +16,10 @@ for emergencies).
 
 ## [Unreleased]
 
+## [24.1.1] - 2024-02-17
+
+No content changes, tag created for updated docsite publishing workflow.
+
 ## [24.1.0] - 2024-02-17
 
 ### Changed
@@ -113,7 +117,8 @@ Changes:
 
 First release!
 
-[unreleased]: https://github.com/kpfleming/ansible-systemd-networkd/compare/24.1.0...HEAD
+[unreleased]: https://github.com/kpfleming/ansible-systemd-networkd/compare/24.1.1...HEAD
+[24.1.1]: https://github.com/kpfleming/ansible-systemd-networkd/compare/24.1.0...24.1.1
 [24.1.0]: https://github.com/kpfleming/ansible-systemd-networkd/compare/3.2.3...24.1.0
 [3.2.3]: https://github.com/kpfleming/ansible-systemd-networkd/compare/3.2.2...3.2.3
 [3.2.2]: https://github.com/kpfleming/ansible-systemd-networkd/compare/3.2.1...3.2.2
