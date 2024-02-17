@@ -50,6 +50,8 @@ jobs:
         path: docsite
         show-progress: false
     - uses: actions/download-artifact@v4
+      with:
+        name: collection
     - run: docsite/workflow-support/make_docs.sh ${{ needs.publish_galaxy.outputs.collection_namespace }}.${{ needs.publish_galaxy.outputs.collection_name }} ${{ needs.publish_galaxy.outputs.collection_tarball }}
     - uses: EndBug/add-and-commit@v9
       with:
