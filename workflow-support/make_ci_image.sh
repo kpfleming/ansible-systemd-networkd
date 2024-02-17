@@ -8,6 +8,7 @@ base_image=${1}; shift
 image_name=${1}; shift
 
 lint_deps=(shellcheck)
+publish_deps=(yq)
 
 toxenvs=(lint-action py3{11,12}-ci-action publish-action)
 
@@ -22,7 +23,7 @@ build_cmd_with_source() {
 }
 
 build_cmd apt-get update --quiet=2
-build_cmd apt-get install --yes --quiet=2 "${lint_deps[@]}"
+build_cmd apt-get install --yes --quiet=2 "${lint_deps[@]}" "${publish_deps[@]}"
 
 for env in "${toxenvs[@]}"; do
     build_cmd_with_source tox exec -e "${env}" -- pip list
