@@ -1,4 +1,3 @@
-%YAML 1.2
 ---
 - name: manage dummy interfaces
   ansible.builtin.include_tasks: "{{ role_path }}/tasks/dummy.yml"

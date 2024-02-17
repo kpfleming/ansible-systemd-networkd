@@ -1,4 +1,3 @@
-%YAML 1.2
 ---
 - name: manage links
   ansible.builtin.include_tasks: "{{ role_path }}/tasks/link.yml"

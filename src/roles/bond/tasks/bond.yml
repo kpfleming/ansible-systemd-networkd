@@ -1,4 +1,3 @@
-%YAML 1.2
 ---
 - name: manage bond member names
   register: _link

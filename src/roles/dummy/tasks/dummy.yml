@@ -1,4 +1,3 @@
-%YAML 1.2
 ---
 - name: manage network device for dummy
   become: true

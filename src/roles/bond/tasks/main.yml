@@ -1,4 +1,3 @@
-%YAML 1.2
 ---
 - name: manage bond devices
   ansible.builtin.include_tasks: "{{ role_path }}/tasks/bond.yml"
