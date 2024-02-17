@@ -19,7 +19,7 @@ antsibull-docs \
     --use-current \
     --squash-hierarchy \
     --dest-dir temp-rst \
-    kpfleming.systemd_networkd
+    "${1}"
 
 # Copy collection documentation into source directory
 rsync -cprv --delete-after temp-rst/ rst/
