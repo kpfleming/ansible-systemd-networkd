@@ -294,24 +294,24 @@ argument_specs:
                 type: bool
           cake:
             description: Attributes of the Common Applications Kept Enhanced (CAKE) queueing discipline (qdisc).
-            version_added: "24.1"
+            version_added: 24.1.0
             type: dict
             options:
               bandwidth:
                 description: Bandwidth for the shaper, in bits-per-second. Suffixes K, M, and G can be used.
-                version_added: "24.1"
+                version_added: 24.1.0
                 type: str
               overhead_bytes:
                 description: Number of bytes to be added to the raw data size of each packet.
-                version_added: "24.1"
+                version_added: 24.1.0
                 type: str
               mpu_bytes:
                 description: Round the net packet size (after overhead bytes have been added) to a minimum of this value.
-                version_added: "24.1"
+                version_added: 24.1.0
                 type: str
               compensation_mode:
                 description: Compensate for ATM or PTM framing and bit encoding.
-                version_added: "24.1"
+                version_added: 24.1.0
                 type: str
                 choices:
                   - none
@@ -319,7 +319,7 @@ argument_specs:
                   - ptm
               flow_isolation_mode:
                 description: Method use for providing fairness between queues in the shaper.
-                version_added: "24.1"
+                version_added: 24.1.0
                 type: str
                 choices:
                   - none
@@ -332,11 +332,11 @@ argument_specs:
                   - triple
               nat:
                 description: Perform NAT lookups to obtain true source host addresses before constructing flows.
-                version_added: "24.1"
+                version_added: 24.1.0
                 type: bool
               priority_queueing_preset:
                 description: Construct tins (of flow-isolation queues) using the selected mechanism.
-                version_added: "24.1"
+                version_added: 24.1.0
                 type: str
                 choices:
                   - besteffort
@@ -347,10 +347,10 @@ argument_specs:
               wash:
                 description: Clear DSCP fields, except ECN bits, of packets which pass through the shaper.
                 type: bool
-                version_added: "24.1"
+                version_added: 24.1.0
               split_gso:
                 description: Split General Segmentation Offload (GSO) super-packets into their on-the-wire components and dequeue them individually.
-                version_added: "24.1"
+                version_added: 24.1.0
                 type: bool
           match:
             description: Matching attributes of the network.
