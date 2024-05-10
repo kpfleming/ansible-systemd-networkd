@@ -16,6 +16,10 @@ for emergencies).
 
 ## [Unreleased]
 
+### Added
+
+- Added testing against Python 3.13 (beta).
+
 ## [24.1.1] - 2024-02-17
 
 No content changes, tag created for updated docsite publishing workflow.
