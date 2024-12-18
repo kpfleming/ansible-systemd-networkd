@@ -1,0 +1,6 @@
+---
+match_system_arguments: {'architecture': 'Architecture', 'credential': 'Credential', 'firmware': 'Firmware', 'host': 'Host', 'kernel_command_line': 'KernelCommandLine', 'kernel_version': 'KernelVersion', 'virtualization': 'Virtualization'}
+
+netdev_arguments: {'mac_address': 'MACAddress', 'mtu_bytes': 'MTUBytes'}
+
+tunnel_arguments: {'local': 'Local', 'remote': 'Remote', 'ttl': 'TTL'}

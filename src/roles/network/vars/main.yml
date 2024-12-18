@@ -1,0 +1,20 @@
+---
+match_system_arguments: {'architecture': 'Architecture', 'credential': 'Credential', 'firmware': 'Firmware', 'host': 'Host', 'kernel_command_line': 'KernelCommandLine', 'kernel_version': 'KernelVersion', 'virtualization': 'Virtualization'}
+
+match_device_arguments: {'driver': 'Driver', 'kind': 'Kind', 'mac_address': 'MACAddress', 'name': 'Name', 'original_name': 'OriginalName', 'path': 'Path', 'permanent_mac_address': 'PermanentMACAddress', 'type': 'Type'}
+
+network_link_arguments: {'activation_policy': 'ActivationPolicy', 'mac_address': 'MACAddress', 'mtu_bytes': 'MTUBytes', 'required_for_online': 'RequiredForOnline', 'required_family_for_online': 'RequiredFamilyForOnline'}
+
+network_arguments: {'bind_carrier': 'BindCarrier', 'configure_without_carrier': 'ConfigureWithoutCarrier', 'dhcp': 'DHCP', 'dns': 'DNS', 'emit_lldp': 'EmitLLDP', 'ip_forward': 'IPForward', 'ipv4_forwarding': 'IPv4Forwarding', 'ipv6_forwarding': 'IPv6Forwarding', 'ipv6_accept_ra': 'IPv6AcceptRA', 'ipv6_proxy_ndp': 'IPv6ProxyNDP', 'ipv6_proxy_ndp_address': 'IPv6ProxyNDPAddress', 'keep_configuration': 'KeepConfiguration', 'link_local_addressing': 'LinkLocalAddressing', 'lldp': 'LLDP', 'ntp': 'NTP'}
+
+network_address_arguments: {'address': 'Address', 'broadcast': 'Broadcast', 'home_address': 'HomeAddress', 'peer': 'Peer'}
+
+network_route_arguments: {'destination': 'Destination', 'gateway': 'Gateway', 'metric': 'Metric', 'mtu_bytes': 'MTUBytes', 'preferred_source': 'PreferredSource', 'scope': 'Scope', 'source': 'Source', 'type': 'Type'}
+
+network_dhcpv4_arguments: {'client_identifier': 'ClientIdentifier', 'hostname': 'Hostname', 'routes_to_dns': 'RoutesToDNS', 'routes_to_ntp': 'RoutesToNTP', 'send_hostname': 'SendHostname', 'send_release': 'SendRelease', 'use_dns': 'UseDNS', 'use_gateway': 'UseGateway', 'use_hostname': 'UseHostname', 'use_ntp': 'UseNTP', 'use_routes': 'UseRoutes'}
+
+network_dhcpv6_arguments: {'use_dns': 'UseDNS', 'use_hostname': 'UseHostname', 'use_ntp': 'UseNTP', 'without_ra': 'WithoutRA'}
+
+network_ipv6acceptra_arguments: {'token': 'Token', 'use_dns': 'UseDNS', 'use_gateway': 'UseGateway', 'use_mtu': 'UseMTU'}
+
+network_cake_arguments: {'bandwidth': 'Bandwidth', 'overhead_bytes': 'OverheadBytes', 'mpu_bytes': 'MPUBytes', 'compensation_mode': 'CompensationMode', 'flow_isolation_mode': 'FlowIsolationMode', 'nat': 'NAT', 'priority_queueing_preset': 'PriorityQueueingPreset', 'wash': 'Wash', 'split_gso': 'SplitGSO'}
