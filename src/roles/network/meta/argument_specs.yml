@@ -77,6 +77,12 @@ argument_specs:
               - ipv6
               - true
               - false
+          ipv4_forwarding:
+            description: Enable forwarding of packets that arrive on this network.
+            type: bool
+          ipv6_forwarding:
+            description: Act as a host (false) or router (true).
+            type: bool
           ipv6_proxy_ndp:
             description: Configure Proxy NDP support on the network.
             type: bool

@@ -1,0 +1,25 @@
+---
+- name: manage global dropin directory
+  become: true
+  ansible.builtin.file:
+    path: "{{ systemd_root ~ '/etc/systemd/networkd.conf.d' }}"
+    state: directory
+    mode: u=rwx,g=rx,o=
+    group: systemd-network
+
+- name: manage global configuration
+  become: true
+  register: _global
+  notify: "{{ ansible_role_name ~ ' : reload' }}"
+  ansible.builtin.template:
+    src: networkd.conf.j2
+    dest: "{{ systemd_root ~ '/etc/systemd/networkd.conf.d/ansible.conf' }}"
+    mode: u=rw,g=r,o=
+    group: systemd-network
+
+- name: set fact to indicate result
+  ansible.builtin.set_fact:
+    systemd_networkd_global_changed: "{{ systemd_networkd_global_changed|default(false) or _global.changed }}"
+
+- name: run handlers if needed
+  ansible.builtin.meta: flush_handlers

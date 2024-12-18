@@ -42,6 +42,10 @@ link_arguments:
   name: Name
   name_policy: NamePolicy
 
+global_network_arguments:
+  ipv4_forwarding: IPv4Forwarding
+  ipv6_forwarding: IPv6Forwarding
+
 network_arguments:
   bind_carrier: BindCarrier
   configure_without_carrier: ConfigureWithoutCarrier
@@ -49,6 +53,8 @@ network_arguments:
   dns: DNS
   emit_lldp: EmitLLDP
   ip_forward: IPForward
+  ipv4_forwarding: IPv4Forwarding
+  ipv6_forwarding: IPv6Forwarding
   ipv6_accept_ra: IPv6AcceptRA
   ipv6_proxy_ndp: IPv6ProxyNDP
   ipv6_proxy_ndp_address: IPv6ProxyNDPAddress

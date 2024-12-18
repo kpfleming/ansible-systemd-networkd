@@ -12,13 +12,19 @@ The **second number** is incremented with each release, starting at 1
 for each year.
 
 The **third number** is for fixes made against older releases (only
-for emergencies).
+for emergencies or non-content releases).
 
 ## [Unreleased]
 
+## [24.2.0] - 2024-12-18
+
 ### Added
 
-- Added testing against Python 3.13 (beta).
+- Added testing against Python 3.13.
+- Added 'global' role for global configuration.
+- Added 'ipv4_forwarding' and 'ipv6_forwarding' parameters, available
+  in 'global' and 'network' roles (note: these parameters are only
+  usable with systemd version 256 and higher).
 
 ## [24.1.1] - 2024-02-17
 
