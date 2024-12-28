@@ -10,7 +10,7 @@ rm -rf "${basedir}/docs"
 apt-get update --quiet=2
 apt-get install --yes --quiet=2 rsync
 
-pip3 install ansible
+pip3 install ansible-core
 
 ansible-galaxy collection install "${2}"
 
