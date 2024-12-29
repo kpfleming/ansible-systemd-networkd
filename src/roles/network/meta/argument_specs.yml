@@ -94,8 +94,8 @@ argument_specs:
             type: str
             choices:
               - static
-              - dhcp
-              - dhcp-on-stop
+              - dynamic
+              - dynamic-on-stop
               - true
               - false
           ipv6_accept_ra:
