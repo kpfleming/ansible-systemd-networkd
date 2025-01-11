@@ -4,11 +4,11 @@
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta content="2.16.1" name="antsibull-docs" />
+<meta content="2.16.2" name="antsibull-docs" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>kpfleming.systemd_networkd.network role – Manages systemd-networkd networks. &mdash; Collections  documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5707b69d" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=41de9001" />
       <link rel="stylesheet" type="text/css" href="_static/css/ansible.css?v=c5b67dd2" />
       <link rel="stylesheet" type="text/css" href="_static/antsibull-minimal.css" />
       <link rel="stylesheet" type="text/css" href="_static/css/rtd-ethical-ads.css?v=289b023e" />
@@ -124,7 +124,7 @@
 <h1>kpfleming.systemd_networkd.network role – Manages systemd-networkd networks.<a class="headerlink" href="#kpfleming-systemd-networkd-network-role-manages-systemd-networkd-networks" title="Link to this heading"></a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This role is part of the <a class="reference external" href="https://galaxy.ansible.com/kpfleming/systemd_networkd">kpfleming.systemd_networkd collection</a> (version 24.2.0).</p>
+<p>This role is part of the <a class="reference external" href="https://galaxy.ansible.com/kpfleming/systemd_networkd">kpfleming.systemd_networkd collection</a> (version 25.1.0).</p>
 <p>It is not included in <code class="docutils literal notranslate"><span class="pre">ansible-core</span></code>.
 To check whether it is installed, run <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">list</span></code>.</p>
 <p>To install it use: <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">install</span> <span class="pre">kpfleming.systemd_networkd</span></code>.</p>
@@ -201,6 +201,20 @@ any changes were made.</p></li>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--networks/addresses/duplicate_address_detection"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-addresses-duplicate-address-detection"><strong>duplicate_address_detection</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--networks/addresses/duplicate_address_detection" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Controls Duplicate Address Detection for this address.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;both&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;ipv4&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;ipv6&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;none&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/addresses/home_address"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-addresses-home-address"><strong>home_address</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/addresses/home_address" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
 </div></td>
@@ -212,21 +226,21 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/addresses/peer"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-addresses-peer"><strong>peer</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/addresses/peer" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>The address of the peer on a point-to-point network.</p>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/bind_carrier"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-bind-carrier"><strong>bind_carrier</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/bind_carrier" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Bind carrier status to other networks.</p>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/cake"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-cake"><strong>cake</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/cake" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
 <p><em class="ansible-option-versionadded">added in kpfleming.systemd_networkd 24.1.0</em></p>
@@ -234,7 +248,7 @@ any changes were made.</p></li>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Attributes of the Common Applications Kept Enhanced (CAKE) queueing discipline (qdisc).</p>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/cake/bandwidth"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-cake-bandwidth"><strong>bandwidth</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/cake/bandwidth" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 <p><em class="ansible-option-versionadded">added in kpfleming.systemd_networkd 24.1.0</em></p>
@@ -242,7 +256,7 @@ any changes were made.</p></li>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Bandwidth for the shaper, in bits-per-second. Suffixes K, M, and G can be used.</p>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/cake/compensation_mode"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-cake-compensation-mode"><strong>compensation_mode</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/cake/compensation_mode" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 <p><em class="ansible-option-versionadded">added in kpfleming.systemd_networkd 24.1.0</em></p>
@@ -256,7 +270,7 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/cake/flow_isolation_mode"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-cake-flow-isolation-mode"><strong>flow_isolation_mode</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/cake/flow_isolation_mode" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 <p><em class="ansible-option-versionadded">added in kpfleming.systemd_networkd 24.1.0</em></p>
@@ -275,7 +289,7 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/cake/mpu_bytes"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-cake-mpu-bytes"><strong>mpu_bytes</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/cake/mpu_bytes" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 <p><em class="ansible-option-versionadded">added in kpfleming.systemd_networkd 24.1.0</em></p>
@@ -283,7 +297,7 @@ any changes were made.</p></li>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Round the net packet size (after overhead bytes have been added) to a minimum of this value.</p>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/cake/nat"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-cake-nat"><strong>nat</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/cake/nat" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
 <p><em class="ansible-option-versionadded">added in kpfleming.systemd_networkd 24.1.0</em></p>
@@ -296,7 +310,7 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/cake/overhead_bytes"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-cake-overhead-bytes"><strong>overhead_bytes</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/cake/overhead_bytes" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 <p><em class="ansible-option-versionadded">added in kpfleming.systemd_networkd 24.1.0</em></p>
@@ -304,7 +318,7 @@ any changes were made.</p></li>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Number of bytes to be added to the raw data size of each packet.</p>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/cake/priority_queueing_preset"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-cake-priority-queueing-preset"><strong>priority_queueing_preset</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/cake/priority_queueing_preset" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 <p><em class="ansible-option-versionadded">added in kpfleming.systemd_networkd 24.1.0</em></p>
@@ -320,7 +334,7 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/cake/split_gso"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-cake-split-gso"><strong>split_gso</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/cake/split_gso" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
 <p><em class="ansible-option-versionadded">added in kpfleming.systemd_networkd 24.1.0</em></p>
@@ -333,7 +347,7 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/cake/wash"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-cake-wash"><strong>wash</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/cake/wash" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
 <p><em class="ansible-option-versionadded">added in kpfleming.systemd_networkd 24.1.0</em></p>
@@ -346,7 +360,7 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/configure_without_carrier"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-configure-without-carrier"><strong>configure_without_carrier</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/configure_without_carrier" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
 </div></td>
@@ -358,7 +372,7 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/dhcp"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-dhcp"><strong>dhcp</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/dhcp" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
@@ -372,14 +386,14 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/dhcpv4"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-dhcpv4"><strong>dhcpv4</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/dhcpv4" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Attributes of the DHCPv4 client on the network.</p>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/dhcpv4/client_identifier"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-dhcpv4-client-identifier"><strong>client_identifier</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/dhcpv4/client_identifier" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
@@ -392,14 +406,14 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/dhcpv4/hostname"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-dhcpv4-hostname"><strong>hostname</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/dhcpv4/hostname" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Hostname to be sent.</p>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/dhcpv4/routes_to_dns"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-dhcpv4-routes-to-dns"><strong>routes_to_dns</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/dhcpv4/routes_to_dns" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
 </div></td>
@@ -411,7 +425,7 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/dhcpv4/routes_to_ntp"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-dhcpv4-routes-to-ntp"><strong>routes_to_ntp</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/dhcpv4/routes_to_ntp" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
 </div></td>
@@ -423,7 +437,7 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/dhcpv4/send_hostname"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-dhcpv4-send-hostname"><strong>send_hostname</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/dhcpv4/send_hostname" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
 </div></td>
@@ -435,7 +449,7 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/dhcpv4/send_release"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-dhcpv4-send-release"><strong>send_release</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/dhcpv4/send_release" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
 </div></td>
@@ -447,7 +461,7 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/dhcpv4/use_dns"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-dhcpv4-use-dns"><strong>use_dns</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/dhcpv4/use_dns" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
 </div></td>
@@ -459,7 +473,7 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/dhcpv4/use_gateway"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-dhcpv4-use-gateway"><strong>use_gateway</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/dhcpv4/use_gateway" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
 </div></td>
@@ -471,7 +485,7 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/dhcpv4/use_hostname"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-dhcpv4-use-hostname"><strong>use_hostname</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/dhcpv4/use_hostname" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
 </div></td>
@@ -483,7 +497,7 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/dhcpv4/use_ntp"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-dhcpv4-use-ntp"><strong>use_ntp</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/dhcpv4/use_ntp" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
 </div></td>
@@ -495,7 +509,7 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/dhcpv4/use_routes"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-dhcpv4-use-routes"><strong>use_routes</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/dhcpv4/use_routes" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
 </div></td>
@@ -507,14 +521,14 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/dhcpv6"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-dhcpv6"><strong>dhcpv6</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/dhcpv6" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Attributes of the DHCPv6 client on the network.</p>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/dhcpv6/use_dns"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-dhcpv6-use-dns"><strong>use_dns</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/dhcpv6/use_dns" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
 </div></td>
@@ -526,7 +540,7 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/dhcpv6/use_hostname"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-dhcpv6-use-hostname"><strong>use_hostname</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/dhcpv6/use_hostname" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
 </div></td>
@@ -538,7 +552,7 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/dhcpv6/use_ntp"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-dhcpv6-use-ntp"><strong>use_ntp</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/dhcpv6/use_ntp" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
 </div></td>
@@ -550,7 +564,7 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/dhcpv6/without_ra"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-dhcpv6-without-ra"><strong>without_ra</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/dhcpv6/without_ra" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
@@ -563,14 +577,14 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/dns"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-dns"><strong>dns</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/dns" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure DNS servers on the network.</p>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/emit_lldp"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-emit-lldp"><strong>emit_lldp</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/emit_lldp" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
@@ -583,7 +597,7 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/ip_forward"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-ip-forward"><strong>ip_forward</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/ip_forward" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
@@ -597,7 +611,7 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/ipv4_forwarding"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-ipv4-forwarding"><strong>ipv4_forwarding</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/ipv4_forwarding" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
 </div></td>
@@ -609,7 +623,7 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/ipv6_accept_ra"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-ipv6-accept-ra"><strong>ipv6_accept_ra</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/ipv6_accept_ra" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
 </div></td>
@@ -621,7 +635,7 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/ipv6_forwarding"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-ipv6-forwarding"><strong>ipv6_forwarding</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/ipv6_forwarding" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
 </div></td>
@@ -633,7 +647,7 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/ipv6_proxy_ndp"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-ipv6-proxy-ndp"><strong>ipv6_proxy_ndp</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/ipv6_proxy_ndp" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
 </div></td>
@@ -645,28 +659,28 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/ipv6_proxy_ndp_address"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-ipv6-proxy-ndp-address"><strong>ipv6_proxy_ndp_address</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/ipv6_proxy_ndp_address" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure Proxy NDP addresses on the network.</p>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/ipv6acceptra"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-ipv6acceptra"><strong>ipv6acceptra</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/ipv6acceptra" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Attributes of the IPv6 RA client on the network.</p>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/ipv6acceptra/token"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-ipv6acceptra-token"><strong>token</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/ipv6acceptra/token" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Mode, and pattern, used to generate a SLAAC address.</p>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/ipv6acceptra/use_dns"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-ipv6acceptra-use-dns"><strong>use_dns</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/ipv6acceptra/use_dns" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
 </div></td>
@@ -678,7 +692,7 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/ipv6acceptra/use_gateway"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-ipv6acceptra-use-gateway"><strong>use_gateway</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/ipv6acceptra/use_gateway" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
 </div></td>
@@ -690,7 +704,7 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/ipv6acceptra/use_mtu"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-ipv6acceptra-use-mtu"><strong>use_mtu</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/ipv6acceptra/use_mtu" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
 </div></td>
@@ -702,7 +716,7 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/keep_configuration"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-keep-configuration"><strong>keep_configuration</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/keep_configuration" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
@@ -710,21 +724,21 @@ any changes were made.</p></li>
 <p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
 <ul class="simple">
 <li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;static&quot;</span></code></p></li>
-<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;dhcp&quot;</span></code></p></li>
-<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;dhcp-on-stop&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;dynamic&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;dynamic-on-stop&quot;</span></code></p></li>
 <li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;True&quot;</span></code></p></li>
 <li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;False&quot;</span></code></p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/link"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-link"><strong>link</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/link" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Attributes of the link used by the network.</p>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/link/activation_policy"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-link-activation-policy"><strong>activation_policy</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/link/activation_policy" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
@@ -739,21 +753,21 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/link/mac_address"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-link-mac-address"><strong>mac_address</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/link/mac_address" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>The MAC address to be used for the network.</p>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/link/mtu_bytes"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-link-mtu-bytes"><strong>mtu_bytes</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/link/mtu_bytes" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>The MTU for the network.</p>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/link/required_family_for_online"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-link-required-family-for-online"><strong>required_family_for_online</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/link/required_family_for_online" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
@@ -767,7 +781,7 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/link/required_for_online"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-link-required-for-online"><strong>required_for_online</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/link/required_for_online" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
@@ -786,7 +800,7 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/link_local_addressing"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-link-local-addressing"><strong>link_local_addressing</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/link_local_addressing" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
@@ -800,7 +814,7 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/lldp"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-lldp"><strong>lldp</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/lldp" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
@@ -813,189 +827,189 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/match"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-match"><strong>match</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/match" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Matching attributes of the network.</p>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/match/device"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-match-device"><strong>device</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/match/device" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Device-specific attributes to be matched.</p>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/match/device/driver"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-match-device-driver"><strong>driver</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/match/device/driver" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match udev ID_NET_DRIVER.</p>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/match/device/kind"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-match-device-kind"><strong>kind</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/match/device/kind" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match netlink IFLA_INFO_KIND.</p>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/match/device/mac_address"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-match-device-mac-address"><strong>mac_address</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/match/device/mac_address" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match current MAC address.</p>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/match/device/name"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-match-device-name"><strong>name</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/match/device/name" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match udev INTERFACE.</p>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/match/device/path"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-match-device-path"><strong>path</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/match/device/path" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match udev ID_PATH.</p>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/match/device/permanent_mac_address"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-match-device-permanent-mac-address"><strong>permanent_mac_address</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/match/device/permanent_mac_address" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match permanent MAC address.</p>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/match/device/property"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-match-device-property"><strong>property</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/match/device/property" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match udev property.</p>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/match/device/type"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-match-device-type"><strong>type</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/match/device/type" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match udev DEVTYPE.</p>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/match/system"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-match-system"><strong>system</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/match/system" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>System-specific attributes to be matched.</p>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/match/system/architecture"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-match-system-architecture"><strong>architecture</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/match/system/architecture" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match system architecture.</p>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/match/system/credential"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-match-system-credential"><strong>credential</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/match/system/credential" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match service credential.</p>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/match/system/firmware"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-match-system-firmware"><strong>firmware</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/match/system/firmware" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match system firmware.</p>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/match/system/host"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-match-system-host"><strong>host</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/match/system/host" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match hostname or machine ID.</p>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/match/system/kernel_command_line"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-match-system-kernel-command-line"><strong>kernel_command_line</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/match/system/kernel_command_line" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match kernel command line option presence.</p>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/match/system/kernel_version"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-match-system-kernel-version"><strong>kernel_version</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/match/system/kernel_version" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match kernel version expression.</p>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/match/system/virtualization"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-match-system-virtualization"><strong>virtualization</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/match/system/virtualization" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match virtualization type.</p>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/name"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-name"><strong>name</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/name" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span> / <span class="ansible-option-required">required</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Name of the network.</p>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/ntp"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-ntp"><strong>ntp</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/ntp" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure NTP servers on the network.</p>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/routes"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-routes"><strong>routes</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/routes" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=dictionary</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Routes to be used by the network.</p>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/routes/destination"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-routes-destination"><strong>destination</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/routes/destination" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>IPv4 or IPv6 subnet which can be reached through gateway.</p>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/routes/gateway"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-routes-gateway"><strong>gateway</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/routes/gateway" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>IPv4 or IPv6 address of next-hop router.</p>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/routes/metric"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-routes-metric"><strong>metric</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/routes/metric" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>The route metric.</p>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/routes/mtu_bytes"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-routes-mtu-bytes"><strong>mtu_bytes</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/routes/mtu_bytes" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>The MTU to be applied to this route.</p>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/routes/preferred_source"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-routes-preferred-source"><strong>preferred_source</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/routes/preferred_source" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>IPv4 or IPv6 address to be preferred when sending packets via this route.</p>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/routes/scope"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-routes-scope"><strong>scope</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/routes/scope" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
@@ -1010,14 +1024,14 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/routes/source"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-routes-source"><strong>source</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/routes/source" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>IPv4 or IPv6 subnet matched against source addresses for selection of this route.</p>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/routes/type"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-routes-type"><strong>type</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/routes/type" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
@@ -1038,7 +1052,7 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--suppress_reload"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-suppress-reload"><strong>suppress_reload</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--suppress_reload" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
 </div></td>
@@ -1050,7 +1064,7 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--systemd_root"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-systemd-root"><strong>systemd_root</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--systemd_root" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
