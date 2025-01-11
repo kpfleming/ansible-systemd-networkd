@@ -16,6 +16,8 @@ for emergencies or non-content releases).
 
 ## [Unreleased]
 
+## [25.2.0] - 2025-01-11
+
 ### Added
 
 - Added 'ipv6_duplicate_address_detection' parameter to the 'network' role.
