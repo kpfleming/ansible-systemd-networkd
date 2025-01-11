@@ -80,6 +80,9 @@ argument_specs:
           ipv4_forwarding:
             description: Enable forwarding of packets that arrive on this network.
             type: bool
+          ipv6_duplicate_address_detection:
+            description: The number of IPv6 DAD probes to send for a new address.
+            type: int
           ipv6_forwarding:
             description: Act as a host (false) or router (true).
             type: bool

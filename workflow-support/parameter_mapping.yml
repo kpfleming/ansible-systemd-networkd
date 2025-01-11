@@ -54,6 +54,7 @@ network_arguments:
   emit_lldp: EmitLLDP
   ip_forward: IPForward
   ipv4_forwarding: IPv4Forwarding
+  ipv6_duplicate_address_detection: IPv6DuplicateAddressDetection
   ipv6_forwarding: IPv6Forwarding
   ipv6_accept_ra: IPv6AcceptRA
   ipv6_proxy_ndp: IPv6ProxyNDP
