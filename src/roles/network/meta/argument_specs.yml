@@ -165,6 +165,14 @@ argument_specs:
               address:
                 description: An IPv4 or IPv6 address.
                 type: str
+              duplicate_address_detection:
+                description: Controls Duplicate Address Detection for this address.
+                type: str
+                choices:
+                  - both
+                  - ipv4
+                  - ipv6
+                  - none
               peer:
                 description: The address of the peer on a point-to-point network.
                 type: str

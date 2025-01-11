@@ -73,6 +73,7 @@ network_link_arguments:
 network_address_arguments:
   address: Address
   broadcast: Broadcast
+  duplicate_address_detection: DuplicateAddressDetection
   home_address: HomeAddress
   peer: Peer
 

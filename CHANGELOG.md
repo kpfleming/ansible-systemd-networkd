@@ -21,6 +21,8 @@ for emergencies or non-content releases).
 - Updated allowed values for 'keep_configuration' in 'network' role,
   to be compatible with systemd version 256 and higher.
 
+- Added 'duplicate_address_detection' parameter in the 'network' role.
+
 ## [24.2.0] - 2024-12-18
 
 ### Added
