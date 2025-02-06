@@ -88,6 +88,13 @@ network_route_arguments:
   source: Source
   type: Type
 
+network_routing_policy_rule_arguments:
+  from: From
+  to: To
+  firewall_mark: FirewallMark
+  table: Table
+  priority: Priority
+
 network_dhcpv4_arguments:
   client_identifier: ClientIdentifier
   hostname: Hostname
