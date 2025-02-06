@@ -87,6 +87,7 @@ network_route_arguments:
   scope: Scope
   source: Source
   type: Type
+  table: Table
 
 network_dhcpv4_arguments:
   client_identifier: ClientIdentifier
