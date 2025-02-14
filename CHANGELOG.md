@@ -16,6 +16,8 @@ for emergencies or non-content releases).
 
 ## [Unreleased]
 
+- Added `routing_policy_rules` block to the `network` role.
+
 ## [25.2.0] - 2025-01-11
 
 ### Added
