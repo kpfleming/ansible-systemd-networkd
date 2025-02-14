@@ -16,6 +16,9 @@ for emergencies or non-content releases).
 
 ## [Unreleased]
 
+- Added `table` parameter to the options of the elements of `routes` in
+  the `network` role.
+
 ## [25.2.0] - 2025-01-11
 
 ### Added
