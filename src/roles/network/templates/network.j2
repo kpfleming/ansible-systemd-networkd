@@ -134,6 +134,23 @@
 
 {% endfor %}
 {% endif %}
+{% if "routing_policy_rules" in network -%}
+{% for v in network.routing_policy_rules -%}
+[RoutingPolicyRule]
+{% for arg, value in v.items() %}
+{% if value is string or value is integer %}
+{{ network_routing_policy_rule_arguments[arg] }}={{ value }}
+{% elif value is boolean %}
+{{ network_routing_policy_rule_arguments[arg] }}={{ value|ternary('yes','no') }}
+{% else %}
+{% for v in value %}
+{{ network_routing_policy_rule_arguments[arg] }}={{ v }}
+{% endfor %}
+{% endif %}
+{% endfor %}
+
+{% endfor %}
+{% endif %}
 {% if "cake" in network -%}
 [CAKE]
 {% for arg, value in network.cake.items() %}

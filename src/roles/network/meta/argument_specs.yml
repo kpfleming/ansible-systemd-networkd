@@ -235,6 +235,26 @@ argument_specs:
               table:
                 description: The routing table to add this route to.
                 type: str
+          routing_policy_rules:
+            description: Rules for policy-based routing.
+            type: list
+            elements: dict
+            options:
+              from:
+                description: Source address prefix to match.
+                type: str
+              to:
+                description: Destination address prefix to match.
+                type: str
+              firewall_mark:
+                description: Netfilter firewall mark to match.
+                type: str
+              table:
+                description: Routing table to look up in case of match.
+                type: str
+              priority:
+                description: Priority of this rule.
+                type: int
           dhcpv4:
             description: Attributes of the DHCPv4 client on the network.
             type: dict
