@@ -232,6 +232,9 @@ argument_specs:
               mtu_bytes:
                 description: The MTU to be applied to this route.
                 type: str
+              table:
+                description: The routing table to add this route to.
+                type: str
           routing_policy_rules:
             description: Rules for policy-based routing.
             type: list
