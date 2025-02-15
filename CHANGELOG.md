@@ -16,6 +16,10 @@ for emergencies or non-content releases).
 
 ## [Unreleased]
 
+## [25.3.0] - 2025-02-15
+
+### Added
+
 - Added `routing_policy_rules` block to the `network` role.
 - Added `table` parameter to the options of the elements of `routes` in
   the `network` role.
