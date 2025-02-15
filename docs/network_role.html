@@ -4,7 +4,7 @@
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta content="2.16.2" name="antsibull-docs" />
+<meta content="2.16.3" name="antsibull-docs" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>kpfleming.systemd_networkd.network role – Manages systemd-networkd networks. &mdash; Collections  documentation</title>
@@ -124,7 +124,7 @@
 <h1>kpfleming.systemd_networkd.network role – Manages systemd-networkd networks.<a class="headerlink" href="#kpfleming-systemd-networkd-network-role-manages-systemd-networkd-networks" title="Link to this heading"></a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This role is part of the <a class="reference external" href="https://galaxy.ansible.com/kpfleming/systemd_networkd">kpfleming.systemd_networkd collection</a> (version 25.2.0).</p>
+<p>This role is part of the <a class="reference external" href="https://galaxy.ansible.com/kpfleming/systemd_networkd">kpfleming.systemd_networkd collection</a> (version 25.3.0).</p>
 <p>It is not included in <code class="docutils literal notranslate"><span class="pre">ansible-core</span></code>.
 To check whether it is installed, run <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">list</span></code>.</p>
 <p>To install it use: <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">install</span> <span class="pre">kpfleming.systemd_networkd</span></code>.</p>
@@ -1039,6 +1039,13 @@ any changes were made.</p></li>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--networks/routes/table"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-routes-table"><strong>table</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--networks/routes/table" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>The routing table to add this route to.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--networks/routes/type"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-routes-type"><strong>type</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--networks/routes/type" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
@@ -1059,7 +1066,49 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--networks/routing_policy_rules"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-routing-policy-rules"><strong>routing_policy_rules</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--networks/routing_policy_rules" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Rules for policy-based routing.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--networks/routing_policy_rules/firewall_mark"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-routing-policy-rules-firewall-mark"><strong>firewall_mark</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--networks/routing_policy_rules/firewall_mark" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Netfilter firewall mark to match.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--networks/routing_policy_rules/from"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-routing-policy-rules-from"><strong>from</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--networks/routing_policy_rules/from" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Source address prefix to match.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--networks/routing_policy_rules/priority"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-routing-policy-rules-priority"><strong>priority</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--networks/routing_policy_rules/priority" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Priority of this rule.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--networks/routing_policy_rules/table"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-routing-policy-rules-table"><strong>table</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--networks/routing_policy_rules/table" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Routing table to look up in case of match.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--networks/routing_policy_rules/to"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-networks-routing-policy-rules-to"><strong>to</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--networks/routing_policy_rules/to" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Destination address prefix to match.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--suppress_reload"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-suppress-reload"><strong>suppress_reload</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--suppress_reload" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
 </div></td>
@@ -1071,7 +1120,7 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--systemd_root"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-systemd-root"><strong>systemd_root</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--systemd_root" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
