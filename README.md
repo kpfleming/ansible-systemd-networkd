@@ -1,7 +1,7 @@
 # ansible-systemd-networkd
 
 <a href="https://opensource.org"><img height="150" align="left" src="https://opensource.org/files/OSIApprovedCropped.png" alt="Open Source Initiative Approved License logo"></a>
-[![CI](https://github.com/kpfleming/ansible-systemd-networkd/workflows/CI/badge.svg)](https://github.com/kpfleming/ansible-systemd-networkd/actions?query=workflow%3ACI)
+[![CI](https://github.com/kpfleming/ansible-systemd-networkd/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/kpfleming/ansible-systemd-networkd/actions/workflows/ci.yml)
 [![License - Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-9400d3.svg)](https://spdx.org/licenses/Apache-2.0.html)
 
 This repo contains the `kpfleming.systemd_networkd` Ansible Collection. The collection includes roles to manage
