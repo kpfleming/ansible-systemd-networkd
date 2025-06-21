@@ -7,10 +7,12 @@ containersrcdir="/__w/${GITHUB_REPOSITORY##*/}/${GITHUB_REPOSITORY##*/}"
 base_image=${1}; shift
 image_name=${1}; shift
 
+# remove these build deps once there are 'cffi' wheels for Python 3.14
+proj_build_deps=(gcc libffi-dev)
 lint_deps=(shellcheck)
 publish_deps=(yq)
 
-toxenvs=(lint-action py3{11,12,13}-ci-action publish-action)
+toxenvs=(lint-action py3{11,12,13,14}-ci-action publish-action)
 
 c=$(buildah from "${base_image}")
 
@@ -22,15 +24,21 @@ build_cmd_with_source() {
     buildah run --network host --volume "$(realpath "${scriptdir}/.."):${containersrcdir}" --workingdir "${containersrcdir}" "${c}" -- "$@"
 }
 
-build_cmd apt-get update --quiet=2
-build_cmd apt-get install --yes --quiet=2 "${lint_deps[@]}" "${publish_deps[@]}"
+build_cmd apt update --quiet=2
+build_cmd apt install --yes --quiet=2 "${proj_build_deps[@]}" "${lint_deps[@]}" "${publish_deps[@]}"
+
+build_cmd uv tool install --python python3.13 --no-cache tox --with tox-uv
 
 for env in "${toxenvs[@]}"; do
-    build_cmd_with_source tox exec -e "${env}" -- pip list
+    build_cmd_with_source tox exec -e "${env}" -- uv pip list
 done
 
-build_cmd apt-get autoremove --yes --purge
-build_cmd apt-get clean autoclean
+if [ -n "${proj_build_deps[*]}" ]
+then
+    build_cmd apt remove --yes --purge "${proj_build_deps[@]}"
+fi
+build_cmd apt autoremove --yes --purge
+build_cmd apt clean autoclean
 build_cmd sh -c "rm -rf /var/lib/apt/lists/*"
 
 build_cmd rm -rf /root/.cache
