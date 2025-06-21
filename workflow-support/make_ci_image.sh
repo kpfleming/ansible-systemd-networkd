@@ -29,6 +29,10 @@ build_cmd apt install --yes --quiet=2 "${proj_build_deps[@]}" "${lint_deps[@]}" 
 
 build_cmd uv tool install --python python3.13 --no-cache tox --with tox-uv
 
+build_cmd mkdir /tox
+buildah copy "${c}" "${scriptdir}/tox-config.ini" /tox/config.ini
+buildah config --env TOX_USER_CONFIG_FILE=/tox/config.ini "${c}"
+
 for env in "${toxenvs[@]}"; do
     build_cmd_with_source tox exec -e "${env}" -- uv pip list
 done
