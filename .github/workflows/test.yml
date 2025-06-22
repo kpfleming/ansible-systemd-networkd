@@ -24,6 +24,6 @@ jobs:
     - uses: actions/checkout@v4
       with:
         show-progress: false
-    - uses: kpfleming/composite-actions/ci-tox@v2
+    - uses: kpfleming/composite-actions/ci-tox@v3
       with:
         python: ${{ inputs.python }}
