@@ -16,6 +16,8 @@ for emergencies or non-content releases).
 
 ## [Unreleased]
 
+## [25.4.0] - 2025-06-23
+
 ### Changed
 
 - Fixed handlers in 'bond' and 'link' roles to work properly on
