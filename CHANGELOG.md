@@ -16,6 +16,11 @@ for emergencies or non-content releases).
 
 ## [Unreleased]
 
+### Changed
+
+- Fixed handlers in 'bond' and 'link' roles to work properly on
+  non-Debian systems (issue 49).
+
 ## [25.3.0] - 2025-02-15
 
 ### Added
