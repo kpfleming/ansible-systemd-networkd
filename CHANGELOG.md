@@ -16,6 +16,8 @@ for emergencies or non-content releases).
 
 ## [Unreleased]
 
+## [25.5.0] - 2025-06-26
+
 ### Added
 
 - Added Ubuntu to the list of distributions which require a reboot
