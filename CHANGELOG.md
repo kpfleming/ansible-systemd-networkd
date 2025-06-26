@@ -16,6 +16,11 @@ for emergencies or non-content releases).
 
 ## [Unreleased]
 
+### Added
+
+- Added Ubuntu to the list of distributions which require a reboot
+  after changes are made by the 'link' role (issue 49).
+
 ## [25.4.0] - 2025-06-23
 
 ### Changed

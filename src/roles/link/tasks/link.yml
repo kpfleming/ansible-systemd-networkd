@@ -10,7 +10,7 @@
     group: systemd-network
 
 - name: set reboot fact
-  when: ansible_distribution == "Debian"
+  when: ansible_distribution in ["Debian", "Ubuntu"]
   ansible.builtin.set_fact:
     systemd_networkd_link_reboot_required: "{{ systemd_networkd_link_reboot_required|default(false) or _link.changed }}"
 
