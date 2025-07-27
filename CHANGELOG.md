@@ -21,6 +21,10 @@ for emergencies or non-content releases).
 - Use proper spelling of 'drop-in', which resulted in a parameter name
   changing from `dropin_for` to `drop_in_for`.
 
+### Changed
+
+- Correct casing of 'IPv6AcceptRA' in network role.
+
 ## [25.5.0] - 2025-06-26
 
 ### Added
