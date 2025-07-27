@@ -9,7 +9,7 @@
 
 - name: manage network
   become: true
-  when: dropin_for is not defined
+  when: drop_in_for is not defined
   register: _network
   notify: "{{ ansible_role_name ~ ' : reload' }}"
   ansible.builtin.template:
@@ -18,17 +18,17 @@
     mode: u=rw,g=r,o=
     group: systemd-network
 
-- name: manage network dropin
+- name: manage network drop-in
   become: true
-  when: dropin_for is defined
-  register: _network_dropin
+  when: drop_in_for is defined
+  register: _network_drop_in
   notify: "{{ ansible_role_name ~ ' : reload' }}"
   ansible.builtin.template:
     src: network.j2
-    dest: "{{ systemd_root ~ '/etc/systemd/network/' ~ dropin_for ~ '.network.d/' ~ network.name ~ '.conf' }}"
+    dest: "{{ systemd_root ~ '/etc/systemd/network/' ~ drop_in_for ~ '.network.d/' ~ network.name ~ '.conf' }}"
     mode: u=rw,g=r,o=
     group: systemd-network
 
 - name: set fact to indicate result
   ansible.builtin.set_fact:
-    systemd_networkd_network_changed: "{{ systemd_networkd_network_changed|default(false) or _network.changed or _network_dropin.changed }}"
+    systemd_networkd_network_changed: "{{ systemd_networkd_network_changed|default(false) or _network.changed or _network_drop_in.changed }}"

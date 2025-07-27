@@ -5,9 +5,9 @@ argument_specs:
     description:
       - |
         This role operates in one of two modes:
-        1) When "dropin_for" is not specified, creates a .network file in /etc/systemd/network
+        1) When "drop_in_for" is not specified, creates a .network file in /etc/systemd/network
         using the supplied "name", and applies the configuration provided to that file.
-        2) When "dropin_for" is specified, creates a .conf file in the dropin directory for the
+        2) When "drop_in_for" is specified, creates a .conf file in the drop-in directory for the
         network specified, using the supplied "name", and applies the configuration provided to
         that file.
 
@@ -26,8 +26,8 @@ argument_specs:
         description: Root path of filesystem containing systemd-networkd configuration files.
         type: str
         default: ""
-      dropin_for:
-        description: Name of network to which this configuration should be applied as a dropin.
+      drop_in_for:
+        description: Name of network to which this configuration should be applied as a drop-in.
         type: str
       networks:
         description: Attributes of the networks to be managed.

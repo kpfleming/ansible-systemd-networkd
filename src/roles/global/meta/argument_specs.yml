@@ -4,7 +4,7 @@ argument_specs:
     short_description: Manages systemd-networkd global configuration.
     description:
       - |
-        This role will create (or update) a dropin file named ansible.conf in /etc/systemd/networkd.conf.d
+        This role will create (or update) a drop-in file named ansible.conf in /etc/systemd/networkd.conf.d
 
       - |
         Sets fact named 'systemd_networkd_global_changed' to either true or false to indicate whether

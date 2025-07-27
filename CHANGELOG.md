@@ -16,6 +16,11 @@ for emergencies or non-content releases).
 
 ## [Unreleased]
 
+### Breaking Changes:
+
+- Use proper spelling of 'drop-in', which resulted in a parameter name
+  changing from `dropin_for` to `drop_in_for`.
+
 ## [25.5.0] - 2025-06-26
 
 ### Added

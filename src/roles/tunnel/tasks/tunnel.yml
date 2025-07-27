@@ -22,7 +22,7 @@
   register: _network
   notify: "{{ ansible_role_name ~ ' : reload' }}"
   ansible.builtin.template:
-    src: tunnel-dropin.j2
+    src: tunnel-drop-in.j2
     dest: "{{ systemd_root ~ '/etc/systemd/network/' ~ tunnel.underlying_name ~ '.network.d/tunnel-' ~ tunnel.name ~ '.conf' }}"
     mode: u=rw,g=r,o=
     group: systemd-network
