@@ -1,0 +1,17 @@
+namespace: kpfleming
+name: systemd_networkd
+version: 25.6.0
+readme: README.md
+authors:
+  - Kevin P, Fleming <kevin@km6g.us> @kpfleming:irc/libera.chat
+description: Roles to manage configuration of systemd-networkd.
+license:
+  - Apache-2.0
+repository: https://github.com/kpfleming/ansible-systemd-networkd
+issues: https://github.com/kpfleming/ansible-systemd-networkd/issues
+documentation: https://kpfleming.github.io/ansible-systemd-networkd
+build_ignore: ['*~']
+tags:
+  - linux
+  - infrastructure
+  - networking
