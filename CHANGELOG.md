@@ -16,6 +16,8 @@ for emergencies or non-content releases).
 
 ## [Unreleased]
 
+## [25.6.0] - 2025-07-27
+
 ### Breaking Changes:
 
 - Use proper spelling of 'drop-in', which resulted in a parameter name
