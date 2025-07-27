@@ -4,7 +4,7 @@
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta content="2.18.0" name="antsibull-docs" />
+<meta content="2.20.0" name="antsibull-docs" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>kpfleming.systemd_networkd.network role – Manages systemd-networkd networks. &mdash; Collections  documentation</title>
@@ -124,7 +124,7 @@
 <h1>kpfleming.systemd_networkd.network role – Manages systemd-networkd networks.<a class="headerlink" href="#kpfleming-systemd-networkd-network-role-manages-systemd-networkd-networks" title="Link to this heading"></a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This role is part of the <a class="reference external" href="https://galaxy.ansible.com/kpfleming/systemd_networkd">kpfleming.systemd_networkd collection</a> (version 25.5.0).</p>
+<p>This role is part of the <a class="reference external" href="https://galaxy.ansible.com/kpfleming/systemd_networkd">kpfleming.systemd_networkd collection</a> (version 25.6.0).</p>
 <p>It is not included in <code class="docutils literal notranslate"><span class="pre">ansible-core</span></code>.
 To check whether it is installed, run <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">list</span></code>.</p>
 <p>To install it use: <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">install</span> <span class="pre">kpfleming.systemd_networkd</span></code>.</p>
@@ -146,9 +146,9 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <h3><a class="toc-backref" href="#id2" role="doc-backlink">Synopsis</a><a class="headerlink" href="#synopsis" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>This role operates in one of two modes:
-1) When “dropin_for” is not specified, creates a .network file in /etc/systemd/network
+1) When “drop_in_for” is not specified, creates a .network file in /etc/systemd/network
 using the supplied “name”, and applies the configuration provided to that file.
-2) When “dropin_for” is specified, creates a .conf file in the dropin directory for the
+2) When “drop_in_for” is specified, creates a .conf file in the drop-in directory for the
 network specified, using the supplied “name”, and applies the configuration provided to
 that file.</p></li>
 <li><p>Detailed descriptions of parameters and their behavior can be found in ‘man systemd.network’.</p></li>
@@ -166,10 +166,10 @@ any changes were made.</p></li>
 </thead>
 <tbody>
 <tr class="row-even"><td><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--dropin_for"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-dropin-for"><strong>dropin_for</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--dropin_for" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+<div class="ansibleOptionAnchor" id="parameter-main--drop_in_for"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-network-role-parameter-main-drop-in-for"><strong>drop_in_for</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--drop_in_for" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-cell"><p>Name of network to which this configuration should be applied as a dropin.</p>
+<td><div class="ansible-option-cell"><p>Name of network to which this configuration should be applied as a drop-in.</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-cell">
