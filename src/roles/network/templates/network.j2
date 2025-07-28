@@ -181,6 +181,40 @@
 {% endfor %}
 
 {% endif %}
+{% if "ipv6prefixes" in network -%}
+{% for v in network.ipv6prefixes -%}
+[IPv6Prefix]
+{% for arg, value in v.items() %}
+{% if value is string or value is integer %}
+{{ network_ipv6prefix_arguments[arg] }}={{ value }}
+{% elif value is boolean %}
+{{ network_ipv6prefix_arguments[arg] }}={{ value|ternary('yes','no') }}
+{% else %}
+{% for v in value %}
+{{ network_ipv6prefix_arguments[arg] }}={{ v }}
+{% endfor %}
+{% endif %}
+{% endfor %}
+
+{% endfor %}
+{% endif %}
+{% if "ipv6routeprefixes" in network -%}
+{% for v in network.ipv6routeprefixes -%}
+[IPv6RoutePrefix]
+{% for arg, value in v.items() %}
+{% if value is string or value is integer %}
+{{ network_ipv6routeprefix_arguments[arg] }}={{ value }}
+{% elif value is boolean %}
+{{ network_ipv6routeprefix_arguments[arg] }}={{ value|ternary('yes','no') }}
+{% else %}
+{% for v in value %}
+{{ network_ipv6routeprefix_arguments[arg] }}={{ v }}
+{% endfor %}
+{% endif %}
+{% endfor %}
+
+{% endfor %}
+{% endif %}
 {% if "cake" in network -%}
 [CAKE]
 {% for arg, value in network.cake.items() %}

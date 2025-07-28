@@ -503,6 +503,56 @@ argument_specs:
                 description: XXX
                 version_added: 25.7.0
                 type: str
+          ipv6prefix:
+            description: IPv6 prefixes to be included in RAs on the network.
+            type: list
+            elements: dict
+            options:
+              address_autoconfiguration:
+                description: XXX
+                version_added: 25.7.0
+                type: bool
+              on_link:
+                description: XXX
+                version_added: 25.7.0
+                type: bool
+              prefix:
+                description: XXX
+                version_added: 25.7.0
+                type: str
+              preferred_lifetime_sec:
+                description: XXX
+                version_added: 25.7.0
+                type: str
+              valid_lifetime_sec:
+                description: XXX
+                version_added: 25.7.0
+                type: str
+              assign:
+                description: XXX
+                version_added: 25.7.0
+                type: bool
+              token:
+                description: XXX
+                version_added: 25.7.0
+                type: str
+              route_metric:
+                description: XXX
+                version_added: 25.7.0
+                type: int
+          ipv6routeprefix:
+            description: IPv6 routes to be included in RAs on the network.
+            type: list
+            elements: dict
+            options:
+              route:
+                description: XXX
+                version_added: 25.7.0
+                type: str
+              lifetime_sec:
+                description: XXX
+                version_added: 25.7.0
+                type: str
           match:
             description: Matching attributes of the network.
             type: dict

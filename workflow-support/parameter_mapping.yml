@@ -161,6 +161,20 @@ network_ipv6sendra_arguments:
   router_preference: RouterPreference
   uplink_interface: UplinkInterface
 
+network_ipv6prefix_arguments:
+  address_autoconfiguration: AddressAutoconfiguration
+  on_link: OnLink
+  prefix: Prefix
+  preferred_lifetime_sec: PreferredLifetimeSec
+  valid_lifetime_sec: ValidLifetimeSec
+  assign: Assign
+  token: Token
+  route_metric: RouteMetric
+
+network_ipv6routeprefix_arguments:
+  route: Route
+  lifetime_sec: LifetimeSec
+
 wireguard_arguments:
   firewall_mark: FirewallMark
   listen_port: ListenPort
