@@ -36,14 +36,18 @@ argument_specs:
             description: Name of the network device.
             type: str
             required: true
-          id:
-            description: The VLAN ID number (1-4095).
-            type: int
-            required: true
-          underlying_name:
-            description: The underlying network.
-            type: str
-            required: true
+          vlan:
+            description: Attributes of the VLAN.
+            type: dict
+            options:
+              id:
+                description: The VLAN ID number (1-4095).
+                type: int
+                required: true
+              underlying_name:
+                description: The underlying network.
+                type: str
+                required: true
           match:
             description: Matching attributes of the network device.
             type: dict

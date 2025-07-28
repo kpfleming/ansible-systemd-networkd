@@ -31,6 +31,12 @@ bond_arguments:
   transmit_hash_policy: TransmitHashPolicy
   up_delay_sec: UpDelaySec
 
+bridge_arguments:
+  ageing_time_sec: AgeingTimeSec
+  forward_delay_sec: ForwardDelaySec
+  priority: Priority
+  stp: STP
+
 tunnel_arguments:
   local: Local
   remote: Remote
@@ -48,17 +54,21 @@ global_network_arguments:
 
 network_arguments:
   bind_carrier: BindCarrier
+  bridge: Bridge
   configure_without_carrier: ConfigureWithoutCarrier
   dhcp: DHCP
+  dhcp_prefix_delegation: DHCPPrefixDelegation
+  dhcp_server: DHCPServer
   dns: DNS
   emit_lldp: EmitLLDP
   ip_forward: IPForward
   ipv4_forwarding: IPv4Forwarding
+  ipv6_accept_ra: IPv6AcceptRA
   ipv6_duplicate_address_detection: IPv6DuplicateAddressDetection
   ipv6_forwarding: IPv6Forwarding
-  ipv6_accept_ra: IPv6AcceptRA
   ipv6_proxy_ndp: IPv6ProxyNDP
   ipv6_proxy_ndp_address: IPv6ProxyNDPAddress
+  ipv6_send_ra: IPv6SendRA
   keep_configuration: KeepConfiguration
   link_local_addressing: LinkLocalAddressing
   lldp: LLDP
@@ -76,6 +86,7 @@ network_address_arguments:
   broadcast: Broadcast
   duplicate_address_detection: DuplicateAddressDetection
   home_address: HomeAddress
+  nft_set: NFTSet
   peer: Peer
 
 network_route_arguments:
@@ -90,15 +101,16 @@ network_route_arguments:
   table: Table
 
 network_routing_policy_rule_arguments:
-  from: From
-  to: To
   firewall_mark: FirewallMark
-  table: Table
+  from: From
   priority: Priority
+  table: Table
+  to: To
 
-network_dhcpv4_arguments:
+network_dhcp_v4_arguments:
   client_identifier: ClientIdentifier
   hostname: Hostname
+  nft_set: NFTSet
   routes_to_dns: RoutesToDNS
   routes_to_ntp: RoutesToNTP
   send_hostname: SendHostname
@@ -109,13 +121,19 @@ network_dhcpv4_arguments:
   use_ntp: UseNTP
   use_routes: UseRoutes
 
-network_dhcpv6_arguments:
+network_dhcp_v6_arguments:
+  nft_set: NFTSet
+  prefix_delegation_hint: PrefixDelegationHint
+  send_release: SendRelease
+  unassigned_subnet_policy: UnassignedSubnetPolicy
+  use_delegated_prefix: UseDelegatedPrefix
+  use_address: UseAddress
   use_dns: UseDNS
   use_hostname: UseHostname
   use_ntp: UseNTP
   without_ra: WithoutRA
 
-network_ipv6acceptra_arguments:
+network_ipv6_accept_ra_arguments:
   token: Token
   use_dns: UseDNS
   use_gateway: UseGateway
@@ -123,29 +141,84 @@ network_ipv6acceptra_arguments:
 
 network_cake_arguments:
   bandwidth: Bandwidth
-  overhead_bytes: OverheadBytes
-  mpu_bytes: MPUBytes
   compensation_mode: CompensationMode
   flow_isolation_mode: FlowIsolationMode
+  mpu_bytes: MPUBytes
   nat: NAT
+  overhead_bytes: OverheadBytes
   priority_queueing_preset: PriorityQueueingPreset
-  wash: Wash
   split_gso: SplitGSO
+  wash: Wash
+
+network_dhcp_prefix_delegation_arguments:
+  announce: Announce
+  assign: Assign
+  nft_set: NFTSet
+  subnet_id: SubnetId
+  token: Token
+  uplink_interface: UplinkInterface
+
+network_ipv6_send_ra_arguments:
+  dns: DNS
+  domains: Domains
+  emit_dns: EmitDNS
+  emit_domains: EmitDomains
+  reachable_time_sec: ReachableTimeSec
+  retransmit_sec: RetransmitSec
+  router_lifetime_sec: RouterLifetimeSec
+  router_preference: RouterPreference
+  uplink_interface: UplinkInterface
+
+network_ipv6_prefix_arguments:
+  address_autoconfiguration: AddressAutoconfiguration
+  assign: Assign
+  on_link: OnLink
+  preferred_lifetime_sec: PreferredLifetimeSec
+  prefix: Prefix
+  route_metric: RouteMetric
+  token: Token
+  valid_lifetime_sec: ValidLifetimeSec
+
+network_ipv6_route_prefix_arguments:
+  lifetime_sec: LifetimeSec
+  route: Route
+
+network_dhcp_server_arguments:
+  default_lease_time_sec: DefaultLeaseTimeSec
+  dns: DNS
+  emit_dns: EmitDNS
+  emit_ntp: EmitNTP
+  emit_router: EmitRouter
+  emit_timezone: EmitTimezone
+  max_lease_time_sec: MaxLeaseTimeSec
+  ntp: NTP
+  persist_leases: PersistLeases
+  pool_offset: PoolOffset
+  pool_size: PoolSize
+  rapid_commit: RapidCommit
+  router: Router
+  server_address: ServerAddress
+  timezone: Timezone
+  uplink_interface: UplinkInterface
+
+network_dhcp_server_static_lease_arguments:
+  address: Address
+  mac_address: MACAddress
 
 wireguard_arguments:
+  firewall_mark: FirewallMark
+  listen_port: ListenPort
   private_key: PrivateKey
   private_key_file: PrivateKeyFile
-  listen_port: ListenPort
-  firewall_mark: FirewallMark
-  route_table: RouteTable
   route_metric: RouteMetric
+  route_table: RouteTable
 
 wireguard_peer_arguments:
-  public_key: PublicKey
-  preshared_key: PresharedKey
-  preshared_key_file: PresharedKeyFile
   allowed_ips: AllowedIPs
   endpoint: Endpoint
   persistent_keepalive: PersistentKeepalive
-  route_table: RouteTable
+  preshared_key: PresharedKey
+  preshared_key_file: PresharedKeyFile
+  public_key: PublicKey
   route_metric: RouteMetric
+  route_table: RouteTable

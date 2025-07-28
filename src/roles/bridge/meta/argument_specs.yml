@@ -1,15 +1,19 @@
 ---
 argument_specs:
   main:
-    short_description: Manages systemd-networkd dummy virtual network devices.
+    short_description: Manages systemd-networkd bridged network devices.
     description:
       - |
-        This role will create (or update) one item in /etc/systemd/network for
-        each specified dummy: a .netdev file for the dummy device
+        This role will create (or update) a .netdev file in /etc/systemd/network for
+        each specified bridged device.
 
       - |
-        Sets fact named 'systemd_networkd_dummy_changed' to either true or false to indicate whether
+        Detailed descriptions of parameters and their behavior can be found in 'man systemd.netdev'.
+
+      - |
+        Sets fact named 'systemd_networkd_bridge_changed' to either true or false to indicate whether
         any changes were made.
+    version_added: 25.7.0
     options:
       suppress_reload:
         description: Suppress the reloading of systemd-networkd if changes are made.
@@ -19,18 +23,34 @@ argument_specs:
         description: Root path of filesystem containing systemd-networkd configuration files.
         type: str
         default: ""
-      dummies:
-        description: Attributes of the dummy devices to be managed.
+      bridges:
+        description: Attributes of the bridge devices to be managed.
         type: list
         elements: dict
         required: true
         options:
           name:
-            description: Name of the dummy device.
+            description: Name of the bridge device.
             type: str
             required: true
+          bridge:
+            description: Attributes of the bridge device.
+            type: dict
+            options:
+              ageing_time_sec:
+                description: Time that MAC addresses will be kept in the forwarding database.
+                type: int
+              forward_delay_sec:
+                description: Time spent in 'listening' and 'learning' before moving to 'forwarding' state.
+                type: int
+              priority:
+                description: Priority of bridge among its peers.
+                type: int
+              stp:
+                description: Enable Spanning Tree Protocol.
+                type: bool
           match:
-            description: Matching attributes of the network device.
+            description: Matching attributes of the bridge network device.
             type: dict
             options:
               system:

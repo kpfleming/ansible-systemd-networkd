@@ -1,0 +1,10 @@
+---
+- name: reload
+  become: true
+  when:
+    - not systemd_networkd_link_reboot_required|default(false)
+    - not suppress_reload
+  ansible.builtin.command:
+    argv:
+      - networkctl
+      - reload

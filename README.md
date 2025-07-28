@@ -15,12 +15,63 @@ Open Source software: [Apache License 2.0][3]
 
 * Roles:
   - kpfleming.systemd_networkd.bond: manage bond virtual devices
+  - kpfleming.systemd_networkd.bridge: manage bridge virtual devices
   - kpfleming.systemd_networkd.dummy: manage dummy virtual devices
   - kpfleming.systemd_networkd.link: manage links
   - kpfleming.systemd_networkd.network: manage network devices
   - kpfleming.systemd_networkd.tunnel: manage generic tunnel virtual devices
   - kpfleming.systemd_networkd.vlan: manage vlan virtual devices
   - kpfleming.systemd_networkd.wireguard: manage WireGuard virtual devices
+
+> :warning: Breaking Changes in 25.7.0  
+Version 25.7.0 contains breaking changes! In order to support various
+blocks in the `network` role which have the same names as settings
+which enable them, the structure of the input variables for all roles
+in this collection has been changed.
+
+Prior to this version, this configuration was valid:
+```yaml
+- name: manage networks
+  ansible.builtin.include_role:
+    name: kpfleming.systemd_networkd.network
+    vars:
+      networks:
+        - name: corosync
+          match:
+            device:
+              name: corosync
+          link:
+            activation_policy: always-up
+          dhcp: false
+          configure_without_carrier: true
+          link_local_addressing: false
+          addresses:
+            - address: 192.168.101.3/24
+```
+
+The configuration must be changed to move the top-level settings into a new mapping block:
+```yaml
+- name: manage networks
+  ansible.builtin.include_role:
+    name: kpfleming.systemd_networkd.network
+    vars:
+      networks:
+        - name: corosync
+          match:
+            device:
+              name: corosync
+          link:
+            activation_policy: always-up
+          network:
+            dhcp: false
+            configure_without_carrier: true
+            link_local_addressing: false
+          addresses:
+            - address: 192.168.101.3/24
+```
+
+A similar change will be required for the input structure for all
+roles in this collection.
 
 ## Features of this collection
 
@@ -84,11 +135,12 @@ This playbook example combines six of the roles in this collection. It features:
     vars:
       bonds:
         - name: transport
-          mode: 802.3ad
-          transmit_hash_policy: layer2+3
-          mii_monitor_sec: 1s
-          up_delay_sec: 5s
-          min_links: 1
+          bond:
+            mode: 802.3ad
+            transmit_hash_policy: layer2+3
+            mii_monitor_sec: 1s
+            up_delay_sec: 5s
+            min_links: 1
           members:
             - device:
                 path: pci-0000:01:00.0
@@ -101,11 +153,13 @@ This playbook example combines six of the roles in this collection. It features:
     vars:
       vlans:
         - name: fios
-          underlying_name: transport
-          id: 3000
+          vlan:
+            underlying_name: transport
+            id: 3000
         - name: corosync
-          underlying_name: transport
-          id: 101
+          vlan:
+            underlying_name: transport
+            id: 101
 
 - name: manage tunnel devices
   ansible.builtin.include_role:
@@ -113,11 +167,12 @@ This playbook example combines six of the roles in this collection. It features:
     vars:
       tunnels:
         - name: hetunnel
-          underlying_name: fios
-          kind: sit
-          local: dhcp4
-          remote: 209.51.161.14
-          ttl: 255
+          tunnel:
+            underlying_name: fios
+            kind: sit
+            local: dhcp4
+            remote: 209.51.161.14
+            ttl: 255
           netdev:
             mtu_bytes: 1480
 
@@ -139,7 +194,8 @@ This playbook example combines six of the roles in this collection. It features:
           match:
             device:
               name: transport
-          ip_forward: true
+          network:
+            ip_forward: true
           ntp:
             - 2001:470:8afe:255::1
           addresses:
@@ -176,9 +232,10 @@ This playbook example combines six of the roles in this collection. It features:
               name: corosync
           link:
             activation_policy: always-up
-          dhcp: false
-          configure_without_carrier: true
-          link_local_addressing: false
+          network:
+            dhcp: false
+            configure_without_carrier: true
+            link_local_addressing: false
           addresses:
             - address: 192.168.101.3/24
         - name: fios
@@ -188,9 +245,10 @@ This playbook example combines six of the roles in this collection. It features:
           link:
             activation_policy: manual
             mac_address: 56:a2:d0:4b:bb:1f
-          dhcp: ipv4
-          ip_forward: true
-          link_local_addressing: false
+          network:
+            dhcp: ipv4
+            ip_forward: true
+            link_local_addressing: false
           dhcpv4:
             use_hostname: false
             send_release: false
@@ -198,9 +256,10 @@ This playbook example combines six of the roles in this collection. It features:
           match:
             device:
               name: hetunnel
-          ip_forward: true
-          bind_carrier:
-            - fios
+          network:
+            ip_forward: true
+            bind_carrier:
+              - fios
           addresses:
             - address: 2001:470:1f06:fab::2/64
           routes:

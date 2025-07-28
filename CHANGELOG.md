@@ -16,6 +16,34 @@ for emergencies or non-content releases).
 
 ## [Unreleased]
 
+### Breaking Changes:
+
+- All roles now require that 'top-level' settings for the role be
+  listed in a mapping with the role's name; see README.md for
+  examples.
+
+- Some attributes in the 'network' role were renamed for consistency:
+  - 'dhcpv4' -> 'dhcp_v4'
+  - 'dhcpv6' -> 'dhcp_v6'
+  - 'ipv6acceptra' -> 'ipv6_accept_ra'
+
+### Added
+
+- Added 'bridge' role.
+- New features in 'network' role:
+  - Added 'dhcp_prefix_delegation'.
+  - Added 'dhcp_server'.
+  - Added 'dhcp_server_static_leases'.
+  - Added 'ipv6_prefixes'.
+  - Added 'ipv6_route_prefixes'.
+  - Added 'ipv6_send_ra'.
+  - Added 'nft_set'.
+
+### Changed
+
+- Redesigned the internal templating system for improved
+  maintainability and consistency.
+
 ## [25.6.0] - 2025-07-27
 
 ### Breaking Changes:

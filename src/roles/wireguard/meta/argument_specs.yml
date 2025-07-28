@@ -38,21 +38,40 @@ argument_specs:
         required: true
         options:
           name:
-            description: Name of the network device.
+            description: Name of the WireGuard device.
             type: str
             required: true
-          underlying_name:
-            description: The underlying network.
-            type: str
+          wireguard:
+            description: Attributes of the WireGuard device.
+            type: dict
+            options:
+              private_key:
+                description: Base64-encoded private key.
+                type: str
+              private_key_file:
+                description: Path to file containing a base64-encoded private key.
+                type: path
+              listen_port:
+                description: UDP port to listen for incoming traffic. If not specified, a port will be chosen based on the interface name.
+                type: int
+              firewall_mark:
+                description: Mark to be set on outgoing packets from this interface.
+                type: int
+              route_table:
+                description: Route table name (from networkd.conf), number, or predefined name ("default", "main", or "local").
+                type: str
+              route_metric:
+                description: Metric value for routes added when route_table is specified.
+                type: int
           netdev:
-            description: Attributes of the tunnel network device.
+            description: Attributes of the WireGuard network device.
             type: dict
             options:
               mac_address:
                 description: MAC address to use on the device.
                 type: str
               mtu_bytes:
-                description: The MTU for the tunnel.
+                description: The MTU for the device.
                 type: str
           match:
             description: Matching attributes of the network device.
@@ -83,24 +102,6 @@ argument_specs:
                   virtualization:
                     description: Match virtualization type.
                     type: str
-          private_key:
-            description: Base64-encoded private key.
-            type: str
-          private_key_file:
-            description: Path to file containing a base64-encoded private key.
-            type: path
-          listen_port:
-            description: UDP Port to listen for incoming traffic. If not specified, a port will be chosen based on the interface name.
-            type: int
-          firewall_mark:
-            description: Mark to be set on outgoing packets from this interface.
-            type: int
-          route_table:
-            description: Route table name (from networkd.conf), number, or predefined name ("default", "main", or "local").
-            type: str
-          route_metric:
-            description: Metric value for routes added when route_table is specified.
-            type: int
           peers:
             description: Attributes of the peers for the tunnel.
             type: list

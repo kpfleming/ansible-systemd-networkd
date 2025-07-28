@@ -1,41 +1,18 @@
+{% import 'macros.j2' as macros %}
+
 {% if "match" in link -%}
-{% set m=link.match %}
+  {% set m=link.match %}
 [Match]
-{% if "device" in m -%}
-{% for arg, value in m.device.items() %}
-{% if value is string or value is integer  %}
-{{ match_device_arguments[arg] }}={{ value }}
-{% elif value is boolean %}
-{{ match_device_arguments[arg] }}={{ value|ternary('yes','no') }}
-{% else %}
-{{ match_device_arguments[arg] }}={{ value|join(' ') }}
-{% endif %}
-{% endfor %}
-{% endif %}
-{% if "system" in m -%}
-{% for arg, value in m.system.items() %}
-{% if value is string or value is integer  %}
-{{ match_system_arguments[arg] }}={{ value }}
-{% elif value is boolean %}
-{{ match_system_arguments[arg] }}={{ value|ternary('yes','no') }}
-{% else %}
-{% for v in value %}
-{{ match_system_arguments[arg] }}={{ v }}
-{% endfor %}
-{% endif %}
-{% endfor %}
+  {% if "device" in m -%}
+{{ macros.generate_mapped_arguments(match_device_arguments, m.device) }}
+  {% endif %}
+  {% if "system" in m -%}
+{{ macros.generate_mapped_arguments(match_system_arguments, m.system) }}
+  {% endif %}
 {% endif %}
 
-{% endif %}
 [Link]
-{% for arg, value in link.items() if arg in link_arguments.keys() %}
-{% if value is string or value is integer  %}
-{{ link_arguments[arg] }}={{ value }}
-{% elif value is boolean %}
-{{ link_arguments[arg] }}={{ value|ternary('yes','no') }}
-{% else %}
-{% for v in value %}
-{{ link_arguments[arg] }}={{ v }}
-{% endfor %}
+Name={{ link.name }}
+{% if "link" in link -%}
+{{ macros.generate_mapped_arguments(link_arguments, dict(link.items() | rejectattr(0, 'eq', 'name') | list)) }}
 {% endif %}
-{% endfor %}
