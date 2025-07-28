@@ -100,6 +100,21 @@
 {% endfor %}
 
 {% endif %}
+{% if "ipv6sendra" in network -%}
+[IPv6SendRA]
+{% for arg, value in network.ipv6sendra.items() %}
+{% if value is string or value is integer %}
+{{ network_ipv6sendra_arguments[arg] }}={{ value }}
+{% elif value is boolean %}
+{{ network_ipv6sendra_arguments[arg] }}={{ value|ternary('yes','no') }}
+{% else %}
+{% for v in value %}
+{{ network_ipv6sendra_arguments[arg] }}={{ v }}
+{% endfor %}
+{% endif %}
+{% endfor %}
+
+{% endif %}
 {% if "addresses" in network -%}
 {% for v in network.addresses -%}
 [Address]
@@ -150,6 +165,21 @@
 {% endfor %}
 
 {% endfor %}
+{% endif %}
+{% if "dhcpprefixdelegation" in network -%}
+[DHCPPrefixDelegation]
+{% for arg, value in network.dhcpprefixdelegation.items() %}
+{% if value is string or value is integer %}
+{{ network_dhcpprefixdelegation_arguments[arg] }}={{ value }}
+{% elif value is boolean %}
+{{ network_dhcpprefixdelegation_arguments[arg] }}={{ value|ternary('yes','no') }}
+{% else %}
+{% for v in value %}
+{{ network_dhcpprefixdelegation_arguments[arg] }}={{ v }}
+{% endfor %}
+{% endif %}
+{% endfor %}
+
 {% endif %}
 {% if "cake" in network -%}
 [CAKE]
