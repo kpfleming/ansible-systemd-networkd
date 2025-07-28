@@ -104,6 +104,9 @@ argument_specs:
           ipv6_accept_ra:
             description: Whether Router Advertisements should be accepted on the network.
             type: bool
+          ipv6_send_ra:
+            description: Whether Router Advertisements should be sent on the network.
+            type: bool
           bind_carrier:
             description: Bind carrier status to other networks.
             type: list
@@ -120,6 +123,10 @@ argument_specs:
             description: Configure Proxy NDP addresses on the network.
             type: list
             elements: str
+          dhcp_prefix_delegation:
+            description: Requests subnet prefixes on another link via the DHCPv6 protocol or via the 6RD option in the DHCPv4 protocol.
+            version_added: 25.7.0
+            type: bool
           link:
             description: Attributes of the link used by the network.
             type: dict
@@ -185,6 +192,10 @@ argument_specs:
               home_address:
                 description: Whether this network is the system's home address.
                 type: bool
+              nft_set:
+                description: Inserts information from this address into an nftables set.
+                version_added: 25.7.0
+                type: str
           routes:
             description: Routes to be used by the network.
             type: list
@@ -296,10 +307,20 @@ argument_specs:
               send_release:
                 description: Whether an assigned address should be released when the network is stopped.
                 type: bool
+              nft_set:
+                description: Inserts information from this DHCP client into an nftables set.
+                version_added: 25.7.0
+                type: str
           dhcpv6:
             description: Attributes of the DHCPv6 client on the network.
             type: dict
             options:
+              send_release:
+                description: Whether an assigned address should be released when the network is stopped.
+                type: bool
+              use_address:
+                description: Whether address(es) provided by the DHCP server should be used.
+                type: bool
               use_dns:
                 description: Whether DNS server(s) provided by the DHCP server should be used.
                 type: bool
@@ -314,8 +335,30 @@ argument_specs:
                 type: str
                 choices:
                   - false
-                  - solicit
                   - information-request
+                  - solicit
+              nft_set:
+                description: Inserts information from this DHCP client into an nftables set.
+                version_added: 25.7.0
+                type: str
+              prefix_delegation_hint:
+                description: An IPv6 address with prefix length to be set to the DHCP server.
+                version_added: 25.7.0
+                type: str
+              unassigned_subnet_policy:
+                description: Route type to be injected into the routing table for the delegated prefix.
+                version_added: 25.7.0
+                type: str
+                choices:
+                  - blackhole
+                  - none
+                  - prohibit
+                  - throw
+                  - unreachable
+              use_delegated_prefix:
+                description: Request a delegated prefix from the DHCP server.
+                version_added: 25.7.0
+                type: bool
           ipv6acceptra:
             description: Attributes of the IPv6 RA client on the network.
             type: dict
@@ -392,6 +435,124 @@ argument_specs:
                 description: Split General Segmentation Offload (GSO) super-packets into their on-the-wire components and dequeue them individually.
                 version_added: 24.1.0
                 type: bool
+          dhcpprefixdelegation:
+            description: Configure a subnet from a delegated prefix on the network.
+            version_added: 25.7.0
+            type: dict
+            options:
+              announce:
+                description: XXX
+                version_added: 25.7.0
+                type: bool
+              assign:
+                description: XXX
+                version_added: 25.7.0
+                type: bool
+              subnet_id:
+                description: XXX
+                version_added: 25.7.0
+                type: str
+              token:
+                description: XXX
+                version_added: 25.7.0
+                type: str
+              uplink_interface:
+                description: XXX
+                version_added: 25.7.0
+                type: str
+              nft_set:
+                description: Inserts information from the subnet delegation into an nftables set.
+                version_added: 25.7.0
+                type: str
+          ipv6sendra:
+            description: Attributes of the IPv6 RA server on the network.
+            version_added: 25.7.0
+            type: dict
+            options:
+              dns:
+                description: XXX
+                version_added: 25.7.0
+                type: list
+                elements: str
+              domains:
+                description: XXX
+                version_added: 25.7.0
+                type: list
+                elements: str
+              emit_dns:
+                description: XXX
+                version_added: 25.7.0
+                type: bool
+              emit_domains:
+                description: XXX
+                version_added: 25.7.0
+                type: bool
+              reachable_time_sec:
+                description: XXX
+                version_added: 25.7.0
+                type: str
+              retransmit_sec:
+                description: XXX
+                version_added: 25.7.0
+                type: str
+              router_preference:
+                description: XXX
+                version_added: 25.7.0
+                type: str
+              uplink_interface:
+                description: XXX
+                version_added: 25.7.0
+                type: str
+          ipv6prefix:
+            description: IPv6 prefixes to be included in RAs on the network.
+            type: list
+            elements: dict
+            options:
+              address_autoconfiguration:
+                description: XXX
+                version_added: 25.7.0
+                type: bool
+              on_link:
+                description: XXX
+                version_added: 25.7.0
+                type: bool
+              prefix:
+                description: XXX
+                version_added: 25.7.0
+                type: str
+              preferred_lifetime_sec:
+                description: XXX
+                version_added: 25.7.0
+                type: str
+              valid_lifetime_sec:
+                description: XXX
+                version_added: 25.7.0
+                type: str
+              assign:
+                description: XXX
+                version_added: 25.7.0
+                type: bool
+              token:
+                description: XXX
+                version_added: 25.7.0
+                type: str
+              route_metric:
+                description: XXX
+                version_added: 25.7.0
+                type: int
+          ipv6routeprefix:
+            description: IPv6 routes to be included in RAs on the network.
+            type: list
+            elements: dict
+            options:
+              route:
+                description: XXX
+                version_added: 25.7.0
+                type: str
+              lifetime_sec:
+                description: XXX
+                version_added: 25.7.0
+                type: str
           match:
             description: Matching attributes of the network.
             type: dict

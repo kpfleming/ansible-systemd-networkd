@@ -25,8 +25,8 @@
 {% endif %}
 {% endfor %}
 {% endif %}
-
 {% endif %}
+
 {% if "link" in network -%}
 [Link]
 {% for arg, value in network.link.items() %}
@@ -40,128 +40,192 @@
 {% endfor %}
 {% endif %}
 {% endfor %}
-
 {% endif %}
+
 [Network]
 {% for arg, value in network.items() if arg in network_arguments.keys() %}
-{% if value is string or value is integer %}
+  {% if value is string or value is integer %}
 {{ network_arguments[arg] }}={{ value }}
-{% elif value is boolean %}
+  {% elif value is boolean %}
 {{ network_arguments[arg] }}={{ value|ternary('yes','no') }}
-{% else %}
-{% for v in value %}
+  {% else %}
+    {% for v in value %}
 {{ network_arguments[arg] }}={{ v }}
-{% endfor %}
-{% endif %}
+    {% endfor %}
+  {% endif %}
 {% endfor %}
 
 {% if "dhcpv4" in network -%}
 [DHCPv4]
-{% for arg, value in network.dhcpv4.items() %}
-{% if value is string or value is integer %}
+  {% for arg, value in network.dhcpv4.items() %}
+    {% if value is string or value is integer %}
 {{ network_dhcpv4_arguments[arg] }}={{ value }}
-{% elif value is boolean %}
+    {% elif value is boolean %}
 {{ network_dhcpv4_arguments[arg] }}={{ value|ternary('yes','no') }}
-{% else %}
-{% for v in value %}
+    {% else %}
+      {% for v in value %}
 {{ network_dhcpv4_arguments[arg] }}={{ v }}
-{% endfor %}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
 {% endif %}
-{% endfor %}
 
-{% endif %}
 {% if "dhcpv6" in network -%}
 [DHCPv6]
-{% for arg, value in network.dhcpv6.items() %}
-{% if value is string or value is integer %}
+  {% for arg, value in network.dhcpv6.items() %}
+    {% if value is string or value is integer %}
 {{ network_dhcpv6_arguments[arg] }}={{ value }}
-{% elif value is boolean %}
+    {% elif value is boolean %}
 {{ network_dhcpv6_arguments[arg] }}={{ value|ternary('yes','no') }}
-{% else %}
-{% for v in value %}
+    {% else %}
+      {% for v in value %}
 {{ network_dhcpv6_arguments[arg] }}={{ v }}
-{% endfor %}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
 {% endif %}
-{% endfor %}
 
-{% endif %}
 {% if "ipv6acceptra" in network -%}
 [IPv6AcceptRA]
-{% for arg, value in network.ipv6acceptra.items() %}
-{% if value is string or value is integer %}
+  {% for arg, value in network.ipv6acceptra.items() %}
+    {% if value is string or value is integer %}
 {{ network_ipv6acceptra_arguments[arg] }}={{ value }}
-{% elif value is boolean %}
+    {% elif value is boolean %}
 {{ network_ipv6acceptra_arguments[arg] }}={{ value|ternary('yes','no') }}
-{% else %}
-{% for v in value %}
+    {% else %}
+      {% for v in value %}
 {{ network_ipv6acceptra_arguments[arg] }}={{ v }}
-{% endfor %}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
 {% endif %}
-{% endfor %}
 
+{% if "ipv6sendra" in network -%}
+[IPv6SendRA]
+  {% for arg, value in network.ipv6sendra.items() %}
+    {% if value is string or value is integer %}
+{{ network_ipv6sendra_arguments[arg] }}={{ value }}
+    {% elif value is boolean %}
+{{ network_ipv6sendra_arguments[arg] }}={{ value|ternary('yes','no') }}
+    {% else %}
+      {% for v in value %}
+{{ network_ipv6sendra_arguments[arg] }}={{ v }}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
 {% endif %}
+
 {% if "addresses" in network -%}
-{% for v in network.addresses -%}
+  {% for v in network.addresses -%}
 [Address]
-{% for arg, value in v.items() %}
-{% if value is string or value is integer %}
+    {% for arg, value in v.items() %}
+      {% if value is string or value is integer %}
 {{ network_address_arguments[arg] }}={{ value }}
-{% elif value is boolean %}
+      {% elif value is boolean %}
 {{ network_address_arguments[arg] }}={{ value|ternary('yes','no') }}
-{% else %}
-{% for v in value %}
+      {% else %}
+        {% for v in value %}
 {{ network_address_arguments[arg] }}={{ v }}
-{% endfor %}
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
 {% endif %}
-{% endfor %}
 
-{% endfor %}
-{% endif %}
 {% if "routes" in network -%}
-{% for v in network.routes -%}
+  {% for v in network.routes -%}
 [Route]
-{% for arg, value in v.items() %}
-{% if value is string or value is integer %}
+    {% for arg, value in v.items() %}
+      {% if value is string or value is integer %}
 {{ network_route_arguments[arg] }}={{ value }}
-{% elif value is boolean %}
+      {% elif value is boolean %}
 {{ network_route_arguments[arg] }}={{ value|ternary('yes','no') }}
-{% else %}
-{% for v in value %}
+      {% else %}
+        {% for v in value %}
 {{ network_route_arguments[arg] }}={{ v }}
-{% endfor %}
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
 {% endif %}
-{% endfor %}
 
-{% endfor %}
-{% endif %}
 {% if "routing_policy_rules" in network -%}
-{% for v in network.routing_policy_rules -%}
+  {% for v in network.routing_policy_rules -%}
 [RoutingPolicyRule]
-{% for arg, value in v.items() %}
-{% if value is string or value is integer %}
+    {% for arg, value in v.items() %}
+      {% if value is string or value is integer %}
 {{ network_routing_policy_rule_arguments[arg] }}={{ value }}
-{% elif value is boolean %}
+      {% elif value is boolean %}
 {{ network_routing_policy_rule_arguments[arg] }}={{ value|ternary('yes','no') }}
-{% else %}
-{% for v in value %}
+      {% else %}
+        {% for v in value %}
 {{ network_routing_policy_rule_arguments[arg] }}={{ v }}
-{% endfor %}
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
 {% endif %}
-{% endfor %}
 
-{% endfor %}
+{% if "dhcpprefixdelegation" in network -%}
+[DHCPPrefixDelegation]
+  {% for arg, value in network.dhcpprefixdelegation.items() %}
+    {% if value is string or value is integer %}
+{{ network_dhcpprefixdelegation_arguments[arg] }}={{ value }}
+    {% elif value is boolean %}
+{{ network_dhcpprefixdelegation_arguments[arg] }}={{ value|ternary('yes','no') }}
+    {% else %}
+      {% for v in value %}
+{{ network_dhcpprefixdelegation_arguments[arg] }}={{ v }}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
 {% endif %}
+
+{% if "ipv6prefix" in network -%}
+  {% for v in network.ipv6prefix -%}
+[IPv6Prefix]
+    {% for arg, value in v.items() %}
+      {% if value is string or value is integer %}
+{{ network_ipv6prefix_arguments[arg] }}={{ value }}
+      {% elif value is boolean %}
+{{ network_ipv6prefix_arguments[arg] }}={{ value|ternary('yes','no') }}
+      {% else %}
+        {% for v in value %}
+{{ network_ipv6prefix_arguments[arg] }}={{ v }}
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+{% endif %}
+
+{% if "ipv6routeprefix" in network -%}
+   {% for v in network.ipv6routeprefix -%}
+[IPv6RoutePrefix]
+     {% for arg, value in v.items() %}
+       {% if value is string or value is integer %}
+{{ network_ipv6routeprefix_arguments[arg] }}={{ value }}
+       {% elif value is boolean %}
+{{ network_ipv6routeprefix_arguments[arg] }}={{ value|ternary('yes','no') }}
+       {% else %}
+         {% for v in value %}
+{{ network_ipv6routeprefix_arguments[arg] }}={{ v }}
+         {% endfor %}
+       {% endif %}
+     {% endfor %}
+  {% endfor %}
+{% endif %}
+
 {% if "cake" in network -%}
 [CAKE]
-{% for arg, value in network.cake.items() %}
-{% if value is string or value is integer %}
+  {% for arg, value in network.cake.items() %}
+    {% if value is string or value is integer %}
 {{ network_cake_arguments[arg] }}={{ value }}
-{% elif value is boolean %}
+    {% elif value is boolean %}
 {{ network_cake_arguments[arg] }}={{ value|ternary('yes','no') }}
-{% else %}
-{% for v in value %}
+    {% else %}
+      {% for v in value %}
 {{ network_cake_arguments[arg] }}={{ v }}
-{% endfor %}
-{% endif %}
-{% endfor %}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
 {% endif %}

@@ -16,6 +16,10 @@ for emergencies or non-content releases).
 
 ## [Unreleased]
 
+### Added
+
+- Added support for DHCP Prefix Delegation and nftables sets.
+
 ## [25.6.0] - 2025-07-27
 
 ### Breaking Changes:
