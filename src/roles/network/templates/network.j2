@@ -181,8 +181,8 @@
 {% endfor %}
 
 {% endif %}
-{% if "ipv6prefixes" in network -%}
-{% for v in network.ipv6prefixes -%}
+{% if "ipv6prefix" in network -%}
+{% for v in network.ipv6prefix -%}
 [IPv6Prefix]
 {% for arg, value in v.items() %}
 {% if value is string or value is integer %}
@@ -198,8 +198,8 @@
 
 {% endfor %}
 {% endif %}
-{% if "ipv6routeprefixes" in network -%}
-{% for v in network.ipv6routeprefixes -%}
+{% if "ipv6routeprefix" in network -%}
+{% for v in network.ipv6routeprefix -%}
 [IPv6RoutePrefix]
 {% for arg, value in v.items() %}
 {% if value is string or value is integer %}
