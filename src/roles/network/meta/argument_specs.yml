@@ -39,94 +39,106 @@ argument_specs:
             description: Name of the network.
             type: str
             required: true
-          dhcp:
-            description: Configure DHCP clients on the network.
-            type: str
-            choices:
-              - ipv4
-              - ipv6
-              - true
-              - false
-          link_local_addressing:
-            description: Configure link-local addressing on the network.
-            type: str
-            choices:
-              - ipv4
-              - ipv6
-              - true
-              - false
-          lldp:
-            description: Configure LLDP reception on the network.
-            type: str
-            choices:
-              - routers-only
-              - true
-              - false
-          emit_lldp:
-            description: Configure LLDP emission on the network.
-            type: str
-            choices:
-              - nearest-bridge
-              - true
-              - false
-          ip_forward:
-            description: Configure IP forwarding (system-wide).
-            type: str
-            choices:
-              - ipv4
-              - ipv6
-              - true
-              - false
-          ipv4_forwarding:
-            description: Enable forwarding of packets that arrive on this network.
-            type: bool
-          ipv6_duplicate_address_detection:
-            description: The number of IPv6 DAD probes to send for a new address.
-            type: int
-          ipv6_forwarding:
-            description: Act as a host (false) or router (true).
-            type: bool
-          ipv6_proxy_ndp:
-            description: Configure Proxy NDP support on the network.
-            type: bool
-          configure_without_carrier:
-            description: Allow network configuration without carrier.
-            type: bool
-          keep_configuration:
-            description: Manage configuration when network is stopped.
-            type: str
-            choices:
-              - static
-              - dynamic
-              - dynamic-on-stop
-              - true
-              - false
-          ipv6_accept_ra:
-            description: Whether Router Advertisements should be accepted on the network.
-            type: bool
-          ipv6_send_ra:
-            description: Whether Router Advertisements should be sent on the network.
-            type: bool
-          bind_carrier:
-            description: Bind carrier status to other networks.
-            type: list
-            elements: str
-          dns:
-            description: Configure DNS servers on the network.
-            type: list
-            elements: str
-          ntp:
-            description: Configure NTP servers on the network.
-            type: list
-            elements: str
-          ipv6_proxy_ndp_address:
-            description: Configure Proxy NDP addresses on the network.
-            type: list
-            elements: str
-          dhcp_prefix_delegation:
-            description: Requests subnet prefixes on another link via the DHCPv6 protocol or via the 6RD option in the DHCPv4 protocol.
-            version_added: 25.7.0
-            type: bool
+          network:
+            description: Attributes of the network.
+            type: dict
+            options:
+              dhcp:
+                description: Configure DHCP clients on the network.
+                type: str
+                choices:
+                  - ipv4
+                  - ipv6
+                  - true
+                  - false
+              link_local_addressing:
+                description: Configure link-local addressing on the network.
+                type: str
+                choices:
+                  - ipv4
+                  - ipv6
+                  - true
+                  - false
+              lldp:
+                description: Configure LLDP reception on the network.
+                type: str
+                choices:
+                  - routers-only
+                  - true
+                  - false
+              emit_lldp:
+                description: Configure LLDP emission on the network.
+                type: str
+                choices:
+                  - nearest-bridge
+                  - true
+                  - false
+              ip_forward:
+                description: Configure IP forwarding (system-wide).
+                type: str
+                choices:
+                  - ipv4
+                  - ipv6
+                  - true
+                  - false
+              ipv4_forwarding:
+                description: Enable forwarding of packets that arrive on this network.
+                type: bool
+              ipv6_duplicate_address_detection:
+                description: The number of IPv6 DAD probes to send for a new address.
+                type: int
+              ipv6_forwarding:
+                description: Act as a host (false) or router (true).
+                type: bool
+              ipv6_proxy_ndp:
+                description: Configure Proxy NDP support on the network.
+                type: bool
+              configure_without_carrier:
+                description: Allow network configuration without carrier.
+                type: bool
+              keep_configuration:
+                description: Manage configuration when network is stopped.
+                type: str
+                choices:
+                  - static
+                  - dynamic
+                  - dynamic-on-stop
+                  - true
+                  - false
+              ipv6_accept_ra:
+                description: Whether Router Advertisements should be accepted on the network.
+                type: bool
+              ipv6_send_ra:
+                description: Whether Router Advertisements should be sent on the network.
+                type: bool
+              bind_carrier:
+                description: Bind carrier status to other networks.
+                type: list
+                elements: str
+              bridge:
+                description: Bridge device into which this network should be added.
+                version_added: 25.7.0
+                type: str
+              dns:
+                description: Configure DNS servers on the network.
+                type: list
+                elements: str
+              ntp:
+                description: Configure NTP servers on the network.
+                type: list
+                elements: str
+              ipv6_proxy_ndp_address:
+                description: Configure Proxy NDP addresses on the network.
+                type: list
+                elements: str
+              dhcp_prefix_delegation:
+                description: Requests subnet prefixes on another link via the DHCPv6 protocol or via the 6RD option in the DHCPv4 protocol.
+                version_added: 25.7.0
+                type: bool
+              dhcp_server:
+                description: XXX
+                version_added: 25.7.0
+                type: bool
           link:
             description: Attributes of the link used by the network.
             type: dict
@@ -266,7 +278,7 @@ argument_specs:
               priority:
                 description: Priority of this rule.
                 type: int
-          dhcpv4:
+          dhcp_v4:
             description: Attributes of the DHCPv4 client on the network.
             type: dict
             options:
@@ -311,7 +323,7 @@ argument_specs:
                 description: Inserts information from this DHCP client into an nftables set.
                 version_added: 25.7.0
                 type: str
-          dhcpv6:
+          dhcp_v6:
             description: Attributes of the DHCPv6 client on the network.
             type: dict
             options:
@@ -359,7 +371,7 @@ argument_specs:
                 description: Request a delegated prefix from the DHCP server.
                 version_added: 25.7.0
                 type: bool
-          ipv6acceptra:
+          ipv6_accept_ra:
             description: Attributes of the IPv6 RA client on the network.
             type: dict
             options:
@@ -435,7 +447,7 @@ argument_specs:
                 description: Split General Segmentation Offload (GSO) super-packets into their on-the-wire components and dequeue them individually.
                 version_added: 24.1.0
                 type: bool
-          dhcpprefixdelegation:
+          dhcp_prefix_delegation:
             description: Configure a subnet from a delegated prefix on the network.
             version_added: 25.7.0
             type: dict
@@ -464,7 +476,7 @@ argument_specs:
                 description: Inserts information from the subnet delegation into an nftables set.
                 version_added: 25.7.0
                 type: str
-          ipv6sendra:
+          ipv6_send_ra:
             description: Attributes of the IPv6 RA server on the network.
             version_added: 25.7.0
             type: dict
@@ -503,7 +515,7 @@ argument_specs:
                 description: XXX
                 version_added: 25.7.0
                 type: str
-          ipv6prefix:
+          ipv6_prefixes:
             description: IPv6 prefixes to be included in RAs on the network.
             type: list
             elements: dict
@@ -540,7 +552,7 @@ argument_specs:
                 description: XXX
                 version_added: 25.7.0
                 type: int
-          ipv6routeprefix:
+          ipv6_route_prefixes:
             description: IPv6 routes to be included in RAs on the network.
             type: list
             elements: dict
@@ -550,6 +562,90 @@ argument_specs:
                 version_added: 25.7.0
                 type: str
               lifetime_sec:
+                description: XXX
+                version_added: 25.7.0
+                type: str
+          dhcp_server:
+            description: XXX
+            version_added: 25.7.0
+            type: dict
+            options:
+              default_lease_time_sec:
+                description: XXX
+                version_added: 25.7.0
+                type: str
+              dns:
+                description: XXX
+                version_added: 25.7.0
+                type: list
+                elements: str
+              emit_dns:
+                description: XXX
+                version_added: 25.7.0
+                type: bool
+              emit_ntp:
+                description: XXX
+                version_added: 25.7.0
+                type: bool
+              emit_router:
+                description: XXX
+                version_added: 25.7.0
+                type: bool
+              emit_timezone:
+                description: XXX
+                version_added: 25.7.0
+                type: bool
+              max_lease_time_sec:
+                description: XXX
+                version_added: 25.7.0
+                type: str
+              ntp:
+                description: XXX
+                version_added: 25.7.0
+                type: list
+                elements: str
+              persist_leases:
+                description: XXX
+                version_added: 25.7.0
+                type: bool
+              pool_offset:
+                description: XXX
+                version_added: 25.7.0
+                type: int
+              pool_size:
+                description: XXX
+                version_added: 25.7.0
+                type: int
+              rapid_commit:
+                description: XXX
+                version_added: 25.7.0
+                type: bool
+              router:
+                description: XXX
+                version_added: 25.7.0
+                type: str
+              server_address:
+                description: XXX
+                version_added: 25.7.0
+                type: str
+              timezone:
+                description: XXX
+                version_added: 25.7.0
+                type: str
+              uplink_interface:
+                description: XXX
+                version_added: 25.7.0
+                type: str
+          dhcp_server_static_leases:
+            description: XXX
+            version_added: 25.7.0
+            type: dict
+            options:
+              address:
+                description: XXX
+                version_added: 25.7.0
+                type: str
+              mac_address:
                 description: XXX
                 version_added: 25.7.0
                 type: str

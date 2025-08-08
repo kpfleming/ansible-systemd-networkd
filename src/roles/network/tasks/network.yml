@@ -15,6 +15,7 @@
   ansible.builtin.template:
     src: network.j2
     dest: "{{ systemd_root ~ '/etc/systemd/network/' ~ network.name ~ '.network' }}"
+    lstrip_blocks: true
     mode: u=rw,g=r,o=
     group: systemd-network
 
@@ -26,6 +27,7 @@
   ansible.builtin.template:
     src: network.j2
     dest: "{{ systemd_root ~ '/etc/systemd/network/' ~ drop_in_for ~ '.network.d/' ~ network.name ~ '.conf' }}"
+    lstrip_blocks: true
     mode: u=rw,g=r,o=
     group: systemd-network
 

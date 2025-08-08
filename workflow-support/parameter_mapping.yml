@@ -31,6 +31,12 @@ bond_arguments:
   transmit_hash_policy: TransmitHashPolicy
   up_delay_sec: UpDelaySec
 
+bridge_arguments:
+  ageing_time_sec: AgeingTimeSec
+  forward_delay_sec: ForwardDelaySec
+  priority: Priority
+  stp: STP
+
 tunnel_arguments:
   local: Local
   remote: Remote
@@ -48,9 +54,11 @@ global_network_arguments:
 
 network_arguments:
   bind_carrier: BindCarrier
+  bridge: Bridge
   configure_without_carrier: ConfigureWithoutCarrier
   dhcp: DHCP
   dhcp_prefix_delegation: DHCPPrefixDelegation
+  dhcp_server: DHCPServer
   dns: DNS
   emit_lldp: EmitLLDP
   ip_forward: IPForward
@@ -99,7 +107,7 @@ network_routing_policy_rule_arguments:
   table: Table
   to: To
 
-network_dhcpv4_arguments:
+network_dhcp_v4_arguments:
   client_identifier: ClientIdentifier
   hostname: Hostname
   nft_set: NFTSet
@@ -113,7 +121,7 @@ network_dhcpv4_arguments:
   use_ntp: UseNTP
   use_routes: UseRoutes
 
-network_dhcpv6_arguments:
+network_dhcp_v6_arguments:
   nft_set: NFTSet
   prefix_delegation_hint: PrefixDelegationHint
   send_release: SendRelease
@@ -125,7 +133,7 @@ network_dhcpv6_arguments:
   use_ntp: UseNTP
   without_ra: WithoutRA
 
-network_ipv6acceptra_arguments:
+network_ipv6_accept_ra_arguments:
   token: Token
   use_dns: UseDNS
   use_gateway: UseGateway
@@ -142,7 +150,7 @@ network_cake_arguments:
   split_gso: SplitGSO
   wash: Wash
 
-network_dhcpprefixdelegation_arguments:
+network_dhcp_prefix_delegation_arguments:
   announce: Announce
   assign: Assign
   nft_set: NFTSet
@@ -150,7 +158,7 @@ network_dhcpprefixdelegation_arguments:
   token: Token
   uplink_interface: UplinkInterface
 
-network_ipv6sendra_arguments:
+network_ipv6_send_ra_arguments:
   dns: DNS
   domains: Domains
   emit_dns: EmitDNS
@@ -161,19 +169,41 @@ network_ipv6sendra_arguments:
   router_preference: RouterPreference
   uplink_interface: UplinkInterface
 
-network_ipv6prefix_arguments:
+network_ipv6_prefix_arguments:
   address_autoconfiguration: AddressAutoconfiguration
-  on_link: OnLink
-  prefix: Prefix
-  preferred_lifetime_sec: PreferredLifetimeSec
-  valid_lifetime_sec: ValidLifetimeSec
   assign: Assign
-  token: Token
+  on_link: OnLink
+  preferred_lifetime_sec: PreferredLifetimeSec
+  prefix: Prefix
   route_metric: RouteMetric
+  token: Token
+  valid_lifetime_sec: ValidLifetimeSec
 
-network_ipv6routeprefix_arguments:
-  route: Route
+network_ipv6_route_prefix_arguments:
   lifetime_sec: LifetimeSec
+  route: Route
+
+network_dhcp_server_arguments:
+  default_lease_time_sec: DefaultLeaseTimeSec
+  dns: DNS
+  emit_dns: EmitDNS
+  emit_ntp: EmitNTP
+  emit_router: EmitRouter
+  emit_timezone: EmitTimezone
+  max_lease_time_sec: MaxLeaseTimeSec
+  ntp: NTP
+  persist_leases: PersistLeases
+  pool_offset: PoolOffset
+  pool_size: PoolSize
+  rapid_commit: RapidCommit
+  router: Router
+  server_address: ServerAddress
+  timezone: Timezone
+  uplink_interface: UplinkInterface
+
+network_dhcp_server_static_lease_arguments:
+  address: Address
+  mac_address: MACAddress
 
 wireguard_arguments:
   firewall_mark: FirewallMark

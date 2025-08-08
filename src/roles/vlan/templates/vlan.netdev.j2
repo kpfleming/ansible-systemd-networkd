@@ -1,24 +1,16 @@
+{% import 'macros.j2' as macros %}
+
 {% if "match" in vlan -%}
 {% set m=vlan.match %}
 [Match]
-{% if "system" in m -%}
-{% for arg, value in m.system.items() %}
-{% if value is string or value is integer  %}
-{{ match_system_arguments[arg] }}={{ value }}
-{% elif value is boolean %}
-{{ match_system_arguments[arg] }}={{ value|ternary('yes','no') }}
-{% else %}
-{% for v in value %}
-{{ match_system_arguments[arg] }}={{ v }}
-{% endfor %}
-{% endif %}
-{% endfor %}
+  {% if "system" in m -%}
+{{ macros.generate_mapped_arguments(match_system_arguments, m.system) }}
+  {% endif %}
 {% endif %}
 
-{% endif %}
 [NetDev]
 Name={{ vlan.name }}
 Kind=vlan
 
 [VLAN]
-Id={{ vlan.id }}
+Id={{ vlan.vlan.id }}

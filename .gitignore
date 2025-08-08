@@ -2,5 +2,6 @@
 *.tar.gz
 src/galaxy.yml
 src/roles/*/vars/main.yml
+src/roles/*/templates/macros.j2
 docs
 docs-build
