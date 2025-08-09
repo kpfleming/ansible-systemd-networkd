@@ -11,7 +11,8 @@
   {% endif %}
 {% endif %}
 
-{% if "link" in link -%}
 [Link]
-{{ macros.generate_mapped_arguments(link_arguments, link.link) }}
+Name={{ link.name }}
+{% if "link" in link -%}
+{{ macros.generate_mapped_arguments(link_arguments, dict(link.items() | rejectattr(0, 'eq', 'name') | list)) }}
 {% endif %}
