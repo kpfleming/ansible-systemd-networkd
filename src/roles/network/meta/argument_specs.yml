@@ -639,7 +639,8 @@ argument_specs:
           dhcp_server_static_leases:
             description: XXX
             version_added: 25.7.0
-            type: dict
+            type: list
+            elements: dict
             options:
               address:
                 description: XXX
