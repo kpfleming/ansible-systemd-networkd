@@ -1,0 +1,15 @@
+---
+- name: manage bridge network device
+  become: true
+  register: _netdev
+  notify: "{{ ansible_role_name ~ ' : reload' }}"
+  ansible.builtin.template:
+    src: bridge.netdev.j2
+    dest: "{{ systemd_root ~ '/etc/systemd/network/' ~ bridge.name ~ '.netdev' }}"
+    lstrip_blocks: true
+    mode: u=rw,g=r,o=
+    group: systemd-network
+
+- name: set fact to indicate result
+  ansible.builtin.set_fact:
+    systemd_networkd_bridge_changed: "{{ systemd_networkd_bridge_changed | default(false) or _netdev.changed }}"

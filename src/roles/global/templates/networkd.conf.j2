@@ -1,14 +1,6 @@
+{% import 'macros.j2' as macros %}
+
 {% if "network" in settings -%}
 [Network]
-{% for arg, value in settings.network.items() if arg in network_arguments.keys() %}
-{% if value is string or value is integer %}
-{{ network_arguments[arg] }}={{ value }}
-{% elif value is boolean %}
-{{ network_arguments[arg] }}={{ value|ternary('yes','no') }}
-{% else %}
-{% for v in value %}
-{{ network_arguments[arg] }}={{ v }}
-{% endfor %}
-{% endif %}
-{% endfor %}
+{{ macros.generate_mapped_arguments(network_arguments, settings.network) }}
 {% endif %}

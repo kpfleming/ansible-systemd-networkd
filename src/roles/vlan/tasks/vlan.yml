@@ -2,7 +2,7 @@
 - name: manage network drop-in directory
   become: true
   ansible.builtin.file:
-    path: "{{ systemd_root ~ '/etc/systemd/network/' ~ vlan.underlying_name ~ '.network.d' }}"
+    path: "{{ systemd_root ~ '/etc/systemd/network/' ~ vlan.vlan.underlying_name ~ '.network.d' }}"
     state: directory
     mode: u=rwx,g=rx,o=
     group: systemd-network
@@ -14,6 +14,7 @@
   ansible.builtin.template:
     src: vlan.netdev.j2
     dest: "{{ systemd_root ~ '/etc/systemd/network/' ~ vlan.name ~ '.netdev' }}"
+    lstrip_blocks: true
     mode: u=rw,g=r,o=
     group: systemd-network
 
@@ -23,7 +24,8 @@
   notify: "{{ ansible_role_name ~ ' : reload' }}"
   ansible.builtin.template:
     src: vlan-drop-in.j2
-    dest: "{{ systemd_root ~ '/etc/systemd/network/' ~ vlan.underlying_name ~ '.network.d/vlan-' ~ vlan.name ~ '.conf' }}"
+    dest: "{{ systemd_root ~ '/etc/systemd/network/' ~ vlan.vlan.underlying_name ~ '.network.d/vlan-' ~ vlan.name ~ '.conf' }}"
+    lstrip_blocks: true
     mode: u=rw,g=r,o=
     group: systemd-network
 

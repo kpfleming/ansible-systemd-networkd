@@ -33,36 +33,40 @@ argument_specs:
         required: true
         options:
           name:
-            description: Name of the network device.
+            description: Name of the tunnel device.
             type: str
             required: true
-          underlying_name:
-            description: The underlying network.
-            type: str
-            required: true
-          kind:
-            description: Type of tunnel.
-            type: str
-            required: true
-            choices:
-              - gre
-              - gretap
-              - ip6gre
-              - ip6tnl
-              - ip6gretap
-              - ipip
-              - sit
-              - vti
-              - vti6
-          local:
-            description: Local address for tunneled packets.
-            type: str
-          remote:
-            description: Remote address for tunneled packets.
-            type: str
-          ttl:
-            description: Time-To-Live for tunneled packets.
-            type: int
+          tunnel:
+            description: Attributes of the tunnel device.
+            type: dict
+            options:
+              underlying_name:
+                description: The underlying network.
+                type: str
+                required: true
+              kind:
+                description: Type of tunnel.
+                type: str
+                required: true
+                choices:
+                  - gre
+                  - gretap
+                  - ip6gre
+                  - ip6tnl
+                  - ip6gretap
+                  - ipip
+                  - sit
+                  - vti
+                  - vti6
+              local:
+                description: Local address for tunneled packets.
+                type: str
+              remote:
+                description: Remote address for tunneled packets.
+                type: str
+              ttl:
+                description: Time-To-Live for tunneled packets.
+                type: int
           netdev:
             description: Attributes of the tunnel network device.
             type: dict
@@ -71,7 +75,7 @@ argument_specs:
                 description: MAC address to use on the device.
                 type: str
               mtu_bytes:
-                description: The MTU for the tunnel.
+                description: The MTU for the device.
                 type: str
           match:
             description: Matching attributes of the network device.

@@ -1,66 +1,29 @@
+{% import 'macros.j2' as macros %}
+
 {% if "match" in wireguard -%}
 {% set m=wireguard.match %}
 [Match]
-{% if "system" in m -%}
-{% for arg, value in m.system.items() %}
-{% if value is string or value is integer  %}
-{{ match_system_arguments[arg] }}={{ value }}
-{% elif value is boolean %}
-{{ match_system_arguments[arg] }}={{ value|ternary('yes','no') }}
-{% else %}
-{% for v in value %}
-{{ match_system_arguments[arg] }}={{ v }}
-{% endfor %}
-{% endif %}
-{% endfor %}
+  {% if "system" in m -%}
+{{ macros.generate_mapped_arguments(match_system_arguments, m.system) }}
+  {% endif %}
 {% endif %}
 
-{% endif %}
 [NetDev]
 Name={{ wireguard.name }}
 Kind=wireguard
 {% if "netdev" in wireguard -%}
-{% for arg, value in wireguard.netdev.items() %}
-{% if value is string or value is integer %}
-{{ netdev_arguments[arg] }}={{ value }}
-{% elif value is boolean %}
-{{ netdev_arguments[arg] }}={{ value|ternary('yes','no') }}
-{% else %}
-{% for v in value %}
-{{ netdev_arguments[arg] }}={{ v }}
-{% endfor %}
-{% endif %}
-{% endfor %}
+{{ macros.generate_mapped_arguments(netdev_arguments, wireguard.netdev) }}
 {% endif %}
 
+{% if "wireguard" in wireguard -%}
 [WireGuard]
-{% for arg, value in wireguard.items() if arg in wireguard_arguments.keys() %}
-{% if value is string or value is integer  %}
-{{ wireguard_arguments[arg] }}={{ value }}
-{% elif value is boolean %}
-{{ wireguard_arguments[arg] }}={{ value|ternary('yes','no') }}
-{% else %}
-{% for v in value %}
-{{ wireguard_arguments[arg] }}={{ v }}
-{% endfor %}
+{{ macros.generate_mapped_arguments(wireguard_arguments, wireguard.wireguard) }}
 {% endif %}
-{% endfor %}
 
 {% for v in wireguard.peers -%}
 [WireGuardPeer]
 {% if "name" in v %}
 # {{ v.name }}
 {% endif %}
-{% for arg, value in v.items() if arg in wireguard_peer_arguments.keys() %}
-{% if value is string or value is integer %}
-{{ wireguard_peer_arguments[arg] }}={{ value }}
-{% elif value is boolean %}
-{{ wireguard_peer_arguments[arg] }}={{ value|ternary('yes','no') }}
-{% else %}
-{% for v in value %}
-{{ wireguard_peer_arguments[arg] }}={{ v }}
-{% endfor %}
-{% endif %}
-{% endfor %}
-
+{{ macros.generate_mapped_arguments(wireguard_peer_arguments, dict(v.items() | rejectattr(0, 'eq', 'name') | list)) }}
 {% endfor %}

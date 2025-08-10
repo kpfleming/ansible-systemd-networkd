@@ -44,47 +44,51 @@ argument_specs:
         required: true
         options:
           name:
-            description: Name of the network device.
+            description: Name of the bond device.
             type: str
             required: true
-          mode:
-            description: Bonding mode.
-            type: str
-            choices:
-              - balance-rr
-              - active-backup
-              - balance-xor
-              - broadcast
-              - 802.3ad
-              - balance-tlb
-              - balance-alb
-          transmit_hash_policy:
-            description: Policy for member selection during transmit.
-            type: str
-            choices:
-              - layer2
-              - layer3+4
-              - layer2+3
-              - encap2+3
-              - encap3+4
-          lacp_transmit_rate:
-            description: LACP data unit transmission rate (only used in 802.3ad mode).
-            type: str
-            choices:
-              - slow
-              - fast
-          mii_monitor_sec:
-            description: Frequency of MII link monitoring.
-            type: str
-          min_links:
-            description: Minimum number of active members for the device to report that it 'has carrier'.
-            type: int
-          up_delay_sec:
-            description: Delay between the minimum number of members reaching 'link up' and 'link up' being reported for the bond.
-            type: str
-          down_delay_sec:
-            description: Delay between the minimum number of members reaching 'link down' and 'link down' being reported for the bond.
-            type: str
+          bond:
+            description: Attributes of the bond device.
+            type: dict
+            options:
+              mode:
+                description: Bonding mode.
+                type: str
+                choices:
+                  - balance-rr
+                  - active-backup
+                  - balance-xor
+                  - broadcast
+                  - 802.3ad
+                  - balance-tlb
+                  - balance-alb
+              transmit_hash_policy:
+                description: Policy for member selection during transmit.
+                type: str
+                choices:
+                  - layer2
+                  - layer3+4
+                  - layer2+3
+                  - encap2+3
+                  - encap3+4
+              lacp_transmit_rate:
+                description: LACP data unit transmission rate (only used in 802.3ad mode).
+                type: str
+                choices:
+                  - slow
+                  - fast
+              mii_monitor_sec:
+                description: Frequency of MII link monitoring.
+                type: str
+              min_links:
+                description: Minimum number of active members for the device to report that it 'has carrier'.
+                type: int
+              up_delay_sec:
+                description: Delay between the minimum number of members reaching 'link up' and 'link up' being reported for the bond.
+                type: str
+              down_delay_sec:
+                description: Delay between the minimum number of members reaching 'link down' and 'link down' being reported for the bond.
+                type: str
           netdev:
             description: Attributes of the bond network device.
             type: dict
@@ -93,7 +97,7 @@ argument_specs:
                 description: MAC address to use on the device.
                 type: str
               mtu_bytes:
-                description: The MTU for the tunnel.
+                description: The MTU for the device.
                 type: str
           match:
             description: Matching attributes of the bond network device.

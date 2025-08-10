@@ -1,47 +1,21 @@
+{% import 'macros.j2' as macros %}
+
 {% if "match" in tunnel -%}
 {% set m=tunnel.match %}
 [Match]
-{% if "system" in m -%}
-{% for arg, value in m.system.items() %}
-{% if value is string or value is integer  %}
-{{ match_system_arguments[arg] }}={{ value }}
-{% elif value is boolean %}
-{{ match_system_arguments[arg] }}={{ value|ternary('yes','no') }}
-{% else %}
-{% for v in value %}
-{{ match_system_arguments[arg] }}={{ v }}
-{% endfor %}
-{% endif %}
-{% endfor %}
+  {% if "system" in m -%}
+{{ macros.generate_mapped_arguments(match_system_arguments, m.system) }}
+  {% endif %}
 {% endif %}
 
-{% endif %}
 [NetDev]
 Name={{ tunnel.name }}
 Kind={{ tunnel.kind }}
 {% if "netdev" in tunnel -%}
-{% for arg, value in tunnel.netdev.items() %}
-{% if value is string or value is integer %}
-{{ netdev_arguments[arg] }}={{ value }}
-{% elif value is boolean %}
-{{ netdev_arguments[arg] }}={{ value|ternary('yes','no') }}
-{% else %}
-{% for v in value %}
-{{ netdev_arguments[arg] }}={{ v }}
-{% endfor %}
-{% endif %}
-{% endfor %}
+{{ macros.generate_mapped_arguments(netdev_arguments, tunnel.netdev) }}
 {% endif %}
 
+{% if "network" in network -%}
 [Tunnel]
-{% for arg, value in tunnel.items() if arg in tunnel_arguments.keys() %}
-{% if value is string or value is integer  %}
-{{ tunnel_arguments[arg] }}={{ value }}
-{% elif value is boolean %}
-{{ tunnel_arguments[arg] }}={{ value|ternary('yes','no') }}
-{% else %}
-{% for v in value %}
-{{ tunnel_arguments[arg] }}={{ v }}
-{% endfor %}
+{{ macros.generate_mapped_arguments(tunnel_arguments, tunnel.tunnel) }}
 {% endif %}
-{% endfor %}

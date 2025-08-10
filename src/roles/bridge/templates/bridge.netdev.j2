@@ -1,0 +1,21 @@
+{% import 'macros.j2' as macros %}
+
+{% if "match" in bridge -%}
+{% set m=bridge.match %}
+[Match]
+  {% if "system" in m -%}
+{{ macros.generate_mapped_arguments(match_system_arguments, m.system) }}
+  {% endif %}
+{% endif %}
+
+[NetDev]
+Name={{ bridge.name }}
+Kind=bridge
+{% if "netdev" in bridge -%}
+{{ macros.generate_mapped_arguments(netdev_arguments, bridge.netdev) }}
+{% endif %}
+
+{% if "bridge" in bridge -%}
+[Bridge]
+{{ macros.generate_mapped_arguments(bridge_arguments, bridge.bridge) }}
+{% endif %}

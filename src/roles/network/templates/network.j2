@@ -1,167 +1,87 @@
+{% import 'macros.j2' as macros %}
+
 {% if "match" in network -%}
-{% set m=network.match %}
+  {% set m=network.match %}
 [Match]
-{% if "device" in m -%}
-{% for arg, value in m.device.items() %}
-{% if value is string or value is integer  %}
-{{ match_device_arguments[arg] }}={{ value }}
-{% elif value is boolean %}
-{{ match_device_arguments[arg] }}={{ value|ternary('yes','no') }}
-{% else %}
-{{ match_device_arguments[arg] }}={{ value|join(' ') }}
-{% endif %}
-{% endfor %}
-{% endif %}
-{% if "system" in m -%}
-{% for arg, value in m.system.items() %}
-{% if value is string or value is integer  %}
-{{ match_system_arguments[arg] }}={{ value }}
-{% elif value is boolean %}
-{{ match_system_arguments[arg] }}={{ value|ternary('yes','no') }}
-{% else %}
-{% for v in value %}
-{{ match_system_arguments[arg] }}={{ v }}
-{% endfor %}
-{% endif %}
-{% endfor %}
+  {% if "device" in m -%}
+{{ macros.generate_mapped_arguments(match_device_arguments, m.device) }}
+  {% endif %}
+  {% if "system" in m -%}
+{{ macros.generate_mapped_arguments(match_system_arguments, m.system) }}
+  {% endif %}
 {% endif %}
 
-{% endif %}
 {% if "link" in network -%}
 [Link]
-{% for arg, value in network.link.items() %}
-{% if value is string or value is integer %}
-{{ network_link_arguments[arg] }}={{ value }}
-{% elif value is boolean %}
-{{ network_link_arguments[arg] }}={{ value|ternary('yes','no') }}
-{% else %}
-{% for v in value %}
-{{ network_link_arguments[arg] }}={{ v }}
-{% endfor %}
+{{ macros.generate_mapped_arguments(network_link_arguments, network.link) }}
 {% endif %}
-{% endfor %}
 
-{% endif %}
+{% if "network" in network -%}
 [Network]
-{% for arg, value in network.items() if arg in network_arguments.keys() %}
-{% if value is string or value is integer %}
-{{ network_arguments[arg] }}={{ value }}
-{% elif value is boolean %}
-{{ network_arguments[arg] }}={{ value|ternary('yes','no') }}
-{% else %}
-{% for v in value %}
-{{ network_arguments[arg] }}={{ v }}
-{% endfor %}
+{{ macros.generate_mapped_arguments(network_arguments, network.network) }}
 {% endif %}
-{% endfor %}
 
-{% if "dhcpv4" in network -%}
-[DHCPv4]
-{% for arg, value in network.dhcpv4.items() %}
-{% if value is string or value is integer %}
-{{ network_dhcpv4_arguments[arg] }}={{ value }}
-{% elif value is boolean %}
-{{ network_dhcpv4_arguments[arg] }}={{ value|ternary('yes','no') }}
-{% else %}
-{% for v in value %}
-{{ network_dhcpv4_arguments[arg] }}={{ v }}
-{% endfor %}
-{% endif %}
-{% endfor %}
-
-{% endif %}
-{% if "dhcpv6" in network -%}
-[DHCPv6]
-{% for arg, value in network.dhcpv6.items() %}
-{% if value is string or value is integer %}
-{{ network_dhcpv6_arguments[arg] }}={{ value }}
-{% elif value is boolean %}
-{{ network_dhcpv6_arguments[arg] }}={{ value|ternary('yes','no') }}
-{% else %}
-{% for v in value %}
-{{ network_dhcpv6_arguments[arg] }}={{ v }}
-{% endfor %}
-{% endif %}
-{% endfor %}
-
-{% endif %}
-{% if "ipv6acceptra" in network -%}
-[IPv6AcceptRA]
-{% for arg, value in network.ipv6acceptra.items() %}
-{% if value is string or value is integer %}
-{{ network_ipv6acceptra_arguments[arg] }}={{ value }}
-{% elif value is boolean %}
-{{ network_ipv6acceptra_arguments[arg] }}={{ value|ternary('yes','no') }}
-{% else %}
-{% for v in value %}
-{{ network_ipv6acceptra_arguments[arg] }}={{ v }}
-{% endfor %}
-{% endif %}
-{% endfor %}
-
-{% endif %}
-{% if "addresses" in network -%}
-{% for v in network.addresses -%}
+{% for v in network.addresses | default([]) -%}
 [Address]
-{% for arg, value in v.items() %}
-{% if value is string or value is integer %}
-{{ network_address_arguments[arg] }}={{ value }}
-{% elif value is boolean %}
-{{ network_address_arguments[arg] }}={{ value|ternary('yes','no') }}
-{% else %}
-{% for v in value %}
-{{ network_address_arguments[arg] }}={{ v }}
-{% endfor %}
-{% endif %}
+{{ macros.generate_mapped_arguments(network_address_arguments, v) }}
 {% endfor %}
 
-{% endfor %}
-{% endif %}
-{% if "routes" in network -%}
-{% for v in network.routes -%}
+{% for v in network.routes | default([]) -%}
 [Route]
-{% for arg, value in v.items() %}
-{% if value is string or value is integer %}
-{{ network_route_arguments[arg] }}={{ value }}
-{% elif value is boolean %}
-{{ network_route_arguments[arg] }}={{ value|ternary('yes','no') }}
-{% else %}
-{% for v in value %}
-{{ network_route_arguments[arg] }}={{ v }}
-{% endfor %}
-{% endif %}
+{{ macros.generate_mapped_arguments(network_route_arguments, v) }}
 {% endfor %}
 
-{% endfor %}
+{% if "dhcp_v4" in network -%}
+[DHCPv4]
+{{ macros.generate_mapped_arguments(network_dhcp_v4_arguments, network.dhcp_v4) }}
 {% endif %}
-{% if "routing_policy_rules" in network -%}
-{% for v in network.routing_policy_rules -%}
+
+{% if "dhcp_v6" in network -%}
+[DHCPv6]
+{{ macros.generate_mapped_arguments(network_dhcp_v6_arguments, network.dhcp_v6) }}
+{% endif %}
+
+{% if "ipv6_accept_ra" in network -%}
+[IPv6AcceptRA]
+{{ macros.generate_mapped_arguments(network_ipv6_accept_ra_arguments, network.ipv6_accept_ra) }}
+{% endif %}
+
+{% if "ipv6_send_ra" in network -%}
+[IPv6SendRA]
+{{ macros.generate_mapped_arguments(network_ipv6_send_ra_arguments, network.ipv6_send_ra) }}
+{% endif %}
+
+{% for v in network.routing_policy_rules | default([]) -%}
 [RoutingPolicyRule]
-{% for arg, value in v.items() %}
-{% if value is string or value is integer %}
-{{ network_routing_policy_rule_arguments[arg] }}={{ value }}
-{% elif value is boolean %}
-{{ network_routing_policy_rule_arguments[arg] }}={{ value|ternary('yes','no') }}
-{% else %}
-{% for v in value %}
-{{ network_routing_policy_rule_arguments[arg] }}={{ v }}
-{% endfor %}
-{% endif %}
+{{ macros.generate_mapped_arguments(network_routing_policy_rule_arguments, v) }}
 {% endfor %}
 
-{% endfor %}
+{% if "dhcp_prefix_delegation" in network -%}
+[DHCPPrefixDelegation]
+{{ macros.generate_mapped_arguments(network_dhcp_prefix_delegation_arguments, network.dhcp_prefix_delegation) }}
 {% endif %}
+
+{% for v in network.ipv6_prefixes | default([]) -%}
+[IPv6Prefix]
+{{ macros.generate_mapped_arguments(network_ipv6_prefix_arguments, v) }}
+{% endfor %}
+
+{% for v in network.ipv6_route_prefixes | default([]) -%}
+[IPv6RoutePrefix]
+{{ macros.generate_mapped_arguments(network_ipv6_route_prefix_arguments, v) }}
+{% endfor %}
+
 {% if "cake" in network -%}
 [CAKE]
-{% for arg, value in network.cake.items() %}
-{% if value is string or value is integer %}
-{{ network_cake_arguments[arg] }}={{ value }}
-{% elif value is boolean %}
-{{ network_cake_arguments[arg] }}={{ value|ternary('yes','no') }}
-{% else %}
-{% for v in value %}
-{{ network_cake_arguments[arg] }}={{ v }}
-{% endfor %}
+{{ macros.generate_mapped_arguments(network_cake_arguments, network.cake) }}
 {% endif %}
-{% endfor %}
+
+{% if "dhcp_server" in network -%}
+[DHCPServer]
+{{ macros.generate_mapped_arguments(network_dhcp_server_arguments, network.dhcp_server) }}
 {% endif %}
+
+{% for v in network.dhcp_server_static_leases | default([]) -%}
+[DHCPServerStaticLease]
+{{ macros.generate_mapped_arguments(network_dhcp_server_static_lease_arguments, v) }}
+{% endfor %}

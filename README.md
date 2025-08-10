@@ -15,6 +15,7 @@ Open Source software: [Apache License 2.0][3]
 
 * Roles:
   - kpfleming.systemd_networkd.bond: manage bond virtual devices
+  - kpfleming.systemd_networkd.bridge: manage bridge virtual devices
   - kpfleming.systemd_networkd.dummy: manage dummy virtual devices
   - kpfleming.systemd_networkd.link: manage links
   - kpfleming.systemd_networkd.network: manage network devices

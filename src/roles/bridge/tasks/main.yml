@@ -1,0 +1,10 @@
+---
+- name: manage bridge devices
+  ansible.builtin.include_tasks: "{{ role_path }}/tasks/bridge.yml"
+  loop: "{{ bridges }}"
+  loop_control:
+    loop_var: bridge
+    label: "{{ bridge.name }}"
+
+- name: run handlers if needed
+  ansible.builtin.meta: flush_handlers
