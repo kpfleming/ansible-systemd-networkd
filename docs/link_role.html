@@ -4,7 +4,7 @@
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta content="2.20.0" name="antsibull-docs" />
+<meta content="2.21.0" name="antsibull-docs" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>kpfleming.systemd_networkd.link role – Manages systemd-networkd links. &mdash; Collections  documentation</title>
@@ -75,6 +75,7 @@
   
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="bond_role.html">kpfleming.systemd_networkd.bond role – Manages systemd-networkd bonded network devices.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bridge_role.html">kpfleming.systemd_networkd.bridge role – Manages systemd-networkd bridged network devices.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dummy_role.html">kpfleming.systemd_networkd.dummy role – Manages systemd-networkd dummy virtual network devices.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="global_role.html">kpfleming.systemd_networkd.global role – Manages systemd-networkd global configuration.</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">kpfleming.systemd_networkd.link role – Manages systemd-networkd links.</a><ul>
@@ -124,7 +125,7 @@
 <h1>kpfleming.systemd_networkd.link role – Manages systemd-networkd links.<a class="headerlink" href="#kpfleming-systemd-networkd-link-role-manages-systemd-networkd-links" title="Link to this heading"></a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This role is part of the <a class="reference external" href="https://galaxy.ansible.com/kpfleming/systemd_networkd">kpfleming.systemd_networkd collection</a> (version 25.6.0).</p>
+<p>This role is part of the <a class="reference external" href="https://galaxy.ansible.com/kpfleming/systemd_networkd">kpfleming.systemd_networkd collection</a> (version 25.7.0).</p>
 <p>It is not included in <code class="docutils literal notranslate"><span class="pre">ansible-core</span></code>.
 To check whether it is installed, run <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">list</span></code>.</p>
 <p>To install it use: <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">install</span> <span class="pre">kpfleming.systemd_networkd</span></code>.</p>
@@ -176,10 +177,17 @@ any changes were made.</p></li>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--links/mac_address_policy"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-mac-address-policy"><strong>mac_address_policy</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--links/mac_address_policy" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+<div class="ansibleOptionAnchor" id="parameter-main--links/link"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-link"><strong>link</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--links/link" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Policy for setting the MAC address of the link.</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Attributes of the link.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--links/link/mac_address_policy"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-link-mac-address-policy"><strong>mac_address_policy</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--links/link/mac_address_policy" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Policy for setting the MAC address of the link.</p>
 <p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
 <ul class="simple">
 <li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;persistent&quot;</span></code></p></li>
@@ -188,151 +196,18 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--links/match"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-match"><strong>match</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--links/match" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
-</div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Matching attributes of the link.</p>
-</div></td>
-</tr>
 <tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--links/match/device"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-match-device"><strong>device</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--links/match/device" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
+<div class="ansibleOptionAnchor" id="parameter-main--links/link/mtu_bytes"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-link-mtu-bytes"><strong>mtu_bytes</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--links/link/mtu_bytes" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Device-specific attributes to be matched.</p>
-</div></td>
-</tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--links/match/device/driver"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-match-device-driver"><strong>driver</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--links/match/device/driver" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
-</div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match udev ID_NET_DRIVER.</p>
-</div></td>
-</tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--links/match/device/kind"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-match-device-kind"><strong>kind</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--links/match/device/kind" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
-</div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match netlink IFLA_INFO_KIND.</p>
-</div></td>
-</tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--links/match/device/mac_address"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-match-device-mac-address"><strong>mac_address</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--links/match/device/mac_address" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
-</div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match current MAC address.</p>
-</div></td>
-</tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--links/match/device/original_name"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-match-device-original-name"><strong>original_name</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--links/match/device/original_name" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
-</div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match udev INTERFACE.</p>
-</div></td>
-</tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--links/match/device/path"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-match-device-path"><strong>path</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--links/match/device/path" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
-</div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match udev ID_PATH.</p>
-</div></td>
-</tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--links/match/device/permanent_mac_address"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-match-device-permanent-mac-address"><strong>permanent_mac_address</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--links/match/device/permanent_mac_address" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
-</div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match permanent MAC address.</p>
-</div></td>
-</tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--links/match/device/property"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-match-device-property"><strong>property</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--links/match/device/property" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
-</div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match udev property.</p>
-</div></td>
-</tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--links/match/device/type"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-match-device-type"><strong>type</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--links/match/device/type" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
-</div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match udev DEVTYPE.</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>The MTU for the link.</p>
 </div></td>
 </tr>
 <tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--links/match/system"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-match-system"><strong>system</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--links/match/system" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
+<div class="ansibleOptionAnchor" id="parameter-main--links/link/name_policy"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-link-name-policy"><strong>name_policy</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--links/link/name_policy" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>System-specific attributes to be matched.</p>
-</div></td>
-</tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--links/match/system/architecture"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-match-system-architecture"><strong>architecture</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--links/match/system/architecture" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
-</div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match system architecture.</p>
-</div></td>
-</tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--links/match/system/credential"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-match-system-credential"><strong>credential</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--links/match/system/credential" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
-</div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match service credential.</p>
-</div></td>
-</tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--links/match/system/firmware"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-match-system-firmware"><strong>firmware</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--links/match/system/firmware" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
-</div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match system firmware.</p>
-</div></td>
-</tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--links/match/system/host"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-match-system-host"><strong>host</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--links/match/system/host" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
-</div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match hostname or machine ID.</p>
-</div></td>
-</tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--links/match/system/kernel_command_line"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-match-system-kernel-command-line"><strong>kernel_command_line</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--links/match/system/kernel_command_line" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
-</div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match kernel command line option presence.</p>
-</div></td>
-</tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--links/match/system/kernel_version"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-match-system-kernel-version"><strong>kernel_version</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--links/match/system/kernel_version" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
-</div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match kernel version expression.</p>
-</div></td>
-</tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--links/match/system/virtualization"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-match-system-virtualization"><strong>virtualization</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--links/match/system/virtualization" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
-</div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match virtualization type.</p>
-</div></td>
-</tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--links/mtu_bytes"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-mtu-bytes"><strong>mtu_bytes</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--links/mtu_bytes" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
-</div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>The MTU for the link.</p>
-</div></td>
-</tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--links/name"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-name"><strong>name</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--links/name" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
-</div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Name to set on the link.</p>
-</div></td>
-</tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--links/name_policy"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-name-policy"><strong>name_policy</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--links/name_policy" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
-</div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Policy for setting the name of the link.</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Policy for setting the name of the link.</p>
 <p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
 <ul class="simple">
 <li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;kernel&quot;</span></code></p></li>
@@ -345,7 +220,140 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--links/match"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-match"><strong>match</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--links/match" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Matching attributes of the link.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--links/match/device"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-match-device"><strong>device</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--links/match/device" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Device-specific attributes to be matched.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--links/match/device/driver"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-match-device-driver"><strong>driver</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--links/match/device/driver" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match udev ID_NET_DRIVER.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--links/match/device/kind"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-match-device-kind"><strong>kind</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--links/match/device/kind" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match netlink IFLA_INFO_KIND.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--links/match/device/mac_address"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-match-device-mac-address"><strong>mac_address</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--links/match/device/mac_address" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match current MAC address.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--links/match/device/original_name"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-match-device-original-name"><strong>original_name</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--links/match/device/original_name" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match udev INTERFACE.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--links/match/device/path"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-match-device-path"><strong>path</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--links/match/device/path" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match udev ID_PATH.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--links/match/device/permanent_mac_address"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-match-device-permanent-mac-address"><strong>permanent_mac_address</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--links/match/device/permanent_mac_address" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match permanent MAC address.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--links/match/device/property"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-match-device-property"><strong>property</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--links/match/device/property" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match udev property.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--links/match/device/type"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-match-device-type"><strong>type</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--links/match/device/type" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match udev DEVTYPE.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--links/match/system"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-match-system"><strong>system</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--links/match/system" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>System-specific attributes to be matched.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--links/match/system/architecture"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-match-system-architecture"><strong>architecture</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--links/match/system/architecture" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match system architecture.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--links/match/system/credential"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-match-system-credential"><strong>credential</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--links/match/system/credential" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match service credential.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--links/match/system/firmware"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-match-system-firmware"><strong>firmware</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--links/match/system/firmware" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match system firmware.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--links/match/system/host"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-match-system-host"><strong>host</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--links/match/system/host" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match hostname or machine ID.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--links/match/system/kernel_command_line"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-match-system-kernel-command-line"><strong>kernel_command_line</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--links/match/system/kernel_command_line" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match kernel command line option presence.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--links/match/system/kernel_version"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-match-system-kernel-version"><strong>kernel_version</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--links/match/system/kernel_version" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match kernel version expression.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--links/match/system/virtualization"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-match-system-virtualization"><strong>virtualization</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--links/match/system/virtualization" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match virtualization type.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--links/name"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-links-name"><strong>name</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--links/name" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Name of the link.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--suppress_reload"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-suppress-reload"><strong>suppress_reload</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--suppress_reload" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
 </div></td>
@@ -357,7 +365,7 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--systemd_root"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-link-role-parameter-main-systemd-root"><strong>systemd_root</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--systemd_root" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>

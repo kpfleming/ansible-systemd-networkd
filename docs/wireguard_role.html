@@ -4,7 +4,7 @@
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta content="2.20.0" name="antsibull-docs" />
+<meta content="2.21.0" name="antsibull-docs" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>kpfleming.systemd_networkd.wireguard role – Manages systemd-networkd WireGuard tunnel virtual network devices. &mdash; Collections  documentation</title>
@@ -74,6 +74,7 @@
   
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="bond_role.html">kpfleming.systemd_networkd.bond role – Manages systemd-networkd bonded network devices.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bridge_role.html">kpfleming.systemd_networkd.bridge role – Manages systemd-networkd bridged network devices.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dummy_role.html">kpfleming.systemd_networkd.dummy role – Manages systemd-networkd dummy virtual network devices.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="global_role.html">kpfleming.systemd_networkd.global role – Manages systemd-networkd global configuration.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="link_role.html">kpfleming.systemd_networkd.link role – Manages systemd-networkd links.</a></li>
@@ -123,7 +124,7 @@
 <h1>kpfleming.systemd_networkd.wireguard role – Manages systemd-networkd WireGuard tunnel virtual network devices.<a class="headerlink" href="#kpfleming-systemd-networkd-wireguard-role-manages-systemd-networkd-wireguard-tunnel-virtual-network-devices" title="Link to this heading"></a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This role is part of the <a class="reference external" href="https://galaxy.ansible.com/kpfleming/systemd_networkd">kpfleming.systemd_networkd collection</a> (version 25.6.0).</p>
+<p>This role is part of the <a class="reference external" href="https://galaxy.ansible.com/kpfleming/systemd_networkd">kpfleming.systemd_networkd collection</a> (version 25.7.0).</p>
 <p>It is not included in <code class="docutils literal notranslate"><span class="pre">ansible-core</span></code>.
 To check whether it is installed, run <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">list</span></code>.</p>
 <p>To install it use: <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">install</span> <span class="pre">kpfleming.systemd_networkd</span></code>.</p>
@@ -205,20 +206,6 @@ either true or false to indicate whether any changes were made.</p></li>
 </div></td>
 </tr>
 <tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--wireguards/firewall_mark"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-wireguard-role-parameter-main-wireguards-firewall-mark"><strong>firewall_mark</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--wireguards/firewall_mark" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
-</div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Mark to be set on outgoing packets from this interface.</p>
-</div></td>
-</tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--wireguards/listen_port"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-wireguard-role-parameter-main-wireguards-listen-port"><strong>listen_port</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--wireguards/listen_port" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
-</div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>UDP Port to listen for incoming traffic. If not specified, a port will be chosen based on the interface name.</p>
-</div></td>
-</tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--wireguards/match"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-wireguard-role-parameter-main-wireguards-match"><strong>match</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--wireguards/match" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
 </div></td>
@@ -285,14 +272,14 @@ either true or false to indicate whether any changes were made.</p></li>
 <div class="ansibleOptionAnchor" id="parameter-main--wireguards/name"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-wireguard-role-parameter-main-wireguards-name"><strong>name</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--wireguards/name" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span> / <span class="ansible-option-required">required</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Name of the network device.</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Name of the WireGuard device.</p>
 </div></td>
 </tr>
 <tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--wireguards/netdev"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-wireguard-role-parameter-main-wireguards-netdev"><strong>netdev</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--wireguards/netdev" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Attributes of the tunnel network device.</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Attributes of the WireGuard network device.</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
@@ -306,7 +293,7 @@ either true or false to indicate whether any changes were made.</p></li>
 <div class="ansibleOptionAnchor" id="parameter-main--wireguards/netdev/mtu_bytes"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-wireguard-role-parameter-main-wireguards-netdev-mtu-bytes"><strong>mtu_bytes</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--wireguards/netdev/mtu_bytes" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>The MTU for the tunnel.</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>The MTU for the device.</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
@@ -383,38 +370,52 @@ Overrides the setting from the tunnel, if specified.</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--wireguards/private_key"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-wireguard-role-parameter-main-wireguards-private-key"><strong>private_key</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--wireguards/private_key" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+<div class="ansibleOptionAnchor" id="parameter-main--wireguards/wireguard"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-wireguard-role-parameter-main-wireguards-wireguard"><strong>wireguard</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--wireguards/wireguard" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Base64-encoded private key.</p>
-</div></td>
-</tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--wireguards/private_key_file"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-wireguard-role-parameter-main-wireguards-private-key-file"><strong>private_key_file</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--wireguards/private_key_file" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">path</span></p>
-</div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Path to file containing a base64-encoded private key.</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Attributes of the WireGuard device.</p>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--wireguards/route_metric"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-wireguard-role-parameter-main-wireguards-route-metric"><strong>route_metric</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--wireguards/route_metric" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--wireguards/wireguard/firewall_mark"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-wireguard-role-parameter-main-wireguards-wireguard-firewall-mark"><strong>firewall_mark</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--wireguards/wireguard/firewall_mark" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Metric value for routes added when route_table is specified.</p>
-</div></td>
-</tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--wireguards/route_table"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-wireguard-role-parameter-main-wireguards-route-table"><strong>route_table</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--wireguards/route_table" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
-</div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Route table name (from networkd.conf), number, or predefined name (“default”, “main”, or “local”).</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Mark to be set on outgoing packets from this interface.</p>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--wireguards/underlying_name"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-wireguard-role-parameter-main-wireguards-underlying-name"><strong>underlying_name</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--wireguards/underlying_name" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--wireguards/wireguard/listen_port"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-wireguard-role-parameter-main-wireguards-wireguard-listen-port"><strong>listen_port</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--wireguards/wireguard/listen_port" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>The underlying network.</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>UDP port to listen for incoming traffic. If not specified, a port will be chosen based on the interface name.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--wireguards/wireguard/private_key"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-wireguard-role-parameter-main-wireguards-wireguard-private-key"><strong>private_key</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--wireguards/wireguard/private_key" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Base64-encoded private key.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--wireguards/wireguard/private_key_file"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-wireguard-role-parameter-main-wireguards-wireguard-private-key-file"><strong>private_key_file</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--wireguards/wireguard/private_key_file" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">path</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Path to file containing a base64-encoded private key.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--wireguards/wireguard/route_metric"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-wireguard-role-parameter-main-wireguards-wireguard-route-metric"><strong>route_metric</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--wireguards/wireguard/route_metric" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Metric value for routes added when route_table is specified.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--wireguards/wireguard/route_table"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-wireguard-role-parameter-main-wireguards-wireguard-route-table"><strong>route_table</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--wireguards/wireguard/route_table" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Route table name (from networkd.conf), number, or predefined name (“default”, “main”, or “local”).</p>
 </div></td>
 </tr>
 </tbody>

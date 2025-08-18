@@ -1,0 +1,347 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="2.21.0" name="antsibull-docs" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>kpfleming.systemd_networkd.bridge role – Manages systemd-networkd bridged network devices. &mdash; Collections  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="_static/css/ansible.css?v=c5b67dd2" />
+      <link rel="stylesheet" type="text/css" href="_static/antsibull-minimal.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/rtd-ethical-ads.css?v=289b023e" />
+
+  
+    <link rel="shortcut icon" href="_static/images/Ansible-Mark-RGB_Black.png"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=7f41d439"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="kpfleming.systemd_networkd.dummy role – Manages systemd-networkd dummy virtual network devices." href="dummy_role.html" />
+    <link rel="prev" title="kpfleming.systemd_networkd.bond role – Manages systemd-networkd bonded network devices." href="bond_role.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="https://www.ansible.com/blog" target="_blank">Blog</a></li>
+    <li><a href="https://forum.ansible.com/" target="_blank">Ansible community forum</a></li>
+    <li><a href="https://docs.ansible.com/" target="_blank">Documentation</a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="_static/images/Ansible-Mark-RGB_White.png"
+    alt="Ansible Logo">
+  <div class="DocSiteNav-title">Collections Documentation</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Collections
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="bond_role.html">kpfleming.systemd_networkd.bond role – Manages systemd-networkd bonded network devices.</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">kpfleming.systemd_networkd.bridge role – Manages systemd-networkd bridged network devices.</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#entry-point-main-manages-systemd-networkd-bridged-network-devices">Entry point <code class="docutils literal notranslate"><span class="pre">main</span></code> – Manages systemd-networkd bridged network devices.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parameters">Parameters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#collection-links">Collection links</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dummy_role.html">kpfleming.systemd_networkd.dummy role – Manages systemd-networkd dummy virtual network devices.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="global_role.html">kpfleming.systemd_networkd.global role – Manages systemd-networkd global configuration.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="link_role.html">kpfleming.systemd_networkd.link role – Manages systemd-networkd links.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network_role.html">kpfleming.systemd_networkd.network role – Manages systemd-networkd networks.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tunnel_role.html">kpfleming.systemd_networkd.tunnel role – Manages systemd-networkd tunnel virtual network devices.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vlan_role.html">kpfleming.systemd_networkd.vlan role – Manages systemd-networkd VLAN virtual network devices.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wireguard_role.html">kpfleming.systemd_networkd.wireguard role – Manages systemd-networkd WireGuard tunnel virtual network devices.</a></li>
+</ul>
+<!-- extra nav elements for Ansible beyond RTD Sphinx Theme -->
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Collections</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">kpfleming.systemd_networkd.bridge role – Manages systemd-networkd bridged network devices.</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <span class="target" id="ansible-collections-kpfleming-systemd-networkd-bridge-role"></span><section id="kpfleming-systemd-networkd-bridge-role-manages-systemd-networkd-bridged-network-devices">
+<h1>kpfleming.systemd_networkd.bridge role – Manages systemd-networkd bridged network devices.<a class="headerlink" href="#kpfleming-systemd-networkd-bridge-role-manages-systemd-networkd-bridged-network-devices" title="Link to this heading"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This role is part of the <a class="reference external" href="https://galaxy.ansible.com/kpfleming/systemd_networkd">kpfleming.systemd_networkd collection</a> (version 25.7.0).</p>
+<p>It is not included in <code class="docutils literal notranslate"><span class="pre">ansible-core</span></code>.
+To check whether it is installed, run <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">list</span></code>.</p>
+<p>To install it use: <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">install</span> <span class="pre">kpfleming.systemd_networkd</span></code>.</p>
+<p>To use it in a playbook, specify: <code class="code docutils literal notranslate"><span class="pre">kpfleming.systemd_networkd.bridge</span></code>.</p>
+</div>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#entry-point-main-manages-systemd-networkd-bridged-network-devices" id="id1">Entry point <code class="docutils literal notranslate"><span class="pre">main</span></code> – Manages systemd-networkd bridged network devices.</a></p>
+<ul>
+<li><p><a class="reference internal" href="#synopsis" id="id2">Synopsis</a></p></li>
+<li><p><a class="reference internal" href="#parameters" id="id3">Parameters</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<span class="target" id="ansible-collections-kpfleming-systemd-networkd-bridge-role-entrypoint-main"></span><section id="entry-point-main-manages-systemd-networkd-bridged-network-devices">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Entry point <code class="docutils literal notranslate"><span class="pre">main</span></code> – Manages systemd-networkd bridged network devices.</a><a class="headerlink" href="#entry-point-main-manages-systemd-networkd-bridged-network-devices" title="Link to this heading"></a></h2>
+<p class="ansible-version-added">New in kpfleming.systemd_networkd 25.7.0</p>
+<section id="synopsis">
+<h3><a class="toc-backref" href="#id2" role="doc-backlink">Synopsis</a><a class="headerlink" href="#synopsis" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>This role will create (or update) a .netdev file in /etc/systemd/network for
+each specified bridged device.</p></li>
+<li><p>Detailed descriptions of parameters and their behavior can be found in ‘man systemd.netdev’.</p></li>
+<li><p>Sets fact named ‘systemd_networkd_bridge_changed’ to either true or false to indicate whether
+any changes were made.</p></li>
+</ul>
+</section>
+<section id="parameters">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Parameters</a><a class="headerlink" href="#parameters" title="Link to this heading"></a></h3>
+<table class="longtable ansible-option-table docutils align-default" style="width: 100%">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--bridges"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-bridge-role-parameter-main-bridges"><strong>bridges</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--bridges" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=dictionary</span> / <span class="ansible-option-required">required</span></p>
+</div></td>
+<td><div class="ansible-option-cell"><p>Attributes of the bridge devices to be managed.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--bridges/bridge"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-bridge-role-parameter-main-bridges-bridge"><strong>bridge</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--bridges/bridge" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Attributes of the bridge device.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--bridges/bridge/ageing_time_sec"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-bridge-role-parameter-main-bridges-bridge-ageing-time-sec"><strong>ageing_time_sec</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--bridges/bridge/ageing_time_sec" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Time that MAC addresses will be kept in the forwarding database.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--bridges/bridge/forward_delay_sec"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-bridge-role-parameter-main-bridges-bridge-forward-delay-sec"><strong>forward_delay_sec</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--bridges/bridge/forward_delay_sec" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Time spent in ‘listening’ and ‘learning’ before moving to ‘forwarding’ state.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--bridges/bridge/priority"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-bridge-role-parameter-main-bridges-bridge-priority"><strong>priority</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--bridges/bridge/priority" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Priority of bridge among its peers.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--bridges/bridge/stp"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-bridge-role-parameter-main-bridges-bridge-stp"><strong>stp</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--bridges/bridge/stp" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Enable Spanning Tree Protocol.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--bridges/match"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-bridge-role-parameter-main-bridges-match"><strong>match</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--bridges/match" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Matching attributes of the bridge network device.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--bridges/match/system"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-bridge-role-parameter-main-bridges-match-system"><strong>system</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--bridges/match/system" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>System-specific attributes to be matched.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--bridges/match/system/architecture"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-bridge-role-parameter-main-bridges-match-system-architecture"><strong>architecture</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--bridges/match/system/architecture" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match system architecture.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--bridges/match/system/credential"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-bridge-role-parameter-main-bridges-match-system-credential"><strong>credential</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--bridges/match/system/credential" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match service credential.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--bridges/match/system/firmware"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-bridge-role-parameter-main-bridges-match-system-firmware"><strong>firmware</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--bridges/match/system/firmware" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match system firmware.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--bridges/match/system/host"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-bridge-role-parameter-main-bridges-match-system-host"><strong>host</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--bridges/match/system/host" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match hostname or machine ID.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--bridges/match/system/kernel_command_line"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-bridge-role-parameter-main-bridges-match-system-kernel-command-line"><strong>kernel_command_line</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--bridges/match/system/kernel_command_line" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match kernel command line option presence.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--bridges/match/system/kernel_version"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-bridge-role-parameter-main-bridges-match-system-kernel-version"><strong>kernel_version</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--bridges/match/system/kernel_version" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match kernel version expression.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--bridges/match/system/virtualization"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-bridge-role-parameter-main-bridges-match-system-virtualization"><strong>virtualization</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--bridges/match/system/virtualization" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match virtualization type.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--bridges/name"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-bridge-role-parameter-main-bridges-name"><strong>name</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--bridges/name" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span> / <span class="ansible-option-required">required</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Name of the bridge device.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--suppress_reload"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-bridge-role-parameter-main-suppress-reload"><strong>suppress_reload</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--suppress_reload" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-cell"><p>Suppress the reloading of systemd-networkd if changes are made.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-default-bold docutils literal notranslate"><strong><span class="pre">false</span></strong></code> <span class="ansible-option-choices-default-mark">← (default)</span></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--systemd_root"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-bridge-role-parameter-main-systemd-root"><strong>systemd_root</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--systemd_root" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-cell"><p>Root path of filesystem containing systemd-networkd configuration files.</p>
+<p class="ansible-option-line"><strong class="ansible-option-default-bold">Default:</strong> <code class="ansible-option-default docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p>
+</div></td>
+</tr>
+</tbody>
+</table>
+<section id="collection-links">
+<h4>Collection links<a class="headerlink" href="#collection-links" title="Link to this heading"></a></h4>
+<ul class="ansible-links">
+<li><span><a aria-role="button" class="ansible-link reference external" href="https://github.com/kpfleming/ansible-systemd-networkd/issues" rel="noopener external" target="_blank">Issue Tracker</a></span></li>
+<li><span><a aria-role="button" class="ansible-link reference external" href="https://github.com/kpfleming/ansible-systemd-networkd" rel="noopener external" target="_blank">Repository (Sources)</a></span></li>
+</ul>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="bond_role.html" class="btn btn-neutral float-left" title="kpfleming.systemd_networkd.bond role – Manages systemd-networkd bonded network devices." accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dummy_role.html" class="btn btn-neutral float-right" title="kpfleming.systemd_networkd.dummy role – Manages systemd-networkd dummy virtual network devices." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Kevin P. Fleming and project contributors.</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+</body>
+</html>

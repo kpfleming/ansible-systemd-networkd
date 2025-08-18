@@ -4,7 +4,7 @@
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta content="2.20.0" name="antsibull-docs" />
+<meta content="2.21.0" name="antsibull-docs" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>kpfleming.systemd_networkd.bond role – Manages systemd-networkd bonded network devices. &mdash; Collections  documentation</title>
@@ -22,7 +22,7 @@
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="kpfleming.systemd_networkd.dummy role – Manages systemd-networkd dummy virtual network devices." href="dummy_role.html" />
+    <link rel="next" title="kpfleming.systemd_networkd.bridge role – Manages systemd-networkd bridged network devices." href="bridge_role.html" />
     <link rel="prev" title="Kpfleming.Systemd_Networkd" href="index.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
 
 
@@ -85,6 +85,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="bridge_role.html">kpfleming.systemd_networkd.bridge role – Manages systemd-networkd bridged network devices.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dummy_role.html">kpfleming.systemd_networkd.dummy role – Manages systemd-networkd dummy virtual network devices.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="global_role.html">kpfleming.systemd_networkd.global role – Manages systemd-networkd global configuration.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="link_role.html">kpfleming.systemd_networkd.link role – Manages systemd-networkd links.</a></li>
@@ -124,7 +125,7 @@
 <h1>kpfleming.systemd_networkd.bond role – Manages systemd-networkd bonded network devices.<a class="headerlink" href="#kpfleming-systemd-networkd-bond-role-manages-systemd-networkd-bonded-network-devices" title="Link to this heading"></a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This role is part of the <a class="reference external" href="https://galaxy.ansible.com/kpfleming/systemd_networkd">kpfleming.systemd_networkd collection</a> (version 25.6.0).</p>
+<p>This role is part of the <a class="reference external" href="https://galaxy.ansible.com/kpfleming/systemd_networkd">kpfleming.systemd_networkd collection</a> (version 25.7.0).</p>
 <p>It is not included in <code class="docutils literal notranslate"><span class="pre">ansible-core</span></code>.
 To check whether it is installed, run <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">list</span></code>.</p>
 <p>To install it use: <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">install</span> <span class="pre">kpfleming.systemd_networkd</span></code>.</p>
@@ -182,22 +183,82 @@ any changes were made.</p></li>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--bonds/down_delay_sec"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-bond-role-parameter-main-bonds-down-delay-sec"><strong>down_delay_sec</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--bonds/down_delay_sec" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+<div class="ansibleOptionAnchor" id="parameter-main--bonds/bond"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-bond-role-parameter-main-bonds-bond"><strong>bond</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--bonds/bond" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Delay between the minimum number of members reaching ‘link down’ and ‘link down’ being reported for the bond.</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Attributes of the bond device.</p>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--bonds/lacp_transmit_rate"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-bond-role-parameter-main-bonds-lacp-transmit-rate"><strong>lacp_transmit_rate</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--bonds/lacp_transmit_rate" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--bonds/bond/down_delay_sec"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-bond-role-parameter-main-bonds-bond-down-delay-sec"><strong>down_delay_sec</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--bonds/bond/down_delay_sec" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>LACP data unit transmission rate (only used in 802.3ad mode).</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Delay between the minimum number of members reaching ‘link down’ and ‘link down’ being reported for the bond.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--bonds/bond/lacp_transmit_rate"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-bond-role-parameter-main-bonds-bond-lacp-transmit-rate"><strong>lacp_transmit_rate</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--bonds/bond/lacp_transmit_rate" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>LACP data unit transmission rate (only used in 802.3ad mode).</p>
 <p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
 <ul class="simple">
 <li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;slow&quot;</span></code></p></li>
 <li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;fast&quot;</span></code></p></li>
 </ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--bonds/bond/mii_monitor_sec"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-bond-role-parameter-main-bonds-bond-mii-monitor-sec"><strong>mii_monitor_sec</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--bonds/bond/mii_monitor_sec" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Frequency of MII link monitoring.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--bonds/bond/min_links"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-bond-role-parameter-main-bonds-bond-min-links"><strong>min_links</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--bonds/bond/min_links" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Minimum number of active members for the device to report that it ‘has carrier’.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--bonds/bond/mode"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-bond-role-parameter-main-bonds-bond-mode"><strong>mode</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--bonds/bond/mode" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Bonding mode.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;balance-rr&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;active-backup&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;balance-xor&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;broadcast&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;802.3ad&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;balance-tlb&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;balance-alb&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--bonds/bond/transmit_hash_policy"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-bond-role-parameter-main-bonds-bond-transmit-hash-policy"><strong>transmit_hash_policy</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--bonds/bond/transmit_hash_policy" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Policy for member selection during transmit.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;layer2&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;layer3+4&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;layer2+3&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;encap2+3&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;encap3+4&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--bonds/bond/up_delay_sec"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-bond-role-parameter-main-bonds-bond-up-delay-sec"><strong>up_delay_sec</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--bonds/bond/up_delay_sec" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Delay between the minimum number of members reaching ‘link up’ and ‘link up’ being reported for the bond.</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
@@ -390,87 +451,34 @@ any changes were made.</p></li>
 </div></td>
 </tr>
 <tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--bonds/mii_monitor_sec"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-bond-role-parameter-main-bonds-mii-monitor-sec"><strong>mii_monitor_sec</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--bonds/mii_monitor_sec" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
-</div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Frequency of MII link monitoring.</p>
-</div></td>
-</tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--bonds/min_links"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-bond-role-parameter-main-bonds-min-links"><strong>min_links</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--bonds/min_links" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
-</div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Minimum number of active members for the device to report that it ‘has carrier’.</p>
-</div></td>
-</tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--bonds/mode"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-bond-role-parameter-main-bonds-mode"><strong>mode</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--bonds/mode" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
-</div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Bonding mode.</p>
-<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
-<ul class="simple">
-<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;balance-rr&quot;</span></code></p></li>
-<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;active-backup&quot;</span></code></p></li>
-<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;balance-xor&quot;</span></code></p></li>
-<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;broadcast&quot;</span></code></p></li>
-<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;802.3ad&quot;</span></code></p></li>
-<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;balance-tlb&quot;</span></code></p></li>
-<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;balance-alb&quot;</span></code></p></li>
-</ul>
-</div></td>
-</tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--bonds/name"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-bond-role-parameter-main-bonds-name"><strong>name</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--bonds/name" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span> / <span class="ansible-option-required">required</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Name of the network device.</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Name of the bond device.</p>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--bonds/netdev"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-bond-role-parameter-main-bonds-netdev"><strong>netdev</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--bonds/netdev" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Attributes of the bond network device.</p>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--bonds/netdev/mac_address"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-bond-role-parameter-main-bonds-netdev-mac-address"><strong>mac_address</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--bonds/netdev/mac_address" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>MAC address to use on the device.</p>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--bonds/netdev/mtu_bytes"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-bond-role-parameter-main-bonds-netdev-mtu-bytes"><strong>mtu_bytes</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--bonds/netdev/mtu_bytes" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>The MTU for the tunnel.</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>The MTU for the device.</p>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--bonds/transmit_hash_policy"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-bond-role-parameter-main-bonds-transmit-hash-policy"><strong>transmit_hash_policy</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--bonds/transmit_hash_policy" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
-</div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Policy for member selection during transmit.</p>
-<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
-<ul class="simple">
-<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;layer2&quot;</span></code></p></li>
-<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;layer3+4&quot;</span></code></p></li>
-<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;layer2+3&quot;</span></code></p></li>
-<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;encap2+3&quot;</span></code></p></li>
-<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;encap3+4&quot;</span></code></p></li>
-</ul>
-</div></td>
-</tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-main--bonds/up_delay_sec"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-bond-role-parameter-main-bonds-up-delay-sec"><strong>up_delay_sec</strong></p>
-<a class="ansibleOptionLink" href="#parameter-main--bonds/up_delay_sec" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
-</div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Delay between the minimum number of members reaching ‘link up’ and ‘link up’ being reported for the bond.</p>
-</div></td>
-</tr>
-<tr class="row-odd"><td><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--suppress_reload"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-bond-role-parameter-main-suppress-reload"><strong>suppress_reload</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--suppress_reload" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
 </div></td>
@@ -482,7 +490,7 @@ any changes were made.</p></li>
 </ul>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--systemd_root"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-bond-role-parameter-main-systemd-root"><strong>systemd_root</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--systemd_root" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
@@ -510,7 +518,7 @@ any changes were made.</p></li>
 
 <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="Kpfleming.Systemd_Networkd" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="dummy_role.html" class="btn btn-neutral float-right" title="kpfleming.systemd_networkd.dummy role – Manages systemd-networkd dummy virtual network devices." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="bridge_role.html" class="btn btn-neutral float-right" title="kpfleming.systemd_networkd.bridge role – Manages systemd-networkd bridged network devices." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
