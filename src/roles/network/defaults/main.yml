@@ -1,3 +1,4 @@
 ---
 systemd_root: ""
 suppress_reload: false
+async_reload: false

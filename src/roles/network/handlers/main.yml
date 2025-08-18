@@ -1,7 +1,23 @@
 ---
-- name: reload
+- name: reload (sync)
   become: true
-  when: not suppress_reload
+  when:
+    - not suppress_reload
+    - not async_reload
+  listen: reload
+  ansible.builtin.command:
+    argv:
+      - networkctl
+      - reload
+
+- name: reload (async)
+  become: true
+  when:
+    - not suppress_reload
+    - async_reload
+  listen: reload
+  async: 5
+  poll: 0
   ansible.builtin.command:
     argv:
       - networkctl
