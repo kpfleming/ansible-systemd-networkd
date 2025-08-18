@@ -16,6 +16,8 @@ for emergencies or non-content releases).
 
 ## [Unreleased]
 
+## [25.7.0] - 2025-08-18
+
 ### Breaking Changes:
 
 - All roles now require that 'top-level' settings for the role be
@@ -38,6 +40,7 @@ for emergencies or non-content releases).
   - Added 'ipv6_route_prefixes'.
   - Added 'ipv6_send_ra'.
   - Added 'nft_set'.
+  - Added 'async_reload'.
 
 ### Changed
 
