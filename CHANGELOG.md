@@ -16,6 +16,12 @@ for emergencies or non-content releases).
 
 ## [Unreleased]
 
+## [25.7.1] - 2025-08-18
+
+### Changed
+
+- Corrected packaging error.
+
 ## [25.7.0] - 2025-08-18
 
 ### Breaking Changes:
