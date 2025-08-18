@@ -1,0 +1,8 @@
+---
+match_system_arguments: {'architecture': 'Architecture', 'credential': 'Credential', 'firmware': 'Firmware', 'host': 'Host', 'kernel_command_line': 'KernelCommandLine', 'kernel_version': 'KernelVersion', 'virtualization': 'Virtualization'}
+
+netdev_arguments: {'mac_address': 'MACAddress', 'mtu_bytes': 'MTUBytes'}
+
+wireguard_arguments: {'firewall_mark': 'FirewallMark', 'listen_port': 'ListenPort', 'private_key': 'PrivateKey', 'private_key_file': 'PrivateKeyFile', 'route_metric': 'RouteMetric', 'route_table': 'RouteTable'}
+
+wireguard_peer_arguments: {'allowed_ips': 'AllowedIPs', 'endpoint': 'Endpoint', 'persistent_keepalive': 'PersistentKeepalive', 'preshared_key': 'PresharedKey', 'preshared_key_file': 'PresharedKeyFile', 'public_key': 'PublicKey', 'route_metric': 'RouteMetric', 'route_table': 'RouteTable'}

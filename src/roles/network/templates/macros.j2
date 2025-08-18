@@ -1,0 +1,11 @@
+{% macro generate_mapped_arguments(arg_map, args) %}
+  {% for arg, value in args.items() %}
+    {% if value is string or value is integer  %}
+{{ arg_map[arg] }}={{ value }}
+    {% elif value is boolean %}
+{{ arg_map[arg] }}={{ value|ternary('yes','no') }}
+    {% else %}
+{{ arg_map[arg] }}={{ value|join(' ') }}
+    {% endif %}
+  {% endfor %}
+{% endmacro %}
