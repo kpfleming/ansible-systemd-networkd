@@ -16,6 +16,16 @@ for emergencies or non-content releases).
 
 ## [Unreleased]
 
+### Changed
+
+- Corrected support for arguments which must appear multiple times in
+  the generated unit files to represent a list of values:
+  - 'network.bind_carrier'
+  - 'network.dns'
+  - 'network.ipv6_proxy_ndp_address'
+  - 'network.ntp'
+  - 'wireguard.allowed_ips'
+
 ## [25.7.1] - 2025-08-18
 
 ### Changed

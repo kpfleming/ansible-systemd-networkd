@@ -53,13 +53,13 @@ global_network_arguments:
   ipv6_forwarding: IPv6Forwarding
 
 network_arguments:
-  bind_carrier: BindCarrier
+  bind_carrier: '*BindCarrier'
   bridge: Bridge
   configure_without_carrier: ConfigureWithoutCarrier
   dhcp: DHCP
   dhcp_prefix_delegation: DHCPPrefixDelegation
   dhcp_server: DHCPServer
-  dns: DNS
+  dns: '*DNS'
   emit_lldp: EmitLLDP
   ip_forward: IPForward
   ipv4_forwarding: IPv4Forwarding
@@ -67,12 +67,12 @@ network_arguments:
   ipv6_duplicate_address_detection: IPv6DuplicateAddressDetection
   ipv6_forwarding: IPv6Forwarding
   ipv6_proxy_ndp: IPv6ProxyNDP
-  ipv6_proxy_ndp_address: IPv6ProxyNDPAddress
+  ipv6_proxy_ndp_address: '*IPv6ProxyNDPAddress'
   ipv6_send_ra: IPv6SendRA
   keep_configuration: KeepConfiguration
   link_local_addressing: LinkLocalAddressing
   lldp: LLDP
-  ntp: NTP
+  ntp: '*NTP'
 
 network_link_arguments:
   activation_policy: ActivationPolicy
@@ -214,7 +214,7 @@ wireguard_arguments:
   route_table: RouteTable
 
 wireguard_peer_arguments:
-  allowed_ips: AllowedIPs
+  allowed_ips: '*AllowedIPs'
   endpoint: Endpoint
   persistent_keepalive: PersistentKeepalive
   preshared_key: PresharedKey
