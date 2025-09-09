@@ -16,6 +16,8 @@ for emergencies or non-content releases).
 
 ## [Unreleased]
 
+## [25.8.0] - 2025-09-09
+
 ### Changed
 
 - Corrected support for arguments which must appear multiple times in
