@@ -8,5 +8,6 @@ paths:
   - 'workflow-support/ci_paths.yml'
   - 'workflow-support/make_galaxy_files.yml'
   - 'workflow-support/make_vars_files.yml'
+  - 'workflow-support/templates/macros.j2'
   - 'workflow-support/templates/*.yml.j2'
   - 'workflow-support/versions.json'
