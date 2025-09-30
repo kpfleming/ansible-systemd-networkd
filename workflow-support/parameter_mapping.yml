@@ -41,6 +41,9 @@ tunnel_arguments:
   local: Local
   remote: Remote
   ttl: TTL
+  key: Key
+  input_key: InputKey
+  output_key: OutputKey
 
 link_arguments:
   mac_address_policy: MACAddressPolicy

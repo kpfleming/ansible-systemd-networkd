@@ -67,6 +67,15 @@ argument_specs:
               ttl:
                 description: Time-To-Live for tunneled packets.
                 type: int
+              key:
+                description: Tunnel key to use in both directions (input and output) if using VTI/VTI6, GRE, GRETAP or ERSPAN tunnel. Must be an integer or an IPv4 address-like dotted quad.
+                type: str
+              input_key:
+                description: Tunnel key to use for input traffic if using VTI/VTI6, GRE, GRETAP or ERSPAN tunnel. Must be an integer or an IPv4 address-like dotted quad.
+                type: str
+              output_key:
+                description: Tunnel key to use for output traffic if using VTI/VTI6, GRE, GRETAP or ERSPAN tunnel. Must be an integer or an IPv4 address-like dotted quad.
+                type: str
           netdev:
             description: Attributes of the tunnel network device.
             type: dict
