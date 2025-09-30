@@ -1,0 +1,18 @@
+{% macro generate_mapped_arguments(arg_map, args) %}
+  {% for arg, value in args.items() %}
+    {% if value is string or value is integer  %}
+{{ arg_map[arg] ~ '=' ~ value }}
+    {% elif value is boolean %}
+{{ arg_map[arg] ~ '=' ~ value | ternary('yes','no') }}
+    {% else %}
+      {% set mapped_arg = arg_map[arg] %}
+      {% if mapped_arg.startswith('*') %}
+        {% for v in value %}
+{{ mapped_arg[1:] ~ '=' ~ v }}
+        {% endfor %}
+      {% else %}
+{{ mapped_arg ~ '=' ~ value | join(' ') }}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+{% endmacro %}
