@@ -125,7 +125,7 @@
 <h1>kpfleming.systemd_networkd.tunnel role – Manages systemd-networkd tunnel virtual network devices.<a class="headerlink" href="#kpfleming-systemd-networkd-tunnel-role-manages-systemd-networkd-tunnel-virtual-network-devices" title="Link to this heading"></a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This role is part of the <a class="reference external" href="https://galaxy.ansible.com/kpfleming/systemd_networkd">kpfleming.systemd_networkd collection</a> (version 25.8.0).</p>
+<p>This role is part of the <a class="reference external" href="https://galaxy.ansible.com/kpfleming/systemd_networkd">kpfleming.systemd_networkd collection</a> (version 25.9.0).</p>
 <p>It is not included in <code class="docutils literal notranslate"><span class="pre">ansible-core</span></code>.
 To check whether it is installed, run <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">list</span></code>.</p>
 <p>To install it use: <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">install</span> <span class="pre">kpfleming.systemd_networkd</span></code>.</p>
@@ -292,6 +292,20 @@ any changes were made.</p></li>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--tunnels/tunnel/input_key"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-tunnel-role-parameter-main-tunnels-tunnel-input-key"><strong>input_key</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--tunnels/tunnel/input_key" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Tunnel key to use for input traffic if using VTI/VTI6, GRE, GRETAP or ERSPAN tunnel. Must be an integer or an IPv4 address-like dotted quad.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--tunnels/tunnel/key"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-tunnel-role-parameter-main-tunnels-tunnel-key"><strong>key</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--tunnels/tunnel/key" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Tunnel key to use in both directions (input and output) if using VTI/VTI6, GRE, GRETAP or ERSPAN tunnel. Must be an integer or an IPv4 address-like dotted quad.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--tunnels/tunnel/kind"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-tunnel-role-parameter-main-tunnels-tunnel-kind"><strong>kind</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--tunnels/tunnel/kind" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span> / <span class="ansible-option-required">required</span></p>
 </div></td>
@@ -318,20 +332,27 @@ any changes were made.</p></li>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--tunnels/tunnel/output_key"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-tunnel-role-parameter-main-tunnels-tunnel-output-key"><strong>output_key</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--tunnels/tunnel/output_key" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Tunnel key to use for output traffic if using VTI/VTI6, GRE, GRETAP or ERSPAN tunnel. Must be an integer or an IPv4 address-like dotted quad.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--tunnels/tunnel/remote"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-tunnel-role-parameter-main-tunnels-tunnel-remote"><strong>remote</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--tunnels/tunnel/remote" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Remote address for tunneled packets.</p>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--tunnels/tunnel/ttl"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-tunnel-role-parameter-main-tunnels-tunnel-ttl"><strong>ttl</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--tunnels/tunnel/ttl" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Time-To-Live for tunneled packets.</p>
 </div></td>
 </tr>
-<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--tunnels/tunnel/underlying_name"></div><p class="ansible-option-title" id="ansible-collections-kpfleming-systemd-networkd-tunnel-role-parameter-main-tunnels-tunnel-underlying-name"><strong>underlying_name</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--tunnels/tunnel/underlying_name" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span> / <span class="ansible-option-required">required</span></p>
 </div></td>
