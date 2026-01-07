@@ -109,6 +109,7 @@ network_routing_policy_rule_arguments:
   priority: Priority
   table: Table
   to: To
+  incoming_interface: IncomingInterface
 
 network_dhcp_v4_arguments:
   client_identifier: ClientIdentifier
