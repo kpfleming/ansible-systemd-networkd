@@ -286,6 +286,9 @@ argument_specs:
               priority:
                 description: Priority of this rule.
                 type: int
+              incoming_interface:
+                description: Specifies incoming device to match.
+                type: str
           dhcp_v4:
             description: Attributes of the DHCPv4 client on the network.
             type: dict
