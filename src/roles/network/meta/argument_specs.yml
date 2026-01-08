@@ -289,6 +289,9 @@ argument_specs:
               incoming_interface:
                 description: Specifies incoming device to match.
                 type: str
+              outgoing_interface:
+                description: Specifies the outgoing device to match.
+                type: str
           dhcp_v4:
             description: Attributes of the DHCPv4 client on the network.
             type: dict
