@@ -16,6 +16,13 @@ for emergencies or non-content releases).
 
 ## [Unreleased]
 
+## [26.1.0] - 2026-01-18
+
+- Added support for 'incoming_interface' and 'outgoing_interface' in
+  the 'RoutingPolicyRule' section of the 'network' role. Contributed
+  by @ickedude in [PR
+  63](https://github.com/kpfleming/ansible-systemd-networkd/pull/63).
+
 ## [25.9.0] - 2025-09-30
 
 - Added support for `key`, `input_key` and `output_key` options in `tunnel`
