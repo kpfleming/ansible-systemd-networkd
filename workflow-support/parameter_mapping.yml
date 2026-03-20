@@ -76,6 +76,7 @@ network_arguments:
   link_local_addressing: LinkLocalAddressing
   lldp: LLDP
   ntp: '*NTP'
+  vrf: "VRF"
 
 network_link_arguments:
   activation_policy: ActivationPolicy
