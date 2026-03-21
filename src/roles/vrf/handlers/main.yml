@@ -1,0 +1,8 @@
+---
+- name: reload
+  become: true
+  when: not suppress_reload
+  ansible.builtin.command:
+    argv:
+      - networkctl
+      - reload
