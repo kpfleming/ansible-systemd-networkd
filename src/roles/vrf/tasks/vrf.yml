@@ -31,4 +31,4 @@
 
 - name: set fact to indicate result
   ansible.builtin.set_fact:
-    systemd_networkd_vrf_changed: "{{ systemd_networkd_vrf_changed|default(false) or _netdev.changed or _network.changed }}"
+    systemd_networkd_vrf_changed: "{{ systemd_networkd_vrf_changed|default(false) or _netdev.changed }}"
