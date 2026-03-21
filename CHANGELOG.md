@@ -16,6 +16,12 @@ for emergencies or non-content releases).
 
 ## [Unreleased]
 
+## [26.2.0] - 2026-03-21
+
+- Corrected template for 'link' role. Contributed by @panfantastic in
+  [PR
+  65](https://github.com/kpfleming/ansible-systemd-networkd/pull/65).
+
 ## [26.1.0] - 2026-01-18
 
 - Added support for 'incoming_interface' and 'outgoing_interface' in
