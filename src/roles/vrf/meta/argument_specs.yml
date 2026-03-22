@@ -44,8 +44,6 @@ argument_specs:
                 description: The VRF table
                 type: int
                 required: true
-
-
           match:
             description: Matching attributes of the network device.
             type: dict
