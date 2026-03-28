@@ -1,6 +1,6 @@
 ---
 galaxy_info:
-  author: Kevin P, Fleming <kevin@km6g.us> @kpfleming:irc/libera.chat
+  author: Kevin P. Fleming <kevin@km6g.us> @kpfleming:irc/libera.chat
   description: Role to manage configuration of 'dummy' devices in systemd-networkd.
   license: Apache-2.0
   issue_tracker_url: https://github.com/kpfleming/ansible-systemd-networkd/issues
