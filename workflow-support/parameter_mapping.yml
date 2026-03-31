@@ -95,6 +95,7 @@ network_address_arguments:
 network_route_arguments:
   destination: Destination
   gateway: Gateway
+  gateway_on_link: GatewayOnLink
   metric: Metric
   mtu_bytes: MTUBytes
   preferred_source: PreferredSource
