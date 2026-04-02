@@ -16,6 +16,8 @@ for emergencies or non-content releases).
 
 ## [Unreleased]
 
+## [26.3.0] - 2026-04-02
+
 - Added support for network/Route/GatewayOnLink. Contributed by @peci1 in
   [PR 69](https://github.com/kpfleming/ansible-systemd-networkd/pull/69).
 
