@@ -1,0 +1,2 @@
+---
+network_arguments: {'ipv4_forwarding': 'IPv4Forwarding', 'ipv6_forwarding': 'IPv6Forwarding'}
