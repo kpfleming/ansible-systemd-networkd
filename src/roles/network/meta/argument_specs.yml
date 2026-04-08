@@ -227,6 +227,9 @@ argument_specs:
               gateway:
                 description: IPv4 or IPv6 address of next-hop router.
                 type: str
+              gateway_on_link:
+                description: If set to true, the kernel does not have to check if the gateway is reachable directly by the current machine.
+                type: bool
               destination:
                 description: IPv4 or IPv6 subnet which can be reached through gateway.
                 type: str
