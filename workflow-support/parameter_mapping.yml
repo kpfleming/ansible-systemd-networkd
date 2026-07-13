@@ -76,6 +76,7 @@ network_arguments:
   link_local_addressing: LinkLocalAddressing
   lldp: LLDP
   ntp: '*NTP'
+  vrf: "VRF"
 
 network_link_arguments:
   activation_policy: ActivationPolicy
@@ -228,3 +229,6 @@ wireguard_peer_arguments:
   public_key: PublicKey
   route_metric: RouteMetric
   route_table: RouteTable
+
+vrf_arguments:
+  table: "Table"

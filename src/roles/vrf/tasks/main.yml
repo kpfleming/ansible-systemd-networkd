@@ -1,0 +1,10 @@
+---
+- name: manage VRF devices
+  ansible.builtin.include_tasks: "{{ role_path }}/tasks/vrf.yml"
+  loop: "{{ vrfs }}"
+  loop_control:
+    loop_var: vrf
+    label: "{{ vrf.name }}"
+
+- name: run handlers if needed
+  ansible.builtin.meta: flush_handlers
