@@ -14,16 +14,23 @@ on:
         required: true
         type: string
 
+defaults:
+  run:
+    shell: bash
+
 jobs:
   test:
     if: inputs.if
     runs-on: ubuntu-24.04-arm
     container:
       image: ${{ inputs.image }}
+
     steps:
-    - uses: actions/checkout@v7
-      with:
-        show-progress: false
-    - uses: kpfleming/composite-actions/ci-tox@v3
-      with:
-        python: ${{ inputs.python }}
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          show-progress: false
+          persist-credentials: false
+
+      - uses: kpfleming/composite-actions/ci-tox@74c01bb4d399a98545e8cdc5826d832b7917ac6b # v3.1.0
+        with:
+          python: ${{ inputs.python }}
