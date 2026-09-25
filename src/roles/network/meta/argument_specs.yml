@@ -147,6 +147,9 @@ argument_specs:
                 description: Enable the DHCPv4 server.
                 version_added: 25.7.0
                 type: bool
+              vrf:
+                description: Set VRF tenant.
+                type: str
           link:
             description: Attributes of the link used by the network.
             type: dict

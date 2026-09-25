@@ -1,0 +1,16 @@
+{% import 'macros.j2' as macros %}
+
+{% if "match" in vrf -%}
+{% set m=vrf.match %}
+[Match]
+  {% if "system" in m -%}
+{{ macros.generate_mapped_arguments(match_system_arguments, m.system) }}
+  {% endif %}
+{% endif %}
+
+[NetDev]
+Name={{ vrf.name }}
+Kind=vrf
+
+[VRF]
+{{ macros.generate_mapped_arguments(vrf_arguments, vrf.vrf) }}
