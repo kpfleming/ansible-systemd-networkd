@@ -216,6 +216,13 @@ argument_specs:
                 description: Inserts information from this address into an nftables set.
                 version_added: 25.7.0
                 type: str
+              scope:
+                description: Scope of the address (IPv4 only).
+                type: str
+                choices:
+                  - global
+                  - link
+                  - host
           routes:
             description: Routes to be used by the network.
             type: list

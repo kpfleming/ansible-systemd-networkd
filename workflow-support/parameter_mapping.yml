@@ -91,6 +91,7 @@ network_address_arguments:
   home_address: HomeAddress
   nft_set: NFTSet
   peer: Peer
+  scope: Scope
 
 network_route_arguments:
   destination: Destination

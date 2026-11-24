@@ -16,6 +16,8 @@ for emergencies or non-content releases).
 
 ## [Unreleased]
 
+- Added support for network/address/Scope.
+
 ## [26.3.0] - 2026-04-02
 
 - Added support for network/Route/GatewayOnLink. Contributed by @peci1 in
