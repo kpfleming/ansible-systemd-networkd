@@ -16,6 +16,10 @@ for emergencies or non-content releases).
 
 ## [Unreleased]
 
+## [26.4.1] - 2026-11-24
+
+No content changes - docs publishing workflow was fixed.
+
 ## [26.4.0] - 2026-11-24
 
 - Added support for network/address/Scope.
