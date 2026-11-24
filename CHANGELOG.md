@@ -16,6 +16,8 @@ for emergencies or non-content releases).
 
 ## [Unreleased]
 
+## [26.4.0] - 2026-11-24
+
 - Added support for network/address/Scope.
 
 ## [26.3.0] - 2026-04-02
